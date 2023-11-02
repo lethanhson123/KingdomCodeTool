@@ -1,0 +1,187 @@
+<br />
+<br />
+<br />
+<style>
+    table,
+    th,
+    td {
+        border: 1px solid black;
+    }
+
+    input[type="checkbox"] {
+        width: 20px;
+        height: 20px;
+        background-color: transparent;
+    }
+
+    input[type="radio"] {
+        width: 20px;
+        height: 20px;
+        background-color: transparent;
+    }
+</style>
+<div class="container">
+    <h4 class="mb-3">BIÊN BẢN KIỂM TRA/GIÁM SÁT CƠ SỞ ĐÓNG GÓI</h4>
+    <div class="row mb-3">
+        <p class="h1">I - Đoàn kiểm tra, gồm:</p>
+        <div class="col-sm-12">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col" class="text-center">Họ tên</th>
+                        <th scope="col" class="text-center">Chức vụ</th>
+                        <th scope="col" class="text-center">Đơn vị</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of NhanVienService.list; let i=index">
+                        <td>
+                            <input *ngIf="NhanVienService.list!=null && i==NhanVienService.list.length-1" type="text"
+                                class="form-control" placeholder="Họ tên" name="HoTen" [(ngModel)]="item.HoTen"
+                                (keyup)='onNhanVienFocus()'>
+                            <input *ngIf="NhanVienService.list!=null && i<NhanVienService.list.length-1" type="text"
+                                class="form-control" placeholder="Họ tên" name="HoTen" [(ngModel)]="item.HoTen">
+                        </td>
+                        <td>
+                            <input *ngIf="NhanVienService.list!=null && i==NhanVienService.list.length-1" type="text"
+                                class="form-control" placeholder="Chức vụ" name="HoTen" [(ngModel)]="item.ChucVu"
+                                (keyup)='onNhanVienFocus()'>
+                            <input *ngIf="NhanVienService.list!=null && i<NhanVienService.list.length-1" type="text"
+                                class="form-control" placeholder="Chức vụ" name="HoTen" [(ngModel)]="item.ChucVu">
+                        </td>
+                        <td>
+                            <input *ngIf="NhanVienService.list!=null && i==NhanVienService.list.length-1" type="text"
+                                class="form-control" placeholder="Đơn vị" name="HoTen" [(ngModel)]="item.DonVi"
+                                (keyup)='onNhanVienFocus()'>
+                            <input *ngIf="NhanVienService.list!=null && i<NhanVienService.list.length-1" type="text"
+                                class="form-control" placeholder="Đơn vị" name="HoTen" [(ngModel)]="item.DonVi">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <p class="h1">II - Đại diện cơ sở đóng gói:</p>
+        <div class="col-sm-12">
+            <div class="col-sm-12">
+                <label for="HoTen" class="form-label">Họ tên</label>
+                <input type="text" class="form-control" placeholder="Họ tên" name="HoTen"
+                    [(ngModel)]="BienBanKiemTraGiamSatCoSoDongGoiService.formData.HoTen">
+            </div>
+            <div class="col-sm-12">
+                <label for="CoSoDongGoi" class="form-label">Cơ sở đóng gói</label>
+                <input type="text" class="form-control" placeholder="Cơ sở đóng gói" name="CoSoDongGoi"
+                    [(ngModel)]="BienBanKiemTraGiamSatCoSoDongGoiService.formData.CoSoDongGoi">
+            </div>
+            <div class="col-sm-12">
+                <label for="DiaChi" class="form-label">Địa chỉ</label>
+                <input type="text" class="form-control" placeholder="Địa chỉ" name="DiaChi"
+                    [(ngModel)]="BienBanKiemTraGiamSatCoSoDongGoiService.formData.DiaChi">
+            </div>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <p class="h1">III - Nội dung đánh giá:</p>
+        <div class="col-sm-12">
+            <div class="col-sm-12">
+                <label for="SanPham" class="form-label">Sản phẩm</label>
+                <input type="text" class="form-control" placeholder="Sản phẩm" name="SanPham"
+                    [(ngModel)]="BienBanKiemTraGiamSatCoSoDongGoiService.formData.SanPham">
+            </div>
+            <div class="col-sm-12">
+                <label for="ThiTruong" class="form-label">Thị trường</label>
+                <input type="text" class="form-control" placeholder="Thị trường" name="ThiTruong"
+                    [(ngModel)]="BienBanKiemTraGiamSatCoSoDongGoiService.formData.ThiTruong">
+            </div>
+            <div class="col-sm-12">
+                <label for="MaSoCoSoDongGoi" class="form-label">Mã số cơ sở đóng gói (nếu có)</label>
+                <input type="text" class="form-control" placeholder="Mã số cơ sở đóng gói (nếu có)"
+                    name="MaSoCoSoDongGoi"
+                    [(ngModel)]="BienBanKiemTraGiamSatCoSoDongGoiService.formData.MaSoCoSoDongGoi">
+            </div>
+            <div class="col-sm-12">
+                <label for="DienTich" class="form-label">Diện tích cơ sở đóng gói (m2)</label>
+                <input type="number" class="form-control" placeholder="Diện tích cơ sở đóng gói (m2)" name="DienTich"
+                    [(ngModel)]="BienBanKiemTraGiamSatCoSoDongGoiService.formData.DienTich">
+            </div>
+            <div class="col-sm-12">
+                <label for="CongSuat" class="form-label">Công suất tối đa (tấn/ngày)</label>
+                <input type="number" class="form-control" placeholder="Công suất tối đa (tấn/ngày)" name="CongSuat"
+                    [(ngModel)]="BienBanKiemTraGiamSatCoSoDongGoiService.formData.CongSuat">
+            </div>
+
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-sm-12">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col" style="width: 50%;" rowspan="2" class="text-center">Nội dung kiểm tra</th>
+                        <th scope="col" colspan="3" class="text-center">Hiện trạng cơ sở đóng gói</th>
+                    </tr>
+                    <tr>
+                        <th scope="col" class="text-center">Đạt</th>
+                        <th scope="col" class="text-center">Không đạt</th>
+                        <th scope="col" class="text-center">Diễn giải chi tiết</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of TieuChiService.list; let i=index">
+                        <td>{{item.Name}}</td>
+                        <td><input name="IsDat{{i}}" type="radio" class="form-check-input"></td>
+                        <td><input name="IsDat{{i}}" type="radio" class="form-check-input"></td>
+                        <td><textarea rows="5" cols="20" class="form-control" placeholder="Diễn giải chi tiết"
+                                name="DienGiaiChiTiet" [(ngModel)]="item.DienGiaiChiTiet"></textarea></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-sm-12">
+            <div class="row">
+                <div class="col-sm-3"><label for="DanhGiaChung" class="form-label">Đánh giá chung</label></div>
+                <div class="col-sm-2">
+                    <input name="DanhGiaChung" type="radio" class="form-check-input" value=""
+                        [(ngModel)]="BienBanKiemTraGiamSatCoSoDongGoiService.formData.DanhGiaChung">
+                    <label class="form-check-label" for="DanhGiaChung">Đạt</label>
+                </div>
+                <div class="col-sm-2">
+                    <input name="DanhGiaChung" type="radio" class="form-check-input"
+                        [(ngModel)]="BienBanKiemTraGiamSatCoSoDongGoiService.formData.DanhGiaChung">
+                    <label class="form-check-label" for="DanhGiaChung">Không đạt</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <p class="h1">IV - Kết luận:</p>
+        <div class="col-sm-12">
+            <label for="CoSoDongGoi" class="form-label">Cơ sở đóng gói</label>
+            <input type="text" class="form-control" name="CoSoDongGoi" disabled
+                [(ngModel)]="BienBanKiemTraGiamSatCoSoDongGoiService.formData.CoSoDongGoi">
+        </div>
+        <div class="col-sm-12">
+            <label for="NoiDungKhongDat" class="form-label">Nội dung không đạt, cần khắc phục</label>
+            <input type="text" class="form-control" placeholder="Nội dung không đạt, cần khắc phục"
+                name="NoiDungKhongDat" [(ngModel)]="BienBanKiemTraGiamSatCoSoDongGoiService.formData.NoiDungKhongDat">
+        </div>
+        <div class="col-sm-12">
+            <label for="ThoiGianKhacPhuc" class="form-label">Thời gian khắc phục và đánh giá lại (nếu có)</label>
+            <input type="date" class="form-control" name="ThoiGianKhacPhuc"
+                [(ngModel)]="BienBanKiemTraGiamSatCoSoDongGoiService.formData.ThoiGianKhacPhuc">
+        </div>
+        <div class="col-sm-12">
+            <label for="ThoiGianHoanThanhKhacPhuc" class="form-label">Thời gian hoàn thành khắc phục (nếu
+                có)</label>
+            <input type="date" class="form-control" name="ThoiGianHoanThanhKhacPhuc"
+                [(ngModel)]="BienBanKiemTraGiamSatCoSoDongGoiService.formData.ThoiGianHoanThanhKhacPhuc">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <button class="w-100 btn btn-primary btn-lg" type="button" (click)="onLuuThongTinClick()">Lưu thông
+                tin</button>
+        </div>
+    </div>
+</div>
