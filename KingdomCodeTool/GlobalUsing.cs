@@ -12,5 +12,7 @@ global using System.Data.SqlTypes;
 global using System.Drawing;
 global using System.Text;
 global using Newtonsoft.Json;
+global using Microsoft.AspNetCore.Hosting;
+global using System.IO.Compression;
 
 global using KingdomCodeTool.ViewModels;

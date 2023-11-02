@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Hosting;
+﻿
 
 namespace KingdomCodeTool.Controllers
 {
@@ -32,9 +32,10 @@ namespace KingdomCodeTool.Controllers
             }
             return listResult;
         }
-        public string CreateCode(string connectionString, string listIndex)
+        public List<string> CreateCode(string connectionString, string listIndex)
         {
-            string url = "";
+            List<string> list=new List<string>();
+            string domain = "http://localhost:5100/";
             DataTable listTable = CodeGeneration.GetTableNames(connectionString);
             for (int i = 0; i < listTable.Rows.Count; i++)
             {
@@ -45,8 +46,10 @@ namespace KingdomCodeTool.Controllers
                         if (int.Parse(index) == i)
                         {
                             string className = (string)listTable.Rows[i]["Name"];
+
                             string folderPath = Path.Combine(_WebHostEnvironment.WebRootPath, "Download", className);
                             Directory.CreateDirectory(folderPath);
+
                             //Model
                             string content = Path.Combine(_WebHostEnvironment.WebRootPath, "Download", "Model.html");
                             using (FileStream fs = new FileStream(content, FileMode.Open))
@@ -97,7 +100,7 @@ namespace KingdomCodeTool.Controllers
                                 }
                             }
                             content = content.Replace("[ClassName]", className);
-                            fileName = "I"+ className + "Repository.cs";
+                            fileName = "I" + className + "Repository.cs";
                             path = Path.Combine(_WebHostEnvironment.WebRootPath, "Download", className, fileName);
                             using (FileStream fs = new FileStream(path, FileMode.Create))
                             {
@@ -166,11 +169,30 @@ namespace KingdomCodeTool.Controllers
                                     w.WriteLine(content);
                                 }
                             }
+
+                            string fileNameZIP = className + ".zip";
+                            string inputPath = Path.Combine(_WebHostEnvironment.WebRootPath, "Download", className);
+                            string outPath = Path.Combine(_WebHostEnvironment.WebRootPath, "Download", fileNameZIP);
+
+                            if (System.IO.File.Exists(outPath))
+                            {
+                                try
+                                {
+                                    System.IO.File.Delete(outPath);
+                                }
+                                catch (Exception ex)
+                                {
+                                    string mes = ex.Message;
+                                }
+                            }
+                            ZipFile.CreateFromDirectory(inputPath, outPath, CompressionLevel.Fastest, true);
+                            outPath = domain + "Download/" + fileNameZIP;
+                            list.Add(outPath);
                         }
                     }
                 }
             }
-            return url;
+            return list;
         }
 
         public IActionResult Privacy()
