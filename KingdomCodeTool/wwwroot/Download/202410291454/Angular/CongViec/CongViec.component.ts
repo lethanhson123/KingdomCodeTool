@@ -7,47 +7,48 @@ import { environment } from 'src/environments/environment';
 import { NotificationService } from 'src/app/shared/Notification.service';
 import { DownloadService } from 'src/app/shared/Download.service';
 
-import { [ClassName] } from 'src/app/shared/[ClassName].model';
-import { [ClassName]Service } from 'src/app/shared/[ClassName].service';
-import { [ClassName]Component } from './[ClassName]-detail/[ClassName]-detail.component';
+import { CongViec } from 'src/app/shared/CongViec.model';
+import { CongViecService } from 'src/app/shared/CongViec.service';
+import { CongViecComponent } from './CongViec-detail/CongViec-detail.component';
 
 
 @Component({
-  selector: 'app-[ClassName]',
-  templateUrl: './[ClassName].component.html',
-  styleUrls: ['./[ClassName].component.css']
+  selector: 'app-CongViec',
+  templateUrl: './CongViec.component.html',
+  styleUrls: ['./CongViec.component.css']
 })
-export class [ClassName]Component implements OnInit {
+export class CongViecComponent implements OnInit {
 
-@ViewChild('[ClassName]Sort') [ClassName]Sort: MatSort;
-  @ViewChild('[ClassName]Paginator') [ClassName]Paginator: MatPaginator;
+@ViewChild('CongViecSort') CongViecSort: MatSort;
+  @ViewChild('CongViecPaginator') CongViecPaginator: MatPaginator;
 
 constructor(
     private Dialog: MatDialog,
     public NotificationService: NotificationService,
     public DownloadService: DownloadService,
 
-    public [ClassName]Service: [ClassName]Service,
+    public CongViecService: CongViecService,
   ) { }
 
 ngOnInit(): void {
-    this.[ClassName]Search();
+    this.CongViecSearch();
   }
-  [ClassName]Search() {
-    this.[ClassName]Service.SearchAllNotEmpty(this.[ClassName]Sort, this.[ClassName]Paginator);
+  CongViecSearch() {
+    this.CongViecService.SearchAllNotEmpty(this.CongViecSort, this.CongViecPaginator);
   }
 
-[ClassName]Add(element: [ClassName]) {
-    this.[ClassName]Service.FormData = element;
+CongViecAdd(element: CongViec) {
+    this.CongViecService.BaseParameter.ID = ID;
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
     dialogConfig.width = environment.DialogConfigWidth;
     dialogConfig.data = { ID: 0 };
-    const dialog = this.Dialog.open([ClassName]DetailComponent, dialogConfig);
+    const dialog = this.Dialog.open(CongViecDetailComponent, dialogConfig);
     dialog.afterClosed().subscribe(() => {
-      this.[ClassName]Search();
+      this.CongViecSearch();
     });
   }
 
     }
+

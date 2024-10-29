@@ -111,7 +111,7 @@ namespace KingdomCodeTool.Controllers
                                 {
                                     AngularDetail001.AppendLine(@"<div class=""col-lg-12 col-sm-12 col-12"">");
                                     AngularDetail001.AppendLine(@"<label class=""form-label"">" + COLUMN_NAME + @"</label>");
-                                    AngularDetail001.AppendLine(@"<input name=""" + COLUMN_NAME + @""" [(ngModel)]=""[ClassName]Service.FormData." + COLUMN_NAME + @""" placeholder=""" + COLUMN_NAME + @""" type=""text"" class=""form-control"">");
+                                    AngularDetail001.AppendLine(@"<input name=""" + COLUMN_NAME + @""" [(ngModel)]=""" + className + @"Service.FormData." + COLUMN_NAME + @""" placeholder=""" + COLUMN_NAME + @""" type=""text"" class=""form-control"">");
                                     AngularDetail001.AppendLine(@"</div>");
                                 }
 
@@ -119,7 +119,7 @@ namespace KingdomCodeTool.Controllers
                                 {
                                     AngularDetail002.AppendLine(@"<div class=""col-lg-12 col-sm-12 col-12"">");
                                     AngularDetail002.AppendLine(@"<label class=""form-label"">" + COLUMN_NAME + @"</label>");
-                                    AngularDetail002.AppendLine(@"<input name=""" + COLUMN_NAME + @""" [(ngModel)]=""[ClassName]Service.FormData." + COLUMN_NAME + @""" placeholder=""" + COLUMN_NAME + @""" type=""text"" class=""form-control"">");
+                                    AngularDetail002.AppendLine(@"<input name=""" + COLUMN_NAME + @""" [(ngModel)]=""" + className + @"Service.FormData." + COLUMN_NAME + @""" placeholder=""" + COLUMN_NAME + @""" type=""text"" class=""form-control"">");
                                     AngularDetail002.AppendLine(@"</div>");
                                 }
 
@@ -127,7 +127,7 @@ namespace KingdomCodeTool.Controllers
                                 {
                                     AngularDetail003.AppendLine(@"<div class=""col-lg-12 col-sm-12 col-12"">");
                                     AngularDetail003.AppendLine(@"<label class=""form-label"">" + COLUMN_NAME + @"</label>");
-                                    AngularDetail003.AppendLine(@"<input name=""" + COLUMN_NAME + @""" [(ngModel)]=""[ClassName]Service.FormData." + COLUMN_NAME + @""" placeholder=""" + COLUMN_NAME + @""" type=""text"" class=""form-control"">");
+                                    AngularDetail003.AppendLine(@"<input name=""" + COLUMN_NAME + @""" [(ngModel)]="""+ className + @"Service.FormData." + COLUMN_NAME + @""" placeholder=""" + COLUMN_NAME + @""" type=""text"" class=""form-control"">");
                                     AngularDetail003.AppendLine(@"</div>");
                                 }
 

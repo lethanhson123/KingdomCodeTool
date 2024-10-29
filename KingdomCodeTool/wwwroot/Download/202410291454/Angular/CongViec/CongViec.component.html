@@ -1,0 +1,473 @@
+﻿<div class="app-body">
+    <div class="row">
+        <div class="col-xxl-12">
+            <div class="card" style="margin-left: 1px;">
+                <div class="card-body">
+                    <div class="custom-tabs-container">
+                        <ul class="nav nav-tabs justify-content-end" id="customTab5" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link active" id="tab-CongViec" data-bs-toggle="tab" href="#CongViec"
+                                   role="tab" aria-controls="CongViec" aria-selected="true">
+                                    <span class="badge bg-info" style="font-size: 16px;">CongViec</span>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="tab-content" id="customTabContent">
+                            <div class="tab-pane fade show active" id="CongViec" role="tabpanel">
+                                <div class="row gx-4">
+                                    <div class="col-lg-11 col-sm-12 col-12">
+                                        <input [(ngModel)]="CongViecService.BaseParameter.SearchString"
+                                               placeholder="Tìm ..." class="form-control"
+                                               (keyup.enter)="CongViecSearch()">
+                                    </div>
+                                    <div class="col-lg-1 col-sm-12 col-12">
+                                        <a style="width: 100%;" class="btn btn-success" title="Tìm"
+                                           (click)="CongViecSearch()"><i class="bi bi-search"></i></a>
+                                    </div>                                   
+                                </div>
+                                <div class="card mb-4 card-info">
+                                    <div class="card-header">
+                                        <h5 class="card-title text-white">
+                                            Danh sách
+                                            <span *ngIf="CongViecService.List">
+                                                ({{CongViecService.List.length}}
+                                                items)
+                                            </span>
+                                        </h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="table-outer">
+                                            <div class="table-responsive">
+                                                <table *ngIf="!NotificationService.IsMobile" mat-table matSort
+                                                       #CongViecSort="matSort" [dataSource]="CongViecService.DataSource"
+                                                       class="table table-striped m-0">
+                                                    <ng-container matColumnDef="Save">
+                                                        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                                                        </th>
+                                                        <td mat-cell *matCellDef="let element">
+                                                            <a class="btn btn-success"
+                                                               (click)="CongViecAdd(element)">
+                                                                <i class="bi bi-sd-card"></i>
+                                                            </a>
+                                                        </td>
+                                                    </ng-container>
+                                                    <ng-container matColumnDef="STT">
+                                                        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                                                            No
+                                                        </th>
+                                                        <td mat-cell *matCellDef="let element; index as i;"
+                                                            style="text-align: center;">
+                                                            <div *ngIf="CongViecPaginator">
+                                                                {{
+                                                                CongViecPaginator.pageSize *
+                                                                CongViecPaginator.pageIndex + i + 1
+                                                                }}
+                                                            </div>
+                                                        </td>
+                                                    </ng-container>
+                                                    <ng-container matColumnDef="ID">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
+<td mat-cell *matCellDef="let element">{{element.ID}}</td>
+</ng-container>
+<ng-container matColumnDef="ParentID">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ParentID</th>
+<td mat-cell *matCellDef="let element">{{element.ParentID}}</td>
+</ng-container>
+<ng-container matColumnDef="ParentName">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ParentName</th>
+<td mat-cell *matCellDef="let element">{{element.ParentName}}</td>
+</ng-container>
+<ng-container matColumnDef="CreatedDate">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CreatedDate</th>
+<td mat-cell *matCellDef="let element">{{element.CreatedDate}}</td>
+</ng-container>
+<ng-container matColumnDef="CreatedMembershipID">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CreatedMembershipID</th>
+<td mat-cell *matCellDef="let element">{{element.CreatedMembershipID}}</td>
+</ng-container>
+<ng-container matColumnDef="LastUpdatedDate">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>LastUpdatedDate</th>
+<td mat-cell *matCellDef="let element">{{element.LastUpdatedDate}}</td>
+</ng-container>
+<ng-container matColumnDef="LastUpdatedMembershipID">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>LastUpdatedMembershipID</th>
+<td mat-cell *matCellDef="let element">{{element.LastUpdatedMembershipID}}</td>
+</ng-container>
+<ng-container matColumnDef="RowVersion">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>RowVersion</th>
+<td mat-cell *matCellDef="let element">{{element.RowVersion}}</td>
+</ng-container>
+<ng-container matColumnDef="SortOrder">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>SortOrder</th>
+<td mat-cell *matCellDef="let element">{{element.SortOrder}}</td>
+</ng-container>
+<ng-container matColumnDef="Active">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Active</th>
+<td mat-cell *matCellDef="let element">{{element.Active}}</td>
+</ng-container>
+<ng-container matColumnDef="TypeName">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>TypeName</th>
+<td mat-cell *matCellDef="let element">{{element.TypeName}}</td>
+</ng-container>
+<ng-container matColumnDef="Name">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+<td mat-cell *matCellDef="let element">{{element.Name}}</td>
+</ng-container>
+<ng-container matColumnDef="Code">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Code</th>
+<td mat-cell *matCellDef="let element">{{element.Code}}</td>
+</ng-container>
+<ng-container matColumnDef="Note">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Note</th>
+<td mat-cell *matCellDef="let element">{{element.Note}}</td>
+</ng-container>
+<ng-container matColumnDef="Display">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Display</th>
+<td mat-cell *matCellDef="let element">{{element.Display}}</td>
+</ng-container>
+<ng-container matColumnDef="FileName">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>FileName</th>
+<td mat-cell *matCellDef="let element">{{element.FileName}}</td>
+</ng-container>
+<ng-container matColumnDef="Description">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Description</th>
+<td mat-cell *matCellDef="let element">{{element.Description}}</td>
+</ng-container>
+<ng-container matColumnDef="HTMLContent">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>HTMLContent</th>
+<td mat-cell *matCellDef="let element">{{element.HTMLContent}}</td>
+</ng-container>
+<ng-container matColumnDef="DanhMucNgonNguID">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DanhMucNgonNguID</th>
+<td mat-cell *matCellDef="let element">{{element.DanhMucNgonNguID}}</td>
+</ng-container>
+<ng-container matColumnDef="DanhMucUngDungID">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DanhMucUngDungID</th>
+<td mat-cell *matCellDef="let element">{{element.DanhMucUngDungID}}</td>
+</ng-container>
+<ng-container matColumnDef="DanhMucNgonNguName">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DanhMucNgonNguName</th>
+<td mat-cell *matCellDef="let element">{{element.DanhMucNgonNguName}}</td>
+</ng-container>
+<ng-container matColumnDef="DanhMucUngDungName">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DanhMucUngDungName</th>
+<td mat-cell *matCellDef="let element">{{element.DanhMucUngDungName}}</td>
+</ng-container>
+<ng-container matColumnDef="DanhMucPhongBanYeuCauID">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DanhMucPhongBanYeuCauID</th>
+<td mat-cell *matCellDef="let element">{{element.DanhMucPhongBanYeuCauID}}</td>
+</ng-container>
+<ng-container matColumnDef="DanhMucPhongBanYeuCauName">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DanhMucPhongBanYeuCauName</th>
+<td mat-cell *matCellDef="let element">{{element.DanhMucPhongBanYeuCauName}}</td>
+</ng-container>
+<ng-container matColumnDef="DanhMucPhongBanGiaiQuyetID">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DanhMucPhongBanGiaiQuyetID</th>
+<td mat-cell *matCellDef="let element">{{element.DanhMucPhongBanGiaiQuyetID}}</td>
+</ng-container>
+<ng-container matColumnDef="DanhMucPhongBanGiaiQuyetName">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DanhMucPhongBanGiaiQuyetName</th>
+<td mat-cell *matCellDef="let element">{{element.DanhMucPhongBanGiaiQuyetName}}</td>
+</ng-container>
+<ng-container matColumnDef="ThanhVienYeuCauID">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ThanhVienYeuCauID</th>
+<td mat-cell *matCellDef="let element">{{element.ThanhVienYeuCauID}}</td>
+</ng-container>
+<ng-container matColumnDef="ThanhVienYeuCauName">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ThanhVienYeuCauName</th>
+<td mat-cell *matCellDef="let element">{{element.ThanhVienYeuCauName}}</td>
+</ng-container>
+<ng-container matColumnDef="ThanhVienYeuCauDienThoai">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ThanhVienYeuCauDienThoai</th>
+<td mat-cell *matCellDef="let element">{{element.ThanhVienYeuCauDienThoai}}</td>
+</ng-container>
+<ng-container matColumnDef="ThanhVienYeuCauEmail">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ThanhVienYeuCauEmail</th>
+<td mat-cell *matCellDef="let element">{{element.ThanhVienYeuCauEmail}}</td>
+</ng-container>
+<ng-container matColumnDef="ThanhVienGiaiQuyetID">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ThanhVienGiaiQuyetID</th>
+<td mat-cell *matCellDef="let element">{{element.ThanhVienGiaiQuyetID}}</td>
+</ng-container>
+<ng-container matColumnDef="ThanhVienGiaiQuyetName">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ThanhVienGiaiQuyetName</th>
+<td mat-cell *matCellDef="let element">{{element.ThanhVienGiaiQuyetName}}</td>
+</ng-container>
+<ng-container matColumnDef="ThanhVienGiaiQuyetDienThoai">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ThanhVienGiaiQuyetDienThoai</th>
+<td mat-cell *matCellDef="let element">{{element.ThanhVienGiaiQuyetDienThoai}}</td>
+</ng-container>
+<ng-container matColumnDef="ThanhVienGiaiQuyetEmail">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ThanhVienGiaiQuyetEmail</th>
+<td mat-cell *matCellDef="let element">{{element.ThanhVienGiaiQuyetEmail}}</td>
+</ng-container>
+<ng-container matColumnDef="DanhMucTinhTrangID">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DanhMucTinhTrangID</th>
+<td mat-cell *matCellDef="let element">{{element.DanhMucTinhTrangID}}</td>
+</ng-container>
+<ng-container matColumnDef="DanhMucTinhTrangName">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DanhMucTinhTrangName</th>
+<td mat-cell *matCellDef="let element">{{element.DanhMucTinhTrangName}}</td>
+</ng-container>
+<ng-container matColumnDef="NgayYeuCau">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>NgayYeuCau</th>
+<td mat-cell *matCellDef="let element">{{element.NgayYeuCau}}</td>
+</ng-container>
+<ng-container matColumnDef="NgayGiaiQuyet">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>NgayGiaiQuyet</th>
+<td mat-cell *matCellDef="let element">{{element.NgayGiaiQuyet}}</td>
+</ng-container>
+<ng-container matColumnDef="NgayHoanThanh">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>NgayHoanThanh</th>
+<td mat-cell *matCellDef="let element">{{element.NgayHoanThanh}}</td>
+</ng-container>
+
+                                                    <tr mat-header-row
+                                                        *matHeaderRowDef="CongViecService.DisplayColumns001">
+                                                    </tr>
+                                                    <tr mat-row
+                                                        *matRowDef="let row; columns: CongViecService.DisplayColumns001;">
+                                                    </tr>
+                                                </table>
+                                                <mat-paginator *ngIf="!NotificationService.IsMobile"
+                                                               #CongViecPaginator="matPaginator"
+                                                               [pageSizeOptions]="[10,20,50,100]" [pageSize]="6"
+                                                               [showFirstLastButtons]></mat-paginator>
+                                                <table *ngIf="NotificationService.IsMobile" mat-table matSort
+                                                       #CongViecSort="matSort" [dataSource]="CongViecService.DataSource"
+                                                       class="table table-striped m-0">
+                                                    <ng-container matColumnDef="STT">
+                                                        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                                                            Danh sách
+                                                        </th>
+                                                        <td mat-cell *matCellDef="let element; index as i;">
+                                                            <div class="row gx-4">
+                                                                <div class="col-lg-12 col-sm-12 col-12">
+                                                                    <a class="btn btn-success" style="width: 100%;"
+                                                                       (click)="CongViecAdd(0)">
+                                                                        <i class="bi bi-sd-card"></i>
+                                                                    </a>
+                                                                </div>
+                                                                <div class="col-lg-12 col-sm-12 col-12">
+<label>ID</label>
+<br />
+<label class="form-label">{{element.ID}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>ParentID</label>
+<br />
+<label class="form-label">{{element.ParentID}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>ParentName</label>
+<br />
+<label class="form-label">{{element.ParentName}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>CreatedDate</label>
+<br />
+<label class="form-label">{{element.CreatedDate}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>CreatedMembershipID</label>
+<br />
+<label class="form-label">{{element.CreatedMembershipID}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>LastUpdatedDate</label>
+<br />
+<label class="form-label">{{element.LastUpdatedDate}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>LastUpdatedMembershipID</label>
+<br />
+<label class="form-label">{{element.LastUpdatedMembershipID}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>RowVersion</label>
+<br />
+<label class="form-label">{{element.RowVersion}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>SortOrder</label>
+<br />
+<label class="form-label">{{element.SortOrder}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>Active</label>
+<br />
+<label class="form-label">{{element.Active}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>TypeName</label>
+<br />
+<label class="form-label">{{element.TypeName}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>Name</label>
+<br />
+<label class="form-label">{{element.Name}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>Code</label>
+<br />
+<label class="form-label">{{element.Code}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>Note</label>
+<br />
+<label class="form-label">{{element.Note}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>Display</label>
+<br />
+<label class="form-label">{{element.Display}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>FileName</label>
+<br />
+<label class="form-label">{{element.FileName}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>Description</label>
+<br />
+<label class="form-label">{{element.Description}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>HTMLContent</label>
+<br />
+<label class="form-label">{{element.HTMLContent}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>DanhMucNgonNguID</label>
+<br />
+<label class="form-label">{{element.DanhMucNgonNguID}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>DanhMucUngDungID</label>
+<br />
+<label class="form-label">{{element.DanhMucUngDungID}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>DanhMucNgonNguName</label>
+<br />
+<label class="form-label">{{element.DanhMucNgonNguName}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>DanhMucUngDungName</label>
+<br />
+<label class="form-label">{{element.DanhMucUngDungName}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>DanhMucPhongBanYeuCauID</label>
+<br />
+<label class="form-label">{{element.DanhMucPhongBanYeuCauID}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>DanhMucPhongBanYeuCauName</label>
+<br />
+<label class="form-label">{{element.DanhMucPhongBanYeuCauName}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>DanhMucPhongBanGiaiQuyetID</label>
+<br />
+<label class="form-label">{{element.DanhMucPhongBanGiaiQuyetID}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>DanhMucPhongBanGiaiQuyetName</label>
+<br />
+<label class="form-label">{{element.DanhMucPhongBanGiaiQuyetName}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>ThanhVienYeuCauID</label>
+<br />
+<label class="form-label">{{element.ThanhVienYeuCauID}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>ThanhVienYeuCauName</label>
+<br />
+<label class="form-label">{{element.ThanhVienYeuCauName}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>ThanhVienYeuCauDienThoai</label>
+<br />
+<label class="form-label">{{element.ThanhVienYeuCauDienThoai}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>ThanhVienYeuCauEmail</label>
+<br />
+<label class="form-label">{{element.ThanhVienYeuCauEmail}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>ThanhVienGiaiQuyetID</label>
+<br />
+<label class="form-label">{{element.ThanhVienGiaiQuyetID}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>ThanhVienGiaiQuyetName</label>
+<br />
+<label class="form-label">{{element.ThanhVienGiaiQuyetName}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>ThanhVienGiaiQuyetDienThoai</label>
+<br />
+<label class="form-label">{{element.ThanhVienGiaiQuyetDienThoai}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>ThanhVienGiaiQuyetEmail</label>
+<br />
+<label class="form-label">{{element.ThanhVienGiaiQuyetEmail}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>DanhMucTinhTrangID</label>
+<br />
+<label class="form-label">{{element.DanhMucTinhTrangID}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>DanhMucTinhTrangName</label>
+<br />
+<label class="form-label">{{element.DanhMucTinhTrangName}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>NgayYeuCau</label>
+<br />
+<label class="form-label">{{element.NgayYeuCau}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>NgayGiaiQuyet</label>
+<br />
+<label class="form-label">{{element.NgayGiaiQuyet}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>NgayHoanThanh</label>
+<br />
+<label class="form-label">{{element.NgayHoanThanh}}</label>
+</div>
+
+                                                            </div>
+                                                        </td>
+                                                    </ng-container>
+                                                    <tr mat-header-row
+                                                        *matHeaderRowDef="CongViecService.DisplayColumnsMobile">
+                                                    </tr>
+                                                    <tr mat-row
+                                                        *matRowDef="let row; columns: CongViecService.DisplayColumnsMobile;">
+                                                    </tr>
+                                                </table>
+                                                <mat-paginator *ngIf="NotificationService.IsMobile"
+                                                               #CongViecPaginator="matPaginator"
+                                                               [pageSizeOptions]="[10,20,50,100]" [pageSize]="10000"
+                                                               [showFirstLastButtons]></mat-paginator>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-loading *ngIf="CongViecService.IsShowLoading"></app-loading>

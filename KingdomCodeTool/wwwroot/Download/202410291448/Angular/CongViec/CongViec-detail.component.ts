@@ -8,41 +8,51 @@ import { environment } from 'src/environments/environment';
 import { NotificationService } from 'src/app/shared/Notification.service';
 import { DownloadService } from 'src/app/shared/Download.service';
 
-import { [ClassName] } from 'src/app/shared/[ClassName].model';
-import { [ClassName]Service } from 'src/app/shared/[ClassName].service';
+import { CongViec } from 'src/app/shared/CongViec.model';
+import { CongViecService } from 'src/app/shared/CongViec.service';
 
 @Component({
-  selector: 'app-[ClassName]-detail',
-  templateUrl: './[ClassName]-detail.component.html',
-  styleUrls: ['./[ClassName]-detail.component.css']
+  selector: 'app-CongViec-detail',
+  templateUrl: './CongViec-detail.component.html',
+  styleUrls: ['./CongViec-detail.component.css']
 })
-export class [ClassName]DetailComponent implements OnInit {
+export class CongViecDetailComponent implements OnInit {
 
   constructor(
     private Dialog: MatDialog,
-    public DialogRef: MatDialogRef<[ClassName]DetailComponent>,
+    public DialogRef: MatDialogRef<CongViecDetailComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
 
     public NotificationService: NotificationService,
     public DownloadService: DownloadService,
 
-    public [ClassName]Service: [ClassName]Service,
+    public CongViecService: CongViecService,
 
     ) { }
 
     ngOnInit(): void {
-    
+    this.CongViecSearch();
     }
     Close() {
     this.DialogRef.close();
     }
 
-    
-    [ClassName]Save() {
-    this.[ClassName]Service.IsShowLoading = true;
-    this.[ClassName]Service.SaveAsync().subscribe(
+    CongViecSearch() {
+    this.CongViecService.GetByIDAsync().subscribe(
     res => {
-    this.[ClassName]Service.FormData = res as [ClassName];   
+    this.CongViecService.FormData = res as CongViec;
+
+    },
+    err => {
+    }
+    );
+    }
+
+    CongViecSave() {
+    this.CongViecService.IsShowLoading = true;
+    this.CongViecService.SaveAsync().subscribe(
+    res => {
+    this.CongViecService.FormData = res as CongViec;   
 
     this.NotificationService.warn(environment.SaveSuccess);
     },
@@ -50,9 +60,10 @@ export class [ClassName]DetailComponent implements OnInit {
     this.NotificationService.warn(environment.SaveNotSuccess);
     },
     () => {
-    this.[ClassName]Service.IsShowLoading = false;
+    this.CongViecService.IsShowLoading = false;
     }
     );
     }
 
     }
+
