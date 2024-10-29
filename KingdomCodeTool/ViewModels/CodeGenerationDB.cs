@@ -25,9 +25,9 @@
         }
         //************************BEGIN**************************
         //Get Table Column Name from Table by Table Name SQL Server
-        public DataTable GetTableItems(string tableName)
+        public static DataTable GetTableItems(string connectionString, string tableName)
         {
-            using (SqlConnection cn = new SqlConnection(ConnectionString))
+            using (SqlConnection cn = new SqlConnection(connectionString))
             {
                 string sql = "select COLUMN_NAME, DATA_TYPE,CHARACTER_MAXIMUM_LENGTH from INFORMATION_SCHEMA.COLUMNS where TABLE_NAME = '" + tableName + "' ";
                 SqlDataAdapter adapter = new SqlDataAdapter(sql, cn);

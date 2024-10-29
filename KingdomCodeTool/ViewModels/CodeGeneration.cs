@@ -26,17 +26,17 @@
 
         //************************BEGIN**************************
         //Get Table Column Name from Table by Table Name
-        public DataTable GetTableItem(string tableName)
+        public static DataTable GetTableItems(string connectionString, string tableName)
         {
-            return codeGenerationDB.GetTableItems(tableName);
+            return CodeGenerationDB.GetTableItems(connectionString, tableName);
         }
 
         //************************BEGIN**************************
         //Get Data Type of Table Column and Convert Data Type from SQL Server to C# by Key and Table Name
-        private string KeyType(string key, string tableName)
+        private string KeyType(string connectionString, string tableName,string key)
         {
             string keyType = "";
-            DataTable dataTable = codeGenerationDB.GetTableItems(tableName);
+            DataTable dataTable = CodeGenerationDB.GetTableItems(connectionString, tableName);
             foreach (DataRow row in dataTable.Rows)
             {
                 if (row["COLUMN_NAME"].ToString() == key)
@@ -50,7 +50,7 @@
 
         //************************BEGIN**************************
         //Convert DataType from SQL Server to C#
-        private string Convert(string sqlDataType)
+        public static string Convert(string sqlDataType)
         {
             switch (sqlDataType)
             {
@@ -65,9 +65,10 @@
                     return "bool";
                 case "int":
                 case "smallint":
-                case "tinyint":
-                case "bigint":
+                case "tinyint":                
                     return "int";
+                case "bigint":
+                    return "long";
                 case "datetime":
                 case "smalldatetime":
                 case "timestamp":
@@ -84,7 +85,42 @@
                     return "Guid";
                 default: return "string";
             }
-
+        }
+        public static string ConvertAngular(string sqlDataType)
+        {
+            switch (sqlDataType)
+            {
+                case "char":
+                case "nchar":
+                case "ntext":
+                case "text":
+                case "varchar":
+                case "nvarchar":
+                    return "string";
+                case "bit":
+                    return "boolean";
+                case "int":
+                case "smallint":
+                case "tinyint":
+                    return "number";
+                case "bigint":
+                    return "number";
+                case "datetime":
+                case "smalldatetime":
+                case "timestamp":
+                    return "Date";
+                case "real":
+                    return "number";
+                case "money":
+                case "smallmoney":
+                case "decimal":
+                    return "number";
+                case "float":
+                    return "number";
+                case "uniqueidentifier":
+                    return "string";
+                default: return "string";
+            }
         }
 
         private string ConvertType(string sqlDataType)

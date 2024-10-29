@@ -1,0 +1,53 @@
+﻿import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatSort } from '@angular/material/sort';
+import { MatPaginator } from '@angular/material/paginator';
+import { environment } from 'src/environments/environment';
+import { NotificationService } from 'src/app/shared/Notification.service';
+import { DownloadService } from 'src/app/shared/Download.service';
+
+import { [ClassName] } from 'src/app/shared/[ClassName].model';
+import { [ClassName]Service } from 'src/app/shared/[ClassName].service';
+import { [ClassName]Component } from './[ClassName]-detail/[ClassName]-detail.component';
+
+
+@Component({
+  selector: 'app-[ClassName]',
+  templateUrl: './[ClassName].component.html',
+  styleUrls: ['./[ClassName].component.css']
+})
+export class [ClassName]Component implements OnInit {
+
+@ViewChild('[ClassName]Sort') [ClassName]Sort: MatSort;
+  @ViewChild('[ClassName]Paginator') [ClassName]Paginator: MatPaginator;
+
+constructor(
+    private Dialog: MatDialog,
+    public NotificationService: NotificationService,
+    public DownloadService: DownloadService,
+
+    public [ClassName]Service: [ClassName]Service,
+  ) { }
+
+ngOnInit(): void {
+    this.[ClassName]Search();
+  }
+  [ClassName]Search() {
+    this.[ClassName]Service.SearchAllNotEmpty(this.[ClassName]Sort, this.[ClassName]Paginator);
+  }
+
+[ClassName]Add(ID: number) {
+    this.[ClassName]Service.BaseParameter.ID = ID;
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = environment.DialogConfigWidth;
+    dialogConfig.data = { ID: ID };
+    const dialog = this.Dialog.open([ClassName]DetailComponent, dialogConfig);
+    dialog.afterClosed().subscribe(() => {
+      this.[ClassName]Search();
+    });
+  }
+
+    }

@@ -1,0 +1,68 @@
+﻿import { Component, OnInit, Inject, ElementRef, ViewChild } from '@angular/core';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatSort } from '@angular/material/sort';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { environment } from 'src/environments/environment';
+import { NotificationService } from 'src/app/shared/Notification.service';
+import { DownloadService } from 'src/app/shared/Download.service';
+
+import { [ClassName] } from 'src/app/shared/[ClassName].model';
+import { [ClassName]Service } from 'src/app/shared/[ClassName].service';
+
+@Component({
+  selector: 'app-[ClassName]-detail',
+  templateUrl: './[ClassName]-detail.component.html',
+  styleUrls: ['./[ClassName]-detail.component.css']
+})
+export class [ClassName]DetailComponent implements OnInit {
+
+  constructor(
+    private Dialog: MatDialog,
+    public DialogRef: MatDialogRef<[ClassName]DetailComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any,
+
+    public NotificationService: NotificationService,
+    public DownloadService: DownloadService,
+
+    public [ClassName]Service: [ClassName]Service,
+
+    ) { }
+
+    ngOnInit(): void {
+    this.[ClassName]Search();
+    }
+    Close() {
+    this.DialogRef.close();
+    }
+
+    [ClassName]Search() {
+    this.[ClassName]Service.GetByIDAsync().subscribe(
+    res => {
+    this.[ClassName]Service.FormData = res as [ClassName];
+
+    },
+    err => {
+    }
+    );
+    }
+
+    [ClassName]Save() {
+    this.[ClassName]Service.IsShowLoading = true;
+    this.[ClassName]Service.SaveAsync().subscribe(
+    res => {
+    this.[ClassName]Service.FormData = res as [ClassName];   
+
+    this.NotificationService.warn(environment.SaveSuccess);
+    },
+    err => {
+    this.NotificationService.warn(environment.SaveNotSuccess);
+    },
+    () => {
+    this.[ClassName]Service.IsShowLoading = false;
+    }
+    );
+    }
+
+    }

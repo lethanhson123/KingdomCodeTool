@@ -1,7 +1,7 @@
 ﻿@model KingdomCodeTool.ViewModels.BaseViewModel
 
 @{
-    ViewData["Title"] = "Kingdom code tool";
+    ViewData["Title"] = "Code tool";
 }
 <style>
     input[type="checkbox"] {
@@ -11,19 +11,23 @@
     }
 </style>
 <div class="row">
-    <div class="col-sm-6">
+    <div class="col-sm-8">
         <div class="col-sm-12">
             @(Html.TextBoxFor(Model => Model.ConnectionString, new { placeholder = "Connection String", @class = "form-control" }))
         </div>
         <div class="row">
-            <div class="col-sm-12">
-                <input type="button" value="Get Tables" id="GetTable" class="btn btn-success" onclick='onGetTableClick()' />
-                <input type="button" value="Create Code" id="CreateCode" class="btn btn-primary" onclick='onCreateCodeClick()' />
+            <div class="col-sm-2">
+                <input type="button" value="Get Tables" id="GetTable" class="btn btn-success" onclick='onGetTableClick()' style="width: 100%;" />
+            </div>
+            <div class="col-sm-2">
+                <input type="button" value="Create Code" id="CreateCode" class="btn btn-primary" onclick='onCreateCodeClick()' style="width: 100%;" />
+            </div>
+            <div class="col-sm-8">
                 <input type="checkbox" id="TableAll" onchange="onCheckAll(event)" />Check All
             </div>
         </div>
     </div>
-    <div class="col-sm-6">
+    <div class="col-sm-4">
         <div id="Tables">
         </div>
     </div>
@@ -51,9 +55,9 @@
             contentType: "application/json; charset=utf-8",
             dataType: "json",
             success: function (data) {
-                for (let i = 0; i < data.length;i++) {
+                for (let i = 0; i < data.length; i++) {
                     window.open(data[i], "_blank");
-                }                
+                }
             },
             error: function (err) {
                 console.log(err);

@@ -1,0 +1,126 @@
+﻿<div class="app-body">
+    <div class="row">
+        <div class="col-xxl-12">
+            <div class="card" style="margin-left: 1px;">
+                <div class="card-body">
+                    <div class="custom-tabs-container">
+                        <ul class="nav nav-tabs justify-content-end" id="customTab5" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link active" id="tab-[ClassName]" data-bs-toggle="tab" href="#[ClassName]"
+                                   role="tab" aria-controls="[ClassName]" aria-selected="true">
+                                    <span class="badge bg-info" style="font-size: 16px;">[ClassName]</span>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="tab-content" id="customTabContent">
+                            <div class="tab-pane fade show active" id="[ClassName]" role="tabpanel">
+                                <div class="row gx-4">
+                                    <div class="col-lg-10 col-sm-12 col-12">
+                                        <input [(ngModel)]="[ClassName]Service.BaseParameter.SearchString"
+                                               placeholder="Tìm ..." class="form-control"
+                                               (keyup.enter)="[ClassName]Search()">
+                                    </div>
+                                    <div class="col-lg-1 col-sm-12 col-12">
+                                        <a style="width: 100%;" class="btn btn-success" title="Tìm"
+                                           (click)="[ClassName]Search()"><i class="bi bi-search"></i></a>
+                                    </div>
+                                    <div class="col-lg-1 col-sm-12 col-12">
+                                        <a style="width: 100%;" class="btn btn-success" title="Thêm mới"
+                                           (click)="[ClassName]Add(0)"><i class="bi bi-plus"></i></a>
+                                    </div>
+                                </div>
+                                <div class="card mb-4 card-info">
+                                    <div class="card-header">
+                                        <h5 class="card-title text-white">
+                                            Danh sách
+                                            <span *ngIf="[ClassName]Service.List">
+                                                ({{[ClassName]Service.List.length}}
+                                                items)
+                                            </span>
+                                        </h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="table-outer">
+                                            <div class="table-responsive">
+                                                <table *ngIf="!NotificationService.IsMobile" mat-table matSort
+                                                       #[ClassName]Sort="matSort" [dataSource]="[ClassName]Service.DataSource"
+                                                       class="table table-striped m-0">
+                                                    <ng-container matColumnDef="Save">
+                                                        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                                                        </th>
+                                                        <td mat-cell *matCellDef="let element">
+                                                            <a class="btn btn-success"
+                                                               (click)="[ClassName]Add(0)">
+                                                                <i class="bi bi-sd-card"></i>
+                                                            </a>
+                                                        </td>
+                                                    </ng-container>
+                                                    <ng-container matColumnDef="STT">
+                                                        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                                                            No
+                                                        </th>
+                                                        <td mat-cell *matCellDef="let element; index as i;"
+                                                            style="text-align: center;">
+                                                            <div *ngIf="[ClassName]Paginator">
+                                                                {{
+                                                                [ClassName]Paginator.pageSize *
+                                                                [ClassName]Paginator.pageIndex + i + 1
+                                                                }}
+                                                            </div>
+                                                        </td>
+                                                    </ng-container>
+                                                    [AngularContainer]
+                                                    <tr mat-header-row
+                                                        *matHeaderRowDef="[ClassName]Service.DisplayColumns001">
+                                                    </tr>
+                                                    <tr mat-row
+                                                        *matRowDef="let row; columns: [ClassName]Service.DisplayColumns001;">
+                                                    </tr>
+                                                </table>
+                                                <mat-paginator *ngIf="!NotificationService.IsMobile"
+                                                               #[ClassName]Paginator="matPaginator"
+                                                               [pageSizeOptions]="[10,20,50,100]" [pageSize]="6"
+                                                               [showFirstLastButtons]></mat-paginator>
+                                                <table *ngIf="NotificationService.IsMobile" mat-table matSort
+                                                       #[ClassName]Sort="matSort" [dataSource]="[ClassName]Service.DataSource"
+                                                       class="table table-striped m-0">
+                                                    <ng-container matColumnDef="STT">
+                                                        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                                                            Danh sách
+                                                        </th>
+                                                        <td mat-cell *matCellDef="let element; index as i;">
+                                                            <div class="row gx-4">
+                                                                <div class="col-lg-12 col-sm-12 col-12">
+                                                                    <a class="btn btn-success" style="width: 100%;"
+                                                                       (click)="[ClassName]Add(0)">
+                                                                        <i class="bi bi-sd-card"></i>
+                                                                    </a>
+                                                                </div>
+                                                                [AngularMobile]
+                                                            </div>
+                                                        </td>
+                                                    </ng-container>
+                                                    <tr mat-header-row
+                                                        *matHeaderRowDef="[ClassName]Service.DisplayColumnsMobile">
+                                                    </tr>
+                                                    <tr mat-row
+                                                        *matRowDef="let row; columns: [ClassName]Service.DisplayColumnsMobile;">
+                                                    </tr>
+                                                </table>
+                                                <mat-paginator *ngIf="NotificationService.IsMobile"
+                                                               #[ClassName]Paginator="matPaginator"
+                                                               [pageSizeOptions]="[10,20,50,100]" [pageSize]="10000"
+                                                               [showFirstLastButtons]></mat-paginator>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-loading *ngIf="[ClassName]Service.IsShowLoading"></app-loading>
