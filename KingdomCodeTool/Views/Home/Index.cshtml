@@ -15,6 +15,12 @@
         <div class="col-sm-12">
             @(Html.TextBoxFor(Model => Model.ConnectionString, new { placeholder = "Connection String", @class = "form-control" }))
         </div>
+        <div class="col-sm-12">
+            @(Html.TextBoxFor(Model => Model.Base64Encode, new { placeholder = "Connection String", @class = "form-control" }))
+        </div>
+        <div class="col-sm-12">
+            @(Html.TextBoxFor(Model => Model.Base64Decode, new { placeholder = "Connection String", @class = "form-control" }))
+        </div>
         <div class="row">
             <div class="col-sm-2">
                 <input type="button" value="Get Tables" id="GetTable" class="btn btn-success" onclick='onGetTableClick()' style="width: 100%;" />

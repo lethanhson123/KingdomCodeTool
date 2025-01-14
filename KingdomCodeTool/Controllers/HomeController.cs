@@ -21,7 +21,13 @@ namespace KingdomCodeTool.Controllers
         public IActionResult Index()
         {
             BaseViewModel model = new BaseViewModel();
-            model.ConnectionString = "Persist Security Info=True;User ID=sa;Password=Sonheo@123;database=BenhVienDaKhoaDongNai2025;data source=14.225.254.64,1433;Connection Timeout=30;";
+            model.ConnectionString = "Server=DESKTOP-GT1PCNF;Database=BenhVienDaKhoaDongNai2025;Persist Security Info=False;User ID=sa; Password=DongNai@123;MultipleActiveResultSets=False;Encrypt=False;TrustServerCertificate=False;Connection Timeout=30;";
+
+            var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(model.ConnectionString);
+            model.Base64Encode = System.Convert.ToBase64String(plainTextBytes);
+
+            var base64EncodedBytes = System.Convert.FromBase64String(model.Base64Encode);
+            model.Base64Decode = System.Text.Encoding.UTF8.GetString(base64EncodedBytes);
             return View(model);
         }
 
@@ -127,7 +133,7 @@ namespace KingdomCodeTool.Controllers
                                 {
                                     AngularDetail003.AppendLine(@"<div class=""col-lg-12 col-sm-12 col-12"">");
                                     AngularDetail003.AppendLine(@"<label class=""form-label"">" + COLUMN_NAME + @"</label>");
-                                    AngularDetail003.AppendLine(@"<input name=""" + COLUMN_NAME + @""" [(ngModel)]="""+ className + @"Service.FormData." + COLUMN_NAME + @""" placeholder=""" + COLUMN_NAME + @""" type=""text"" class=""form-control"">");
+                                    AngularDetail003.AppendLine(@"<input name=""" + COLUMN_NAME + @""" [(ngModel)]=""" + className + @"Service.FormData." + COLUMN_NAME + @""" placeholder=""" + COLUMN_NAME + @""" type=""text"" class=""form-control"">");
                                     AngularDetail003.AppendLine(@"</div>");
                                 }
 
