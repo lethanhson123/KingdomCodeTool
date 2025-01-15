@@ -88,6 +88,7 @@ namespace KingdomCodeTool.Controllers
                             StringBuilder AngularDetail001 = new StringBuilder();
                             StringBuilder AngularDetail002 = new StringBuilder();
                             StringBuilder AngularDetail003 = new StringBuilder();
+                            StringBuilder AngularContainerInline = new StringBuilder();
 
                             AngularDisplayColumns001.Append(@"DisplayColumns001: string[] = ['Save', 'STT'");
 
@@ -107,6 +108,11 @@ namespace KingdomCodeTool.Controllers
                                 AngularContainer.AppendLine(@"<th mat-header-cell *matHeaderCellDef mat-sort-header>" + COLUMN_NAME + "</th>");
                                 AngularContainer.AppendLine(@"<td mat-cell *matCellDef=""let element"">{{element." + COLUMN_NAME + @"}}</td>");
                                 AngularContainer.AppendLine(@"</ng-container>");
+
+                                AngularContainerInline.AppendLine(@"<ng-container matColumnDef=""" + COLUMN_NAME + @""">");
+                                AngularContainerInline.AppendLine(@"<th mat-header-cell *matHeaderCellDef mat-sort-header>" + COLUMN_NAME + "</th>");
+                                AngularContainerInline.AppendLine(@"<td mat-cell *matCellDef=""let element""><input class=""form-control"" type=""text"" placeholder=""" + COLUMN_NAME + @""" name=""" + COLUMN_NAME + @""" [(ngModel)]=""element." + COLUMN_NAME + @"""></td>");
+                                AngularContainerInline.AppendLine(@"</ng-container>");
 
                                 AngularMobile.AppendLine(@"<div class=""col-lg-12 col-sm-12 col-12"">");
                                 AngularMobile.AppendLine(@"<label>" + COLUMN_NAME + @"</label>");
@@ -361,8 +367,125 @@ namespace KingdomCodeTool.Controllers
                                 }
                             }
 
-                            //AngularComponentMaster
-                            content = Path.Combine(_WebHostEnvironment.WebRootPath, HTML, "AngularComponentMaster.html");
+                            ////AngularComponentMaster
+                            //content = Path.Combine(_WebHostEnvironment.WebRootPath, HTML, "AngularComponentMaster.html");
+                            //using (FileStream fs = new FileStream(content, FileMode.Open))
+                            //{
+                            //    using (StreamReader r = new StreamReader(fs, Encoding.UTF8))
+                            //    {
+                            //        content = r.ReadToEnd();
+                            //    }
+                            //}
+                            //content = content.Replace("[ClassName]", className);
+                            //content = content.Replace("[AngularContainer]", AngularContainer.ToString());
+                            //content = content.Replace("[AngularMobile]", AngularMobile.ToString());
+                            //fileName = className + ".component.html";
+
+                            //folderPath = Path.Combine(folderPathRoot, "Angular", className);
+                            //Directory.CreateDirectory(folderPath);
+                            //isFolderExists = System.IO.Directory.Exists(folderPath);
+                            //if (!isFolderExists)
+                            //{
+                            //    System.IO.Directory.CreateDirectory(folderPath);
+                            //}
+                            //path = Path.Combine(folderPath, fileName);
+                            //using (FileStream fs = new FileStream(path, FileMode.Create))
+                            //{
+                            //    using (StreamWriter w = new StreamWriter(fs, Encoding.UTF8))
+                            //    {
+                            //        w.WriteLine(content);
+                            //    }
+                            //}
+
+                            ////AngularComponentMasterTypescript
+                            //content = Path.Combine(_WebHostEnvironment.WebRootPath, HTML, "AngularComponentMasterTypescript.html");
+                            //using (FileStream fs = new FileStream(content, FileMode.Open))
+                            //{
+                            //    using (StreamReader r = new StreamReader(fs, Encoding.UTF8))
+                            //    {
+                            //        content = r.ReadToEnd();
+                            //    }
+                            //}
+                            //content = content.Replace("[ClassName]", className);
+                            //fileName = className + ".component.ts";
+
+                            //folderPath = Path.Combine(folderPathRoot, "Angular", className);
+                            //Directory.CreateDirectory(folderPath);
+                            //isFolderExists = System.IO.Directory.Exists(folderPath);
+                            //if (!isFolderExists)
+                            //{
+                            //    System.IO.Directory.CreateDirectory(folderPath);
+                            //}
+                            //path = Path.Combine(folderPath, fileName);
+                            //using (FileStream fs = new FileStream(path, FileMode.Create))
+                            //{
+                            //    using (StreamWriter w = new StreamWriter(fs, Encoding.UTF8))
+                            //    {
+                            //        w.WriteLine(content);
+                            //    }
+                            //}
+
+                            ////AngularComponentDetail
+                            //content = Path.Combine(_WebHostEnvironment.WebRootPath, HTML, "AngularComponentDetail.html");
+                            //using (FileStream fs = new FileStream(content, FileMode.Open))
+                            //{
+                            //    using (StreamReader r = new StreamReader(fs, Encoding.UTF8))
+                            //    {
+                            //        content = r.ReadToEnd();
+                            //    }
+                            //}
+                            //content = content.Replace("[ClassName]", className);
+                            //content = content.Replace("[AngularDetail001]", AngularDetail001.ToString());
+                            //content = content.Replace("[AngularDetail002]", AngularDetail002.ToString());
+                            //content = content.Replace("[AngularDetail003]", AngularDetail003.ToString());
+                            //fileName = className + "-detail.component.html";
+
+                            //folderPath = Path.Combine(folderPathRoot, "Angular", className);
+                            //Directory.CreateDirectory(folderPath);
+                            //isFolderExists = System.IO.Directory.Exists(folderPath);
+                            //if (!isFolderExists)
+                            //{
+                            //    System.IO.Directory.CreateDirectory(folderPath);
+                            //}
+                            //path = Path.Combine(folderPath, fileName);
+                            //using (FileStream fs = new FileStream(path, FileMode.Create))
+                            //{
+                            //    using (StreamWriter w = new StreamWriter(fs, Encoding.UTF8))
+                            //    {
+                            //        w.WriteLine(content);
+                            //    }
+                            //}
+
+                            ////AngularComponentDetailTypescript
+                            //content = Path.Combine(_WebHostEnvironment.WebRootPath, HTML, "AngularComponentDetailTypescript.html");
+                            //using (FileStream fs = new FileStream(content, FileMode.Open))
+                            //{
+                            //    using (StreamReader r = new StreamReader(fs, Encoding.UTF8))
+                            //    {
+                            //        content = r.ReadToEnd();
+                            //    }
+                            //}
+                            //content = content.Replace("[ClassName]", className);
+                            //fileName = className + "-detail.component.ts";
+
+                            //folderPath = Path.Combine(folderPathRoot, "Angular", className);
+                            //Directory.CreateDirectory(folderPath);
+                            //isFolderExists = System.IO.Directory.Exists(folderPath);
+                            //if (!isFolderExists)
+                            //{
+                            //    System.IO.Directory.CreateDirectory(folderPath);
+                            //}
+                            //path = Path.Combine(folderPath, fileName);
+                            //using (FileStream fs = new FileStream(path, FileMode.Create))
+                            //{
+                            //    using (StreamWriter w = new StreamWriter(fs, Encoding.UTF8))
+                            //    {
+                            //        w.WriteLine(content);
+                            //    }
+                            //}
+
+                            //AngularComponentInline
+                            content = Path.Combine(_WebHostEnvironment.WebRootPath, HTML, "AngularComponentInline.html");
                             using (FileStream fs = new FileStream(content, FileMode.Open))
                             {
                                 using (StreamReader r = new StreamReader(fs, Encoding.UTF8))
@@ -371,8 +494,7 @@ namespace KingdomCodeTool.Controllers
                                 }
                             }
                             content = content.Replace("[ClassName]", className);
-                            content = content.Replace("[AngularContainer]", AngularContainer.ToString());
-                            content = content.Replace("[AngularMobile]", AngularMobile.ToString());
+                            content = content.Replace("[AngularContainer]", AngularContainerInline.ToString());
                             fileName = className + ".component.html";
 
                             folderPath = Path.Combine(folderPathRoot, "Angular", className);
@@ -391,8 +513,8 @@ namespace KingdomCodeTool.Controllers
                                 }
                             }
 
-                            //AngularComponentMasterTypescript
-                            content = Path.Combine(_WebHostEnvironment.WebRootPath, HTML, "AngularComponentMasterTypescript.html");
+                            //AngularComponentInlineTypescript
+                            content = Path.Combine(_WebHostEnvironment.WebRootPath, HTML, "AngularComponentInlineTypescript.html");
                             using (FileStream fs = new FileStream(content, FileMode.Open))
                             {
                                 using (StreamReader r = new StreamReader(fs, Encoding.UTF8))
@@ -418,67 +540,6 @@ namespace KingdomCodeTool.Controllers
                                     w.WriteLine(content);
                                 }
                             }
-
-                            //AngularComponentDetail
-                            content = Path.Combine(_WebHostEnvironment.WebRootPath, HTML, "AngularComponentDetail.html");
-                            using (FileStream fs = new FileStream(content, FileMode.Open))
-                            {
-                                using (StreamReader r = new StreamReader(fs, Encoding.UTF8))
-                                {
-                                    content = r.ReadToEnd();
-                                }
-                            }
-                            content = content.Replace("[ClassName]", className);
-                            content = content.Replace("[AngularDetail001]", AngularDetail001.ToString());
-                            content = content.Replace("[AngularDetail002]", AngularDetail002.ToString());
-                            content = content.Replace("[AngularDetail003]", AngularDetail003.ToString());
-                            fileName = className + "-detail.component.html";
-
-                            folderPath = Path.Combine(folderPathRoot, "Angular", className);
-                            Directory.CreateDirectory(folderPath);
-                            isFolderExists = System.IO.Directory.Exists(folderPath);
-                            if (!isFolderExists)
-                            {
-                                System.IO.Directory.CreateDirectory(folderPath);
-                            }
-                            path = Path.Combine(folderPath, fileName);
-                            using (FileStream fs = new FileStream(path, FileMode.Create))
-                            {
-                                using (StreamWriter w = new StreamWriter(fs, Encoding.UTF8))
-                                {
-                                    w.WriteLine(content);
-                                }
-                            }
-
-                            //AngularComponentDetailTypescript
-                            content = Path.Combine(_WebHostEnvironment.WebRootPath, HTML, "AngularComponentDetailTypescript.html");
-                            using (FileStream fs = new FileStream(content, FileMode.Open))
-                            {
-                                using (StreamReader r = new StreamReader(fs, Encoding.UTF8))
-                                {
-                                    content = r.ReadToEnd();
-                                }
-                            }
-                            content = content.Replace("[ClassName]", className);
-                            fileName = className + "-detail.component.ts";
-
-                            folderPath = Path.Combine(folderPathRoot, "Angular", className);
-                            Directory.CreateDirectory(folderPath);
-                            isFolderExists = System.IO.Directory.Exists(folderPath);
-                            if (!isFolderExists)
-                            {
-                                System.IO.Directory.CreateDirectory(folderPath);
-                            }
-                            path = Path.Combine(folderPath, fileName);
-                            using (FileStream fs = new FileStream(path, FileMode.Create))
-                            {
-                                using (StreamWriter w = new StreamWriter(fs, Encoding.UTF8))
-                                {
-                                    w.WriteLine(content);
-                                }
-                            }
-
-
                         }
                     }
                 }
