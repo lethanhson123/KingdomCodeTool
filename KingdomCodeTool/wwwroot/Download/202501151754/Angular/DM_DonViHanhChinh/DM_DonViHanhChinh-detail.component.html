@@ -1,0 +1,117 @@
+﻿<div class="custom-tabs-container">
+    <ul class="nav nav-tabs justify-content-end" id="customTab5" role="tablist">
+        <li class="nav-item" role="presentation">
+            <a class="nav-link active" id="tab-DM_DonViHanhChinhDetail" data-bs-toggle="tab" href="#DM_DonViHanhChinhDetail" role="tab"
+               aria-controls="DM_DonViHanhChinhDetail" aria-selected="true">
+                <span class="badge bg-info" style="font-size: 16px;">DM_DonViHanhChinh</span>
+            </a>
+        </li>
+        <li class="nav-item" role="presentation">
+            <a style="cursor: pointer;" class="nav-link" id="tab-Close" data-bs-toggle="tab" (click)="Close()"
+               role="tab" aria-controls="Close" aria-selected="false">
+                <span class="badge bg-danger" style="font-size: 16px;"><i class="bi bi-x-lg"></i></span>
+            </a>
+        </li>
+    </ul>
+    <div class="tab-content" id="customTabContent">
+        <div class="tab-pane fade show active" id="DM_DonViHanhChinhDetail" role="tabpanel">
+            <div class="row gx-4">
+                <div class="col-lg-6 col-sm-12 col-12">
+                    <a style="width: 100%;" title="Lưu thay đổi" (click)="DM_DonViHanhChinhSave()" class="btn btn-info">
+                        <i class="bi bi-sd-card"></i> Lưu thay đổi
+                    </a>
+                </div>
+                <div class="col-lg-6 col-sm-12 col-12">
+                </div>
+            </div>
+            <div class="row gx-4">
+                <div class="col-lg-4 col-sm-12 col-12">
+                    <div class="col-lg-12 col-sm-12 col-12">
+<label class="form-label">DonViHanhChinh_Id</label>
+<input name="DonViHanhChinh_Id" [(ngModel)]="DM_DonViHanhChinhService.FormData.DonViHanhChinh_Id" placeholder="DonViHanhChinh_Id" type="text" class="form-control">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label class="form-label">MaDonVi</label>
+<input name="MaDonVi" [(ngModel)]="DM_DonViHanhChinhService.FormData.MaDonVi" placeholder="MaDonVi" type="text" class="form-control">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label class="form-label">TenDonVi</label>
+<input name="TenDonVi" [(ngModel)]="DM_DonViHanhChinhService.FormData.TenDonVi" placeholder="TenDonVi" type="text" class="form-control">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label class="form-label">CapDonVi</label>
+<input name="CapDonVi" [(ngModel)]="DM_DonViHanhChinhService.FormData.CapDonVi" placeholder="CapDonVi" type="text" class="form-control">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label class="form-label">CapTren_Id</label>
+<input name="CapTren_Id" [(ngModel)]="DM_DonViHanhChinhService.FormData.CapTren_Id" placeholder="CapTren_Id" type="text" class="form-control">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label class="form-label">MaVung_Id</label>
+<input name="MaVung_Id" [(ngModel)]="DM_DonViHanhChinhService.FormData.MaVung_Id" placeholder="MaVung_Id" type="text" class="form-control">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label class="form-label">KhuVucLuuTru_Id</label>
+<input name="KhuVucLuuTru_Id" [(ngModel)]="DM_DonViHanhChinhService.FormData.KhuVucLuuTru_Id" placeholder="KhuVucLuuTru_Id" type="text" class="form-control">
+</div>
+                   
+                </div>
+                <div class="col-lg-4 col-sm-12 col-12">
+                    <div class="col-lg-12 col-sm-12 col-12">
+<label class="form-label">TamNgung</label>
+<input name="TamNgung" [(ngModel)]="DM_DonViHanhChinhService.FormData.TamNgung" placeholder="TamNgung" type="text" class="form-control">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label class="form-label">TenTat</label>
+<input name="TenTat" [(ngModel)]="DM_DonViHanhChinhService.FormData.TenTat" placeholder="TenTat" type="text" class="form-control">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label class="form-label">TenTat_2</label>
+<input name="TenTat_2" [(ngModel)]="DM_DonViHanhChinhService.FormData.TenTat_2" placeholder="TenTat_2" type="text" class="form-control">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label class="form-label">TenTat_3</label>
+<input name="TenTat_3" [(ngModel)]="DM_DonViHanhChinhService.FormData.TenTat_3" placeholder="TenTat_3" type="text" class="form-control">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label class="form-label">TenKhongDau</label>
+<input name="TenKhongDau" [(ngModel)]="DM_DonViHanhChinhService.FormData.TenKhongDau" placeholder="TenKhongDau" type="text" class="form-control">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label class="form-label">NgayTao</label>
+<input name="NgayTao" [(ngModel)]="DM_DonViHanhChinhService.FormData.NgayTao" placeholder="NgayTao" type="text" class="form-control">
+</div>
+
+                </div>
+                <div class="col-lg-4 col-sm-12 col-12">
+                    <div class="col-lg-12 col-sm-12 col-12">
+<label class="form-label">NguoiTao_Id</label>
+<input name="NguoiTao_Id" [(ngModel)]="DM_DonViHanhChinhService.FormData.NguoiTao_Id" placeholder="NguoiTao_Id" type="text" class="form-control">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label class="form-label">NgayCapNhat</label>
+<input name="NgayCapNhat" [(ngModel)]="DM_DonViHanhChinhService.FormData.NgayCapNhat" placeholder="NgayCapNhat" type="text" class="form-control">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label class="form-label">NguoiCapNhat_Id</label>
+<input name="NguoiCapNhat_Id" [(ngModel)]="DM_DonViHanhChinhService.FormData.NguoiCapNhat_Id" placeholder="NguoiCapNhat_Id" type="text" class="form-control">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label class="form-label">SiteCode</label>
+<input name="SiteCode" [(ngModel)]="DM_DonViHanhChinhService.FormData.SiteCode" placeholder="SiteCode" type="text" class="form-control">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label class="form-label">Mapping_Public_Id</label>
+<input name="Mapping_Public_Id" [(ngModel)]="DM_DonViHanhChinhService.FormData.Mapping_Public_Id" placeholder="Mapping_Public_Id" type="text" class="form-control">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label class="form-label">MaDonVi_HSSK</label>
+<input name="MaDonVi_HSSK" [(ngModel)]="DM_DonViHanhChinhService.FormData.MaDonVi_HSSK" placeholder="MaDonVi_HSSK" type="text" class="form-control">
+</div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-loading *ngIf="DM_DonViHanhChinhService.IsShowLoading"></app-loading>

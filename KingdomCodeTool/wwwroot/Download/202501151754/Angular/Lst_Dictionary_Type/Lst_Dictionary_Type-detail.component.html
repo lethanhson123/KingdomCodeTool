@@ -1,0 +1,137 @@
+﻿<div class="custom-tabs-container">
+    <ul class="nav nav-tabs justify-content-end" id="customTab5" role="tablist">
+        <li class="nav-item" role="presentation">
+            <a class="nav-link active" id="tab-Lst_Dictionary_TypeDetail" data-bs-toggle="tab" href="#Lst_Dictionary_TypeDetail" role="tab"
+               aria-controls="Lst_Dictionary_TypeDetail" aria-selected="true">
+                <span class="badge bg-info" style="font-size: 16px;">Lst_Dictionary_Type</span>
+            </a>
+        </li>
+        <li class="nav-item" role="presentation">
+            <a style="cursor: pointer;" class="nav-link" id="tab-Close" data-bs-toggle="tab" (click)="Close()"
+               role="tab" aria-controls="Close" aria-selected="false">
+                <span class="badge bg-danger" style="font-size: 16px;"><i class="bi bi-x-lg"></i></span>
+            </a>
+        </li>
+    </ul>
+    <div class="tab-content" id="customTabContent">
+        <div class="tab-pane fade show active" id="Lst_Dictionary_TypeDetail" role="tabpanel">
+            <div class="row gx-4">
+                <div class="col-lg-6 col-sm-12 col-12">
+                    <a style="width: 100%;" title="Lưu thay đổi" (click)="Lst_Dictionary_TypeSave()" class="btn btn-info">
+                        <i class="bi bi-sd-card"></i> Lưu thay đổi
+                    </a>
+                </div>
+                <div class="col-lg-6 col-sm-12 col-12">
+                </div>
+            </div>
+            <div class="row gx-4">
+                <div class="col-lg-4 col-sm-12 col-12">
+                    <div class="col-lg-12 col-sm-12 col-12">
+<label class="form-label">Dictionary_Type_Id</label>
+<input name="Dictionary_Type_Id" [(ngModel)]="Lst_Dictionary_TypeService.FormData.Dictionary_Type_Id" placeholder="Dictionary_Type_Id" type="text" class="form-control">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label class="form-label">Dictionary_Type_Code</label>
+<input name="Dictionary_Type_Code" [(ngModel)]="Lst_Dictionary_TypeService.FormData.Dictionary_Type_Code" placeholder="Dictionary_Type_Code" type="text" class="form-control">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label class="form-label">Dictionary_Type_Name</label>
+<input name="Dictionary_Type_Name" [(ngModel)]="Lst_Dictionary_TypeService.FormData.Dictionary_Type_Name" placeholder="Dictionary_Type_Name" type="text" class="form-control">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label class="form-label">Dictionary_Type_Name_En</label>
+<input name="Dictionary_Type_Name_En" [(ngModel)]="Lst_Dictionary_TypeService.FormData.Dictionary_Type_Name_En" placeholder="Dictionary_Type_Name_En" type="text" class="form-control">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label class="form-label">Dictionary_Type_Name_Ru</label>
+<input name="Dictionary_Type_Name_Ru" [(ngModel)]="Lst_Dictionary_TypeService.FormData.Dictionary_Type_Name_Ru" placeholder="Dictionary_Type_Name_Ru" type="text" class="form-control">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label class="form-label">Level</label>
+<input name="Level" [(ngModel)]="Lst_Dictionary_TypeService.FormData.Level" placeholder="Level" type="text" class="form-control">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label class="form-label">Parent_Id</label>
+<input name="Parent_Id" [(ngModel)]="Lst_Dictionary_TypeService.FormData.Parent_Id" placeholder="Parent_Id" type="text" class="form-control">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label class="form-label">Idx</label>
+<input name="Idx" [(ngModel)]="Lst_Dictionary_TypeService.FormData.Idx" placeholder="Idx" type="text" class="form-control">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label class="form-label">Table_Name</label>
+<input name="Table_Name" [(ngModel)]="Lst_Dictionary_TypeService.FormData.Table_Name" placeholder="Table_Name" type="text" class="form-control">
+</div>
+                   
+                </div>
+                <div class="col-lg-4 col-sm-12 col-12">
+                    <div class="col-lg-12 col-sm-12 col-12">
+<label class="form-label">Procedure_Name</label>
+<input name="Procedure_Name" [(ngModel)]="Lst_Dictionary_TypeService.FormData.Procedure_Name" placeholder="Procedure_Name" type="text" class="form-control">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label class="form-label">UsingColumns</label>
+<input name="UsingColumns" [(ngModel)]="Lst_Dictionary_TypeService.FormData.UsingColumns" placeholder="UsingColumns" type="text" class="form-control">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label class="form-label">ListOfValueColumns</label>
+<input name="ListOfValueColumns" [(ngModel)]="Lst_Dictionary_TypeService.FormData.ListOfValueColumns" placeholder="ListOfValueColumns" type="text" class="form-control">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label class="form-label">ComboBoxColumns</label>
+<input name="ComboBoxColumns" [(ngModel)]="Lst_Dictionary_TypeService.FormData.ComboBoxColumns" placeholder="ComboBoxColumns" type="text" class="form-control">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label class="form-label">RequiredColumns</label>
+<input name="RequiredColumns" [(ngModel)]="Lst_Dictionary_TypeService.FormData.RequiredColumns" placeholder="RequiredColumns" type="text" class="form-control">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label class="form-label">Enabled</label>
+<input name="Enabled" [(ngModel)]="Lst_Dictionary_TypeService.FormData.Enabled" placeholder="Enabled" type="text" class="form-control">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label class="form-label">LoadControl</label>
+<input name="LoadControl" [(ngModel)]="Lst_Dictionary_TypeService.FormData.LoadControl" placeholder="LoadControl" type="text" class="form-control">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label class="form-label">IsSystem</label>
+<input name="IsSystem" [(ngModel)]="Lst_Dictionary_TypeService.FormData.IsSystem" placeholder="IsSystem" type="text" class="form-control">
+</div>
+
+                </div>
+                <div class="col-lg-4 col-sm-12 col-12">
+                    <div class="col-lg-12 col-sm-12 col-12">
+<label class="form-label">Attribute1</label>
+<input name="Attribute1" [(ngModel)]="Lst_Dictionary_TypeService.FormData.Attribute1" placeholder="Attribute1" type="text" class="form-control">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label class="form-label">Attribute2</label>
+<input name="Attribute2" [(ngModel)]="Lst_Dictionary_TypeService.FormData.Attribute2" placeholder="Attribute2" type="text" class="form-control">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label class="form-label">Creation_Date</label>
+<input name="Creation_Date" [(ngModel)]="Lst_Dictionary_TypeService.FormData.Creation_Date" placeholder="Creation_Date" type="text" class="form-control">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label class="form-label">Created_By</label>
+<input name="Created_By" [(ngModel)]="Lst_Dictionary_TypeService.FormData.Created_By" placeholder="Created_By" type="text" class="form-control">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label class="form-label">Last_Update_Date</label>
+<input name="Last_Update_Date" [(ngModel)]="Lst_Dictionary_TypeService.FormData.Last_Update_Date" placeholder="Last_Update_Date" type="text" class="form-control">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label class="form-label">Last_Updated_By</label>
+<input name="Last_Updated_By" [(ngModel)]="Lst_Dictionary_TypeService.FormData.Last_Updated_By" placeholder="Last_Updated_By" type="text" class="form-control">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label class="form-label">ShowRowNumberValue</label>
+<input name="ShowRowNumberValue" [(ngModel)]="Lst_Dictionary_TypeService.FormData.ShowRowNumberValue" placeholder="ShowRowNumberValue" type="text" class="form-control">
+</div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-loading *ngIf="Lst_Dictionary_TypeService.IsShowLoading"></app-loading>

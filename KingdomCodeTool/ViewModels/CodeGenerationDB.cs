@@ -14,14 +14,21 @@
         //Get Table Name from DataBases SQL Server
         public static DataTable GetTableNames(string connectionString)
         {
-            using (SqlConnection cn = new SqlConnection(connectionString))
+            DataTable dataTable = new DataTable();
+            try
             {
-                string sql = "select name from sys.tables order by name";
-                SqlDataAdapter adapter = new SqlDataAdapter(sql, cn);
-                DataTable dataTable = new DataTable();
-                adapter.Fill(dataTable);
-                return dataTable;
+                using (SqlConnection cn = new SqlConnection(connectionString))
+                {
+                    string sql = "select name from sys.tables order by name";
+                    SqlDataAdapter adapter = new SqlDataAdapter(sql, cn);
+                    adapter.Fill(dataTable);                    
+                }
             }
+            catch (Exception ex)
+            {
+                string message = ex.Message;
+            }
+            return dataTable;
         }
         //************************BEGIN**************************
         //Get Table Column Name from Table by Table Name SQL Server

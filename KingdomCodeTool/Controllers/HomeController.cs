@@ -21,8 +21,9 @@ namespace KingdomCodeTool.Controllers
         public IActionResult Index()
         {
             BaseViewModel model = new BaseViewModel();
-            model.ConnectionString = "Server=DESKTOP-GT1PCNF;Database=BenhVienDaKhoaDongNai2025;Persist Security Info=False;User ID=sa; Password=DongNai@123;MultipleActiveResultSets=False;Encrypt=False;TrustServerCertificate=False;Connection Timeout=30;";
-
+            //model.ConnectionString = "Server=DESKTOP-GT1PCNF;Database=BenhVienDaKhoaDongNai2025;Persist Security Info=False;User ID=sa; Password=DongNai@123;MultipleActiveResultSets=False;Encrypt=False;TrustServerCertificate=False;Connection Timeout=30;";
+            model.ConnectionString = "Server=10.84.2.8\\SQLDB;Database=eHospital_DongNai_A_Dictionary;User Id=ToolEhos;Password=tooltehpt;";
+            //model.ConnectionString = "Server=10.84.2.8\\SQLDB;Database=eHospital_DongNai_A;User Id=sa;Password=cntt@1234554321;";
             var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(model.ConnectionString);
             model.Base64Encode = System.Convert.ToBase64String(plainTextBytes);
 

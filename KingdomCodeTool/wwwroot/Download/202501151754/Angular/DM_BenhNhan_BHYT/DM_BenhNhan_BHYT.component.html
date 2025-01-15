@@ -1,0 +1,275 @@
+﻿<div class="app-body">
+    <div class="row">
+        <div class="col-xxl-12">
+            <div class="card" style="margin-left: 1px;">
+                <div class="card-body">
+                    <div class="custom-tabs-container">
+                        <ul class="nav nav-tabs justify-content-end" id="customTab5" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link active" id="tab-DM_BenhNhan_BHYT" data-bs-toggle="tab" href="#DM_BenhNhan_BHYT"
+                                   role="tab" aria-controls="DM_BenhNhan_BHYT" aria-selected="true">
+                                    <span class="badge bg-info" style="font-size: 16px;">DM_BenhNhan_BHYT</span>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="tab-content" id="customTabContent">
+                            <div class="tab-pane fade show active" id="DM_BenhNhan_BHYT" role="tabpanel">
+                                <div class="row gx-4">
+                                    <div class="col-lg-11 col-sm-12 col-12">
+                                        <input [(ngModel)]="DM_BenhNhan_BHYTService.BaseParameter.SearchString"
+                                               placeholder="Tìm ..." class="form-control"
+                                               (keyup.enter)="DM_BenhNhan_BHYTSearch()">
+                                    </div>
+                                    <div class="col-lg-1 col-sm-12 col-12">
+                                        <a style="width: 100%;" class="btn btn-success" title="Tìm"
+                                           (click)="DM_BenhNhan_BHYTSearch()"><i class="bi bi-search"></i></a>
+                                    </div>                                   
+                                </div>
+                                <div class="card mb-4 card-info">
+                                    <div class="card-header">
+                                        <h5 class="card-title text-white">
+                                            Danh sách
+                                            <span *ngIf="DM_BenhNhan_BHYTService.List">
+                                                ({{DM_BenhNhan_BHYTService.List.length}}
+                                                items)
+                                            </span>
+                                        </h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="table-outer">
+                                            <div class="table-responsive">
+                                                <table *ngIf="!NotificationService.IsMobile" mat-table matSort
+                                                       #DM_BenhNhan_BHYTSort="matSort" [dataSource]="DM_BenhNhan_BHYTService.DataSource"
+                                                       class="table table-striped m-0">
+                                                    <ng-container matColumnDef="Save">
+                                                        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                                                        </th>
+                                                        <td mat-cell *matCellDef="let element">
+                                                            <a class="btn btn-success"
+                                                               (click)="DM_BenhNhan_BHYTAdd(element)">
+                                                                <i class="bi bi-sd-card"></i>
+                                                            </a>
+                                                        </td>
+                                                    </ng-container>
+                                                    <ng-container matColumnDef="STT">
+                                                        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                                                            No
+                                                        </th>
+                                                        <td mat-cell *matCellDef="let element; index as i;"
+                                                            style="text-align: center;">
+                                                            <div *ngIf="DM_BenhNhan_BHYTPaginator">
+                                                                {{
+                                                                DM_BenhNhan_BHYTPaginator.pageSize *
+                                                                DM_BenhNhan_BHYTPaginator.pageIndex + i + 1
+                                                                }}
+                                                            </div>
+                                                        </td>
+                                                    </ng-container>
+                                                    <ng-container matColumnDef="BenhNhan_BHYT_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>BenhNhan_BHYT_Id</th>
+<td mat-cell *matCellDef="let element">{{element.BenhNhan_BHYT_Id}}</td>
+</ng-container>
+<ng-container matColumnDef="BenhNhan_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>BenhNhan_Id</th>
+<td mat-cell *matCellDef="let element">{{element.BenhNhan_Id}}</td>
+</ng-container>
+<ng-container matColumnDef="LoaiBHYT">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>LoaiBHYT</th>
+<td mat-cell *matCellDef="let element">{{element.LoaiBHYT}}</td>
+</ng-container>
+<ng-container matColumnDef="SoThe">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>SoThe</th>
+<td mat-cell *matCellDef="let element">{{element.SoThe}}</td>
+</ng-container>
+<ng-container matColumnDef="NgayCap">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>NgayCap</th>
+<td mat-cell *matCellDef="let element">{{element.NgayCap}}</td>
+</ng-container>
+<ng-container matColumnDef="NgayHieuLuc">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>NgayHieuLuc</th>
+<td mat-cell *matCellDef="let element">{{element.NgayHieuLuc}}</td>
+</ng-container>
+<ng-container matColumnDef="NgayHetHieuLuc">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>NgayHetHieuLuc</th>
+<td mat-cell *matCellDef="let element">{{element.NgayHetHieuLuc}}</td>
+</ng-container>
+<ng-container matColumnDef="TinhThanh_CapThe_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>TinhThanh_CapThe_Id</th>
+<td mat-cell *matCellDef="let element">{{element.TinhThanh_CapThe_Id}}</td>
+</ng-container>
+<ng-container matColumnDef="BenhVien_KCB_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>BenhVien_KCB_Id</th>
+<td mat-cell *matCellDef="let element">{{element.BenhVien_KCB_Id}}</td>
+</ng-container>
+<ng-container matColumnDef="TamNgung">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>TamNgung</th>
+<td mat-cell *matCellDef="let element">{{element.TamNgung}}</td>
+</ng-container>
+<ng-container matColumnDef="NgayTao">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>NgayTao</th>
+<td mat-cell *matCellDef="let element">{{element.NgayTao}}</td>
+</ng-container>
+<ng-container matColumnDef="NguoiTao_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>NguoiTao_Id</th>
+<td mat-cell *matCellDef="let element">{{element.NguoiTao_Id}}</td>
+</ng-container>
+<ng-container matColumnDef="NgayCapNhat">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>NgayCapNhat</th>
+<td mat-cell *matCellDef="let element">{{element.NgayCapNhat}}</td>
+</ng-container>
+<ng-container matColumnDef="NguoiCapNhat_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>NguoiCapNhat_Id</th>
+<td mat-cell *matCellDef="let element">{{element.NguoiCapNhat_Id}}</td>
+</ng-container>
+<ng-container matColumnDef="Tren3Nam">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Tren3Nam</th>
+<td mat-cell *matCellDef="let element">{{element.Tren3Nam}}</td>
+</ng-container>
+<ng-container matColumnDef="Tren6Thang">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Tren6Thang</th>
+<td mat-cell *matCellDef="let element">{{element.Tren6Thang}}</td>
+</ng-container>
+<ng-container matColumnDef="NgayHuong5Nam">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>NgayHuong5Nam</th>
+<td mat-cell *matCellDef="let element">{{element.NgayHuong5Nam}}</td>
+</ng-container>
+
+                                                    <tr mat-header-row
+                                                        *matHeaderRowDef="DM_BenhNhan_BHYTService.DisplayColumns001">
+                                                    </tr>
+                                                    <tr mat-row
+                                                        *matRowDef="let row; columns: DM_BenhNhan_BHYTService.DisplayColumns001;">
+                                                    </tr>
+                                                </table>
+                                                <mat-paginator *ngIf="!NotificationService.IsMobile"
+                                                               #DM_BenhNhan_BHYTPaginator="matPaginator"
+                                                               [pageSizeOptions]="[10,20,50,100]" [pageSize]="6"
+                                                               [showFirstLastButtons]></mat-paginator>
+                                                <table *ngIf="NotificationService.IsMobile" mat-table matSort
+                                                       #DM_BenhNhan_BHYTSort="matSort" [dataSource]="DM_BenhNhan_BHYTService.DataSource"
+                                                       class="table table-striped m-0">
+                                                    <ng-container matColumnDef="STT">
+                                                        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                                                            Danh sách
+                                                        </th>
+                                                        <td mat-cell *matCellDef="let element; index as i;">
+                                                            <div class="row gx-4">
+                                                                <div class="col-lg-12 col-sm-12 col-12">
+                                                                    <a class="btn btn-success" style="width: 100%;"
+                                                                       (click)="DM_BenhNhan_BHYTAdd(0)">
+                                                                        <i class="bi bi-sd-card"></i>
+                                                                    </a>
+                                                                </div>
+                                                                <div class="col-lg-12 col-sm-12 col-12">
+<label>BenhNhan_BHYT_Id</label>
+<br />
+<label class="form-label">{{element.BenhNhan_BHYT_Id}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>BenhNhan_Id</label>
+<br />
+<label class="form-label">{{element.BenhNhan_Id}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>LoaiBHYT</label>
+<br />
+<label class="form-label">{{element.LoaiBHYT}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>SoThe</label>
+<br />
+<label class="form-label">{{element.SoThe}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>NgayCap</label>
+<br />
+<label class="form-label">{{element.NgayCap}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>NgayHieuLuc</label>
+<br />
+<label class="form-label">{{element.NgayHieuLuc}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>NgayHetHieuLuc</label>
+<br />
+<label class="form-label">{{element.NgayHetHieuLuc}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>TinhThanh_CapThe_Id</label>
+<br />
+<label class="form-label">{{element.TinhThanh_CapThe_Id}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>BenhVien_KCB_Id</label>
+<br />
+<label class="form-label">{{element.BenhVien_KCB_Id}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>TamNgung</label>
+<br />
+<label class="form-label">{{element.TamNgung}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>NgayTao</label>
+<br />
+<label class="form-label">{{element.NgayTao}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>NguoiTao_Id</label>
+<br />
+<label class="form-label">{{element.NguoiTao_Id}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>NgayCapNhat</label>
+<br />
+<label class="form-label">{{element.NgayCapNhat}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>NguoiCapNhat_Id</label>
+<br />
+<label class="form-label">{{element.NguoiCapNhat_Id}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>Tren3Nam</label>
+<br />
+<label class="form-label">{{element.Tren3Nam}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>Tren6Thang</label>
+<br />
+<label class="form-label">{{element.Tren6Thang}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>NgayHuong5Nam</label>
+<br />
+<label class="form-label">{{element.NgayHuong5Nam}}</label>
+</div>
+
+                                                            </div>
+                                                        </td>
+                                                    </ng-container>
+                                                    <tr mat-header-row
+                                                        *matHeaderRowDef="DM_BenhNhan_BHYTService.DisplayColumnsMobile">
+                                                    </tr>
+                                                    <tr mat-row
+                                                        *matRowDef="let row; columns: DM_BenhNhan_BHYTService.DisplayColumnsMobile;">
+                                                    </tr>
+                                                </table>
+                                                <mat-paginator *ngIf="NotificationService.IsMobile"
+                                                               #DM_BenhNhan_BHYTPaginator="matPaginator"
+                                                               [pageSizeOptions]="[10,20,50,100]" [pageSize]="10000"
+                                                               [showFirstLastButtons]></mat-paginator>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-loading *ngIf="DM_BenhNhan_BHYTService.IsShowLoading"></app-loading>

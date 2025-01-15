@@ -1,0 +1,76 @@
+﻿import { Base } from "./Base.model";
+
+export class DM_BenhNhan extends Base{
+BenhNhan_Id?: number;
+MaYTe?: string;
+MaBenhVien?: string;
+SoVaoVien?: string;
+TenBenhNhan?: string;
+Ho?: string;
+Ten?: string;
+GioiTinh?: string;
+NgaySinh?: Date;
+NamSinh?: number;
+SoNha?: string;
+DiaChi?: string;
+NhomMau_Id?: number;
+YeuToRh_Id?: number;
+TienSuDiUng?: string;
+SoLuuTruNgoaiTru?: string;
+SoLuuTruNoiTru?: string;
+QuocTich_Id?: number;
+TinhThanh_Id?: number;
+QuanHuyen_Id?: number;
+XaPhuong_Id?: number;
+DanToc_Id?: number;
+NgheNghiep_Id?: number;
+VietKieu?: boolean;
+NguoiNuocNgoai?: boolean;
+CMND?: string;
+HoChieu?: string;
+TenKhongDau?: string;
+GhiChu?: string;
+NgayTao?: Date;
+NguoiTao_Id?: number;
+NgayCapNhat?: Date;
+NguoiCapNhat_Id?: number;
+NgayCapThe?: Date;
+NamCapThe?: number;
+ThoiGianCapThe?: Date;
+NhanVien_Id?: number;
+TienSuBenh?: string;
+TienSuHutThuocLa?: string;
+DonViCongTac_Id?: number;
+SoDienThoai?: string;
+DiaChiThuongTru?: string;
+DiaChiLienLac?: string;
+Email?: string;
+DiaChiCoQuan?: string;
+TuVong?: boolean;
+NgayTuVong?: Date;
+ThoiGianTuVong?: Date;
+NguyenNhanTuVong_Id?: number;
+NguoiGhiNhanTuVong_Id?: number;
+ThoiGianGhiNhanTuVong?: Date;
+CountNotes?: number;
+ngaytaobenhnhan?: Date;
+TinhTrangHonNhan_Id?: number;
+MoiQuanHe_Id?: number;
+DienThoaiBan?: string;
+NguoiLienHe?: string;
+DienThoai_NLH?: string;
+SiteCode?: string;
+Mapping_Public_Id?: number;
+MaDinhDanh_PID?: string;
+Status_PID?: number;
+CMND_NgayCap?: Date;
+CMND_NoiCap?: string;
+SoBHXH?: string;
+SoBHXH_NgayCap?: Date;
+TenCha?: string;
+TenMe?: string;
+TenVoChong?: string;
+
+}
+
+

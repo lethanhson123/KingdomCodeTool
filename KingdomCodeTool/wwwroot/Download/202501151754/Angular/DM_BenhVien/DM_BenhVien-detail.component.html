@@ -1,0 +1,113 @@
+﻿<div class="custom-tabs-container">
+    <ul class="nav nav-tabs justify-content-end" id="customTab5" role="tablist">
+        <li class="nav-item" role="presentation">
+            <a class="nav-link active" id="tab-DM_BenhVienDetail" data-bs-toggle="tab" href="#DM_BenhVienDetail" role="tab"
+               aria-controls="DM_BenhVienDetail" aria-selected="true">
+                <span class="badge bg-info" style="font-size: 16px;">DM_BenhVien</span>
+            </a>
+        </li>
+        <li class="nav-item" role="presentation">
+            <a style="cursor: pointer;" class="nav-link" id="tab-Close" data-bs-toggle="tab" (click)="Close()"
+               role="tab" aria-controls="Close" aria-selected="false">
+                <span class="badge bg-danger" style="font-size: 16px;"><i class="bi bi-x-lg"></i></span>
+            </a>
+        </li>
+    </ul>
+    <div class="tab-content" id="customTabContent">
+        <div class="tab-pane fade show active" id="DM_BenhVienDetail" role="tabpanel">
+            <div class="row gx-4">
+                <div class="col-lg-6 col-sm-12 col-12">
+                    <a style="width: 100%;" title="Lưu thay đổi" (click)="DM_BenhVienSave()" class="btn btn-info">
+                        <i class="bi bi-sd-card"></i> Lưu thay đổi
+                    </a>
+                </div>
+                <div class="col-lg-6 col-sm-12 col-12">
+                </div>
+            </div>
+            <div class="row gx-4">
+                <div class="col-lg-4 col-sm-12 col-12">
+                    <div class="col-lg-12 col-sm-12 col-12">
+<label class="form-label">BenhVien_Id</label>
+<input name="BenhVien_Id" [(ngModel)]="DM_BenhVienService.FormData.BenhVien_Id" placeholder="BenhVien_Id" type="text" class="form-control">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label class="form-label">MaBenhVien</label>
+<input name="MaBenhVien" [(ngModel)]="DM_BenhVienService.FormData.MaBenhVien" placeholder="MaBenhVien" type="text" class="form-control">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label class="form-label">TenBenhVien</label>
+<input name="TenBenhVien" [(ngModel)]="DM_BenhVienService.FormData.TenBenhVien" placeholder="TenBenhVien" type="text" class="form-control">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label class="form-label">TenBenhVien_En</label>
+<input name="TenBenhVien_En" [(ngModel)]="DM_BenhVienService.FormData.TenBenhVien_En" placeholder="TenBenhVien_En" type="text" class="form-control">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label class="form-label">TenBenhVien_Ru</label>
+<input name="TenBenhVien_Ru" [(ngModel)]="DM_BenhVienService.FormData.TenBenhVien_Ru" placeholder="TenBenhVien_Ru" type="text" class="form-control">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label class="form-label">DiaChi</label>
+<input name="DiaChi" [(ngModel)]="DM_BenhVienService.FormData.DiaChi" placeholder="DiaChi" type="text" class="form-control">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label class="form-label">Hang_Id</label>
+<input name="Hang_Id" [(ngModel)]="DM_BenhVienService.FormData.Hang_Id" placeholder="Hang_Id" type="text" class="form-control">
+</div>
+                   
+                </div>
+                <div class="col-lg-4 col-sm-12 col-12">
+                    <div class="col-lg-12 col-sm-12 col-12">
+<label class="form-label">Loai_Id</label>
+<input name="Loai_Id" [(ngModel)]="DM_BenhVienService.FormData.Loai_Id" placeholder="Loai_Id" type="text" class="form-control">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label class="form-label">Tuyen_Id</label>
+<input name="Tuyen_Id" [(ngModel)]="DM_BenhVienService.FormData.Tuyen_Id" placeholder="Tuyen_Id" type="text" class="form-control">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label class="form-label">CapQuanLy_Id</label>
+<input name="CapQuanLy_Id" [(ngModel)]="DM_BenhVienService.FormData.CapQuanLy_Id" placeholder="CapQuanLy_Id" type="text" class="form-control">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label class="form-label">TinhThanhPho_Id</label>
+<input name="TinhThanhPho_Id" [(ngModel)]="DM_BenhVienService.FormData.TinhThanhPho_Id" placeholder="TinhThanhPho_Id" type="text" class="form-control">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label class="form-label">TamNgung</label>
+<input name="TamNgung" [(ngModel)]="DM_BenhVienService.FormData.TamNgung" placeholder="TamNgung" type="text" class="form-control">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label class="form-label">NgayTao</label>
+<input name="NgayTao" [(ngModel)]="DM_BenhVienService.FormData.NgayTao" placeholder="NgayTao" type="text" class="form-control">
+</div>
+
+                </div>
+                <div class="col-lg-4 col-sm-12 col-12">
+                    <div class="col-lg-12 col-sm-12 col-12">
+<label class="form-label">NguoiTao_Id</label>
+<input name="NguoiTao_Id" [(ngModel)]="DM_BenhVienService.FormData.NguoiTao_Id" placeholder="NguoiTao_Id" type="text" class="form-control">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label class="form-label">NgayCapNhat</label>
+<input name="NgayCapNhat" [(ngModel)]="DM_BenhVienService.FormData.NgayCapNhat" placeholder="NgayCapNhat" type="text" class="form-control">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label class="form-label">NguoiCapNhat_Id</label>
+<input name="NguoiCapNhat_Id" [(ngModel)]="DM_BenhVienService.FormData.NguoiCapNhat_Id" placeholder="NguoiCapNhat_Id" type="text" class="form-control">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label class="form-label">SiteCode</label>
+<input name="SiteCode" [(ngModel)]="DM_BenhVienService.FormData.SiteCode" placeholder="SiteCode" type="text" class="form-control">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label class="form-label">Mapping_Public_Id</label>
+<input name="Mapping_Public_Id" [(ngModel)]="DM_BenhVienService.FormData.Mapping_Public_Id" placeholder="Mapping_Public_Id" type="text" class="form-control">
+</div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-loading *ngIf="DM_BenhVienService.IsShowLoading"></app-loading>
