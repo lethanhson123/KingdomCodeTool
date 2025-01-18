@@ -44,7 +44,7 @@ namespace KingdomCodeTool.Controllers
             }
             return listResult;
         }
-        public List<string> CreateCode(string connectionString, string listIndex)
+        public List<string> CreateCode(string connectionString, string listIndex, string SpaceName)
         {
             string HTML = "HTML";
             string Now = DateTime.Now.ToString("yyyyMMddHHmm");
@@ -58,6 +58,11 @@ namespace KingdomCodeTool.Controllers
             List<string> list = new List<string>();
             string domain = "http://localhost:5100/";
             DataTable listTable = CodeGeneration.GetTableNames(connectionString);
+
+            StringBuilder ListModel = new StringBuilder();
+            StringBuilder ListService = new StringBuilder();
+            StringBuilder ListRepository = new StringBuilder();
+
             for (int i = 0; i < listTable.Rows.Count; i++)
             {
                 foreach (string index in listIndex.Split(';'))
@@ -67,6 +72,10 @@ namespace KingdomCodeTool.Controllers
                         if (int.Parse(index) == i)
                         {
                             string className = (string)listTable.Rows[i]["Name"];
+
+                            ListModel.AppendLine(@"public virtual DbSet<" + className + @"> " + className + " { get; set; }");
+                            ListService.AppendLine(@"services.AddTransient<I"+ className + @"Service, "+ className + @"Service>();");
+                            ListRepository.AppendLine(@"services.AddTransient<I" + className + @"Repository, " + className + "Repository>();");
 
                             //Model
                             string content = Path.Combine(_WebHostEnvironment.WebRootPath, HTML, "Model.html");
@@ -90,6 +99,7 @@ namespace KingdomCodeTool.Controllers
                             StringBuilder AngularDetail003 = new StringBuilder();
                             StringBuilder AngularContainerInline = new StringBuilder();
 
+
                             AngularDisplayColumns001.Append(@"DisplayColumns001: string[] = ['Save', 'STT'");
 
                             int count = dtItems.Rows.Count / 3;
@@ -98,6 +108,8 @@ namespace KingdomCodeTool.Controllers
                             {
                                 string COLUMN_NAME = (string)row["COLUMN_NAME"];
                                 string DATA_TYPE = (string)row["DATA_TYPE"];
+
+
 
                                 modelItems.AppendLine("public " + CodeGeneration.Convert(DATA_TYPE) + "? " + COLUMN_NAME + " { get; set; }");
                                 modelAngularItems.AppendLine(COLUMN_NAME + "?: " + CodeGeneration.ConvertAngular(DATA_TYPE) + ";");
@@ -150,6 +162,7 @@ namespace KingdomCodeTool.Controllers
                             AngularDisplayColumns001.Append(@"];");
 
                             content = content.Replace("[ClassName]", className);
+                            content = content.Replace("[SpaceName]", SpaceName);
                             content = content.Replace("[Items]", modelItems.ToString());
                             string fileName = className + ".cs";
 
@@ -179,6 +192,7 @@ namespace KingdomCodeTool.Controllers
                                 }
                             }
                             content = content.Replace("[ClassName]", className);
+                            content = content.Replace("[SpaceName]", SpaceName);
                             fileName = className + "Repository.cs";
 
                             folderPath = Path.Combine(folderPathRoot, "Repository", "Implement");
@@ -207,6 +221,7 @@ namespace KingdomCodeTool.Controllers
                                 }
                             }
                             content = content.Replace("[ClassName]", className);
+                            content = content.Replace("[SpaceName]", SpaceName);
                             fileName = "I" + className + "Repository.cs";
 
                             folderPath = Path.Combine(folderPathRoot, "Repository", "Interface");
@@ -235,6 +250,7 @@ namespace KingdomCodeTool.Controllers
                                 }
                             }
                             content = content.Replace("[ClassName]", className);
+                            content = content.Replace("[SpaceName]", SpaceName);
                             fileName = className + "Service.cs";
 
                             folderPath = Path.Combine(folderPathRoot, "Service", "Implement");
@@ -263,6 +279,7 @@ namespace KingdomCodeTool.Controllers
                                 }
                             }
                             content = content.Replace("[ClassName]", className);
+                            content = content.Replace("[SpaceName]", SpaceName);
                             fileName = "I" + className + "Service.cs";
 
                             folderPath = Path.Combine(folderPathRoot, "Service", "Interface");
@@ -291,6 +308,7 @@ namespace KingdomCodeTool.Controllers
                                 }
                             }
                             content = content.Replace("[ClassName]", className);
+                            content = content.Replace("[SpaceName]", SpaceName);
                             fileName = className + "Controller.cs";
 
                             folderPath = Path.Combine(folderPathRoot, "Controller");
@@ -544,6 +562,68 @@ namespace KingdomCodeTool.Controllers
                     }
                 }
             }
+
+
+            //Context
+            string content001 = Path.Combine(_WebHostEnvironment.WebRootPath, HTML, "Context.html");
+            using (FileStream fs = new FileStream(content001, FileMode.Open))
+            {
+                using (StreamReader r = new StreamReader(fs, Encoding.UTF8))
+                {
+                    content001 = r.ReadToEnd();
+                }
+            }
+            content001 = content001.Replace("[ListModel]", ListModel.ToString());
+            content001 = content001.Replace("[SpaceName]", SpaceName);
+            string fileName001 = "Context.cs";
+
+            string folderPath001 = Path.Combine(folderPathRoot);
+            Directory.CreateDirectory(folderPath001);
+            isFolderExists = System.IO.Directory.Exists(folderPath001);
+            if (!isFolderExists)
+            {
+                System.IO.Directory.CreateDirectory(folderPath001);
+            }
+            string path001 = Path.Combine(folderPath001, fileName001);
+            using (FileStream fs = new FileStream(path001, FileMode.Create))
+            {
+                using (StreamWriter w = new StreamWriter(fs, Encoding.UTF8))
+                {
+                    w.WriteLine(content001);
+                }
+            }
+
+            //ConfigureService
+            content001 = Path.Combine(_WebHostEnvironment.WebRootPath, HTML, "ConfigureService.html");
+            using (FileStream fs = new FileStream(content001, FileMode.Open))
+            {
+                using (StreamReader r = new StreamReader(fs, Encoding.UTF8))
+                {
+                    content001 = r.ReadToEnd();
+                }
+            }
+            content001 = content001.Replace("[ListService]", ListService.ToString());
+            content001 = content001.Replace("[ListRepository]", ListRepository.ToString());
+            content001 = content001.Replace("[SpaceName]", SpaceName);
+            fileName001 = "ConfigureService.cs";
+
+            folderPath001 = Path.Combine(folderPathRoot);
+            Directory.CreateDirectory(folderPath001);
+            isFolderExists = System.IO.Directory.Exists(folderPath001);
+            if (!isFolderExists)
+            {
+                System.IO.Directory.CreateDirectory(folderPath001);
+            }
+            path001 = Path.Combine(folderPath001, fileName001);
+            using (FileStream fs = new FileStream(path001, FileMode.Create))
+            {
+                using (StreamWriter w = new StreamWriter(fs, Encoding.UTF8))
+                {
+                    w.WriteLine(content001);
+                }
+            }
+
+
             string fileNameZIP = Now + ".zip";
             string inputPath = Path.Combine(_WebHostEnvironment.WebRootPath, "Download", Now);
             string outPath = Path.Combine(_WebHostEnvironment.WebRootPath, "Download", fileNameZIP);

@@ -66,15 +66,15 @@
                                 <a (click)="[ClassName]Save(element)" style="color:#2196f3;">
                                     <i class="material-icons">save</i>
                                 </a>
-                                <a *ngIf="element.ID>0" (click)="[ClassName]Delete(element)" style="color: red;">
+                                <a (click)="[ClassName]Delete(element)" style="color: red;">
                                     <i class="material-icons">delete_forever</i>
                                 </a>
                             </td>
                         </ng-container>
                         [AngularContainer]
-                        <tr mat-header-row *matHeaderRowDef="[ClassName]Service.DisplayColumns01">
+                        <tr mat-header-row *matHeaderRowDef="[ClassName]Service.DisplayColumns001">
                         </tr>
-                        <tr mat-row *matRowDef="let row; columns: [ClassName]Service.DisplayColumns01;">
+                        <tr mat-row *matRowDef="let row; columns: [ClassName]Service.DisplayColumns001;">
                         </tr>
                     </table>
                     <mat-paginator *ngIf="!NotificationService.IsMobile" #[ClassName]Paginator="matPaginator"

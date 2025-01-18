@@ -16,11 +16,14 @@
             @(Html.TextBoxFor(Model => Model.ConnectionString, new { placeholder = "Connection String", @class = "form-control" }))
         </div>
         <div class="col-sm-12">
+            @(Html.TextBoxFor(Model => Model.SpaceName, new { placeholder = "Space Name", @class = "form-control" }))
+        </div>
+      @*   <div class="col-sm-12">
             @(Html.TextBoxFor(Model => Model.Base64Encode, new { placeholder = "Connection String", @class = "form-control" }))
         </div>
         <div class="col-sm-12">
             @(Html.TextBoxFor(Model => Model.Base64Decode, new { placeholder = "Connection String", @class = "form-control" }))
-        </div>
+        </div> *@
         <div class="row">
             <div class="col-sm-2">
                 <input type="button" value="Get Tables" id="GetTable" class="btn btn-success" onclick='onGetTableClick()' style="width: 100%;" />
@@ -42,6 +45,7 @@
     var tables;
     function onCreateCodeClick() {
         var connectionString = document.getElementById("ConnectionString").value;
+         var SpaceName = document.getElementById("SpaceName").value;
         var listIndex = "";
         for (let j = 0; j < tables.length; j++) {
             let id = "Table" + j;
@@ -56,7 +60,8 @@
             url: url,
             data: {
                 "connectionString": connectionString,
-                "listIndex": listIndex
+                "listIndex": listIndex,
+                "SpaceName": SpaceName
             },
             contentType: "application/json; charset=utf-8",
             dataType: "json",
