@@ -1,0 +1,116 @@
+﻿<div class="row">
+    <div id="breadcrumbs-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m6 l6">
+                    <h6 class="breadcrumbs-title">
+                        Sys_Configurations
+                        <span *ngIf="Sys_ConfigurationsService.List">({{Sys_ConfigurationsService.List.length-1}} items)</span>
+                    </h6>
+                </div>
+                <div class="col s12 m6 l6 right-align-md">
+                    <ol class="breadcrumbs mb-0">
+                        <li class="breadcrumb-item">
+                            <a href="javascript:history.back()" title="Quay lại">
+                                <<< Quay lại
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/Homepage" title="Trang chủ">Trang chủ</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/ThanhVien" title="Quản trị">Quản trị</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/Sys_Configurations" title="Sys_Configurations">
+                                Sys_Configurations
+                            </a>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col s12 m12 l12">
+        <div class="card card card-default scrollspy">
+            <div class="card-content">
+                <div class="col s12 m12 l11">
+                    <input [(ngModel)]="Sys_ConfigurationsService.BaseParameter.SearchString" placeholder="Tìm ..."
+                           class="form-control" (keyup.enter)="Sys_ConfigurationsSearch()">
+                </div>
+                <div class="col s12 m12 l1">
+                    <a style="color: green;" title="Tìm" (click)="Sys_ConfigurationsSearch()">
+                        <i class="material-icons">play_circle_filled</i>
+                    </a>
+                </div>
+                <div class="KhungOverflow">
+                    <table *ngIf="!NotificationService.IsMobile" mat-table matSort #Sys_ConfigurationsSort="matSort"
+                           [dataSource]="Sys_ConfigurationsService.DataSource">
+                        <ng-container matColumnDef="STT">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                                STT
+                            </th>
+                            <td mat-cell *matCellDef="let element; index as i;">
+                                <div *ngIf="Sys_ConfigurationsPaginator">
+                                    {{
+Sys_ConfigurationsPaginator.pageSize *
+                                    Sys_ConfigurationsPaginator.pageIndex + i + 1
+                                    }}
+                                </div>
+                            </td>
+                        </ng-container>
+                        <ng-container matColumnDef="Save">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                            </th>
+                            <td mat-cell *matCellDef="let element">
+                                <a (click)="Sys_ConfigurationsSave(element)" style="color:#2196f3;">
+                                    <i class="material-icons">save</i>
+                                </a>
+                                <a (click)="Sys_ConfigurationsDelete(element)" style="color: red;">
+                                    <i class="material-icons">delete_forever</i>
+                                </a>
+                            </td>
+                        </ng-container>
+                        <ng-container matColumnDef="AllowNullUserPassword">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>AllowNullUserPassword</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="AllowNullUserPassword" name="AllowNullUserPassword" [(ngModel)]="element.AllowNullUserPassword"></td>
+</ng-container>
+<ng-container matColumnDef="ChangePasswordOnFirstLogon">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ChangePasswordOnFirstLogon</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="ChangePasswordOnFirstLogon" name="ChangePasswordOnFirstLogon" [(ngModel)]="element.ChangePasswordOnFirstLogon"></td>
+</ng-container>
+<ng-container matColumnDef="IsUsingStrongPassword">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>IsUsingStrongPassword</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="IsUsingStrongPassword" name="IsUsingStrongPassword" [(ngModel)]="element.IsUsingStrongPassword"></td>
+</ng-container>
+<ng-container matColumnDef="UserPasswordExpiryDay">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>UserPasswordExpiryDay</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="UserPasswordExpiryDay" name="UserPasswordExpiryDay" [(ngModel)]="element.UserPasswordExpiryDay"></td>
+</ng-container>
+<ng-container matColumnDef="TimesOfHistoryPasswordNotAllow">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>TimesOfHistoryPasswordNotAllow</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="TimesOfHistoryPasswordNotAllow" name="TimesOfHistoryPasswordNotAllow" [(ngModel)]="element.TimesOfHistoryPasswordNotAllow"></td>
+</ng-container>
+<ng-container matColumnDef="MinPasswordLen">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>MinPasswordLen</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="MinPasswordLen" name="MinPasswordLen" [(ngModel)]="element.MinPasswordLen"></td>
+</ng-container>
+<ng-container matColumnDef="PasswordExpiredNotifyDay">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>PasswordExpiredNotifyDay</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="PasswordExpiredNotifyDay" name="PasswordExpiredNotifyDay" [(ngModel)]="element.PasswordExpiredNotifyDay"></td>
+</ng-container>
+
+                        <tr mat-header-row *matHeaderRowDef="Sys_ConfigurationsService.DisplayColumns001">
+                        </tr>
+                        <tr mat-row *matRowDef="let row; columns: Sys_ConfigurationsService.DisplayColumns001;">
+                        </tr>
+                    </table>
+                    <mat-paginator *ngIf="!NotificationService.IsMobile" #Sys_ConfigurationsPaginator="matPaginator"
+                                   [pageSizeOptions]="[10,20,50,100]" [pageSize]="20" [showFirstLastButtons]></mat-paginator>
+                 
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-loading *ngIf="Sys_ConfigurationsService.IsShowLoading"></app-loading>

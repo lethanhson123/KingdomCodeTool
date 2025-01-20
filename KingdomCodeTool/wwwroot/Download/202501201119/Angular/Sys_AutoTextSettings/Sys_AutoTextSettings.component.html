@@ -1,0 +1,120 @@
+﻿<div class="row">
+    <div id="breadcrumbs-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m6 l6">
+                    <h6 class="breadcrumbs-title">
+                        Sys_AutoTextSettings
+                        <span *ngIf="Sys_AutoTextSettingsService.List">({{Sys_AutoTextSettingsService.List.length-1}} items)</span>
+                    </h6>
+                </div>
+                <div class="col s12 m6 l6 right-align-md">
+                    <ol class="breadcrumbs mb-0">
+                        <li class="breadcrumb-item">
+                            <a href="javascript:history.back()" title="Quay lại">
+                                <<< Quay lại
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/Homepage" title="Trang chủ">Trang chủ</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/ThanhVien" title="Quản trị">Quản trị</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/Sys_AutoTextSettings" title="Sys_AutoTextSettings">
+                                Sys_AutoTextSettings
+                            </a>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col s12 m12 l12">
+        <div class="card card card-default scrollspy">
+            <div class="card-content">
+                <div class="col s12 m12 l11">
+                    <input [(ngModel)]="Sys_AutoTextSettingsService.BaseParameter.SearchString" placeholder="Tìm ..."
+                           class="form-control" (keyup.enter)="Sys_AutoTextSettingsSearch()">
+                </div>
+                <div class="col s12 m12 l1">
+                    <a style="color: green;" title="Tìm" (click)="Sys_AutoTextSettingsSearch()">
+                        <i class="material-icons">play_circle_filled</i>
+                    </a>
+                </div>
+                <div class="KhungOverflow">
+                    <table *ngIf="!NotificationService.IsMobile" mat-table matSort #Sys_AutoTextSettingsSort="matSort"
+                           [dataSource]="Sys_AutoTextSettingsService.DataSource">
+                        <ng-container matColumnDef="STT">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                                STT
+                            </th>
+                            <td mat-cell *matCellDef="let element; index as i;">
+                                <div *ngIf="Sys_AutoTextSettingsPaginator">
+                                    {{
+Sys_AutoTextSettingsPaginator.pageSize *
+                                    Sys_AutoTextSettingsPaginator.pageIndex + i + 1
+                                    }}
+                                </div>
+                            </td>
+                        </ng-container>
+                        <ng-container matColumnDef="Save">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                            </th>
+                            <td mat-cell *matCellDef="let element">
+                                <a (click)="Sys_AutoTextSettingsSave(element)" style="color:#2196f3;">
+                                    <i class="material-icons">save</i>
+                                </a>
+                                <a (click)="Sys_AutoTextSettingsDelete(element)" style="color: red;">
+                                    <i class="material-icons">delete_forever</i>
+                                </a>
+                            </td>
+                        </ng-container>
+                        <ng-container matColumnDef="AutoTextSetting_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>AutoTextSetting_Id</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="AutoTextSetting_Id" name="AutoTextSetting_Id" [(ngModel)]="element.AutoTextSetting_Id"></td>
+</ng-container>
+<ng-container matColumnDef="FormFullName">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>FormFullName</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="FormFullName" name="FormFullName" [(ngModel)]="element.FormFullName"></td>
+</ng-container>
+<ng-container matColumnDef="ListOfControlName">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ListOfControlName</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="ListOfControlName" name="ListOfControlName" [(ngModel)]="element.ListOfControlName"></td>
+</ng-container>
+<ng-container matColumnDef="Enabled">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Enabled</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Enabled" name="Enabled" [(ngModel)]="element.Enabled"></td>
+</ng-container>
+<ng-container matColumnDef="Creation_Date">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Creation_Date</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Creation_Date" name="Creation_Date" [(ngModel)]="element.Creation_Date"></td>
+</ng-container>
+<ng-container matColumnDef="Created_By">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Created_By</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Created_By" name="Created_By" [(ngModel)]="element.Created_By"></td>
+</ng-container>
+<ng-container matColumnDef="Last_Update_Date">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Last_Update_Date</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Last_Update_Date" name="Last_Update_Date" [(ngModel)]="element.Last_Update_Date"></td>
+</ng-container>
+<ng-container matColumnDef="Last_Updated_By">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Last_Updated_By</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Last_Updated_By" name="Last_Updated_By" [(ngModel)]="element.Last_Updated_By"></td>
+</ng-container>
+
+                        <tr mat-header-row *matHeaderRowDef="Sys_AutoTextSettingsService.DisplayColumns001">
+                        </tr>
+                        <tr mat-row *matRowDef="let row; columns: Sys_AutoTextSettingsService.DisplayColumns001;">
+                        </tr>
+                    </table>
+                    <mat-paginator *ngIf="!NotificationService.IsMobile" #Sys_AutoTextSettingsPaginator="matPaginator"
+                                   [pageSizeOptions]="[10,20,50,100]" [pageSize]="20" [showFirstLastButtons]></mat-paginator>
+                 
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-loading *ngIf="Sys_AutoTextSettingsService.IsShowLoading"></app-loading>

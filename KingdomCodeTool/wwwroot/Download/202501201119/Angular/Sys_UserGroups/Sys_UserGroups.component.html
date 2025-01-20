@@ -1,0 +1,96 @@
+﻿<div class="row">
+    <div id="breadcrumbs-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m6 l6">
+                    <h6 class="breadcrumbs-title">
+                        Sys_UserGroups
+                        <span *ngIf="Sys_UserGroupsService.List">({{Sys_UserGroupsService.List.length-1}} items)</span>
+                    </h6>
+                </div>
+                <div class="col s12 m6 l6 right-align-md">
+                    <ol class="breadcrumbs mb-0">
+                        <li class="breadcrumb-item">
+                            <a href="javascript:history.back()" title="Quay lại">
+                                <<< Quay lại
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/Homepage" title="Trang chủ">Trang chủ</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/ThanhVien" title="Quản trị">Quản trị</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/Sys_UserGroups" title="Sys_UserGroups">
+                                Sys_UserGroups
+                            </a>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col s12 m12 l12">
+        <div class="card card card-default scrollspy">
+            <div class="card-content">
+                <div class="col s12 m12 l11">
+                    <input [(ngModel)]="Sys_UserGroupsService.BaseParameter.SearchString" placeholder="Tìm ..."
+                           class="form-control" (keyup.enter)="Sys_UserGroupsSearch()">
+                </div>
+                <div class="col s12 m12 l1">
+                    <a style="color: green;" title="Tìm" (click)="Sys_UserGroupsSearch()">
+                        <i class="material-icons">play_circle_filled</i>
+                    </a>
+                </div>
+                <div class="KhungOverflow">
+                    <table *ngIf="!NotificationService.IsMobile" mat-table matSort #Sys_UserGroupsSort="matSort"
+                           [dataSource]="Sys_UserGroupsService.DataSource">
+                        <ng-container matColumnDef="STT">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                                STT
+                            </th>
+                            <td mat-cell *matCellDef="let element; index as i;">
+                                <div *ngIf="Sys_UserGroupsPaginator">
+                                    {{
+Sys_UserGroupsPaginator.pageSize *
+                                    Sys_UserGroupsPaginator.pageIndex + i + 1
+                                    }}
+                                </div>
+                            </td>
+                        </ng-container>
+                        <ng-container matColumnDef="Save">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                            </th>
+                            <td mat-cell *matCellDef="let element">
+                                <a (click)="Sys_UserGroupsSave(element)" style="color:#2196f3;">
+                                    <i class="material-icons">save</i>
+                                </a>
+                                <a (click)="Sys_UserGroupsDelete(element)" style="color: red;">
+                                    <i class="material-icons">delete_forever</i>
+                                </a>
+                            </td>
+                        </ng-container>
+                        <ng-container matColumnDef="User_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>User_Id</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="User_Id" name="User_Id" [(ngModel)]="element.User_Id"></td>
+</ng-container>
+<ng-container matColumnDef="Group_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Group_Id</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Group_Id" name="Group_Id" [(ngModel)]="element.Group_Id"></td>
+</ng-container>
+
+                        <tr mat-header-row *matHeaderRowDef="Sys_UserGroupsService.DisplayColumns001">
+                        </tr>
+                        <tr mat-row *matRowDef="let row; columns: Sys_UserGroupsService.DisplayColumns001;">
+                        </tr>
+                    </table>
+                    <mat-paginator *ngIf="!NotificationService.IsMobile" #Sys_UserGroupsPaginator="matPaginator"
+                                   [pageSizeOptions]="[10,20,50,100]" [pageSize]="20" [showFirstLastButtons]></mat-paginator>
+                 
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-loading *ngIf="Sys_UserGroupsService.IsShowLoading"></app-loading>

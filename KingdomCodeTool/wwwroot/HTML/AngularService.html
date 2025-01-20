@@ -8,6 +8,10 @@ import { BaseService } from './Base.service';
 })
 export class [ClassName]Service extends BaseService{
     [AngularDisplayColumns001]
+
+    List: [ClassName][] | undefined;
+    ListFilter: [ClassName][] | undefined;
+    FormData!: [ClassName];
     constructor(public httpClient: HttpClient) {
         super(httpClient);
         this.Controller = "[ClassName]";

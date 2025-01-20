@@ -23,7 +23,8 @@ namespace KingdomCodeTool.Controllers
             BaseViewModel model = new BaseViewModel();
             //model.ConnectionString = "Server=DESKTOP-GT1PCNF;Database=BenhVienDaKhoaDongNai2025;Persist Security Info=False;User ID=sa; Password=DongNai@123;MultipleActiveResultSets=False;Encrypt=False;TrustServerCertificate=False;Connection Timeout=30;";
             model.ConnectionString = "Server=10.84.2.8\\SQLDB;Database=eHospital_DongNai_A_Dictionary;User Id=ToolEhos;Password=tooltehpt;";
-            //model.ConnectionString = "Server=10.84.2.8\\SQLDB;Database=eHospital_DongNai_A;User Id=sa;Password=cntt@1234554321;";
+            model.ConnectionString = "Server=10.84.2.8\\SQLDB;Database=eHospital_DongNai_A_System;User Id=ToolEhos;Password=tooltehpt;";
+            model.SpaceName = "_" + "eHospital_DongNai_A_System";
             var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(model.ConnectionString);
             model.Base64Encode = System.Convert.ToBase64String(plainTextBytes);
 
@@ -74,7 +75,7 @@ namespace KingdomCodeTool.Controllers
                             string className = (string)listTable.Rows[i]["Name"];
 
                             ListModel.AppendLine(@"public virtual DbSet<" + className + @"> " + className + " { get; set; }");
-                            ListService.AppendLine(@"services.AddTransient<I"+ className + @"Service, "+ className + @"Service>();");
+                            ListService.AppendLine(@"services.AddTransient<I" + className + @"Service, " + className + @"Service>();");
                             ListRepository.AppendLine(@"services.AddTransient<I" + className + @"Repository, " + className + "Repository>();");
 
                             //Model
@@ -541,6 +542,12 @@ namespace KingdomCodeTool.Controllers
                                 }
                             }
                             content = content.Replace("[ClassName]", className);
+                            string SpaceNameSub = SpaceName;
+                            if (!string.IsNullOrEmpty(SpaceNameSub))
+                            {
+                                SpaceNameSub = SpaceNameSub + "/";
+                            }
+                            content = content.Replace("[SpaceName]", SpaceNameSub);
                             fileName = className + ".component.ts";
 
                             folderPath = Path.Combine(folderPathRoot, "Angular", className);

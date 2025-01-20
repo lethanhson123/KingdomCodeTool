@@ -1,0 +1,128 @@
+﻿<div class="row">
+    <div id="breadcrumbs-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m6 l6">
+                    <h6 class="breadcrumbs-title">
+                        Sys_Commands
+                        <span *ngIf="Sys_CommandsService.List">({{Sys_CommandsService.List.length-1}} items)</span>
+                    </h6>
+                </div>
+                <div class="col s12 m6 l6 right-align-md">
+                    <ol class="breadcrumbs mb-0">
+                        <li class="breadcrumb-item">
+                            <a href="javascript:history.back()" title="Quay lại">
+                                <<< Quay lại
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/Homepage" title="Trang chủ">Trang chủ</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/ThanhVien" title="Quản trị">Quản trị</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/Sys_Commands" title="Sys_Commands">
+                                Sys_Commands
+                            </a>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col s12 m12 l12">
+        <div class="card card card-default scrollspy">
+            <div class="card-content">
+                <div class="col s12 m12 l11">
+                    <input [(ngModel)]="Sys_CommandsService.BaseParameter.SearchString" placeholder="Tìm ..."
+                           class="form-control" (keyup.enter)="Sys_CommandsSearch()">
+                </div>
+                <div class="col s12 m12 l1">
+                    <a style="color: green;" title="Tìm" (click)="Sys_CommandsSearch()">
+                        <i class="material-icons">play_circle_filled</i>
+                    </a>
+                </div>
+                <div class="KhungOverflow">
+                    <table *ngIf="!NotificationService.IsMobile" mat-table matSort #Sys_CommandsSort="matSort"
+                           [dataSource]="Sys_CommandsService.DataSource">
+                        <ng-container matColumnDef="STT">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                                STT
+                            </th>
+                            <td mat-cell *matCellDef="let element; index as i;">
+                                <div *ngIf="Sys_CommandsPaginator">
+                                    {{
+Sys_CommandsPaginator.pageSize *
+                                    Sys_CommandsPaginator.pageIndex + i + 1
+                                    }}
+                                </div>
+                            </td>
+                        </ng-container>
+                        <ng-container matColumnDef="Save">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                            </th>
+                            <td mat-cell *matCellDef="let element">
+                                <a (click)="Sys_CommandsSave(element)" style="color:#2196f3;">
+                                    <i class="material-icons">save</i>
+                                </a>
+                                <a (click)="Sys_CommandsDelete(element)" style="color: red;">
+                                    <i class="material-icons">delete_forever</i>
+                                </a>
+                            </td>
+                        </ng-container>
+                        <ng-container matColumnDef="Command_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Command_Id</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Command_Id" name="Command_Id" [(ngModel)]="element.Command_Id"></td>
+</ng-container>
+<ng-container matColumnDef="Command_Name">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Command_Name</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Command_Name" name="Command_Name" [(ngModel)]="element.Command_Name"></td>
+</ng-container>
+<ng-container matColumnDef="Command_Text">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Command_Text</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Command_Text" name="Command_Text" [(ngModel)]="element.Command_Text"></td>
+</ng-container>
+<ng-container matColumnDef="Function_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Function_Id</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Function_Id" name="Function_Id" [(ngModel)]="element.Function_Id"></td>
+</ng-container>
+<ng-container matColumnDef="IsCommandButton">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>IsCommandButton</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="IsCommandButton" name="IsCommandButton" [(ngModel)]="element.IsCommandButton"></td>
+</ng-container>
+<ng-container matColumnDef="IsCommandMenu">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>IsCommandMenu</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="IsCommandMenu" name="IsCommandMenu" [(ngModel)]="element.IsCommandMenu"></td>
+</ng-container>
+<ng-container matColumnDef="IsCommandBar">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>IsCommandBar</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="IsCommandBar" name="IsCommandBar" [(ngModel)]="element.IsCommandBar"></td>
+</ng-container>
+<ng-container matColumnDef="DefaultRight">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DefaultRight</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="DefaultRight" name="DefaultRight" [(ngModel)]="element.DefaultRight"></td>
+</ng-container>
+<ng-container matColumnDef="Enabled">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Enabled</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Enabled" name="Enabled" [(ngModel)]="element.Enabled"></td>
+</ng-container>
+<ng-container matColumnDef="SetPermission">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>SetPermission</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="SetPermission" name="SetPermission" [(ngModel)]="element.SetPermission"></td>
+</ng-container>
+
+                        <tr mat-header-row *matHeaderRowDef="Sys_CommandsService.DisplayColumns001">
+                        </tr>
+                        <tr mat-row *matRowDef="let row; columns: Sys_CommandsService.DisplayColumns001;">
+                        </tr>
+                    </table>
+                    <mat-paginator *ngIf="!NotificationService.IsMobile" #Sys_CommandsPaginator="matPaginator"
+                                   [pageSizeOptions]="[10,20,50,100]" [pageSize]="20" [showFirstLastButtons]></mat-paginator>
+                 
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-loading *ngIf="Sys_CommandsService.IsShowLoading"></app-loading>

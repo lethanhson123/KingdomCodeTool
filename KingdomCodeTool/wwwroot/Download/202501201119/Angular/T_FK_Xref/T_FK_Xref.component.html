@@ -1,0 +1,116 @@
+﻿<div class="row">
+    <div id="breadcrumbs-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m6 l6">
+                    <h6 class="breadcrumbs-title">
+                        T_FK_Xref
+                        <span *ngIf="T_FK_XrefService.List">({{T_FK_XrefService.List.length-1}} items)</span>
+                    </h6>
+                </div>
+                <div class="col s12 m6 l6 right-align-md">
+                    <ol class="breadcrumbs mb-0">
+                        <li class="breadcrumb-item">
+                            <a href="javascript:history.back()" title="Quay lại">
+                                <<< Quay lại
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/Homepage" title="Trang chủ">Trang chủ</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/ThanhVien" title="Quản trị">Quản trị</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/T_FK_Xref" title="T_FK_Xref">
+                                T_FK_Xref
+                            </a>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col s12 m12 l12">
+        <div class="card card card-default scrollspy">
+            <div class="card-content">
+                <div class="col s12 m12 l11">
+                    <input [(ngModel)]="T_FK_XrefService.BaseParameter.SearchString" placeholder="Tìm ..."
+                           class="form-control" (keyup.enter)="T_FK_XrefSearch()">
+                </div>
+                <div class="col s12 m12 l1">
+                    <a style="color: green;" title="Tìm" (click)="T_FK_XrefSearch()">
+                        <i class="material-icons">play_circle_filled</i>
+                    </a>
+                </div>
+                <div class="KhungOverflow">
+                    <table *ngIf="!NotificationService.IsMobile" mat-table matSort #T_FK_XrefSort="matSort"
+                           [dataSource]="T_FK_XrefService.DataSource">
+                        <ng-container matColumnDef="STT">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                                STT
+                            </th>
+                            <td mat-cell *matCellDef="let element; index as i;">
+                                <div *ngIf="T_FK_XrefPaginator">
+                                    {{
+T_FK_XrefPaginator.pageSize *
+                                    T_FK_XrefPaginator.pageIndex + i + 1
+                                    }}
+                                </div>
+                            </td>
+                        </ng-container>
+                        <ng-container matColumnDef="Save">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                            </th>
+                            <td mat-cell *matCellDef="let element">
+                                <a (click)="T_FK_XrefSave(element)" style="color:#2196f3;">
+                                    <i class="material-icons">save</i>
+                                </a>
+                                <a (click)="T_FK_XrefDelete(element)" style="color: red;">
+                                    <i class="material-icons">delete_forever</i>
+                                </a>
+                            </td>
+                        </ng-container>
+                        <ng-container matColumnDef="ID">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="ID" name="ID" [(ngModel)]="element.ID"></td>
+</ng-container>
+<ng-container matColumnDef="ConstraintName">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ConstraintName</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="ConstraintName" name="ConstraintName" [(ngModel)]="element.ConstraintName"></td>
+</ng-container>
+<ng-container matColumnDef="MasterTable">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>MasterTable</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="MasterTable" name="MasterTable" [(ngModel)]="element.MasterTable"></td>
+</ng-container>
+<ng-container matColumnDef="MasterColumn">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>MasterColumn</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="MasterColumn" name="MasterColumn" [(ngModel)]="element.MasterColumn"></td>
+</ng-container>
+<ng-container matColumnDef="ChildTable">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ChildTable</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="ChildTable" name="ChildTable" [(ngModel)]="element.ChildTable"></td>
+</ng-container>
+<ng-container matColumnDef="ChildColumn">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ChildColumn</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="ChildColumn" name="ChildColumn" [(ngModel)]="element.ChildColumn"></td>
+</ng-container>
+<ng-container matColumnDef="FKOrder">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>FKOrder</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="FKOrder" name="FKOrder" [(ngModel)]="element.FKOrder"></td>
+</ng-container>
+
+                        <tr mat-header-row *matHeaderRowDef="T_FK_XrefService.DisplayColumns001">
+                        </tr>
+                        <tr mat-row *matRowDef="let row; columns: T_FK_XrefService.DisplayColumns001;">
+                        </tr>
+                    </table>
+                    <mat-paginator *ngIf="!NotificationService.IsMobile" #T_FK_XrefPaginator="matPaginator"
+                                   [pageSizeOptions]="[10,20,50,100]" [pageSize]="20" [showFirstLastButtons]></mat-paginator>
+                 
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-loading *ngIf="T_FK_XrefService.IsShowLoading"></app-loading>
