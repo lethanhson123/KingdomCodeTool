@@ -1,0 +1,113 @@
+﻿<div class="row">
+    <div id="breadcrumbs-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m6 l6">
+                    <h6 class="breadcrumbs-title">
+                        Sys_AppPrivateSettingPermissions
+                        <span *ngIf="Sys_AppPrivateSettingPermissionsService.List">({{Sys_AppPrivateSettingPermissionsService.List.length-1}} items)</span>
+                    </h6>
+                </div>
+                <div class="col s12 m6 l6 right-align-md">
+                    <ol class="breadcrumbs mb-0">
+                        <li class="breadcrumb-item">
+                            <a href="javascript:history.back()" title="Quay lại">
+                                <<< Quay lại
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/Homepage" title="Trang chủ">Trang chủ</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/ThanhVien" title="Quản trị">Quản trị</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/Sys_AppPrivateSettingPermissions" title="Sys_AppPrivateSettingPermissions">
+                                Sys_AppPrivateSettingPermissions
+                            </a>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col s12 m12 l12">
+        <div class="card card card-default scrollspy">
+            <div class="card-content">
+                <div class="col s12 m12 l11">
+                    <input [(ngModel)]="Sys_AppPrivateSettingPermissionsService.BaseParameter.SearchString" placeholder="Tìm ..."
+                           class="form-control" (keyup.enter)="Sys_AppPrivateSettingPermissionsSearch()">
+                </div>
+                <div class="col s12 m12 l1">
+                    <a style="color: green;" title="Tìm" (click)="Sys_AppPrivateSettingPermissionsSearch()">
+                        <i class="material-icons">play_circle_filled</i>
+                    </a>
+                </div>
+                <div class="KhungOverflow">
+                    <table *ngIf="!NotificationService.IsMobile" mat-table matSort #Sys_AppPrivateSettingPermissionsSort="matSort"
+                           [dataSource]="Sys_AppPrivateSettingPermissionsService.DataSource">
+                        <ng-container matColumnDef="STT">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                                STT
+                            </th>
+                            <td mat-cell *matCellDef="let element; index as i;">
+                                <div *ngIf="Sys_AppPrivateSettingPermissionsPaginator">
+                                    {{
+Sys_AppPrivateSettingPermissionsPaginator.pageSize *
+                                    Sys_AppPrivateSettingPermissionsPaginator.pageIndex + i + 1
+                                    }}
+                                </div>
+                            </td>
+                        </ng-container>
+                        <ng-container matColumnDef="Save">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                            </th>
+                            <td mat-cell *matCellDef="let element">
+                                <a (click)="Sys_AppPrivateSettingPermissionsSave(element)" style="color:#2196f3;">
+                                    <i class="material-icons">save</i>
+                                </a>
+                                <!-- <a (click)="Sys_AppPrivateSettingPermissionsDelete(element)" style="color: red;">
+            <i class="material-icons">delete_forever</i>
+        </a> -->
+                            </td>
+                            </ng-container>
+                            <ng-container matColumnDef="SettingPermission_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>SettingPermission_Id</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="SettingPermission_Id" name="SettingPermission_Id" [(ngModel)]="element.SettingPermission_Id"></td>
+</ng-container>
+<ng-container matColumnDef="Setting_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Setting_Id</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Setting_Id" name="Setting_Id" [(ngModel)]="element.Setting_Id"></td>
+</ng-container>
+<ng-container matColumnDef="User_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>User_Id</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="User_Id" name="User_Id" [(ngModel)]="element.User_Id"></td>
+</ng-container>
+<ng-container matColumnDef="Group_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Group_Id</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Group_Id" name="Group_Id" [(ngModel)]="element.Group_Id"></td>
+</ng-container>
+<ng-container matColumnDef="EditRight">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>EditRight</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="EditRight" name="EditRight" [(ngModel)]="element.EditRight"></td>
+</ng-container>
+<ng-container matColumnDef="DeleteRight">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DeleteRight</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="DeleteRight" name="DeleteRight" [(ngModel)]="element.DeleteRight"></td>
+</ng-container>
+
+                            <tr mat-header-row *matHeaderRowDef="Sys_AppPrivateSettingPermissionsService.DisplayColumns001">
+                            </tr>
+                            <tr mat-row *matRowDef="let row; columns: Sys_AppPrivateSettingPermissionsService.DisplayColumns001;">
+                            </tr>
+                        </table>
+                        <mat-paginator *ngIf="!NotificationService.IsMobile" #Sys_AppPrivateSettingPermissionsPaginator="matPaginator"
+                                       [pageSizeOptions]="[10,20,50,100]" [pageSize]="20" [showFirstLastButtons]></mat-paginator>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <app-loading *ngIf="Sys_AppPrivateSettingPermissionsService.IsShowLoading"></app-loading>
+

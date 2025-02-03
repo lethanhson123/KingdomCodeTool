@@ -1,0 +1,156 @@
+﻿<div class="row">
+    <div id="breadcrumbs-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m6 l6">
+                    <h6 class="breadcrumbs-title">
+                        Sys_LovDefinitions:
+                        <b>{{Sys_LovDefinitionsService.FormData.LovDefinition_Id}} [{{Sys_LovDefinitionsService.FormData.LovDefinition_Id}}]</b>
+                    </h6>
+                </div>
+                <div class="col s12 m6 l6 right-align-md">
+                    <ol class="breadcrumbs mb-0">
+                        <li class="breadcrumb-item">
+                            <a href="javascript:history.back()" title="Quay lại">
+                                <<< Quay lại
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/Homepage" title="Trang chủ">Trang chủ</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="#" title="eHospital_DongNai_A_Config/">eHospital_DongNai_A_Config/</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/Sys_LovDefinitions" title="Sys_LovDefinitions">
+                                Sys_LovDefinitions
+                            </a>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col s12 m12 l12">
+        <div class="card card card-default scrollspy">
+            <div class="card-content">
+                <div class="row">
+                    <div class="col s6 m6 l12">
+                        <a title="Quay lại" href="javascript:history.back()" style="color: green;">
+                            <i class="material-icons">more</i>
+                        </a>
+                        <!--<a title="Thêm mới" (click)="Sys_LovDefinitionsAdd()" style="color: green;"><i
+                class="material-icons">add_box</i></a>-->
+                        <a title="Lưu thay đổi" (click)="Sys_LovDefinitionsSave()" style="color:#2196f3;">
+                            <i class="material-icons">save</i>
+                        </a>
+                    </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12 m12 l12">
+                            <div>
+<label>LovDefinition_Id</label>
+<input placeholder="LovDefinition_Id" [(ngModel)]="Sys_LovDefinitionsService.FormData.LovDefinition_Id"  name="Sys_LovDefinitionsService.FormData.LovDefinition_Id" type="text" class="form-control">
+</div>
+<div>
+<label>DataGroup</label>
+<input placeholder="DataGroup" [(ngModel)]="Sys_LovDefinitionsService.FormData.DataGroup"  name="Sys_LovDefinitionsService.FormData.DataGroup" type="text" class="form-control">
+</div>
+<div>
+<label>Language_Id</label>
+<input placeholder="Language_Id" [(ngModel)]="Sys_LovDefinitionsService.FormData.Language_Id"  name="Sys_LovDefinitionsService.FormData.Language_Id" type="text" class="form-control">
+</div>
+<div>
+<label>FormName</label>
+<input placeholder="FormName" [(ngModel)]="Sys_LovDefinitionsService.FormData.FormName"  name="Sys_LovDefinitionsService.FormData.FormName" type="text" class="form-control">
+</div>
+<div>
+<label>ControlName</label>
+<input placeholder="ControlName" [(ngModel)]="Sys_LovDefinitionsService.FormData.ControlName"  name="Sys_LovDefinitionsService.FormData.ControlName" type="text" class="form-control">
+</div>
+<div>
+<label>OtherKey</label>
+<input placeholder="OtherKey" [(ngModel)]="Sys_LovDefinitionsService.FormData.OtherKey"  name="Sys_LovDefinitionsService.FormData.OtherKey" type="text" class="form-control">
+</div>
+<div>
+<label>ProcedureName</label>
+<input placeholder="ProcedureName" [(ngModel)]="Sys_LovDefinitionsService.FormData.ProcedureName"  name="Sys_LovDefinitionsService.FormData.ProcedureName" type="text" class="form-control">
+</div>
+<div>
+<label>Enabled</label>
+<input placeholder="Enabled" [(ngModel)]="Sys_LovDefinitionsService.FormData.Enabled"  name="Sys_LovDefinitionsService.FormData.Enabled" type="text" class="form-control">
+</div>
+<div>
+<label>AllowMultiResult</label>
+<input placeholder="AllowMultiResult" [(ngModel)]="Sys_LovDefinitionsService.FormData.AllowMultiResult"  name="Sys_LovDefinitionsService.FormData.AllowMultiResult" type="text" class="form-control">
+</div>
+<div>
+<label>LostFocusIfOK</label>
+<input placeholder="LostFocusIfOK" [(ngModel)]="Sys_LovDefinitionsService.FormData.LostFocusIfOK"  name="Sys_LovDefinitionsService.FormData.LostFocusIfOK" type="text" class="form-control">
+</div>
+<div>
+<label>ControlNameDesc</label>
+<input placeholder="ControlNameDesc" [(ngModel)]="Sys_LovDefinitionsService.FormData.ControlNameDesc"  name="Sys_LovDefinitionsService.FormData.ControlNameDesc" type="text" class="form-control">
+</div>
+<div>
+<label>ColumnHeader</label>
+<input placeholder="ColumnHeader" [(ngModel)]="Sys_LovDefinitionsService.FormData.ColumnHeader"  name="Sys_LovDefinitionsService.FormData.ColumnHeader" type="text" class="form-control">
+</div>
+<div>
+<label>ColumnHeaderVisible</label>
+<input placeholder="ColumnHeaderVisible" [(ngModel)]="Sys_LovDefinitionsService.FormData.ColumnHeaderVisible"  name="Sys_LovDefinitionsService.FormData.ColumnHeaderVisible" type="text" class="form-control">
+</div>
+<div>
+<label>Description</label>
+<input placeholder="Description" [(ngModel)]="Sys_LovDefinitionsService.FormData.Description"  name="Sys_LovDefinitionsService.FormData.Description" type="text" class="form-control">
+</div>
+<div>
+<label>UseDefaultSort</label>
+<input placeholder="UseDefaultSort" [(ngModel)]="Sys_LovDefinitionsService.FormData.UseDefaultSort"  name="Sys_LovDefinitionsService.FormData.UseDefaultSort" type="text" class="form-control">
+</div>
+<div>
+<label>LovUseSystemFunction</label>
+<input placeholder="LovUseSystemFunction" [(ngModel)]="Sys_LovDefinitionsService.FormData.LovUseSystemFunction"  name="Sys_LovDefinitionsService.FormData.LovUseSystemFunction" type="text" class="form-control">
+</div>
+<div>
+<label>AllowFilterData</label>
+<input placeholder="AllowFilterData" [(ngModel)]="Sys_LovDefinitionsService.FormData.AllowFilterData"  name="Sys_LovDefinitionsService.FormData.AllowFilterData" type="text" class="form-control">
+</div>
+<div>
+<label>AllowGroupData</label>
+<input placeholder="AllowGroupData" [(ngModel)]="Sys_LovDefinitionsService.FormData.AllowGroupData"  name="Sys_LovDefinitionsService.FormData.AllowGroupData" type="text" class="form-control">
+</div>
+<div>
+<label>DefaultFilterColumn</label>
+<input placeholder="DefaultFilterColumn" [(ngModel)]="Sys_LovDefinitionsService.FormData.DefaultFilterColumn"  name="Sys_LovDefinitionsService.FormData.DefaultFilterColumn" type="text" class="form-control">
+</div>
+<div>
+<label>Attribute1</label>
+<input placeholder="Attribute1" [(ngModel)]="Sys_LovDefinitionsService.FormData.Attribute1"  name="Sys_LovDefinitionsService.FormData.Attribute1" type="text" class="form-control">
+</div>
+<div>
+<label>Attribute2</label>
+<input placeholder="Attribute2" [(ngModel)]="Sys_LovDefinitionsService.FormData.Attribute2"  name="Sys_LovDefinitionsService.FormData.Attribute2" type="text" class="form-control">
+</div>
+<div>
+<label>Attribute3</label>
+<input placeholder="Attribute3" [(ngModel)]="Sys_LovDefinitionsService.FormData.Attribute3"  name="Sys_LovDefinitionsService.FormData.Attribute3" type="text" class="form-control">
+</div>
+<div>
+<label>Attribute4</label>
+<input placeholder="Attribute4" [(ngModel)]="Sys_LovDefinitionsService.FormData.Attribute4"  name="Sys_LovDefinitionsService.FormData.Attribute4" type="text" class="form-control">
+</div>
+<div>
+<label>Attribute5</label>
+<input placeholder="Attribute5" [(ngModel)]="Sys_LovDefinitionsService.FormData.Attribute5"  name="Sys_LovDefinitionsService.FormData.Attribute5" type="text" class="form-control">
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <app-loading *ngIf="Sys_LovDefinitionsService.IsShowLoading"></app-loading>
+

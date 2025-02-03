@@ -4,8 +4,8 @@
             <div class="row">
                 <div class="col s12 m6 l6">
                     <h6 class="breadcrumbs-title">
-                        [ClassName]:
-                        <b>{{[ClassName]Service.FormData.[ColumnName]}} [{{[ClassName]Service.FormData.[ColumnName]}}]</b>
+                        Sys_List_SourceFile:
+                        <b>{{Sys_List_SourceFileService.FormData.ID}} [{{Sys_List_SourceFileService.FormData.ID}}]</b>
                     </h6>
                 </div>
                 <div class="col s12 m6 l6 right-align-md">
@@ -19,11 +19,11 @@
                             <a routerLink="/Homepage" title="Trang chủ">Trang chủ</a>
                         </li>
                         <li class="breadcrumb-item">
-                            <a routerLink="#" title="[SpaceName]">[SpaceName]</a>
+                            <a routerLink="#" title="eHospital_DongNai_A_Config/">eHospital_DongNai_A_Config/</a>
                         </li>
                         <li class="breadcrumb-item">
-                            <a routerLink="/[ClassName]" title="[ClassName]">
-                                [ClassName]
+                            <a routerLink="/Sys_List_SourceFile" title="Sys_List_SourceFile">
+                                Sys_List_SourceFile
                             </a>
                         </li>
                     </ol>
@@ -39,16 +39,36 @@
                         <a title="Quay lại" href="javascript:history.back()" style="color: green;">
                             <i class="material-icons">more</i>
                         </a>
-                        <!--<a title="Thêm mới" (click)="[ClassName]Add()" style="color: green;"><i
+                        <!--<a title="Thêm mới" (click)="Sys_List_SourceFileAdd()" style="color: green;"><i
                 class="material-icons">add_box</i></a>-->
-                        <a title="Lưu thay đổi" (click)="[ClassName]Save()" style="color:#2196f3;">
+                        <a title="Lưu thay đổi" (click)="Sys_List_SourceFileSave()" style="color:#2196f3;">
                             <i class="material-icons">save</i>
                         </a>
                     </div>
                     </div>
                     <div class="row">
                         <div class="col s12 m12 l12">
-                            [AngularContainer]
+                            <div>
+<label>ID</label>
+<input placeholder="ID" [(ngModel)]="Sys_List_SourceFileService.FormData.ID"  name="Sys_List_SourceFileService.FormData.ID" type="text" class="form-control">
+</div>
+<div>
+<label>FileName</label>
+<input placeholder="FileName" [(ngModel)]="Sys_List_SourceFileService.FormData.FileName"  name="Sys_List_SourceFileService.FormData.FileName" type="text" class="form-control">
+</div>
+<div>
+<label>PathName</label>
+<input placeholder="PathName" [(ngModel)]="Sys_List_SourceFileService.FormData.PathName"  name="Sys_List_SourceFileService.FormData.PathName" type="text" class="form-control">
+</div>
+<div>
+<label>Size</label>
+<input placeholder="Size" [(ngModel)]="Sys_List_SourceFileService.FormData.Size"  name="Sys_List_SourceFileService.FormData.Size" type="text" class="form-control">
+</div>
+<div>
+<label>ModifyDate</label>
+<input placeholder="ModifyDate" [(ngModel)]="Sys_List_SourceFileService.FormData.ModifyDate"  name="Sys_List_SourceFileService.FormData.ModifyDate" type="text" class="form-control">
+</div>
+
                         </div>
                     </div>
                 </div>
@@ -56,4 +76,5 @@
         </div>
     </div>
 
-    <app-loading *ngIf="[ClassName]Service.IsShowLoading"></app-loading>
+    <app-loading *ngIf="Sys_List_SourceFileService.IsShowLoading"></app-loading>
+

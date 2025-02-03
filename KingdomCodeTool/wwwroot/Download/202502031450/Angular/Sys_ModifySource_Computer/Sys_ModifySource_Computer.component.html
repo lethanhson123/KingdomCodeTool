@@ -1,0 +1,109 @@
+﻿<div class="row">
+    <div id="breadcrumbs-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m6 l6">
+                    <h6 class="breadcrumbs-title">
+                        Sys_ModifySource_Computer
+                        <span *ngIf="Sys_ModifySource_ComputerService.List">({{Sys_ModifySource_ComputerService.List.length-1}} items)</span>
+                    </h6>
+                </div>
+                <div class="col s12 m6 l6 right-align-md">
+                    <ol class="breadcrumbs mb-0">
+                        <li class="breadcrumb-item">
+                            <a href="javascript:history.back()" title="Quay lại">
+                                <<< Quay lại
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/Homepage" title="Trang chủ">Trang chủ</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/ThanhVien" title="Quản trị">Quản trị</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/Sys_ModifySource_Computer" title="Sys_ModifySource_Computer">
+                                Sys_ModifySource_Computer
+                            </a>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col s12 m12 l12">
+        <div class="card card card-default scrollspy">
+            <div class="card-content">
+                <div class="col s12 m12 l11">
+                    <input [(ngModel)]="Sys_ModifySource_ComputerService.BaseParameter.SearchString" placeholder="Tìm ..."
+                           class="form-control" (keyup.enter)="Sys_ModifySource_ComputerSearch()">
+                </div>
+                <div class="col s12 m12 l1">
+                    <a style="color: green;" title="Tìm" (click)="Sys_ModifySource_ComputerSearch()">
+                        <i class="material-icons">play_circle_filled</i>
+                    </a>
+                </div>
+                <div class="KhungOverflow">
+                    <table *ngIf="!NotificationService.IsMobile" mat-table matSort #Sys_ModifySource_ComputerSort="matSort"
+                           [dataSource]="Sys_ModifySource_ComputerService.DataSource">
+                        <ng-container matColumnDef="STT">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                                STT
+                            </th>
+                            <td mat-cell *matCellDef="let element; index as i;">
+                                <div *ngIf="Sys_ModifySource_ComputerPaginator">
+                                    {{
+Sys_ModifySource_ComputerPaginator.pageSize *
+                                    Sys_ModifySource_ComputerPaginator.pageIndex + i + 1
+                                    }}
+                                </div>
+                            </td>
+                        </ng-container>
+                        <ng-container matColumnDef="Save">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                            </th>
+                            <td mat-cell *matCellDef="let element">
+                                <a (click)="Sys_ModifySource_ComputerSave(element)" style="color:#2196f3;">
+                                    <i class="material-icons">save</i>
+                                </a>
+                                <!-- <a (click)="Sys_ModifySource_ComputerDelete(element)" style="color: red;">
+            <i class="material-icons">delete_forever</i>
+        </a> -->
+                            </td>
+                            </ng-container>
+                            <ng-container matColumnDef="ID">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="ID" name="ID" [(ngModel)]="element.ID"></td>
+</ng-container>
+<ng-container matColumnDef="Computer_Name">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Computer_Name</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Computer_Name" name="Computer_Name" [(ngModel)]="element.Computer_Name"></td>
+</ng-container>
+<ng-container matColumnDef="IP">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>IP</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="IP" name="IP" [(ngModel)]="element.IP"></td>
+</ng-container>
+<ng-container matColumnDef="Enable">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Enable</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Enable" name="Enable" [(ngModel)]="element.Enable"></td>
+</ng-container>
+<ng-container matColumnDef="Description">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Description</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Description" name="Description" [(ngModel)]="element.Description"></td>
+</ng-container>
+
+                            <tr mat-header-row *matHeaderRowDef="Sys_ModifySource_ComputerService.DisplayColumns001">
+                            </tr>
+                            <tr mat-row *matRowDef="let row; columns: Sys_ModifySource_ComputerService.DisplayColumns001;">
+                            </tr>
+                        </table>
+                        <mat-paginator *ngIf="!NotificationService.IsMobile" #Sys_ModifySource_ComputerPaginator="matPaginator"
+                                       [pageSizeOptions]="[10,20,50,100]" [pageSize]="20" [showFirstLastButtons]></mat-paginator>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <app-loading *ngIf="Sys_ModifySource_ComputerService.IsShowLoading"></app-loading>
+

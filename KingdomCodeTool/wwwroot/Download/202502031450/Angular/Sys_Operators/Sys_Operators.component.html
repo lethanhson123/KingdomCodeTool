@@ -1,0 +1,129 @@
+﻿<div class="row">
+    <div id="breadcrumbs-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m6 l6">
+                    <h6 class="breadcrumbs-title">
+                        Sys_Operators
+                        <span *ngIf="Sys_OperatorsService.List">({{Sys_OperatorsService.List.length-1}} items)</span>
+                    </h6>
+                </div>
+                <div class="col s12 m6 l6 right-align-md">
+                    <ol class="breadcrumbs mb-0">
+                        <li class="breadcrumb-item">
+                            <a href="javascript:history.back()" title="Quay lại">
+                                <<< Quay lại
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/Homepage" title="Trang chủ">Trang chủ</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/ThanhVien" title="Quản trị">Quản trị</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/Sys_Operators" title="Sys_Operators">
+                                Sys_Operators
+                            </a>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col s12 m12 l12">
+        <div class="card card card-default scrollspy">
+            <div class="card-content">
+                <div class="col s12 m12 l11">
+                    <input [(ngModel)]="Sys_OperatorsService.BaseParameter.SearchString" placeholder="Tìm ..."
+                           class="form-control" (keyup.enter)="Sys_OperatorsSearch()">
+                </div>
+                <div class="col s12 m12 l1">
+                    <a style="color: green;" title="Tìm" (click)="Sys_OperatorsSearch()">
+                        <i class="material-icons">play_circle_filled</i>
+                    </a>
+                </div>
+                <div class="KhungOverflow">
+                    <table *ngIf="!NotificationService.IsMobile" mat-table matSort #Sys_OperatorsSort="matSort"
+                           [dataSource]="Sys_OperatorsService.DataSource">
+                        <ng-container matColumnDef="STT">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                                STT
+                            </th>
+                            <td mat-cell *matCellDef="let element; index as i;">
+                                <div *ngIf="Sys_OperatorsPaginator">
+                                    {{
+Sys_OperatorsPaginator.pageSize *
+                                    Sys_OperatorsPaginator.pageIndex + i + 1
+                                    }}
+                                </div>
+                            </td>
+                        </ng-container>
+                        <ng-container matColumnDef="Save">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                            </th>
+                            <td mat-cell *matCellDef="let element">
+                                <a (click)="Sys_OperatorsSave(element)" style="color:#2196f3;">
+                                    <i class="material-icons">save</i>
+                                </a>
+                                <!-- <a (click)="Sys_OperatorsDelete(element)" style="color: red;">
+            <i class="material-icons">delete_forever</i>
+        </a> -->
+                            </td>
+                            </ng-container>
+                            <ng-container matColumnDef="Operator_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Operator_Id</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Operator_Id" name="Operator_Id" [(ngModel)]="element.Operator_Id"></td>
+</ng-container>
+<ng-container matColumnDef="GroupCode">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>GroupCode</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="GroupCode" name="GroupCode" [(ngModel)]="element.GroupCode"></td>
+</ng-container>
+<ng-container matColumnDef="OperatorCode">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>OperatorCode</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="OperatorCode" name="OperatorCode" [(ngModel)]="element.OperatorCode"></td>
+</ng-container>
+<ng-container matColumnDef="Language_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Language_Id</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Language_Id" name="Language_Id" [(ngModel)]="element.Language_Id"></td>
+</ng-container>
+<ng-container matColumnDef="OperatorName">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>OperatorName</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="OperatorName" name="OperatorName" [(ngModel)]="element.OperatorName"></td>
+</ng-container>
+<ng-container matColumnDef="Idx">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Idx</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Idx" name="Idx" [(ngModel)]="element.Idx"></td>
+</ng-container>
+<ng-container matColumnDef="SetDefaultForSystemType">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>SetDefaultForSystemType</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="SetDefaultForSystemType" name="SetDefaultForSystemType" [(ngModel)]="element.SetDefaultForSystemType"></td>
+</ng-container>
+<ng-container matColumnDef="ApplyForSystemType">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ApplyForSystemType</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="ApplyForSystemType" name="ApplyForSystemType" [(ngModel)]="element.ApplyForSystemType"></td>
+</ng-container>
+<ng-container matColumnDef="Description">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Description</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Description" name="Description" [(ngModel)]="element.Description"></td>
+</ng-container>
+<ng-container matColumnDef="Enabled">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Enabled</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Enabled" name="Enabled" [(ngModel)]="element.Enabled"></td>
+</ng-container>
+
+                            <tr mat-header-row *matHeaderRowDef="Sys_OperatorsService.DisplayColumns001">
+                            </tr>
+                            <tr mat-row *matRowDef="let row; columns: Sys_OperatorsService.DisplayColumns001;">
+                            </tr>
+                        </table>
+                        <mat-paginator *ngIf="!NotificationService.IsMobile" #Sys_OperatorsPaginator="matPaginator"
+                                       [pageSizeOptions]="[10,20,50,100]" [pageSize]="20" [showFirstLastButtons]></mat-paginator>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <app-loading *ngIf="Sys_OperatorsService.IsShowLoading"></app-loading>
+

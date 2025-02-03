@@ -4,8 +4,8 @@
             <div class="row">
                 <div class="col s12 m6 l6">
                     <h6 class="breadcrumbs-title">
-                        [ClassName]:
-                        <b>{{[ClassName]Service.FormData.[ColumnName]}} [{{[ClassName]Service.FormData.[ColumnName]}}]</b>
+                        BenhSu_User_DichVu_Permissions:
+                        <b>{{BenhSu_User_DichVu_PermissionsService.FormData.Group_Id}} [{{BenhSu_User_DichVu_PermissionsService.FormData.Group_Id}}]</b>
                     </h6>
                 </div>
                 <div class="col s12 m6 l6 right-align-md">
@@ -19,11 +19,11 @@
                             <a routerLink="/Homepage" title="Trang chủ">Trang chủ</a>
                         </li>
                         <li class="breadcrumb-item">
-                            <a routerLink="#" title="[SpaceName]">[SpaceName]</a>
+                            <a routerLink="#" title="eHospital_DongNai_A_Config/">eHospital_DongNai_A_Config/</a>
                         </li>
                         <li class="breadcrumb-item">
-                            <a routerLink="/[ClassName]" title="[ClassName]">
-                                [ClassName]
+                            <a routerLink="/BenhSu_User_DichVu_Permissions" title="BenhSu_User_DichVu_Permissions">
+                                BenhSu_User_DichVu_Permissions
                             </a>
                         </li>
                     </ol>
@@ -39,16 +39,28 @@
                         <a title="Quay lại" href="javascript:history.back()" style="color: green;">
                             <i class="material-icons">more</i>
                         </a>
-                        <!--<a title="Thêm mới" (click)="[ClassName]Add()" style="color: green;"><i
+                        <!--<a title="Thêm mới" (click)="BenhSu_User_DichVu_PermissionsAdd()" style="color: green;"><i
                 class="material-icons">add_box</i></a>-->
-                        <a title="Lưu thay đổi" (click)="[ClassName]Save()" style="color:#2196f3;">
+                        <a title="Lưu thay đổi" (click)="BenhSu_User_DichVu_PermissionsSave()" style="color:#2196f3;">
                             <i class="material-icons">save</i>
                         </a>
                     </div>
                     </div>
                     <div class="row">
                         <div class="col s12 m12 l12">
-                            [AngularContainer]
+                            <div>
+<label>Group_Id</label>
+<input placeholder="Group_Id" [(ngModel)]="BenhSu_User_DichVu_PermissionsService.FormData.Group_Id"  name="BenhSu_User_DichVu_PermissionsService.FormData.Group_Id" type="text" class="form-control">
+</div>
+<div>
+<label>User_Id</label>
+<input placeholder="User_Id" [(ngModel)]="BenhSu_User_DichVu_PermissionsService.FormData.User_Id"  name="BenhSu_User_DichVu_PermissionsService.FormData.User_Id" type="text" class="form-control">
+</div>
+<div>
+<label>DichVu_Id</label>
+<input placeholder="DichVu_Id" [(ngModel)]="BenhSu_User_DichVu_PermissionsService.FormData.DichVu_Id"  name="BenhSu_User_DichVu_PermissionsService.FormData.DichVu_Id" type="text" class="form-control">
+</div>
+
                         </div>
                     </div>
                 </div>
@@ -56,4 +68,5 @@
         </div>
     </div>
 
-    <app-loading *ngIf="[ClassName]Service.IsShowLoading"></app-loading>
+    <app-loading *ngIf="BenhSu_User_DichVu_PermissionsService.IsShowLoading"></app-loading>
+

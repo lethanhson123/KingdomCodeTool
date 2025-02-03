@@ -21,10 +21,10 @@ namespace KingdomCodeTool.Controllers
         public IActionResult Index()
         {
             BaseViewModel model = new BaseViewModel();
-            //model.ConnectionString = "Server=DESKTOP-GT1PCNF;Database=BenhVienDaKhoaDongNai2025;Persist Security Info=False;User ID=sa; Password=DongNai@123;MultipleActiveResultSets=False;Encrypt=False;TrustServerCertificate=False;Connection Timeout=30;";
+            model.ConnectionString = "Server=DESKTOP-GT1PCNF;Database=BenhVienDaKhoaDongNai2025;Persist Security Info=False;User ID=sa; Password=DongNai@123;MultipleActiveResultSets=False;Encrypt=False;TrustServerCertificate=False;Connection Timeout=30;";
             model.ConnectionString = "Server=10.84.2.8\\SQLDB;Database=eHospital_DongNai_A_Dictionary;User Id=ToolEhos;Password=tooltehpt;";
-            model.ConnectionString = "Server=10.84.2.8\\SQLDB;Database=eHospital_DongNai_A_System;User Id=ToolEhos;Password=tooltehpt;";
-            model.SpaceName = "_" + "eHospital_DongNai_A_System";
+            //model.ConnectionString = "Server=10.84.2.8\\SQLDB;Database=eHospital_DongNai_A;User Id=ToolEhos;Password=tooltehpt;";
+            model.SpaceName = "_" + "eHospital_DongNai_A_Dictionary";
             var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(model.ConnectionString);
             model.Base64Encode = System.Convert.ToBase64String(plainTextBytes);
 
@@ -99,17 +99,21 @@ namespace KingdomCodeTool.Controllers
                             StringBuilder AngularDetail002 = new StringBuilder();
                             StringBuilder AngularDetail003 = new StringBuilder();
                             StringBuilder AngularContainerInline = new StringBuilder();
-
+                            StringBuilder AngularContainerInfo = new StringBuilder();
 
                             AngularDisplayColumns001.Append(@"DisplayColumns001: string[] = ['Save', 'STT'");
 
                             int count = dtItems.Rows.Count / 3;
                             int stt = 0;
+                            string COLUMN_NAME_First = "";
                             foreach (DataRow row in dtItems.Rows)
                             {
                                 string COLUMN_NAME = (string)row["COLUMN_NAME"];
                                 string DATA_TYPE = (string)row["DATA_TYPE"];
-
+                                if (stt == 0)
+                                {
+                                    COLUMN_NAME_First = COLUMN_NAME;
+                                }
 
 
                                 modelItems.AppendLine("public " + CodeGeneration.Convert(DATA_TYPE) + "? " + COLUMN_NAME + " { get; set; }");
@@ -126,6 +130,11 @@ namespace KingdomCodeTool.Controllers
                                 AngularContainerInline.AppendLine(@"<th mat-header-cell *matHeaderCellDef mat-sort-header>" + COLUMN_NAME + "</th>");
                                 AngularContainerInline.AppendLine(@"<td mat-cell *matCellDef=""let element""><input class=""form-control"" type=""text"" placeholder=""" + COLUMN_NAME + @""" name=""" + COLUMN_NAME + @""" [(ngModel)]=""element." + COLUMN_NAME + @"""></td>");
                                 AngularContainerInline.AppendLine(@"</ng-container>");
+
+                                AngularContainerInfo.AppendLine(@"<div>");
+                                AngularContainerInfo.AppendLine(@"<label>" + COLUMN_NAME + "</label>");
+                                AngularContainerInfo.AppendLine(@"<input placeholder=""" + COLUMN_NAME + @""" [(ngModel)]=""" + className + @"Service.FormData." + COLUMN_NAME + @"""  name=""" + className + @"Service.FormData." + COLUMN_NAME + @""" type=""text"" class=""form-control"">");
+                                AngularContainerInfo.AppendLine(@"</div>");
 
                                 AngularMobile.AppendLine(@"<div class=""col-lg-12 col-sm-12 col-12"">");
                                 AngularMobile.AppendLine(@"<label>" + COLUMN_NAME + @"</label>");
@@ -546,9 +555,71 @@ namespace KingdomCodeTool.Controllers
                             if (!string.IsNullOrEmpty(SpaceNameSub))
                             {
                                 SpaceNameSub = SpaceNameSub + "/";
+                                SpaceNameSub = SpaceNameSub.Substring(1);
                             }
                             content = content.Replace("[SpaceName]", SpaceNameSub);
                             fileName = className + ".component.ts";
+
+                            folderPath = Path.Combine(folderPathRoot, "Angular", className);
+                            Directory.CreateDirectory(folderPath);
+                            isFolderExists = System.IO.Directory.Exists(folderPath);
+                            if (!isFolderExists)
+                            {
+                                System.IO.Directory.CreateDirectory(folderPath);
+                            }
+                            path = Path.Combine(folderPath, fileName);
+                            using (FileStream fs = new FileStream(path, FileMode.Create))
+                            {
+                                using (StreamWriter w = new StreamWriter(fs, Encoding.UTF8))
+                                {
+                                    w.WriteLine(content);
+                                }
+                            }
+
+                            //AngularComponentInfo
+                            content = Path.Combine(_WebHostEnvironment.WebRootPath, HTML, "AngularComponentInfo.html");
+                            using (FileStream fs = new FileStream(content, FileMode.Open))
+                            {
+                                using (StreamReader r = new StreamReader(fs, Encoding.UTF8))
+                                {
+                                    content = r.ReadToEnd();
+                                }
+                            }
+                            content = content.Replace("[ClassName]", className);
+                            content = content.Replace("[SpaceName]", SpaceNameSub);
+                            content = content.Replace("[ColumnName]", COLUMN_NAME_First);
+                            content = content.Replace("[AngularContainer]", AngularContainerInfo.ToString());
+                            fileName = className + "Info.component.html";
+
+                            folderPath = Path.Combine(folderPathRoot, "Angular", className);
+                            Directory.CreateDirectory(folderPath);
+                            isFolderExists = System.IO.Directory.Exists(folderPath);
+                            if (!isFolderExists)
+                            {
+                                System.IO.Directory.CreateDirectory(folderPath);
+                            }
+                            path = Path.Combine(folderPath, fileName);
+                            using (FileStream fs = new FileStream(path, FileMode.Create))
+                            {
+                                using (StreamWriter w = new StreamWriter(fs, Encoding.UTF8))
+                                {
+                                    w.WriteLine(content);
+                                }
+                            }
+
+                            //AngularComponentInfoTypescript
+                            content = Path.Combine(_WebHostEnvironment.WebRootPath, HTML, "AngularComponentInfoTypescript.html");
+                            using (FileStream fs = new FileStream(content, FileMode.Open))
+                            {
+                                using (StreamReader r = new StreamReader(fs, Encoding.UTF8))
+                                {
+                                    content = r.ReadToEnd();
+                                }
+                            }
+                            content = content.Replace("[ClassName]", className);                            
+                            content = content.Replace("[SpaceName]", SpaceNameSub);
+                            content = content.Replace("[ColumnName]", COLUMN_NAME_First);                            
+                            fileName = className + "Info.component.ts";
 
                             folderPath = Path.Combine(folderPathRoot, "Angular", className);
                             Directory.CreateDirectory(folderPath);

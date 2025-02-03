@@ -4,8 +4,8 @@
             <div class="row">
                 <div class="col s12 m6 l6">
                     <h6 class="breadcrumbs-title">
-                        [ClassName]:
-                        <b>{{[ClassName]Service.FormData.[ColumnName]}} [{{[ClassName]Service.FormData.[ColumnName]}}]</b>
+                        BenhSu:
+                        <b>{{BenhSuService.FormData.Cap}} [{{BenhSuService.FormData.Cap}}]</b>
                     </h6>
                 </div>
                 <div class="col s12 m6 l6 right-align-md">
@@ -19,11 +19,11 @@
                             <a routerLink="/Homepage" title="Trang chủ">Trang chủ</a>
                         </li>
                         <li class="breadcrumb-item">
-                            <a routerLink="#" title="[SpaceName]">[SpaceName]</a>
+                            <a routerLink="#" title="eHospital_DongNai_A_Config/">eHospital_DongNai_A_Config/</a>
                         </li>
                         <li class="breadcrumb-item">
-                            <a routerLink="/[ClassName]" title="[ClassName]">
-                                [ClassName]
+                            <a routerLink="/BenhSu" title="BenhSu">
+                                BenhSu
                             </a>
                         </li>
                     </ol>
@@ -39,16 +39,40 @@
                         <a title="Quay lại" href="javascript:history.back()" style="color: green;">
                             <i class="material-icons">more</i>
                         </a>
-                        <!--<a title="Thêm mới" (click)="[ClassName]Add()" style="color: green;"><i
+                        <!--<a title="Thêm mới" (click)="BenhSuAdd()" style="color: green;"><i
                 class="material-icons">add_box</i></a>-->
-                        <a title="Lưu thay đổi" (click)="[ClassName]Save()" style="color:#2196f3;">
+                        <a title="Lưu thay đổi" (click)="BenhSuSave()" style="color:#2196f3;">
                             <i class="material-icons">save</i>
                         </a>
                     </div>
                     </div>
                     <div class="row">
                         <div class="col s12 m12 l12">
-                            [AngularContainer]
+                            <div>
+<label>Cap</label>
+<input placeholder="Cap" [(ngModel)]="BenhSuService.FormData.Cap"  name="BenhSuService.FormData.Cap" type="text" class="form-control">
+</div>
+<div>
+<label>Ma</label>
+<input placeholder="Ma" [(ngModel)]="BenhSuService.FormData.Ma"  name="BenhSuService.FormData.Ma" type="text" class="form-control">
+</div>
+<div>
+<label>MaCapTren</label>
+<input placeholder="MaCapTren" [(ngModel)]="BenhSuService.FormData.MaCapTren"  name="BenhSuService.FormData.MaCapTren" type="text" class="form-control">
+</div>
+<div>
+<label>Ten</label>
+<input placeholder="Ten" [(ngModel)]="BenhSuService.FormData.Ten"  name="BenhSuService.FormData.Ten" type="text" class="form-control">
+</div>
+<div>
+<label>TenPhu</label>
+<input placeholder="TenPhu" [(ngModel)]="BenhSuService.FormData.TenPhu"  name="BenhSuService.FormData.TenPhu" type="text" class="form-control">
+</div>
+<div>
+<label>aspx</label>
+<input placeholder="aspx" [(ngModel)]="BenhSuService.FormData.aspx"  name="BenhSuService.FormData.aspx" type="text" class="form-control">
+</div>
+
                         </div>
                     </div>
                 </div>
@@ -56,4 +80,5 @@
         </div>
     </div>
 
-    <app-loading *ngIf="[ClassName]Service.IsShowLoading"></app-loading>
+    <app-loading *ngIf="BenhSuService.IsShowLoading"></app-loading>
+

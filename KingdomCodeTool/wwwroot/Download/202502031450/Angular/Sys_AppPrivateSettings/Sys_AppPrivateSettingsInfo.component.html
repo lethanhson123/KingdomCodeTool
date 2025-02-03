@@ -1,0 +1,104 @@
+﻿<div class="row">
+    <div id="breadcrumbs-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m6 l6">
+                    <h6 class="breadcrumbs-title">
+                        Sys_AppPrivateSettings:
+                        <b>{{Sys_AppPrivateSettingsService.FormData.Setting_Id}} [{{Sys_AppPrivateSettingsService.FormData.Setting_Id}}]</b>
+                    </h6>
+                </div>
+                <div class="col s12 m6 l6 right-align-md">
+                    <ol class="breadcrumbs mb-0">
+                        <li class="breadcrumb-item">
+                            <a href="javascript:history.back()" title="Quay lại">
+                                <<< Quay lại
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/Homepage" title="Trang chủ">Trang chủ</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="#" title="eHospital_DongNai_A_Config/">eHospital_DongNai_A_Config/</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/Sys_AppPrivateSettings" title="Sys_AppPrivateSettings">
+                                Sys_AppPrivateSettings
+                            </a>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col s12 m12 l12">
+        <div class="card card card-default scrollspy">
+            <div class="card-content">
+                <div class="row">
+                    <div class="col s6 m6 l12">
+                        <a title="Quay lại" href="javascript:history.back()" style="color: green;">
+                            <i class="material-icons">more</i>
+                        </a>
+                        <!--<a title="Thêm mới" (click)="Sys_AppPrivateSettingsAdd()" style="color: green;"><i
+                class="material-icons">add_box</i></a>-->
+                        <a title="Lưu thay đổi" (click)="Sys_AppPrivateSettingsSave()" style="color:#2196f3;">
+                            <i class="material-icons">save</i>
+                        </a>
+                    </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12 m12 l12">
+                            <div>
+<label>Setting_Id</label>
+<input placeholder="Setting_Id" [(ngModel)]="Sys_AppPrivateSettingsService.FormData.Setting_Id"  name="Sys_AppPrivateSettingsService.FormData.Setting_Id" type="text" class="form-control">
+</div>
+<div>
+<label>Group_Code</label>
+<input placeholder="Group_Code" [(ngModel)]="Sys_AppPrivateSettingsService.FormData.Group_Code"  name="Sys_AppPrivateSettingsService.FormData.Group_Code" type="text" class="form-control">
+</div>
+<div>
+<label>Code</label>
+<input placeholder="Code" [(ngModel)]="Sys_AppPrivateSettingsService.FormData.Code"  name="Sys_AppPrivateSettingsService.FormData.Code" type="text" class="form-control">
+</div>
+<div>
+<label>User_Id</label>
+<input placeholder="User_Id" [(ngModel)]="Sys_AppPrivateSettingsService.FormData.User_Id"  name="Sys_AppPrivateSettingsService.FormData.User_Id" type="text" class="form-control">
+</div>
+<div>
+<label>Computer</label>
+<input placeholder="Computer" [(ngModel)]="Sys_AppPrivateSettingsService.FormData.Computer"  name="Sys_AppPrivateSettingsService.FormData.Computer" type="text" class="form-control">
+</div>
+<div>
+<label>Value</label>
+<input placeholder="Value" [(ngModel)]="Sys_AppPrivateSettingsService.FormData.Value"  name="Sys_AppPrivateSettingsService.FormData.Value" type="text" class="form-control">
+</div>
+<div>
+<label>Description</label>
+<input placeholder="Description" [(ngModel)]="Sys_AppPrivateSettingsService.FormData.Description"  name="Sys_AppPrivateSettingsService.FormData.Description" type="text" class="form-control">
+</div>
+<div>
+<label>CreationDate</label>
+<input placeholder="CreationDate" [(ngModel)]="Sys_AppPrivateSettingsService.FormData.CreationDate"  name="Sys_AppPrivateSettingsService.FormData.CreationDate" type="text" class="form-control">
+</div>
+<div>
+<label>CreatedBy</label>
+<input placeholder="CreatedBy" [(ngModel)]="Sys_AppPrivateSettingsService.FormData.CreatedBy"  name="Sys_AppPrivateSettingsService.FormData.CreatedBy" type="text" class="form-control">
+</div>
+<div>
+<label>LastUpdateDate</label>
+<input placeholder="LastUpdateDate" [(ngModel)]="Sys_AppPrivateSettingsService.FormData.LastUpdateDate"  name="Sys_AppPrivateSettingsService.FormData.LastUpdateDate" type="text" class="form-control">
+</div>
+<div>
+<label>LastUpdatedBy</label>
+<input placeholder="LastUpdatedBy" [(ngModel)]="Sys_AppPrivateSettingsService.FormData.LastUpdatedBy"  name="Sys_AppPrivateSettingsService.FormData.LastUpdatedBy" type="text" class="form-control">
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <app-loading *ngIf="Sys_AppPrivateSettingsService.IsShowLoading"></app-loading>
+

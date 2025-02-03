@@ -1,0 +1,113 @@
+﻿<div class="row">
+    <div id="breadcrumbs-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m6 l6">
+                    <h6 class="breadcrumbs-title">
+                        BenhSu
+                        <span *ngIf="BenhSuService.List">({{BenhSuService.List.length-1}} items)</span>
+                    </h6>
+                </div>
+                <div class="col s12 m6 l6 right-align-md">
+                    <ol class="breadcrumbs mb-0">
+                        <li class="breadcrumb-item">
+                            <a href="javascript:history.back()" title="Quay lại">
+                                <<< Quay lại
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/Homepage" title="Trang chủ">Trang chủ</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/ThanhVien" title="Quản trị">Quản trị</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/BenhSu" title="BenhSu">
+                                BenhSu
+                            </a>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col s12 m12 l12">
+        <div class="card card card-default scrollspy">
+            <div class="card-content">
+                <div class="col s12 m12 l11">
+                    <input [(ngModel)]="BenhSuService.BaseParameter.SearchString" placeholder="Tìm ..."
+                           class="form-control" (keyup.enter)="BenhSuSearch()">
+                </div>
+                <div class="col s12 m12 l1">
+                    <a style="color: green;" title="Tìm" (click)="BenhSuSearch()">
+                        <i class="material-icons">play_circle_filled</i>
+                    </a>
+                </div>
+                <div class="KhungOverflow">
+                    <table *ngIf="!NotificationService.IsMobile" mat-table matSort #BenhSuSort="matSort"
+                           [dataSource]="BenhSuService.DataSource">
+                        <ng-container matColumnDef="STT">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                                STT
+                            </th>
+                            <td mat-cell *matCellDef="let element; index as i;">
+                                <div *ngIf="BenhSuPaginator">
+                                    {{
+BenhSuPaginator.pageSize *
+                                    BenhSuPaginator.pageIndex + i + 1
+                                    }}
+                                </div>
+                            </td>
+                        </ng-container>
+                        <ng-container matColumnDef="Save">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                            </th>
+                            <td mat-cell *matCellDef="let element">
+                                <a (click)="BenhSuSave(element)" style="color:#2196f3;">
+                                    <i class="material-icons">save</i>
+                                </a>
+                                <!-- <a (click)="BenhSuDelete(element)" style="color: red;">
+            <i class="material-icons">delete_forever</i>
+        </a> -->
+                            </td>
+                            </ng-container>
+                            <ng-container matColumnDef="Cap">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Cap</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Cap" name="Cap" [(ngModel)]="element.Cap"></td>
+</ng-container>
+<ng-container matColumnDef="Ma">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Ma</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Ma" name="Ma" [(ngModel)]="element.Ma"></td>
+</ng-container>
+<ng-container matColumnDef="MaCapTren">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>MaCapTren</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="MaCapTren" name="MaCapTren" [(ngModel)]="element.MaCapTren"></td>
+</ng-container>
+<ng-container matColumnDef="Ten">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Ten</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Ten" name="Ten" [(ngModel)]="element.Ten"></td>
+</ng-container>
+<ng-container matColumnDef="TenPhu">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>TenPhu</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="TenPhu" name="TenPhu" [(ngModel)]="element.TenPhu"></td>
+</ng-container>
+<ng-container matColumnDef="aspx">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>aspx</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="aspx" name="aspx" [(ngModel)]="element.aspx"></td>
+</ng-container>
+
+                            <tr mat-header-row *matHeaderRowDef="BenhSuService.DisplayColumns001">
+                            </tr>
+                            <tr mat-row *matRowDef="let row; columns: BenhSuService.DisplayColumns001;">
+                            </tr>
+                        </table>
+                        <mat-paginator *ngIf="!NotificationService.IsMobile" #BenhSuPaginator="matPaginator"
+                                       [pageSizeOptions]="[10,20,50,100]" [pageSize]="20" [showFirstLastButtons]></mat-paginator>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <app-loading *ngIf="BenhSuService.IsShowLoading"></app-loading>
+

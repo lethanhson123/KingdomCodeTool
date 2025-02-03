@@ -1,0 +1,128 @@
+﻿<div class="row">
+    <div id="breadcrumbs-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m6 l6">
+                    <h6 class="breadcrumbs-title">
+                        BenhSuDefinitions:
+                        <b>{{BenhSuDefinitionsService.FormData.BenhSuDefinition_Id}} [{{BenhSuDefinitionsService.FormData.BenhSuDefinition_Id}}]</b>
+                    </h6>
+                </div>
+                <div class="col s12 m6 l6 right-align-md">
+                    <ol class="breadcrumbs mb-0">
+                        <li class="breadcrumb-item">
+                            <a href="javascript:history.back()" title="Quay lại">
+                                <<< Quay lại
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/Homepage" title="Trang chủ">Trang chủ</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="#" title="eHospital_DongNai_A_Config/">eHospital_DongNai_A_Config/</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/BenhSuDefinitions" title="BenhSuDefinitions">
+                                BenhSuDefinitions
+                            </a>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col s12 m12 l12">
+        <div class="card card card-default scrollspy">
+            <div class="card-content">
+                <div class="row">
+                    <div class="col s6 m6 l12">
+                        <a title="Quay lại" href="javascript:history.back()" style="color: green;">
+                            <i class="material-icons">more</i>
+                        </a>
+                        <!--<a title="Thêm mới" (click)="BenhSuDefinitionsAdd()" style="color: green;"><i
+                class="material-icons">add_box</i></a>-->
+                        <a title="Lưu thay đổi" (click)="BenhSuDefinitionsSave()" style="color:#2196f3;">
+                            <i class="material-icons">save</i>
+                        </a>
+                    </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12 m12 l12">
+                            <div>
+<label>BenhSuDefinition_Id</label>
+<input placeholder="BenhSuDefinition_Id" [(ngModel)]="BenhSuDefinitionsService.FormData.BenhSuDefinition_Id"  name="BenhSuDefinitionsService.FormData.BenhSuDefinition_Id" type="text" class="form-control">
+</div>
+<div>
+<label>BenhSuDefinition_Code</label>
+<input placeholder="BenhSuDefinition_Code" [(ngModel)]="BenhSuDefinitionsService.FormData.BenhSuDefinition_Code"  name="BenhSuDefinitionsService.FormData.BenhSuDefinition_Code" type="text" class="form-control">
+</div>
+<div>
+<label>BenhSuDefinition_Name</label>
+<input placeholder="BenhSuDefinition_Name" [(ngModel)]="BenhSuDefinitionsService.FormData.BenhSuDefinition_Name"  name="BenhSuDefinitionsService.FormData.BenhSuDefinition_Name" type="text" class="form-control">
+</div>
+<div>
+<label>BenhSuDefinition_Name_En</label>
+<input placeholder="BenhSuDefinition_Name_En" [(ngModel)]="BenhSuDefinitionsService.FormData.BenhSuDefinition_Name_En"  name="BenhSuDefinitionsService.FormData.BenhSuDefinition_Name_En" type="text" class="form-control">
+</div>
+<div>
+<label>BenhSuDefinition_Name_Ru</label>
+<input placeholder="BenhSuDefinition_Name_Ru" [(ngModel)]="BenhSuDefinitionsService.FormData.BenhSuDefinition_Name_Ru"  name="BenhSuDefinitionsService.FormData.BenhSuDefinition_Name_Ru" type="text" class="form-control">
+</div>
+<div>
+<label>Parent_Id</label>
+<input placeholder="Parent_Id" [(ngModel)]="BenhSuDefinitionsService.FormData.Parent_Id"  name="BenhSuDefinitionsService.FormData.Parent_Id" type="text" class="form-control">
+</div>
+<div>
+<label>CallAnotherForm</label>
+<input placeholder="CallAnotherForm" [(ngModel)]="BenhSuDefinitionsService.FormData.CallAnotherForm"  name="BenhSuDefinitionsService.FormData.CallAnotherForm" type="text" class="form-control">
+</div>
+<div>
+<label>Menu_Id</label>
+<input placeholder="Menu_Id" [(ngModel)]="BenhSuDefinitionsService.FormData.Menu_Id"  name="BenhSuDefinitionsService.FormData.Menu_Id" type="text" class="form-control">
+</div>
+<div>
+<label>Report_Id</label>
+<input placeholder="Report_Id" [(ngModel)]="BenhSuDefinitionsService.FormData.Report_Id"  name="BenhSuDefinitionsService.FormData.Report_Id" type="text" class="form-control">
+</div>
+<div>
+<label>ReportKey_Name</label>
+<input placeholder="ReportKey_Name" [(ngModel)]="BenhSuDefinitionsService.FormData.ReportKey_Name"  name="BenhSuDefinitionsService.FormData.ReportKey_Name" type="text" class="form-control">
+</div>
+<div>
+<label>ZoomPercents</label>
+<input placeholder="ZoomPercents" [(ngModel)]="BenhSuDefinitionsService.FormData.ZoomPercents"  name="BenhSuDefinitionsService.FormData.ZoomPercents" type="text" class="form-control">
+</div>
+<div>
+<label>Enabled</label>
+<input placeholder="Enabled" [(ngModel)]="BenhSuDefinitionsService.FormData.Enabled"  name="BenhSuDefinitionsService.FormData.Enabled" type="text" class="form-control">
+</div>
+<div>
+<label>IsCrossTab</label>
+<input placeholder="IsCrossTab" [(ngModel)]="BenhSuDefinitionsService.FormData.IsCrossTab"  name="BenhSuDefinitionsService.FormData.IsCrossTab" type="text" class="form-control">
+</div>
+<div>
+<label>ReportTableIndex</label>
+<input placeholder="ReportTableIndex" [(ngModel)]="BenhSuDefinitionsService.FormData.ReportTableIndex"  name="BenhSuDefinitionsService.FormData.ReportTableIndex" type="text" class="form-control">
+</div>
+<div>
+<label>ColumnNameItem</label>
+<input placeholder="ColumnNameItem" [(ngModel)]="BenhSuDefinitionsService.FormData.ColumnNameItem"  name="BenhSuDefinitionsService.FormData.ColumnNameItem" type="text" class="form-control">
+</div>
+<div>
+<label>ColumnValueItem</label>
+<input placeholder="ColumnValueItem" [(ngModel)]="BenhSuDefinitionsService.FormData.ColumnValueItem"  name="BenhSuDefinitionsService.FormData.ColumnValueItem" type="text" class="form-control">
+</div>
+<div>
+<label>Description</label>
+<input placeholder="Description" [(ngModel)]="BenhSuDefinitionsService.FormData.Description"  name="BenhSuDefinitionsService.FormData.Description" type="text" class="form-control">
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <app-loading *ngIf="BenhSuDefinitionsService.IsShowLoading"></app-loading>
+

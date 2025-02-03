@@ -4,8 +4,8 @@
             <div class="row">
                 <div class="col s12 m6 l6">
                     <h6 class="breadcrumbs-title">
-                        [ClassName]:
-                        <b>{{[ClassName]Service.FormData.[ColumnName]}} [{{[ClassName]Service.FormData.[ColumnName]}}]</b>
+                        Sys_AppPrivateSettingItems:
+                        <b>{{Sys_AppPrivateSettingItemsService.FormData.Setting_Id}} [{{Sys_AppPrivateSettingItemsService.FormData.Setting_Id}}]</b>
                     </h6>
                 </div>
                 <div class="col s12 m6 l6 right-align-md">
@@ -19,11 +19,11 @@
                             <a routerLink="/Homepage" title="Trang chủ">Trang chủ</a>
                         </li>
                         <li class="breadcrumb-item">
-                            <a routerLink="#" title="[SpaceName]">[SpaceName]</a>
+                            <a routerLink="#" title="eHospital_DongNai_A_Config/">eHospital_DongNai_A_Config/</a>
                         </li>
                         <li class="breadcrumb-item">
-                            <a routerLink="/[ClassName]" title="[ClassName]">
-                                [ClassName]
+                            <a routerLink="/Sys_AppPrivateSettingItems" title="Sys_AppPrivateSettingItems">
+                                Sys_AppPrivateSettingItems
                             </a>
                         </li>
                     </ol>
@@ -39,16 +39,32 @@
                         <a title="Quay lại" href="javascript:history.back()" style="color: green;">
                             <i class="material-icons">more</i>
                         </a>
-                        <!--<a title="Thêm mới" (click)="[ClassName]Add()" style="color: green;"><i
+                        <!--<a title="Thêm mới" (click)="Sys_AppPrivateSettingItemsAdd()" style="color: green;"><i
                 class="material-icons">add_box</i></a>-->
-                        <a title="Lưu thay đổi" (click)="[ClassName]Save()" style="color:#2196f3;">
+                        <a title="Lưu thay đổi" (click)="Sys_AppPrivateSettingItemsSave()" style="color:#2196f3;">
                             <i class="material-icons">save</i>
                         </a>
                     </div>
                     </div>
                     <div class="row">
                         <div class="col s12 m12 l12">
-                            [AngularContainer]
+                            <div>
+<label>Setting_Id</label>
+<input placeholder="Setting_Id" [(ngModel)]="Sys_AppPrivateSettingItemsService.FormData.Setting_Id"  name="Sys_AppPrivateSettingItemsService.FormData.Setting_Id" type="text" class="form-control">
+</div>
+<div>
+<label>SettingCode</label>
+<input placeholder="SettingCode" [(ngModel)]="Sys_AppPrivateSettingItemsService.FormData.SettingCode"  name="Sys_AppPrivateSettingItemsService.FormData.SettingCode" type="text" class="form-control">
+</div>
+<div>
+<label>SettingName</label>
+<input placeholder="SettingName" [(ngModel)]="Sys_AppPrivateSettingItemsService.FormData.SettingName"  name="Sys_AppPrivateSettingItemsService.FormData.SettingName" type="text" class="form-control">
+</div>
+<div>
+<label>ControlName</label>
+<input placeholder="ControlName" [(ngModel)]="Sys_AppPrivateSettingItemsService.FormData.ControlName"  name="Sys_AppPrivateSettingItemsService.FormData.ControlName" type="text" class="form-control">
+</div>
+
                         </div>
                     </div>
                 </div>
@@ -56,4 +72,5 @@
         </div>
     </div>
 
-    <app-loading *ngIf="[ClassName]Service.IsShowLoading"></app-loading>
+    <app-loading *ngIf="Sys_AppPrivateSettingItemsService.IsShowLoading"></app-loading>
+

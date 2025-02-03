@@ -1,0 +1,116 @@
+﻿<div class="row">
+    <div id="breadcrumbs-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m6 l6">
+                    <h6 class="breadcrumbs-title">
+                        Sys_Constants:
+                        <b>{{Sys_ConstantsService.FormData.Const_Id}} [{{Sys_ConstantsService.FormData.Const_Id}}]</b>
+                    </h6>
+                </div>
+                <div class="col s12 m6 l6 right-align-md">
+                    <ol class="breadcrumbs mb-0">
+                        <li class="breadcrumb-item">
+                            <a href="javascript:history.back()" title="Quay lại">
+                                <<< Quay lại
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/Homepage" title="Trang chủ">Trang chủ</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="#" title="eHospital_DongNai_A_Config/">eHospital_DongNai_A_Config/</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/Sys_Constants" title="Sys_Constants">
+                                Sys_Constants
+                            </a>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col s12 m12 l12">
+        <div class="card card card-default scrollspy">
+            <div class="card-content">
+                <div class="row">
+                    <div class="col s6 m6 l12">
+                        <a title="Quay lại" href="javascript:history.back()" style="color: green;">
+                            <i class="material-icons">more</i>
+                        </a>
+                        <!--<a title="Thêm mới" (click)="Sys_ConstantsAdd()" style="color: green;"><i
+                class="material-icons">add_box</i></a>-->
+                        <a title="Lưu thay đổi" (click)="Sys_ConstantsSave()" style="color:#2196f3;">
+                            <i class="material-icons">save</i>
+                        </a>
+                    </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12 m12 l12">
+                            <div>
+<label>Const_Id</label>
+<input placeholder="Const_Id" [(ngModel)]="Sys_ConstantsService.FormData.Const_Id"  name="Sys_ConstantsService.FormData.Const_Id" type="text" class="form-control">
+</div>
+<div>
+<label>Const_Group_Parent</label>
+<input placeholder="Const_Group_Parent" [(ngModel)]="Sys_ConstantsService.FormData.Const_Group_Parent"  name="Sys_ConstantsService.FormData.Const_Group_Parent" type="text" class="form-control">
+</div>
+<div>
+<label>Const_Group</label>
+<input placeholder="Const_Group" [(ngModel)]="Sys_ConstantsService.FormData.Const_Group"  name="Sys_ConstantsService.FormData.Const_Group" type="text" class="form-control">
+</div>
+<div>
+<label>Const_Code</label>
+<input placeholder="Const_Code" [(ngModel)]="Sys_ConstantsService.FormData.Const_Code"  name="Sys_ConstantsService.FormData.Const_Code" type="text" class="form-control">
+</div>
+<div>
+<label>Const_Value</label>
+<input placeholder="Const_Value" [(ngModel)]="Sys_ConstantsService.FormData.Const_Value"  name="Sys_ConstantsService.FormData.Const_Value" type="text" class="form-control">
+</div>
+<div>
+<label>Const_Value_1</label>
+<input placeholder="Const_Value_1" [(ngModel)]="Sys_ConstantsService.FormData.Const_Value_1"  name="Sys_ConstantsService.FormData.Const_Value_1" type="text" class="form-control">
+</div>
+<div>
+<label>Const_Value_2</label>
+<input placeholder="Const_Value_2" [(ngModel)]="Sys_ConstantsService.FormData.Const_Value_2"  name="Sys_ConstantsService.FormData.Const_Value_2" type="text" class="form-control">
+</div>
+<div>
+<label>Const_Value_3</label>
+<input placeholder="Const_Value_3" [(ngModel)]="Sys_ConstantsService.FormData.Const_Value_3"  name="Sys_ConstantsService.FormData.Const_Value_3" type="text" class="form-control">
+</div>
+<div>
+<label>Description</label>
+<input placeholder="Description" [(ngModel)]="Sys_ConstantsService.FormData.Description"  name="Sys_ConstantsService.FormData.Description" type="text" class="form-control">
+</div>
+<div>
+<label>Const_Value_Default</label>
+<input placeholder="Const_Value_Default" [(ngModel)]="Sys_ConstantsService.FormData.Const_Value_Default"  name="Sys_ConstantsService.FormData.Const_Value_Default" type="text" class="form-control">
+</div>
+<div>
+<label>Const_Value_Default_1</label>
+<input placeholder="Const_Value_Default_1" [(ngModel)]="Sys_ConstantsService.FormData.Const_Value_Default_1"  name="Sys_ConstantsService.FormData.Const_Value_Default_1" type="text" class="form-control">
+</div>
+<div>
+<label>Const_Value_Default_2</label>
+<input placeholder="Const_Value_Default_2" [(ngModel)]="Sys_ConstantsService.FormData.Const_Value_Default_2"  name="Sys_ConstantsService.FormData.Const_Value_Default_2" type="text" class="form-control">
+</div>
+<div>
+<label>Const_Value_Default_3</label>
+<input placeholder="Const_Value_Default_3" [(ngModel)]="Sys_ConstantsService.FormData.Const_Value_Default_3"  name="Sys_ConstantsService.FormData.Const_Value_Default_3" type="text" class="form-control">
+</div>
+<div>
+<label>Change_Log</label>
+<input placeholder="Change_Log" [(ngModel)]="Sys_ConstantsService.FormData.Change_Log"  name="Sys_ConstantsService.FormData.Change_Log" type="text" class="form-control">
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <app-loading *ngIf="Sys_ConstantsService.IsShowLoading"></app-loading>
+
