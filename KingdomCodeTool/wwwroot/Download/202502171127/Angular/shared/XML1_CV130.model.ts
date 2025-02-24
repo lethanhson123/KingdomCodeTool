@@ -1,0 +1,78 @@
+﻿import { Base } from "./Base.model";
+
+export class XML1_CV130 extends Base{
+XML1_CV130_Id?: number;
+BenhAn_Id?: number;
+TiepNhan_Id?: number;
+BenhNhan_Id?: number;
+XacNhanChiPhi_Id?: number;
+MA_LK?: string;
+STT?: number;
+MA_BN?: string;
+HO_TEN?: string;
+SO_CCCD?: string;
+NGAY_SINH?: string;
+GIOI_TINH?: number;
+NHOM_MAU?: string;
+MA_QUOCTICH?: string;
+MA_DANTOC?: string;
+MA_NGHE_NGHIEP?: string;
+DIA_CHI?: string;
+MATINH_CU_TRU?: string;
+MAHUYEN_CU_TRU?: string;
+MAXA_CU_TRU?: string;
+DIEN_THOAI?: string;
+MA_THE_BHYT?: string;
+MA_DKBD?: string;
+GT_THE_TU?: string;
+GT_THE_DEN?: string;
+NGAY_MIEN_CCT?: string;
+LY_DO_VV?: string;
+LY_DO_VNT?: string;
+MA_LY_DO_VNT?: string;
+CHAN_DOAN_VAO?: string;
+CHAN_DOAN_RV?: string;
+MA_BENH_CHINH?: string;
+MA_BENH_KT?: string;
+MA_BENH_YHCT?: string;
+MA_PTTT_QT?: string;
+MA_DOITUONG_KCB?: string;
+MA_NOI_DI?: string;
+MA_NOI_DEN?: string;
+MA_TAI_NAN?: number;
+NGAY_VAO?: string;
+NGAY_VAO_NOI_TRU?: string;
+NGAY_RA?: string;
+GIAY_CHUYEN_TUYEN?: string;
+SO_NGAY_DTRI?: number;
+PP_DIEU_TRI?: string;
+KET_QUA_DTRI?: number;
+MA_LOAI_RV?: number;
+GHI_CHU?: string;
+NGAY_TTOAN?: string;
+T_THUOC?: number;
+T_VTYT?: number;
+T_TONGCHI_BV?: number;
+T_TONGCHI_BH?: number;
+T_BNTT?: number;
+T_BNCCT?: number;
+T_BHTT?: number;
+T_NGUONKHAC?: number;
+T_BHTT_GDV?: number;
+NAM_QT?: number;
+THANG_QT?: number;
+MA_LOAI_KCB?: string;
+MA_KHOA?: string;
+MA_CSKCB?: string;
+MA_KHUVUC?: string;
+CAN_NANG?: string;
+CAN_NANG_CON?: string;
+NAM_NAM_LIEN_TUC?: string;
+NGAY_TAI_KHAM?: string;
+MA_HSBA?: string;
+MA_TTDV?: string;
+DU_PHONG?: string;
+
+}
+
+

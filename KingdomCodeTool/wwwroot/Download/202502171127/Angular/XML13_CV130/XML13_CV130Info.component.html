@@ -1,0 +1,228 @@
+﻿<div class="row">
+    <div id="breadcrumbs-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m6 l6">
+                    <h6 class="breadcrumbs-title">
+                        XML13_CV130:
+                        <b>{{XML13_CV130Service.FormData.XML13_CV130_Id}} [{{XML13_CV130Service.FormData.XML13_CV130_Id}}]</b>
+                    </h6>
+                </div>
+                <div class="col s12 m6 l6 right-align-md">
+                    <ol class="breadcrumbs mb-0">
+                        <li class="breadcrumb-item">
+                            <a href="javascript:history.back()" title="Quay lại">
+                                <<< Quay lại
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/Homepage" title="Trang chủ">Trang chủ</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="#" title="eHospital_DongNai_A/">eHospital_DongNai_A/</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/XML13_CV130" title="XML13_CV130">
+                                XML13_CV130
+                            </a>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col s12 m12 l12">
+        <div class="card card card-default scrollspy">
+            <div class="card-content">
+                <div class="row">
+                    <div class="col s6 m6 l12">
+                        <a title="Quay lại" href="javascript:history.back()" style="color: green;">
+                            <i class="material-icons">more</i>
+                        </a>
+                        <!--<a title="Thêm mới" (click)="XML13_CV130Add()" style="color: green;"><i
+                class="material-icons">add_box</i></a>-->
+                        <a title="Lưu thay đổi" (click)="XML13_CV130Save()" style="color:#2196f3;">
+                            <i class="material-icons">save</i>
+                        </a>
+                    </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12 m12 l12">
+                            <div>
+<label>XML13_CV130_Id</label>
+<input placeholder="XML13_CV130_Id" [(ngModel)]="XML13_CV130Service.FormData.XML13_CV130_Id"  name="XML13_CV130Service.FormData.XML13_CV130_Id" type="text" class="form-control">
+</div>
+<div>
+<label>BenhAn_Id</label>
+<input placeholder="BenhAn_Id" [(ngModel)]="XML13_CV130Service.FormData.BenhAn_Id"  name="XML13_CV130Service.FormData.BenhAn_Id" type="text" class="form-control">
+</div>
+<div>
+<label>TiepNhan_Id</label>
+<input placeholder="TiepNhan_Id" [(ngModel)]="XML13_CV130Service.FormData.TiepNhan_Id"  name="XML13_CV130Service.FormData.TiepNhan_Id" type="text" class="form-control">
+</div>
+<div>
+<label>BenhNhan_Id</label>
+<input placeholder="BenhNhan_Id" [(ngModel)]="XML13_CV130Service.FormData.BenhNhan_Id"  name="XML13_CV130Service.FormData.BenhNhan_Id" type="text" class="form-control">
+</div>
+<div>
+<label>XacNhanChiPhi_Id</label>
+<input placeholder="XacNhanChiPhi_Id" [(ngModel)]="XML13_CV130Service.FormData.XacNhanChiPhi_Id"  name="XML13_CV130Service.FormData.XacNhanChiPhi_Id" type="text" class="form-control">
+</div>
+<div>
+<label>MA_LK</label>
+<input placeholder="MA_LK" [(ngModel)]="XML13_CV130Service.FormData.MA_LK"  name="XML13_CV130Service.FormData.MA_LK" type="text" class="form-control">
+</div>
+<div>
+<label>SO_HOSO</label>
+<input placeholder="SO_HOSO" [(ngModel)]="XML13_CV130Service.FormData.SO_HOSO"  name="XML13_CV130Service.FormData.SO_HOSO" type="text" class="form-control">
+</div>
+<div>
+<label>SO_CHUYENTUYEN</label>
+<input placeholder="SO_CHUYENTUYEN" [(ngModel)]="XML13_CV130Service.FormData.SO_CHUYENTUYEN"  name="XML13_CV130Service.FormData.SO_CHUYENTUYEN" type="text" class="form-control">
+</div>
+<div>
+<label>GIAY_CHUYEN_TUYEN</label>
+<input placeholder="GIAY_CHUYEN_TUYEN" [(ngModel)]="XML13_CV130Service.FormData.GIAY_CHUYEN_TUYEN"  name="XML13_CV130Service.FormData.GIAY_CHUYEN_TUYEN" type="text" class="form-control">
+</div>
+<div>
+<label>MA_CSKCB</label>
+<input placeholder="MA_CSKCB" [(ngModel)]="XML13_CV130Service.FormData.MA_CSKCB"  name="XML13_CV130Service.FormData.MA_CSKCB" type="text" class="form-control">
+</div>
+<div>
+<label>MA_NOI_DI</label>
+<input placeholder="MA_NOI_DI" [(ngModel)]="XML13_CV130Service.FormData.MA_NOI_DI"  name="XML13_CV130Service.FormData.MA_NOI_DI" type="text" class="form-control">
+</div>
+<div>
+<label>MA_NOI_DEN</label>
+<input placeholder="MA_NOI_DEN" [(ngModel)]="XML13_CV130Service.FormData.MA_NOI_DEN"  name="XML13_CV130Service.FormData.MA_NOI_DEN" type="text" class="form-control">
+</div>
+<div>
+<label>HO_TEN</label>
+<input placeholder="HO_TEN" [(ngModel)]="XML13_CV130Service.FormData.HO_TEN"  name="XML13_CV130Service.FormData.HO_TEN" type="text" class="form-control">
+</div>
+<div>
+<label>NGAY_SINH</label>
+<input placeholder="NGAY_SINH" [(ngModel)]="XML13_CV130Service.FormData.NGAY_SINH"  name="XML13_CV130Service.FormData.NGAY_SINH" type="text" class="form-control">
+</div>
+<div>
+<label>GIOI_TINH</label>
+<input placeholder="GIOI_TINH" [(ngModel)]="XML13_CV130Service.FormData.GIOI_TINH"  name="XML13_CV130Service.FormData.GIOI_TINH" type="text" class="form-control">
+</div>
+<div>
+<label>MA_QUOCTICH</label>
+<input placeholder="MA_QUOCTICH" [(ngModel)]="XML13_CV130Service.FormData.MA_QUOCTICH"  name="XML13_CV130Service.FormData.MA_QUOCTICH" type="text" class="form-control">
+</div>
+<div>
+<label>MA_DANTOC</label>
+<input placeholder="MA_DANTOC" [(ngModel)]="XML13_CV130Service.FormData.MA_DANTOC"  name="XML13_CV130Service.FormData.MA_DANTOC" type="text" class="form-control">
+</div>
+<div>
+<label>MA_NGHE_NGHIEP</label>
+<input placeholder="MA_NGHE_NGHIEP" [(ngModel)]="XML13_CV130Service.FormData.MA_NGHE_NGHIEP"  name="XML13_CV130Service.FormData.MA_NGHE_NGHIEP" type="text" class="form-control">
+</div>
+<div>
+<label>DIA_CHI</label>
+<input placeholder="DIA_CHI" [(ngModel)]="XML13_CV130Service.FormData.DIA_CHI"  name="XML13_CV130Service.FormData.DIA_CHI" type="text" class="form-control">
+</div>
+<div>
+<label>MA_THE_BHYT</label>
+<input placeholder="MA_THE_BHYT" [(ngModel)]="XML13_CV130Service.FormData.MA_THE_BHYT"  name="XML13_CV130Service.FormData.MA_THE_BHYT" type="text" class="form-control">
+</div>
+<div>
+<label>GT_THE_DEN</label>
+<input placeholder="GT_THE_DEN" [(ngModel)]="XML13_CV130Service.FormData.GT_THE_DEN"  name="XML13_CV130Service.FormData.GT_THE_DEN" type="text" class="form-control">
+</div>
+<div>
+<label>NGAY_VAO</label>
+<input placeholder="NGAY_VAO" [(ngModel)]="XML13_CV130Service.FormData.NGAY_VAO"  name="XML13_CV130Service.FormData.NGAY_VAO" type="text" class="form-control">
+</div>
+<div>
+<label>NGAY_VAO_NOI_TRU</label>
+<input placeholder="NGAY_VAO_NOI_TRU" [(ngModel)]="XML13_CV130Service.FormData.NGAY_VAO_NOI_TRU"  name="XML13_CV130Service.FormData.NGAY_VAO_NOI_TRU" type="text" class="form-control">
+</div>
+<div>
+<label>NGAY_RA</label>
+<input placeholder="NGAY_RA" [(ngModel)]="XML13_CV130Service.FormData.NGAY_RA"  name="XML13_CV130Service.FormData.NGAY_RA" type="text" class="form-control">
+</div>
+<div>
+<label>DAU_HIEU_LS</label>
+<input placeholder="DAU_HIEU_LS" [(ngModel)]="XML13_CV130Service.FormData.DAU_HIEU_LS"  name="XML13_CV130Service.FormData.DAU_HIEU_LS" type="text" class="form-control">
+</div>
+<div>
+<label>CHAN_DOAN_RV</label>
+<input placeholder="CHAN_DOAN_RV" [(ngModel)]="XML13_CV130Service.FormData.CHAN_DOAN_RV"  name="XML13_CV130Service.FormData.CHAN_DOAN_RV" type="text" class="form-control">
+</div>
+<div>
+<label>QT_BENHLY</label>
+<input placeholder="QT_BENHLY" [(ngModel)]="XML13_CV130Service.FormData.QT_BENHLY"  name="XML13_CV130Service.FormData.QT_BENHLY" type="text" class="form-control">
+</div>
+<div>
+<label>TOMTAT_KQ</label>
+<input placeholder="TOMTAT_KQ" [(ngModel)]="XML13_CV130Service.FormData.TOMTAT_KQ"  name="XML13_CV130Service.FormData.TOMTAT_KQ" type="text" class="form-control">
+</div>
+<div>
+<label>PP_DIEUTRI</label>
+<input placeholder="PP_DIEUTRI" [(ngModel)]="XML13_CV130Service.FormData.PP_DIEUTRI"  name="XML13_CV130Service.FormData.PP_DIEUTRI" type="text" class="form-control">
+</div>
+<div>
+<label>MA_BENH_CHINH</label>
+<input placeholder="MA_BENH_CHINH" [(ngModel)]="XML13_CV130Service.FormData.MA_BENH_CHINH"  name="XML13_CV130Service.FormData.MA_BENH_CHINH" type="text" class="form-control">
+</div>
+<div>
+<label>MA_BENH_KT</label>
+<input placeholder="MA_BENH_KT" [(ngModel)]="XML13_CV130Service.FormData.MA_BENH_KT"  name="XML13_CV130Service.FormData.MA_BENH_KT" type="text" class="form-control">
+</div>
+<div>
+<label>MA_BENH_YHCT</label>
+<input placeholder="MA_BENH_YHCT" [(ngModel)]="XML13_CV130Service.FormData.MA_BENH_YHCT"  name="XML13_CV130Service.FormData.MA_BENH_YHCT" type="text" class="form-control">
+</div>
+<div>
+<label>PP_DIEU_TRI</label>
+<input placeholder="PP_DIEU_TRI" [(ngModel)]="XML13_CV130Service.FormData.PP_DIEU_TRI"  name="XML13_CV130Service.FormData.PP_DIEU_TRI" type="text" class="form-control">
+</div>
+<div>
+<label>MA_LOAI_RV</label>
+<input placeholder="MA_LOAI_RV" [(ngModel)]="XML13_CV130Service.FormData.MA_LOAI_RV"  name="XML13_CV130Service.FormData.MA_LOAI_RV" type="text" class="form-control">
+</div>
+<div>
+<label>MA_LYDO_CT</label>
+<input placeholder="MA_LYDO_CT" [(ngModel)]="XML13_CV130Service.FormData.MA_LYDO_CT"  name="XML13_CV130Service.FormData.MA_LYDO_CT" type="text" class="form-control">
+</div>
+<div>
+<label>HUONG_DIEU_TRI</label>
+<input placeholder="HUONG_DIEU_TRI" [(ngModel)]="XML13_CV130Service.FormData.HUONG_DIEU_TRI"  name="XML13_CV130Service.FormData.HUONG_DIEU_TRI" type="text" class="form-control">
+</div>
+<div>
+<label>PHUONGTIEN_VC</label>
+<input placeholder="PHUONGTIEN_VC" [(ngModel)]="XML13_CV130Service.FormData.PHUONGTIEN_VC"  name="XML13_CV130Service.FormData.PHUONGTIEN_VC" type="text" class="form-control">
+</div>
+<div>
+<label>HOTEN_NGUOI_HT</label>
+<input placeholder="HOTEN_NGUOI_HT" [(ngModel)]="XML13_CV130Service.FormData.HOTEN_NGUOI_HT"  name="XML13_CV130Service.FormData.HOTEN_NGUOI_HT" type="text" class="form-control">
+</div>
+<div>
+<label>CHUCDANH_NGUOI_HT</label>
+<input placeholder="CHUCDANH_NGUOI_HT" [(ngModel)]="XML13_CV130Service.FormData.CHUCDANH_NGUOI_HT"  name="XML13_CV130Service.FormData.CHUCDANH_NGUOI_HT" type="text" class="form-control">
+</div>
+<div>
+<label>MA_BAC_SI</label>
+<input placeholder="MA_BAC_SI" [(ngModel)]="XML13_CV130Service.FormData.MA_BAC_SI"  name="XML13_CV130Service.FormData.MA_BAC_SI" type="text" class="form-control">
+</div>
+<div>
+<label>MA_TTDV</label>
+<input placeholder="MA_TTDV" [(ngModel)]="XML13_CV130Service.FormData.MA_TTDV"  name="XML13_CV130Service.FormData.MA_TTDV" type="text" class="form-control">
+</div>
+<div>
+<label>DU_PHONG</label>
+<input placeholder="DU_PHONG" [(ngModel)]="XML13_CV130Service.FormData.DU_PHONG"  name="XML13_CV130Service.FormData.DU_PHONG" type="text" class="form-control">
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <app-loading *ngIf="XML13_CV130Service.IsShowLoading"></app-loading>
+

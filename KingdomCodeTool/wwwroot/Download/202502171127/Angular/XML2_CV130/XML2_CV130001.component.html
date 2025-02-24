@@ -1,0 +1,265 @@
+﻿<div class="row">
+    <div id="breadcrumbs-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m6 l6">
+                    <h6 class="breadcrumbs-title">
+                        XML2_CV130
+                        <span *ngIf="XML2_CV130Service.List">({{XML2_CV130Service.List.length-1}} items)</span>
+                    </h6>
+                </div>
+                <div class="col s12 m6 l6 right-align-md">
+                    <ol class="breadcrumbs mb-0">
+                        <li class="breadcrumb-item">
+                            <a href="javascript:history.back()" title="Quay lại">
+                                <<< Quay lại
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/Homepage" title="Trang chủ">Trang chủ</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/ThanhVien" title="Quản trị">Quản trị</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/XML2_CV130" title="XML2_CV130">
+                                XML2_CV130
+                            </a>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col s12 m12 l12">
+        <div class="card card card-default scrollspy">
+            <div class="card-content">
+                <div class="col s12 m12 l11">
+                    <input [(ngModel)]="XML2_CV130Service.BaseParameter.SearchString" placeholder="Tìm ..."
+                           class="form-control" (keyup.enter)="XML2_CV130Search()">
+                </div>
+                <div class="col s12 m12 l1">
+                    <a style="color: green;" title="Tìm" (click)="XML2_CV130Search()">
+                        <i class="material-icons">play_circle_filled</i>
+                    </a>
+                </div>
+                <div class="KhungOverflow">
+                    <table *ngIf="!NotificationService.IsMobile" mat-table matSort #XML2_CV130Sort="matSort"
+                           [dataSource]="XML2_CV130Service.DataSource">
+                        <ng-container matColumnDef="STT">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                                STT
+                            </th>
+                            <td mat-cell *matCellDef="let element; index as i;">
+                                <div *ngIf="XML2_CV130Paginator">
+                                    {{
+XML2_CV130Paginator.pageSize *
+                                    XML2_CV130Paginator.pageIndex + i + 1
+                                    }}
+                                </div>
+                            </td>
+                        </ng-container>
+                        <ng-container matColumnDef="Save">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                            </th>
+                            <td mat-cell *matCellDef="let element">
+                                <a (click)="XML2_CV130Save(element)" style="color:#2196f3;">
+                                    <i class="material-icons">save</i>
+                                </a>
+                                <!-- <a (click)="XML2_CV130Delete(element)" style="color: red;">
+            <i class="material-icons">delete_forever</i>
+        </a> -->
+                            </td>
+                            </ng-container>
+                            <ng-container matColumnDef="XML2_CV130_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>XML2_CV130_Id</th>
+<td mat-cell *matCellDef="let element">{{element.XML2_CV130_Id}}</td>
+</ng-container>
+<ng-container matColumnDef="BenhAn_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>BenhAn_Id</th>
+<td mat-cell *matCellDef="let element">{{element.BenhAn_Id}}</td>
+</ng-container>
+<ng-container matColumnDef="TiepNhan_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>TiepNhan_Id</th>
+<td mat-cell *matCellDef="let element">{{element.TiepNhan_Id}}</td>
+</ng-container>
+<ng-container matColumnDef="BenhNhan_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>BenhNhan_Id</th>
+<td mat-cell *matCellDef="let element">{{element.BenhNhan_Id}}</td>
+</ng-container>
+<ng-container matColumnDef="XacNhanChiPhi_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>XacNhanChiPhi_Id</th>
+<td mat-cell *matCellDef="let element">{{element.XacNhanChiPhi_Id}}</td>
+</ng-container>
+<ng-container matColumnDef="MA_LK">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>MA_LK</th>
+<td mat-cell *matCellDef="let element">{{element.MA_LK}}</td>
+</ng-container>
+<ng-container matColumnDef="STT">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>STT</th>
+<td mat-cell *matCellDef="let element">{{element.STT}}</td>
+</ng-container>
+<ng-container matColumnDef="MA_THUOC">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>MA_THUOC</th>
+<td mat-cell *matCellDef="let element">{{element.MA_THUOC}}</td>
+</ng-container>
+<ng-container matColumnDef="MA_PP_CHEBIEN">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>MA_PP_CHEBIEN</th>
+<td mat-cell *matCellDef="let element">{{element.MA_PP_CHEBIEN}}</td>
+</ng-container>
+<ng-container matColumnDef="MA_CSKCB_THUOC">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>MA_CSKCB_THUOC</th>
+<td mat-cell *matCellDef="let element">{{element.MA_CSKCB_THUOC}}</td>
+</ng-container>
+<ng-container matColumnDef="MA_NHOM">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>MA_NHOM</th>
+<td mat-cell *matCellDef="let element">{{element.MA_NHOM}}</td>
+</ng-container>
+<ng-container matColumnDef="TEN_THUOC">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>TEN_THUOC</th>
+<td mat-cell *matCellDef="let element">{{element.TEN_THUOC}}</td>
+</ng-container>
+<ng-container matColumnDef="DON_VI_TINH">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DON_VI_TINH</th>
+<td mat-cell *matCellDef="let element">{{element.DON_VI_TINH}}</td>
+</ng-container>
+<ng-container matColumnDef="HAM_LUONG">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>HAM_LUONG</th>
+<td mat-cell *matCellDef="let element">{{element.HAM_LUONG}}</td>
+</ng-container>
+<ng-container matColumnDef="DUONG_DUNG">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DUONG_DUNG</th>
+<td mat-cell *matCellDef="let element">{{element.DUONG_DUNG}}</td>
+</ng-container>
+<ng-container matColumnDef="DANG_BAO_CHE">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DANG_BAO_CHE</th>
+<td mat-cell *matCellDef="let element">{{element.DANG_BAO_CHE}}</td>
+</ng-container>
+<ng-container matColumnDef="LIEU_DUNG">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>LIEU_DUNG</th>
+<td mat-cell *matCellDef="let element">{{element.LIEU_DUNG}}</td>
+</ng-container>
+<ng-container matColumnDef="CACH_DUNG">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CACH_DUNG</th>
+<td mat-cell *matCellDef="let element">{{element.CACH_DUNG}}</td>
+</ng-container>
+<ng-container matColumnDef="SO_DANG_KY">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>SO_DANG_KY</th>
+<td mat-cell *matCellDef="let element">{{element.SO_DANG_KY}}</td>
+</ng-container>
+<ng-container matColumnDef="TT_THAU">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>TT_THAU</th>
+<td mat-cell *matCellDef="let element">{{element.TT_THAU}}</td>
+</ng-container>
+<ng-container matColumnDef="PHAM_VI">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>PHAM_VI</th>
+<td mat-cell *matCellDef="let element">{{element.PHAM_VI}}</td>
+</ng-container>
+<ng-container matColumnDef="TYLE_TT_BH">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>TYLE_TT_BH</th>
+<td mat-cell *matCellDef="let element">{{element.TYLE_TT_BH}}</td>
+</ng-container>
+<ng-container matColumnDef="SO_LUONG">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>SO_LUONG</th>
+<td mat-cell *matCellDef="let element">{{element.SO_LUONG}}</td>
+</ng-container>
+<ng-container matColumnDef="DON_GIA">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DON_GIA</th>
+<td mat-cell *matCellDef="let element">{{element.DON_GIA}}</td>
+</ng-container>
+<ng-container matColumnDef="THANH_TIEN_BV">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>THANH_TIEN_BV</th>
+<td mat-cell *matCellDef="let element">{{element.THANH_TIEN_BV}}</td>
+</ng-container>
+<ng-container matColumnDef="THANH_TIEN_BH">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>THANH_TIEN_BH</th>
+<td mat-cell *matCellDef="let element">{{element.THANH_TIEN_BH}}</td>
+</ng-container>
+<ng-container matColumnDef="T_NGUONKHAC_NSNN">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>T_NGUONKHAC_NSNN</th>
+<td mat-cell *matCellDef="let element">{{element.T_NGUONKHAC_NSNN}}</td>
+</ng-container>
+<ng-container matColumnDef="T_NGUONKHAC_VTNN">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>T_NGUONKHAC_VTNN</th>
+<td mat-cell *matCellDef="let element">{{element.T_NGUONKHAC_VTNN}}</td>
+</ng-container>
+<ng-container matColumnDef="T_NGUONKHAC_VTTN">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>T_NGUONKHAC_VTTN</th>
+<td mat-cell *matCellDef="let element">{{element.T_NGUONKHAC_VTTN}}</td>
+</ng-container>
+<ng-container matColumnDef="T_NGUONKHAC_CL">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>T_NGUONKHAC_CL</th>
+<td mat-cell *matCellDef="let element">{{element.T_NGUONKHAC_CL}}</td>
+</ng-container>
+<ng-container matColumnDef="T_NGUONKHAC">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>T_NGUONKHAC</th>
+<td mat-cell *matCellDef="let element">{{element.T_NGUONKHAC}}</td>
+</ng-container>
+<ng-container matColumnDef="MUC_HUONG">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>MUC_HUONG</th>
+<td mat-cell *matCellDef="let element">{{element.MUC_HUONG}}</td>
+</ng-container>
+<ng-container matColumnDef="T_BHTT">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>T_BHTT</th>
+<td mat-cell *matCellDef="let element">{{element.T_BHTT}}</td>
+</ng-container>
+<ng-container matColumnDef="T_BNCCT">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>T_BNCCT</th>
+<td mat-cell *matCellDef="let element">{{element.T_BNCCT}}</td>
+</ng-container>
+<ng-container matColumnDef="T_BNTT">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>T_BNTT</th>
+<td mat-cell *matCellDef="let element">{{element.T_BNTT}}</td>
+</ng-container>
+<ng-container matColumnDef="MA_KHOA">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>MA_KHOA</th>
+<td mat-cell *matCellDef="let element">{{element.MA_KHOA}}</td>
+</ng-container>
+<ng-container matColumnDef="MA_BAC_SI">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>MA_BAC_SI</th>
+<td mat-cell *matCellDef="let element">{{element.MA_BAC_SI}}</td>
+</ng-container>
+<ng-container matColumnDef="MA_DICH_VU">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>MA_DICH_VU</th>
+<td mat-cell *matCellDef="let element">{{element.MA_DICH_VU}}</td>
+</ng-container>
+<ng-container matColumnDef="NGAY_YL">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>NGAY_YL</th>
+<td mat-cell *matCellDef="let element">{{element.NGAY_YL}}</td>
+</ng-container>
+<ng-container matColumnDef="NGAY_TH_YL">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>NGAY_TH_YL</th>
+<td mat-cell *matCellDef="let element">{{element.NGAY_TH_YL}}</td>
+</ng-container>
+<ng-container matColumnDef="MA_PTTT">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>MA_PTTT</th>
+<td mat-cell *matCellDef="let element">{{element.MA_PTTT}}</td>
+</ng-container>
+<ng-container matColumnDef="NGUON_CTRA">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>NGUON_CTRA</th>
+<td mat-cell *matCellDef="let element">{{element.NGUON_CTRA}}</td>
+</ng-container>
+<ng-container matColumnDef="VET_THUONG_TP">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>VET_THUONG_TP</th>
+<td mat-cell *matCellDef="let element">{{element.VET_THUONG_TP}}</td>
+</ng-container>
+<ng-container matColumnDef="DU_PHONG">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DU_PHONG</th>
+<td mat-cell *matCellDef="let element">{{element.DU_PHONG}}</td>
+</ng-container>
+
+                            <tr mat-header-row *matHeaderRowDef="XML2_CV130Service.DisplayColumns001">
+                            </tr>
+                            <tr mat-row *matRowDef="let row; columns: XML2_CV130Service.DisplayColumns001;">
+                            </tr>
+                        </table>
+                        <mat-paginator *ngIf="!NotificationService.IsMobile" #XML2_CV130Paginator="matPaginator"
+                                       [pageSizeOptions]="[10,20,50,100]" [pageSize]="20" [showFirstLastButtons]></mat-paginator>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <app-loading *ngIf="XML2_CV130Service.IsShowLoading"></app-loading>
+

@@ -1,0 +1,249 @@
+﻿<div class="row">
+    <div id="breadcrumbs-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m6 l6">
+                    <h6 class="breadcrumbs-title">
+                        ToaThuoc
+                        <span *ngIf="ToaThuocService.List">({{ToaThuocService.List.length-1}} items)</span>
+                    </h6>
+                </div>
+                <div class="col s12 m6 l6 right-align-md">
+                    <ol class="breadcrumbs mb-0">
+                        <li class="breadcrumb-item">
+                            <a href="javascript:history.back()" title="Quay lại">
+                                <<< Quay lại
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/Homepage" title="Trang chủ">Trang chủ</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/ThanhVien" title="Quản trị">Quản trị</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/ToaThuoc" title="ToaThuoc">
+                                ToaThuoc
+                            </a>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col s12 m12 l12">
+        <div class="card card card-default scrollspy">
+            <div class="card-content">
+                <div class="col s12 m12 l11">
+                    <input [(ngModel)]="ToaThuocService.BaseParameter.SearchString" placeholder="Tìm ..."
+                           class="form-control" (keyup.enter)="ToaThuocSearch()">
+                </div>
+                <div class="col s12 m12 l1">
+                    <a style="color: green;" title="Tìm" (click)="ToaThuocSearch()">
+                        <i class="material-icons">play_circle_filled</i>
+                    </a>
+                </div>
+                <div class="KhungOverflow">
+                    <table *ngIf="!NotificationService.IsMobile" mat-table matSort #ToaThuocSort="matSort"
+                           [dataSource]="ToaThuocService.DataSource">
+                        <ng-container matColumnDef="STT">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                                STT
+                            </th>
+                            <td mat-cell *matCellDef="let element; index as i;">
+                                <div *ngIf="ToaThuocPaginator">
+                                    {{
+ToaThuocPaginator.pageSize *
+                                    ToaThuocPaginator.pageIndex + i + 1
+                                    }}
+                                </div>
+                            </td>
+                        </ng-container>
+                        <ng-container matColumnDef="Save">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                            </th>
+                            <td mat-cell *matCellDef="let element">
+                                <a (click)="ToaThuocSave(element)" style="color:#2196f3;">
+                                    <i class="material-icons">save</i>
+                                </a>
+                                <!-- <a (click)="ToaThuocDelete(element)" style="color: red;">
+            <i class="material-icons">delete_forever</i>
+        </a> -->
+                            </td>
+                            </ng-container>
+                            <ng-container matColumnDef="ToaThuoc_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ToaThuoc_Id</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="ToaThuoc_Id" name="ToaThuoc_Id" [(ngModel)]="element.ToaThuoc_Id"></td>
+</ng-container>
+<ng-container matColumnDef="KhamBenh_ToaThuoc_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>KhamBenh_ToaThuoc_Id</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="KhamBenh_ToaThuoc_Id" name="KhamBenh_ToaThuoc_Id" [(ngModel)]="element.KhamBenh_ToaThuoc_Id"></td>
+</ng-container>
+<ng-container matColumnDef="SoThuTuToa">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>SoThuTuToa</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="SoThuTuToa" name="SoThuTuToa" [(ngModel)]="element.SoThuTuToa"></td>
+</ng-container>
+<ng-container matColumnDef="KhamBenh_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>KhamBenh_Id</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="KhamBenh_Id" name="KhamBenh_Id" [(ngModel)]="element.KhamBenh_Id"></td>
+</ng-container>
+<ng-container matColumnDef="Duoc_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Duoc_Id</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Duoc_Id" name="Duoc_Id" [(ngModel)]="element.Duoc_Id"></td>
+</ng-container>
+<ng-container matColumnDef="SoLuong">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>SoLuong</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="SoLuong" name="SoLuong" [(ngModel)]="element.SoLuong"></td>
+</ng-container>
+<ng-container matColumnDef="SoNgay">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>SoNgay</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="SoNgay" name="SoNgay" [(ngModel)]="element.SoNgay"></td>
+</ng-container>
+<ng-container matColumnDef="SoLanTrenNgay">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>SoLanTrenNgay</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="SoLanTrenNgay" name="SoLanTrenNgay" [(ngModel)]="element.SoLanTrenNgay"></td>
+</ng-container>
+<ng-container matColumnDef="SoLuongTrenLan">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>SoLuongTrenLan</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="SoLuongTrenLan" name="SoLuongTrenLan" [(ngModel)]="element.SoLuongTrenLan"></td>
+</ng-container>
+<ng-container matColumnDef="SoLuong_BuoiSang">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>SoLuong_BuoiSang</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="SoLuong_BuoiSang" name="SoLuong_BuoiSang" [(ngModel)]="element.SoLuong_BuoiSang"></td>
+</ng-container>
+<ng-container matColumnDef="SoLuong_BuoiTrua">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>SoLuong_BuoiTrua</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="SoLuong_BuoiTrua" name="SoLuong_BuoiTrua" [(ngModel)]="element.SoLuong_BuoiTrua"></td>
+</ng-container>
+<ng-container matColumnDef="SoLuong_BuoiChieu">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>SoLuong_BuoiChieu</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="SoLuong_BuoiChieu" name="SoLuong_BuoiChieu" [(ngModel)]="element.SoLuong_BuoiChieu"></td>
+</ng-container>
+<ng-container matColumnDef="SoLuong_BuoiToi">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>SoLuong_BuoiToi</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="SoLuong_BuoiToi" name="SoLuong_BuoiToi" [(ngModel)]="element.SoLuong_BuoiToi"></td>
+</ng-container>
+<ng-container matColumnDef="DuongDung_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DuongDung_Id</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="DuongDung_Id" name="DuongDung_Id" [(ngModel)]="element.DuongDung_Id"></td>
+</ng-container>
+<ng-container matColumnDef="DonGiaDoanhThu">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DonGiaDoanhThu</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="DonGiaDoanhThu" name="DonGiaDoanhThu" [(ngModel)]="element.DonGiaDoanhThu"></td>
+</ng-container>
+<ng-container matColumnDef="DonGiaHoTro">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DonGiaHoTro</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="DonGiaHoTro" name="DonGiaHoTro" [(ngModel)]="element.DonGiaHoTro"></td>
+</ng-container>
+<ng-container matColumnDef="DonGiaHoTroChiTra">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DonGiaHoTroChiTra</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="DonGiaHoTroChiTra" name="DonGiaHoTroChiTra" [(ngModel)]="element.DonGiaHoTroChiTra"></td>
+</ng-container>
+<ng-container matColumnDef="DonGiaThanhToan">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DonGiaThanhToan</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="DonGiaThanhToan" name="DonGiaThanhToan" [(ngModel)]="element.DonGiaThanhToan"></td>
+</ng-container>
+<ng-container matColumnDef="TienTe_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>TienTe_Id</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="TienTe_Id" name="TienTe_Id" [(ngModel)]="element.TienTe_Id"></td>
+</ng-container>
+<ng-container matColumnDef="TyGia">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>TyGia</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="TyGia" name="TyGia" [(ngModel)]="element.TyGia"></td>
+</ng-container>
+<ng-container matColumnDef="HuyToaThuoc">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>HuyToaThuoc</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="HuyToaThuoc" name="HuyToaThuoc" [(ngModel)]="element.HuyToaThuoc"></td>
+</ng-container>
+<ng-container matColumnDef="GhiChu">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>GhiChu</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="GhiChu" name="GhiChu" [(ngModel)]="element.GhiChu"></td>
+</ng-container>
+<ng-container matColumnDef="TrangThai">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>TrangThai</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="TrangThai" name="TrangThai" [(ngModel)]="element.TrangThai"></td>
+</ng-container>
+<ng-container matColumnDef="NgayTao">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>NgayTao</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="NgayTao" name="NgayTao" [(ngModel)]="element.NgayTao"></td>
+</ng-container>
+<ng-container matColumnDef="NguoiTao_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>NguoiTao_Id</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="NguoiTao_Id" name="NguoiTao_Id" [(ngModel)]="element.NguoiTao_Id"></td>
+</ng-container>
+<ng-container matColumnDef="NgayCapNhat">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>NgayCapNhat</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="NgayCapNhat" name="NgayCapNhat" [(ngModel)]="element.NgayCapNhat"></td>
+</ng-container>
+<ng-container matColumnDef="NguoiCapNhat_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>NguoiCapNhat_Id</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="NguoiCapNhat_Id" name="NguoiCapNhat_Id" [(ngModel)]="element.NguoiCapNhat_Id"></td>
+</ng-container>
+<ng-container matColumnDef="idx">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>idx</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="idx" name="idx" [(ngModel)]="element.idx"></td>
+</ng-container>
+<ng-container matColumnDef="LoaiGia_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>LoaiGia_Id</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="LoaiGia_Id" name="LoaiGia_Id" [(ngModel)]="element.LoaiGia_Id"></td>
+</ng-container>
+<ng-container matColumnDef="NguonHang_id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>NguonHang_id</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="NguonHang_id" name="NguonHang_id" [(ngModel)]="element.NguonHang_id"></td>
+</ng-container>
+<ng-container matColumnDef="GiaTriMienGiam">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>GiaTriMienGiam</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="GiaTriMienGiam" name="GiaTriMienGiam" [(ngModel)]="element.GiaTriMienGiam"></td>
+</ng-container>
+<ng-container matColumnDef="GiaTriThatThu">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>GiaTriThatThu</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="GiaTriThatThu" name="GiaTriThatThu" [(ngModel)]="element.GiaTriThatThu"></td>
+</ng-container>
+<ng-container matColumnDef="GiaTriDaThanhToan">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>GiaTriDaThanhToan</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="GiaTriDaThanhToan" name="GiaTriDaThanhToan" [(ngModel)]="element.GiaTriDaThanhToan"></td>
+</ng-container>
+<ng-container matColumnDef="DaThanhToan_MotPhan">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DaThanhToan_MotPhan</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="DaThanhToan_MotPhan" name="DaThanhToan_MotPhan" [(ngModel)]="element.DaThanhToan_MotPhan"></td>
+</ng-container>
+<ng-container matColumnDef="DaThanhToan_HoanTat">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DaThanhToan_HoanTat</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="DaThanhToan_HoanTat" name="DaThanhToan_HoanTat" [(ngModel)]="element.DaThanhToan_HoanTat"></td>
+</ng-container>
+<ng-container matColumnDef="PhatSinhHoaDon">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>PhatSinhHoaDon</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="PhatSinhHoaDon" name="PhatSinhHoaDon" [(ngModel)]="element.PhatSinhHoaDon"></td>
+</ng-container>
+<ng-container matColumnDef="DonGiaChenhLech">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DonGiaChenhLech</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="DonGiaChenhLech" name="DonGiaChenhLech" [(ngModel)]="element.DonGiaChenhLech"></td>
+</ng-container>
+<ng-container matColumnDef="DonGiaHoTroChenhLech">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DonGiaHoTroChenhLech</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="DonGiaHoTroChenhLech" name="DonGiaHoTroChenhLech" [(ngModel)]="element.DonGiaHoTroChenhLech"></td>
+</ng-container>
+<ng-container matColumnDef="GiaTriDaThanhToan_ChenhLech">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>GiaTriDaThanhToan_ChenhLech</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="GiaTriDaThanhToan_ChenhLech" name="GiaTriDaThanhToan_ChenhLech" [(ngModel)]="element.GiaTriDaThanhToan_ChenhLech"></td>
+</ng-container>
+<ng-container matColumnDef="GiaTriDaThanhToan_HoTroChenhLech">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>GiaTriDaThanhToan_HoTroChenhLech</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="GiaTriDaThanhToan_HoTroChenhLech" name="GiaTriDaThanhToan_HoTroChenhLech" [(ngModel)]="element.GiaTriDaThanhToan_HoTroChenhLech"></td>
+</ng-container>
+
+                            <tr mat-header-row *matHeaderRowDef="ToaThuocService.DisplayColumns001">
+                            </tr>
+                            <tr mat-row *matRowDef="let row; columns: ToaThuocService.DisplayColumns001;">
+                            </tr>
+                        </table>
+                        <mat-paginator *ngIf="!NotificationService.IsMobile" #ToaThuocPaginator="matPaginator"
+                                       [pageSizeOptions]="[10,20,50,100]" [pageSize]="20" [showFirstLastButtons]></mat-paginator>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <app-loading *ngIf="ToaThuocService.IsShowLoading"></app-loading>
+

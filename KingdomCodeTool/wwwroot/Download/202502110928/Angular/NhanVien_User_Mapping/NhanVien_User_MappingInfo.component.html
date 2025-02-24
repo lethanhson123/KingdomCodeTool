@@ -1,0 +1,72 @@
+﻿<div class="row">
+    <div id="breadcrumbs-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m6 l6">
+                    <h6 class="breadcrumbs-title">
+                        NhanVien_User_Mapping:
+                        <b>{{NhanVien_User_MappingService.FormData.NhanVien_User_Id}} [{{NhanVien_User_MappingService.FormData.NhanVien_User_Id}}]</b>
+                    </h6>
+                </div>
+                <div class="col s12 m6 l6 right-align-md">
+                    <ol class="breadcrumbs mb-0">
+                        <li class="breadcrumb-item">
+                            <a href="javascript:history.back()" title="Quay lại">
+                                <<< Quay lại
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/Homepage" title="Trang chủ">Trang chủ</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="#" title="eHospital_DongNai_A_Dictionary/">eHospital_DongNai_A_Dictionary/</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/NhanVien_User_Mapping" title="NhanVien_User_Mapping">
+                                NhanVien_User_Mapping
+                            </a>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col s12 m12 l12">
+        <div class="card card card-default scrollspy">
+            <div class="card-content">
+                <div class="row">
+                    <div class="col s6 m6 l12">
+                        <a title="Quay lại" href="javascript:history.back()" style="color: green;">
+                            <i class="material-icons">more</i>
+                        </a>
+                        <!--<a title="Thêm mới" (click)="NhanVien_User_MappingAdd()" style="color: green;"><i
+                class="material-icons">add_box</i></a>-->
+                        <a title="Lưu thay đổi" (click)="NhanVien_User_MappingSave()" style="color:#2196f3;">
+                            <i class="material-icons">save</i>
+                        </a>
+                    </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12 m12 l12">
+                            <div>
+<label>NhanVien_User_Id</label>
+<input placeholder="NhanVien_User_Id" [(ngModel)]="NhanVien_User_MappingService.FormData.NhanVien_User_Id"  name="NhanVien_User_MappingService.FormData.NhanVien_User_Id" type="text" class="form-control">
+</div>
+<div>
+<label>NhanVien_Id</label>
+<input placeholder="NhanVien_Id" [(ngModel)]="NhanVien_User_MappingService.FormData.NhanVien_Id"  name="NhanVien_User_MappingService.FormData.NhanVien_Id" type="text" class="form-control">
+</div>
+<div>
+<label>User_Id</label>
+<input placeholder="User_Id" [(ngModel)]="NhanVien_User_MappingService.FormData.User_Id"  name="NhanVien_User_MappingService.FormData.User_Id" type="text" class="form-control">
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <app-loading *ngIf="NhanVien_User_MappingService.IsShowLoading"></app-loading>
+

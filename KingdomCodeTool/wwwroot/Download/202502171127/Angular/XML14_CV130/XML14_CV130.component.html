@@ -1,0 +1,197 @@
+﻿<div class="row">
+    <div id="breadcrumbs-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m6 l6">
+                    <h6 class="breadcrumbs-title">
+                        XML14_CV130
+                        <span *ngIf="XML14_CV130Service.List">({{XML14_CV130Service.List.length-1}} items)</span>
+                    </h6>
+                </div>
+                <div class="col s12 m6 l6 right-align-md">
+                    <ol class="breadcrumbs mb-0">
+                        <li class="breadcrumb-item">
+                            <a href="javascript:history.back()" title="Quay lại">
+                                <<< Quay lại
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/Homepage" title="Trang chủ">Trang chủ</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/ThanhVien" title="Quản trị">Quản trị</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/XML14_CV130" title="XML14_CV130">
+                                XML14_CV130
+                            </a>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col s12 m12 l12">
+        <div class="card card card-default scrollspy">
+            <div class="card-content">
+                <div class="col s12 m12 l11">
+                    <input [(ngModel)]="XML14_CV130Service.BaseParameter.SearchString" placeholder="Tìm ..."
+                           class="form-control" (keyup.enter)="XML14_CV130Search()">
+                </div>
+                <div class="col s12 m12 l1">
+                    <a style="color: green;" title="Tìm" (click)="XML14_CV130Search()">
+                        <i class="material-icons">play_circle_filled</i>
+                    </a>
+                </div>
+                <div class="KhungOverflow">
+                    <table *ngIf="!NotificationService.IsMobile" mat-table matSort #XML14_CV130Sort="matSort"
+                           [dataSource]="XML14_CV130Service.DataSource">
+                        <ng-container matColumnDef="STT">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                                STT
+                            </th>
+                            <td mat-cell *matCellDef="let element; index as i;">
+                                <div *ngIf="XML14_CV130Paginator">
+                                    {{
+XML14_CV130Paginator.pageSize *
+                                    XML14_CV130Paginator.pageIndex + i + 1
+                                    }}
+                                </div>
+                            </td>
+                        </ng-container>
+                        <ng-container matColumnDef="Save">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                            </th>
+                            <td mat-cell *matCellDef="let element">
+                                <a (click)="XML14_CV130Save(element)" style="color:#2196f3;">
+                                    <i class="material-icons">save</i>
+                                </a>
+                                <!-- <a (click)="XML14_CV130Delete(element)" style="color: red;">
+            <i class="material-icons">delete_forever</i>
+        </a> -->
+                            </td>
+                            </ng-container>
+                            <ng-container matColumnDef="XML14_CV130_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>XML14_CV130_Id</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="XML14_CV130_Id" name="XML14_CV130_Id" [(ngModel)]="element.XML14_CV130_Id"></td>
+</ng-container>
+<ng-container matColumnDef="BenhAn_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>BenhAn_Id</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="BenhAn_Id" name="BenhAn_Id" [(ngModel)]="element.BenhAn_Id"></td>
+</ng-container>
+<ng-container matColumnDef="TiepNhan_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>TiepNhan_Id</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="TiepNhan_Id" name="TiepNhan_Id" [(ngModel)]="element.TiepNhan_Id"></td>
+</ng-container>
+<ng-container matColumnDef="BenhNhan_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>BenhNhan_Id</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="BenhNhan_Id" name="BenhNhan_Id" [(ngModel)]="element.BenhNhan_Id"></td>
+</ng-container>
+<ng-container matColumnDef="XacNhanChiPhi_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>XacNhanChiPhi_Id</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="XacNhanChiPhi_Id" name="XacNhanChiPhi_Id" [(ngModel)]="element.XacNhanChiPhi_Id"></td>
+</ng-container>
+<ng-container matColumnDef="MA_LK">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>MA_LK</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="MA_LK" name="MA_LK" [(ngModel)]="element.MA_LK"></td>
+</ng-container>
+<ng-container matColumnDef="SO_GIAYHEN_KL">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>SO_GIAYHEN_KL</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="SO_GIAYHEN_KL" name="SO_GIAYHEN_KL" [(ngModel)]="element.SO_GIAYHEN_KL"></td>
+</ng-container>
+<ng-container matColumnDef="MA_CSKCB">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>MA_CSKCB</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="MA_CSKCB" name="MA_CSKCB" [(ngModel)]="element.MA_CSKCB"></td>
+</ng-container>
+<ng-container matColumnDef="HO_TEN">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>HO_TEN</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="HO_TEN" name="HO_TEN" [(ngModel)]="element.HO_TEN"></td>
+</ng-container>
+<ng-container matColumnDef="NGAY_SINH">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>NGAY_SINH</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="NGAY_SINH" name="NGAY_SINH" [(ngModel)]="element.NGAY_SINH"></td>
+</ng-container>
+<ng-container matColumnDef="GIOI_TINH">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>GIOI_TINH</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="GIOI_TINH" name="GIOI_TINH" [(ngModel)]="element.GIOI_TINH"></td>
+</ng-container>
+<ng-container matColumnDef="DIA_CHI">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DIA_CHI</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="DIA_CHI" name="DIA_CHI" [(ngModel)]="element.DIA_CHI"></td>
+</ng-container>
+<ng-container matColumnDef="MA_THE_BHYT">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>MA_THE_BHYT</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="MA_THE_BHYT" name="MA_THE_BHYT" [(ngModel)]="element.MA_THE_BHYT"></td>
+</ng-container>
+<ng-container matColumnDef="GT_THE_DEN">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>GT_THE_DEN</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="GT_THE_DEN" name="GT_THE_DEN" [(ngModel)]="element.GT_THE_DEN"></td>
+</ng-container>
+<ng-container matColumnDef="NGAY_VAO">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>NGAY_VAO</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="NGAY_VAO" name="NGAY_VAO" [(ngModel)]="element.NGAY_VAO"></td>
+</ng-container>
+<ng-container matColumnDef="NGAY_VAO_NOI_TRU">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>NGAY_VAO_NOI_TRU</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="NGAY_VAO_NOI_TRU" name="NGAY_VAO_NOI_TRU" [(ngModel)]="element.NGAY_VAO_NOI_TRU"></td>
+</ng-container>
+<ng-container matColumnDef="NGAY_RA">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>NGAY_RA</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="NGAY_RA" name="NGAY_RA" [(ngModel)]="element.NGAY_RA"></td>
+</ng-container>
+<ng-container matColumnDef="NGAY_HEN_KL">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>NGAY_HEN_KL</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="NGAY_HEN_KL" name="NGAY_HEN_KL" [(ngModel)]="element.NGAY_HEN_KL"></td>
+</ng-container>
+<ng-container matColumnDef="CHAN_DOAN_RV">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CHAN_DOAN_RV</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="CHAN_DOAN_RV" name="CHAN_DOAN_RV" [(ngModel)]="element.CHAN_DOAN_RV"></td>
+</ng-container>
+<ng-container matColumnDef="MA_BENH_CHINH">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>MA_BENH_CHINH</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="MA_BENH_CHINH" name="MA_BENH_CHINH" [(ngModel)]="element.MA_BENH_CHINH"></td>
+</ng-container>
+<ng-container matColumnDef="MA_BENH_KT">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>MA_BENH_KT</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="MA_BENH_KT" name="MA_BENH_KT" [(ngModel)]="element.MA_BENH_KT"></td>
+</ng-container>
+<ng-container matColumnDef="MA_BENH_YHCT">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>MA_BENH_YHCT</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="MA_BENH_YHCT" name="MA_BENH_YHCT" [(ngModel)]="element.MA_BENH_YHCT"></td>
+</ng-container>
+<ng-container matColumnDef="MA_DOITUONG_KCB">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>MA_DOITUONG_KCB</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="MA_DOITUONG_KCB" name="MA_DOITUONG_KCB" [(ngModel)]="element.MA_DOITUONG_KCB"></td>
+</ng-container>
+<ng-container matColumnDef="MA_BAC_SI">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>MA_BAC_SI</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="MA_BAC_SI" name="MA_BAC_SI" [(ngModel)]="element.MA_BAC_SI"></td>
+</ng-container>
+<ng-container matColumnDef="MA_TTDV">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>MA_TTDV</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="MA_TTDV" name="MA_TTDV" [(ngModel)]="element.MA_TTDV"></td>
+</ng-container>
+<ng-container matColumnDef="NGAY_CT">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>NGAY_CT</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="NGAY_CT" name="NGAY_CT" [(ngModel)]="element.NGAY_CT"></td>
+</ng-container>
+<ng-container matColumnDef="DU_PHONG">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DU_PHONG</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="DU_PHONG" name="DU_PHONG" [(ngModel)]="element.DU_PHONG"></td>
+</ng-container>
+
+                            <tr mat-header-row *matHeaderRowDef="XML14_CV130Service.DisplayColumns001">
+                            </tr>
+                            <tr mat-row *matRowDef="let row; columns: XML14_CV130Service.DisplayColumns001;">
+                            </tr>
+                        </table>
+                        <mat-paginator *ngIf="!NotificationService.IsMobile" #XML14_CV130Paginator="matPaginator"
+                                       [pageSizeOptions]="[10,20,50,100]" [pageSize]="20" [showFirstLastButtons]></mat-paginator>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <app-loading *ngIf="XML14_CV130Service.IsShowLoading"></app-loading>
+

@@ -1,6 +1,7 @@
 ﻿
 
 using KingdomCodeTool.ViewModels;
+using Microsoft.VisualBasic;
 using System.ComponentModel;
 using System.Xml.Linq;
 using static System.Net.Mime.MediaTypeNames;
@@ -22,17 +23,58 @@ namespace KingdomCodeTool.Controllers
         {
             BaseViewModel model = new BaseViewModel();
             model.ConnectionString = "Server=DESKTOP-GT1PCNF;Database=BenhVienDaKhoaDongNai2025;Persist Security Info=False;User ID=sa; Password=DongNai@123;MultipleActiveResultSets=False;Encrypt=False;TrustServerCertificate=False;Connection Timeout=30;";
-            model.ConnectionString = "Server=10.84.2.8\\SQLDB;Database=eHospital_DongNai_A_Dictionary;User Id=ToolEhos;Password=tooltehpt;";
-            //model.ConnectionString = "Server=10.84.2.8\\SQLDB;Database=eHospital_DongNai_A;User Id=ToolEhos;Password=tooltehpt;";
-            model.SpaceName = "_" + "eHospital_DongNai_A_Dictionary";
-            var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(model.ConnectionString);
-            model.Base64Encode = System.Convert.ToBase64String(plainTextBytes);
-
+            model.ConnectionString = "Server=10.84.2.8\\SQLDB;Database=eHospital_DongNai_A;User Id=ToolEhos;Password=tooltehpt;";
+            //model.ConnectionString = "Server=10.84.2.8\\SQLDB;Database=eHospital_DongNai_A_Config;User Id=ToolEhos;Password=tooltehpt;";
+            //model.ConnectionString = "Server=10.84.2.8\\SQLDB;Database=eHospital_DongNai_A_Dictionary;User Id=ToolEhos;Password=tooltehpt;";
+            //model.ConnectionString = "Server=10.84.2.8\\SQLDB;Database=eHospital_DongNai_A_NSTL;User Id=ToolEhos;Password=tooltehpt;";
+            //model.ConnectionString = "Server=10.84.2.8\\SQLDB;Database=eHospital_DongNai_A_System;User Id=ToolEhos;Password=tooltehpt;";            
+            //model.SpaceName = "_" + "eHospital_DongNai_A_Config";
+            string SpaceName = model.ConnectionString;
+            SpaceName = SpaceName.Replace(@"Database=", @"~");
+            SpaceName = SpaceName.Split('~')[1];
+            SpaceName = SpaceName.Split(';')[0];
+            model.SpaceName = "_" + SpaceName;
+            //var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(model.ConnectionString);
+            //model.Base64Encode = System.Convert.ToBase64String(plainTextBytes);
+            model.Base64Encode = "PENISVRJRVVfQ0hJVElFVF9USFVPQz4NCjxEU0FDSF9DSElfVElFVF9USFVPQz4NCjxDSElfVElFVF9USFVPQz4NCjxNQV9MSz4yNS4wMDcyNjE8L01BX0xLPjxTVFQ+MDwvU1RUPjxNQV9USFVPQz40MC42NTk8L01BX1RIVU9DPjxNQV9QUF9DSEVCSUVOPjwvTUFfUFBfQ0hFQklFTj48TUFfQ1NLQ0JfVEhVT0M+PC9NQV9DU0tDQl9USFVPQz48TUFfTkhPTT40PC9NQV9OSE9NPjxURU5fVEhVT0M+Vmlueml4PC9URU5fVEhVT0M+PERPTl9WSV9USU5IPuG7kG5nPC9ET05fVklfVElOSD48SEFNX0xVT05HPjIwbWcvMm1sPC9IQU1fTFVPTkc+PERVT05HX0RVTkc+Mi4xMDwvRFVPTkdfRFVORz48REFOR19CQU9fQ0hFPjwvREFOR19CQU9fQ0hFPjxMSUVVX0RVTkc+Mi4wMCDhu5BuZy9s4bqnbioxIGzhuqduL25nw6B5PC9MSUVVX0RVTkc+PENBQ0hfRFVORz48L0NBQ0hfRFVORz48U09fREFOR19LWT44OTMxMTAzMDU5MjM8L1NPX0RBTkdfS1k+PFRUX1RIQVU+MTYyNi9RxJAtU1lUO0cxO040OzIwMjI7NzU8L1RUX1RIQVU+PFBIQU1fVkk+MTwvUEhBTV9WST48VFlMRV9UVF9CSD4xMDA8L1RZTEVfVFRfQkg+PFNPX0xVT05HPjI8L1NPX0xVT05HPjxET05fR0lBPjYzMDwvRE9OX0dJQT48VEhBTkhfVElFTl9CVj4xMjYwPC9USEFOSF9USUVOX0JWPjxUSEFOSF9USUVOX0JIPjEyNjA8L1RIQU5IX1RJRU5fQkg+PFRfTkdVT05LSEFDX05TTk4+MDwvVF9OR1VPTktIQUNfTlNOTj48VF9OR1VPTktIQUNfVlROTj4wPC9UX05HVU9OS0hBQ19WVE5OPjxUX05HVU9OS0hBQ19WVFROPjA8L1RfTkdVT05LSEFDX1ZUVE4+PFRfTkdVT05LSEFDX0NMPjA8L1RfTkdVT05LSEFDX0NMPjxUX05HVU9OS0hBQz4wPC9UX05HVU9OS0hBQz48TVVDX0hVT05HPjEwMDwvTVVDX0hVT05HPjxUX0JIVFQ+MTI2MDwvVF9CSFRUPjxUX0JOQ0NUPjA8L1RfQk5DQ1Q+PFRfQk5UVD4wPC9UX0JOVFQ+PE1BX0tIT0E+SzAyPC9NQV9LSE9BPjxNQV9CQUNfU0k+MDA0MjUyL8SQTkFJLUNDSE48L01BX0JBQ19TST48TUFfRElDSF9WVT48L01BX0RJQ0hfVlU+PE5HQVlfWUw+MjAyNTAxMzEyMTA2PC9OR0FZX1lMPjxOR0FZX1RIX1lMPjIwMjUwMTMxMjEwNjwvTkdBWV9USF9ZTD48TUFfUFRUVD4xPC9NQV9QVFRUPjxOR1VPTl9DVFJBPjE8L05HVU9OX0NUUkE+PFZFVF9USFVPTkdfVFA+PC9WRVRfVEhVT05HX1RQPjxEVV9QSE9ORz48L0RVX1BIT05HPjwvQ0hJX1RJRVRfVEhVT0M+DQo8L0RTQUNIX0NISV9USUVUX1RIVU9DPg0KPC9DSElUSUVVX0NISVRJRVRfVEhVT0M+DQo=";
             var base64EncodedBytes = System.Convert.FromBase64String(model.Base64Encode);
+            //model.Base64Decode = Decrypt_XML(model.Base64Encode);            
             model.Base64Decode = System.Text.Encoding.UTF8.GetString(base64EncodedBytes);
             return View(model);
         }
-
+        private static string Decrypt_XML(string PasswordData)
+        {
+            
+            if (Microsoft.VisualBasic.CompilerServices.Operators.CompareString(PasswordData, null, TextCompare: false) == 0 || Microsoft.VisualBasic.CompilerServices.Operators.CompareString(PasswordData, string.Empty, TextCompare: false) == 0)
+            {
+                return PasswordData;
+            }
+            string text = string.Empty;
+            int num = PasswordData.Length;
+            num ^= 0x80;
+            checked
+            {
+                if (num < 32)
+                {
+                    num += 32;
+                }
+                else if (num > 254)
+                {
+                    num = unchecked(num % 254);
+                    if (num < 32)
+                    {
+                        num += 32;
+                    }
+                }
+                int arg_63_0 = 0;
+                int num2 = PasswordData.Length - 1;
+                for (int i = arg_63_0; i <= num2; i++)
+                {
+                    text = ((Microsoft.VisualBasic.Strings.AscW(PasswordData.Substring(i, 1)) != num) ? ((Microsoft.VisualBasic.CompilerServices.Operators.CompareString(Microsoft.VisualBasic.CompilerServices.Conversions.ToString(Microsoft.VisualBasic.Strings.ChrW(Microsoft.VisualBasic.Strings.AscW(PasswordData.Substring(i, 1)) ^ num)), "&", TextCompare: false) != 0) ? ((!(((Microsoft.VisualBasic.Strings.AscW(PasswordData.Substring(i, 1)) ^ num) >= 32) & ((Microsoft.VisualBasic.Strings.AscW(PasswordData.Substring(i, 1)) ^ num) <= 254))) ? (text + PasswordData.Substring(i, 1)) : (text + Microsoft.VisualBasic.CompilerServices.Conversions.ToString(Microsoft.VisualBasic.Strings.ChrW(Microsoft.VisualBasic.Strings.AscW(PasswordData.Substring(i, 1)) ^ num)))) : (text + PasswordData.Substring(i, 1))) : (text + PasswordData.Substring(i, 1)));
+                }
+                return text;
+            }
+        }
         public List<BaseViewModel> GetTables(string connectionString)
         {
             DataTable listTable = CodeGeneration.GetTableNames(connectionString);
@@ -99,6 +141,7 @@ namespace KingdomCodeTool.Controllers
                             StringBuilder AngularDetail002 = new StringBuilder();
                             StringBuilder AngularDetail003 = new StringBuilder();
                             StringBuilder AngularContainerInline = new StringBuilder();
+                            StringBuilder AngularContainerInline001 = new StringBuilder();
                             StringBuilder AngularContainerInfo = new StringBuilder();
 
                             AngularDisplayColumns001.Append(@"DisplayColumns001: string[] = ['Save', 'STT'");
@@ -130,6 +173,11 @@ namespace KingdomCodeTool.Controllers
                                 AngularContainerInline.AppendLine(@"<th mat-header-cell *matHeaderCellDef mat-sort-header>" + COLUMN_NAME + "</th>");
                                 AngularContainerInline.AppendLine(@"<td mat-cell *matCellDef=""let element""><input class=""form-control"" type=""text"" placeholder=""" + COLUMN_NAME + @""" name=""" + COLUMN_NAME + @""" [(ngModel)]=""element." + COLUMN_NAME + @"""></td>");
                                 AngularContainerInline.AppendLine(@"</ng-container>");
+
+                                AngularContainerInline001.AppendLine(@"<ng-container matColumnDef=""" + COLUMN_NAME + @""">");
+                                AngularContainerInline001.AppendLine(@"<th mat-header-cell *matHeaderCellDef mat-sort-header>" + COLUMN_NAME + "</th>");
+                                AngularContainerInline001.AppendLine(@"<td mat-cell *matCellDef=""let element"">{{element." + COLUMN_NAME + @"}}</td>");
+                                AngularContainerInline001.AppendLine(@"</ng-container>");
 
                                 AngularContainerInfo.AppendLine(@"<div>");
                                 AngularContainerInfo.AppendLine(@"<label>" + COLUMN_NAME + "</label>");
@@ -524,6 +572,34 @@ namespace KingdomCodeTool.Controllers
                             content = content.Replace("[ClassName]", className);
                             content = content.Replace("[AngularContainer]", AngularContainerInline.ToString());
                             fileName = className + ".component.html";
+
+                            folderPath = Path.Combine(folderPathRoot, "Angular", className);
+                            Directory.CreateDirectory(folderPath);
+                            isFolderExists = System.IO.Directory.Exists(folderPath);
+                            if (!isFolderExists)
+                            {
+                                System.IO.Directory.CreateDirectory(folderPath);
+                            }
+                            path = Path.Combine(folderPath, fileName);
+                            using (FileStream fs = new FileStream(path, FileMode.Create))
+                            {
+                                using (StreamWriter w = new StreamWriter(fs, Encoding.UTF8))
+                                {
+                                    w.WriteLine(content);
+                                }
+                            }
+
+                            content = Path.Combine(_WebHostEnvironment.WebRootPath, HTML, "AngularComponentInline.html");
+                            using (FileStream fs = new FileStream(content, FileMode.Open))
+                            {
+                                using (StreamReader r = new StreamReader(fs, Encoding.UTF8))
+                                {
+                                    content = r.ReadToEnd();
+                                }
+                            }
+                            content = content.Replace("[ClassName]", className);
+                            content = content.Replace("[AngularContainer]", AngularContainerInline001.ToString());
+                            fileName = className + "001.component.html";
 
                             folderPath = Path.Combine(folderPathRoot, "Angular", className);
                             Directory.CreateDirectory(folderPath);

@@ -1,0 +1,101 @@
+﻿<div class="row">
+    <div id="breadcrumbs-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m6 l6">
+                    <h6 class="breadcrumbs-title">
+                        NhanVien_User_Mapping
+                        <span *ngIf="NhanVien_User_MappingService.List">({{NhanVien_User_MappingService.List.length-1}} items)</span>
+                    </h6>
+                </div>
+                <div class="col s12 m6 l6 right-align-md">
+                    <ol class="breadcrumbs mb-0">
+                        <li class="breadcrumb-item">
+                            <a href="javascript:history.back()" title="Quay lại">
+                                <<< Quay lại
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/Homepage" title="Trang chủ">Trang chủ</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/ThanhVien" title="Quản trị">Quản trị</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/NhanVien_User_Mapping" title="NhanVien_User_Mapping">
+                                NhanVien_User_Mapping
+                            </a>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col s12 m12 l12">
+        <div class="card card card-default scrollspy">
+            <div class="card-content">
+                <div class="col s12 m12 l11">
+                    <input [(ngModel)]="NhanVien_User_MappingService.BaseParameter.SearchString" placeholder="Tìm ..."
+                           class="form-control" (keyup.enter)="NhanVien_User_MappingSearch()">
+                </div>
+                <div class="col s12 m12 l1">
+                    <a style="color: green;" title="Tìm" (click)="NhanVien_User_MappingSearch()">
+                        <i class="material-icons">play_circle_filled</i>
+                    </a>
+                </div>
+                <div class="KhungOverflow">
+                    <table *ngIf="!NotificationService.IsMobile" mat-table matSort #NhanVien_User_MappingSort="matSort"
+                           [dataSource]="NhanVien_User_MappingService.DataSource">
+                        <ng-container matColumnDef="STT">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                                STT
+                            </th>
+                            <td mat-cell *matCellDef="let element; index as i;">
+                                <div *ngIf="NhanVien_User_MappingPaginator">
+                                    {{
+NhanVien_User_MappingPaginator.pageSize *
+                                    NhanVien_User_MappingPaginator.pageIndex + i + 1
+                                    }}
+                                </div>
+                            </td>
+                        </ng-container>
+                        <ng-container matColumnDef="Save">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                            </th>
+                            <td mat-cell *matCellDef="let element">
+                                <a (click)="NhanVien_User_MappingSave(element)" style="color:#2196f3;">
+                                    <i class="material-icons">save</i>
+                                </a>
+                                <!-- <a (click)="NhanVien_User_MappingDelete(element)" style="color: red;">
+            <i class="material-icons">delete_forever</i>
+        </a> -->
+                            </td>
+                            </ng-container>
+                            <ng-container matColumnDef="NhanVien_User_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>NhanVien_User_Id</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="NhanVien_User_Id" name="NhanVien_User_Id" [(ngModel)]="element.NhanVien_User_Id"></td>
+</ng-container>
+<ng-container matColumnDef="NhanVien_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>NhanVien_Id</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="NhanVien_Id" name="NhanVien_Id" [(ngModel)]="element.NhanVien_Id"></td>
+</ng-container>
+<ng-container matColumnDef="User_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>User_Id</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="User_Id" name="User_Id" [(ngModel)]="element.User_Id"></td>
+</ng-container>
+
+                            <tr mat-header-row *matHeaderRowDef="NhanVien_User_MappingService.DisplayColumns001">
+                            </tr>
+                            <tr mat-row *matRowDef="let row; columns: NhanVien_User_MappingService.DisplayColumns001;">
+                            </tr>
+                        </table>
+                        <mat-paginator *ngIf="!NotificationService.IsMobile" #NhanVien_User_MappingPaginator="matPaginator"
+                                       [pageSizeOptions]="[10,20,50,100]" [pageSize]="20" [showFirstLastButtons]></mat-paginator>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <app-loading *ngIf="NhanVien_User_MappingService.IsShowLoading"></app-loading>
+

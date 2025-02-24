@@ -1,0 +1,168 @@
+﻿<div class="row">
+    <div id="breadcrumbs-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m6 l6">
+                    <h6 class="breadcrumbs-title">
+                        XML11_CV130:
+                        <b>{{XML11_CV130Service.FormData.XML11_CV130_Id}} [{{XML11_CV130Service.FormData.XML11_CV130_Id}}]</b>
+                    </h6>
+                </div>
+                <div class="col s12 m6 l6 right-align-md">
+                    <ol class="breadcrumbs mb-0">
+                        <li class="breadcrumb-item">
+                            <a href="javascript:history.back()" title="Quay lại">
+                                <<< Quay lại
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/Homepage" title="Trang chủ">Trang chủ</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="#" title="eHospital_DongNai_A/">eHospital_DongNai_A/</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/XML11_CV130" title="XML11_CV130">
+                                XML11_CV130
+                            </a>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col s12 m12 l12">
+        <div class="card card card-default scrollspy">
+            <div class="card-content">
+                <div class="row">
+                    <div class="col s6 m6 l12">
+                        <a title="Quay lại" href="javascript:history.back()" style="color: green;">
+                            <i class="material-icons">more</i>
+                        </a>
+                        <!--<a title="Thêm mới" (click)="XML11_CV130Add()" style="color: green;"><i
+                class="material-icons">add_box</i></a>-->
+                        <a title="Lưu thay đổi" (click)="XML11_CV130Save()" style="color:#2196f3;">
+                            <i class="material-icons">save</i>
+                        </a>
+                    </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12 m12 l12">
+                            <div>
+<label>XML11_CV130_Id</label>
+<input placeholder="XML11_CV130_Id" [(ngModel)]="XML11_CV130Service.FormData.XML11_CV130_Id"  name="XML11_CV130Service.FormData.XML11_CV130_Id" type="text" class="form-control">
+</div>
+<div>
+<label>BenhAn_Id</label>
+<input placeholder="BenhAn_Id" [(ngModel)]="XML11_CV130Service.FormData.BenhAn_Id"  name="XML11_CV130Service.FormData.BenhAn_Id" type="text" class="form-control">
+</div>
+<div>
+<label>TiepNhan_Id</label>
+<input placeholder="TiepNhan_Id" [(ngModel)]="XML11_CV130Service.FormData.TiepNhan_Id"  name="XML11_CV130Service.FormData.TiepNhan_Id" type="text" class="form-control">
+</div>
+<div>
+<label>BenhNhan_Id</label>
+<input placeholder="BenhNhan_Id" [(ngModel)]="XML11_CV130Service.FormData.BenhNhan_Id"  name="XML11_CV130Service.FormData.BenhNhan_Id" type="text" class="form-control">
+</div>
+<div>
+<label>XacNhanChiPhi_Id</label>
+<input placeholder="XacNhanChiPhi_Id" [(ngModel)]="XML11_CV130Service.FormData.XacNhanChiPhi_Id"  name="XML11_CV130Service.FormData.XacNhanChiPhi_Id" type="text" class="form-control">
+</div>
+<div>
+<label>MA_LK</label>
+<input placeholder="MA_LK" [(ngModel)]="XML11_CV130Service.FormData.MA_LK"  name="XML11_CV130Service.FormData.MA_LK" type="text" class="form-control">
+</div>
+<div>
+<label>SO_CT</label>
+<input placeholder="SO_CT" [(ngModel)]="XML11_CV130Service.FormData.SO_CT"  name="XML11_CV130Service.FormData.SO_CT" type="text" class="form-control">
+</div>
+<div>
+<label>SO_SERI</label>
+<input placeholder="SO_SERI" [(ngModel)]="XML11_CV130Service.FormData.SO_SERI"  name="XML11_CV130Service.FormData.SO_SERI" type="text" class="form-control">
+</div>
+<div>
+<label>SO_KCB</label>
+<input placeholder="SO_KCB" [(ngModel)]="XML11_CV130Service.FormData.SO_KCB"  name="XML11_CV130Service.FormData.SO_KCB" type="text" class="form-control">
+</div>
+<div>
+<label>DON_VI</label>
+<input placeholder="DON_VI" [(ngModel)]="XML11_CV130Service.FormData.DON_VI"  name="XML11_CV130Service.FormData.DON_VI" type="text" class="form-control">
+</div>
+<div>
+<label>MA_BHXH</label>
+<input placeholder="MA_BHXH" [(ngModel)]="XML11_CV130Service.FormData.MA_BHXH"  name="XML11_CV130Service.FormData.MA_BHXH" type="text" class="form-control">
+</div>
+<div>
+<label>MA_THE_BHYT</label>
+<input placeholder="MA_THE_BHYT" [(ngModel)]="XML11_CV130Service.FormData.MA_THE_BHYT"  name="XML11_CV130Service.FormData.MA_THE_BHYT" type="text" class="form-control">
+</div>
+<div>
+<label>CHAN_DOAN_RV</label>
+<input placeholder="CHAN_DOAN_RV" [(ngModel)]="XML11_CV130Service.FormData.CHAN_DOAN_RV"  name="XML11_CV130Service.FormData.CHAN_DOAN_RV" type="text" class="form-control">
+</div>
+<div>
+<label>PP_DIEUTRI</label>
+<input placeholder="PP_DIEUTRI" [(ngModel)]="XML11_CV130Service.FormData.PP_DIEUTRI"  name="XML11_CV130Service.FormData.PP_DIEUTRI" type="text" class="form-control">
+</div>
+<div>
+<label>MA_DINH_CHI_THAI</label>
+<input placeholder="MA_DINH_CHI_THAI" [(ngModel)]="XML11_CV130Service.FormData.MA_DINH_CHI_THAI"  name="XML11_CV130Service.FormData.MA_DINH_CHI_THAI" type="text" class="form-control">
+</div>
+<div>
+<label>NGUYENNHAN_DINHCHI</label>
+<input placeholder="NGUYENNHAN_DINHCHI" [(ngModel)]="XML11_CV130Service.FormData.NGUYENNHAN_DINHCHI"  name="XML11_CV130Service.FormData.NGUYENNHAN_DINHCHI" type="text" class="form-control">
+</div>
+<div>
+<label>TUOI_THAI</label>
+<input placeholder="TUOI_THAI" [(ngModel)]="XML11_CV130Service.FormData.TUOI_THAI"  name="XML11_CV130Service.FormData.TUOI_THAI" type="text" class="form-control">
+</div>
+<div>
+<label>SO_NGAY_NGHI</label>
+<input placeholder="SO_NGAY_NGHI" [(ngModel)]="XML11_CV130Service.FormData.SO_NGAY_NGHI"  name="XML11_CV130Service.FormData.SO_NGAY_NGHI" type="text" class="form-control">
+</div>
+<div>
+<label>TU_NGAY</label>
+<input placeholder="TU_NGAY" [(ngModel)]="XML11_CV130Service.FormData.TU_NGAY"  name="XML11_CV130Service.FormData.TU_NGAY" type="text" class="form-control">
+</div>
+<div>
+<label>DEN_NGAY</label>
+<input placeholder="DEN_NGAY" [(ngModel)]="XML11_CV130Service.FormData.DEN_NGAY"  name="XML11_CV130Service.FormData.DEN_NGAY" type="text" class="form-control">
+</div>
+<div>
+<label>HO_TEN_CHA</label>
+<input placeholder="HO_TEN_CHA" [(ngModel)]="XML11_CV130Service.FormData.HO_TEN_CHA"  name="XML11_CV130Service.FormData.HO_TEN_CHA" type="text" class="form-control">
+</div>
+<div>
+<label>HO_TEN_ME</label>
+<input placeholder="HO_TEN_ME" [(ngModel)]="XML11_CV130Service.FormData.HO_TEN_ME"  name="XML11_CV130Service.FormData.HO_TEN_ME" type="text" class="form-control">
+</div>
+<div>
+<label>MA_TTDV</label>
+<input placeholder="MA_TTDV" [(ngModel)]="XML11_CV130Service.FormData.MA_TTDV"  name="XML11_CV130Service.FormData.MA_TTDV" type="text" class="form-control">
+</div>
+<div>
+<label>MA_BS</label>
+<input placeholder="MA_BS" [(ngModel)]="XML11_CV130Service.FormData.MA_BS"  name="XML11_CV130Service.FormData.MA_BS" type="text" class="form-control">
+</div>
+<div>
+<label>NGAY_CT</label>
+<input placeholder="NGAY_CT" [(ngModel)]="XML11_CV130Service.FormData.NGAY_CT"  name="XML11_CV130Service.FormData.NGAY_CT" type="text" class="form-control">
+</div>
+<div>
+<label>MA_THE_TAM</label>
+<input placeholder="MA_THE_TAM" [(ngModel)]="XML11_CV130Service.FormData.MA_THE_TAM"  name="XML11_CV130Service.FormData.MA_THE_TAM" type="text" class="form-control">
+</div>
+<div>
+<label>MAU_SO</label>
+<input placeholder="MAU_SO" [(ngModel)]="XML11_CV130Service.FormData.MAU_SO"  name="XML11_CV130Service.FormData.MAU_SO" type="text" class="form-control">
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <app-loading *ngIf="XML11_CV130Service.IsShowLoading"></app-loading>
+
