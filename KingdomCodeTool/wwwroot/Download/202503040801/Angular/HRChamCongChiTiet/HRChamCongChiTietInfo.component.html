@@ -1,0 +1,188 @@
+﻿<div class="row">
+    <div id="breadcrumbs-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m6 l6">
+                    <h6 class="breadcrumbs-title">
+                        HRChamCongChiTiet:
+                        <b>{{HRChamCongChiTietService.FormData.ID}} [{{HRChamCongChiTietService.FormData.ID}}]</b>
+                    </h6>
+                </div>
+                <div class="col s12 m6 l6 right-align-md">
+                    <ol class="breadcrumbs mb-0">
+                        <li class="breadcrumb-item">
+                            <a href="javascript:history.back()" title="Quay lại">
+                                <<< Quay lại
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/Homepage" title="Trang chủ">Trang chủ</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="#" title=""></a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/HRChamCongChiTiet" title="HRChamCongChiTiet">
+                                HRChamCongChiTiet
+                            </a>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col s12 m12 l12">
+        <div class="card card card-default scrollspy">
+            <div class="card-content">
+                <div class="row">
+                    <div class="col s6 m6 l12">
+                        <a title="Quay lại" href="javascript:history.back()" style="color: green;">
+                            <i class="material-icons">more</i>
+                        </a>
+                        <!--<a title="Thêm mới" (click)="HRChamCongChiTietAdd()" style="color: green;"><i
+                class="material-icons">add_box</i></a>-->
+                        <a title="Lưu thay đổi" (click)="HRChamCongChiTietSave()" style="color:#2196f3;">
+                            <i class="material-icons">save</i>
+                        </a>
+                    </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12 m12 l12">
+                            <div>
+<label>ID</label>
+<input placeholder="ID" [(ngModel)]="HRChamCongChiTietService.FormData.ID"  name="HRChamCongChiTietService.FormData.ID" type="text" class="form-control">
+</div>
+<div>
+<label>ParentID</label>
+<input placeholder="ParentID" [(ngModel)]="HRChamCongChiTietService.FormData.ParentID"  name="HRChamCongChiTietService.FormData.ParentID" type="text" class="form-control">
+</div>
+<div>
+<label>ParentName</label>
+<input placeholder="ParentName" [(ngModel)]="HRChamCongChiTietService.FormData.ParentName"  name="HRChamCongChiTietService.FormData.ParentName" type="text" class="form-control">
+</div>
+<div>
+<label>CreatedDate</label>
+<input placeholder="CreatedDate" [(ngModel)]="HRChamCongChiTietService.FormData.CreatedDate"  name="HRChamCongChiTietService.FormData.CreatedDate" type="text" class="form-control">
+</div>
+<div>
+<label>CreatedMembershipID</label>
+<input placeholder="CreatedMembershipID" [(ngModel)]="HRChamCongChiTietService.FormData.CreatedMembershipID"  name="HRChamCongChiTietService.FormData.CreatedMembershipID" type="text" class="form-control">
+</div>
+<div>
+<label>LastUpdatedDate</label>
+<input placeholder="LastUpdatedDate" [(ngModel)]="HRChamCongChiTietService.FormData.LastUpdatedDate"  name="HRChamCongChiTietService.FormData.LastUpdatedDate" type="text" class="form-control">
+</div>
+<div>
+<label>LastUpdatedMembershipID</label>
+<input placeholder="LastUpdatedMembershipID" [(ngModel)]="HRChamCongChiTietService.FormData.LastUpdatedMembershipID"  name="HRChamCongChiTietService.FormData.LastUpdatedMembershipID" type="text" class="form-control">
+</div>
+<div>
+<label>RowVersion</label>
+<input placeholder="RowVersion" [(ngModel)]="HRChamCongChiTietService.FormData.RowVersion"  name="HRChamCongChiTietService.FormData.RowVersion" type="text" class="form-control">
+</div>
+<div>
+<label>SortOrder</label>
+<input placeholder="SortOrder" [(ngModel)]="HRChamCongChiTietService.FormData.SortOrder"  name="HRChamCongChiTietService.FormData.SortOrder" type="text" class="form-control">
+</div>
+<div>
+<label>Active</label>
+<input placeholder="Active" [(ngModel)]="HRChamCongChiTietService.FormData.Active"  name="HRChamCongChiTietService.FormData.Active" type="text" class="form-control">
+</div>
+<div>
+<label>TypeName</label>
+<input placeholder="TypeName" [(ngModel)]="HRChamCongChiTietService.FormData.TypeName"  name="HRChamCongChiTietService.FormData.TypeName" type="text" class="form-control">
+</div>
+<div>
+<label>Name</label>
+<input placeholder="Name" [(ngModel)]="HRChamCongChiTietService.FormData.Name"  name="HRChamCongChiTietService.FormData.Name" type="text" class="form-control">
+</div>
+<div>
+<label>Code</label>
+<input placeholder="Code" [(ngModel)]="HRChamCongChiTietService.FormData.Code"  name="HRChamCongChiTietService.FormData.Code" type="text" class="form-control">
+</div>
+<div>
+<label>Note</label>
+<input placeholder="Note" [(ngModel)]="HRChamCongChiTietService.FormData.Note"  name="HRChamCongChiTietService.FormData.Note" type="text" class="form-control">
+</div>
+<div>
+<label>Display</label>
+<input placeholder="Display" [(ngModel)]="HRChamCongChiTietService.FormData.Display"  name="HRChamCongChiTietService.FormData.Display" type="text" class="form-control">
+</div>
+<div>
+<label>FileName</label>
+<input placeholder="FileName" [(ngModel)]="HRChamCongChiTietService.FormData.FileName"  name="HRChamCongChiTietService.FormData.FileName" type="text" class="form-control">
+</div>
+<div>
+<label>Description</label>
+<input placeholder="Description" [(ngModel)]="HRChamCongChiTietService.FormData.Description"  name="HRChamCongChiTietService.FormData.Description" type="text" class="form-control">
+</div>
+<div>
+<label>HTMLContent</label>
+<input placeholder="HTMLContent" [(ngModel)]="HRChamCongChiTietService.FormData.HTMLContent"  name="HRChamCongChiTietService.FormData.HTMLContent" type="text" class="form-control">
+</div>
+<div>
+<label>DanhMucNgonNguID</label>
+<input placeholder="DanhMucNgonNguID" [(ngModel)]="HRChamCongChiTietService.FormData.DanhMucNgonNguID"  name="HRChamCongChiTietService.FormData.DanhMucNgonNguID" type="text" class="form-control">
+</div>
+<div>
+<label>DanhMucUngDungID</label>
+<input placeholder="DanhMucUngDungID" [(ngModel)]="HRChamCongChiTietService.FormData.DanhMucUngDungID"  name="HRChamCongChiTietService.FormData.DanhMucUngDungID" type="text" class="form-control">
+</div>
+<div>
+<label>DanhMucNgonNguName</label>
+<input placeholder="DanhMucNgonNguName" [(ngModel)]="HRChamCongChiTietService.FormData.DanhMucNgonNguName"  name="HRChamCongChiTietService.FormData.DanhMucNgonNguName" type="text" class="form-control">
+</div>
+<div>
+<label>DanhMucUngDungName</label>
+<input placeholder="DanhMucUngDungName" [(ngModel)]="HRChamCongChiTietService.FormData.DanhMucUngDungName"  name="HRChamCongChiTietService.FormData.DanhMucUngDungName" type="text" class="form-control">
+</div>
+<div>
+<label>Year</label>
+<input placeholder="Year" [(ngModel)]="HRChamCongChiTietService.FormData.Year"  name="HRChamCongChiTietService.FormData.Year" type="text" class="form-control">
+</div>
+<div>
+<label>Month</label>
+<input placeholder="Month" [(ngModel)]="HRChamCongChiTietService.FormData.Month"  name="HRChamCongChiTietService.FormData.Month" type="text" class="form-control">
+</div>
+<div>
+<label>Day</label>
+<input placeholder="Day" [(ngModel)]="HRChamCongChiTietService.FormData.Day"  name="HRChamCongChiTietService.FormData.Day" type="text" class="form-control">
+</div>
+<div>
+<label>BatDau</label>
+<input placeholder="BatDau" [(ngModel)]="HRChamCongChiTietService.FormData.BatDau"  name="HRChamCongChiTietService.FormData.BatDau" type="text" class="form-control">
+</div>
+<div>
+<label>KetThuc</label>
+<input placeholder="KetThuc" [(ngModel)]="HRChamCongChiTietService.FormData.KetThuc"  name="HRChamCongChiTietService.FormData.KetThuc" type="text" class="form-control">
+</div>
+<div>
+<label>ChamCong</label>
+<input placeholder="ChamCong" [(ngModel)]="HRChamCongChiTietService.FormData.ChamCong"  name="HRChamCongChiTietService.FormData.ChamCong" type="text" class="form-control">
+</div>
+<div>
+<label>DanhMucChamCongID</label>
+<input placeholder="DanhMucChamCongID" [(ngModel)]="HRChamCongChiTietService.FormData.DanhMucChamCongID"  name="HRChamCongChiTietService.FormData.DanhMucChamCongID" type="text" class="form-control">
+</div>
+<div>
+<label>DanhMucChamCongName</label>
+<input placeholder="DanhMucChamCongName" [(ngModel)]="HRChamCongChiTietService.FormData.DanhMucChamCongName"  name="HRChamCongChiTietService.FormData.DanhMucChamCongName" type="text" class="form-control">
+</div>
+<div>
+<label>DanhMucPhuCapID</label>
+<input placeholder="DanhMucPhuCapID" [(ngModel)]="HRChamCongChiTietService.FormData.DanhMucPhuCapID"  name="HRChamCongChiTietService.FormData.DanhMucPhuCapID" type="text" class="form-control">
+</div>
+<div>
+<label>DanhMucPhuCapName</label>
+<input placeholder="DanhMucPhuCapName" [(ngModel)]="HRChamCongChiTietService.FormData.DanhMucPhuCapName"  name="HRChamCongChiTietService.FormData.DanhMucPhuCapName" type="text" class="form-control">
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <app-loading *ngIf="HRChamCongChiTietService.IsShowLoading"></app-loading>
+

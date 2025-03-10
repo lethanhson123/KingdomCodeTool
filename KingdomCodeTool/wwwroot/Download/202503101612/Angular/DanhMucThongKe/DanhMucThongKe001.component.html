@@ -1,0 +1,319 @@
+﻿<div class="row">
+    <div id="breadcrumbs-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m6 l6">
+                    <h6 class="breadcrumbs-title">
+                        DanhMucThongKe
+                        <span *ngIf="DanhMucThongKeService.List">({{DanhMucThongKeService.List.length-1}} items)</span>
+                    </h6>
+                </div>
+                <div class="col s12 m6 l6 right-align-md">
+                    <ol class="breadcrumbs mb-0">
+                        <li class="breadcrumb-item">
+                            <a href="javascript:history.back()" title="Quay lại">
+                                <<< Quay lại
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/Homepage" title="Trang chủ">Trang chủ</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/ThanhVien" title="Quản trị">Quản trị</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/DanhMucThongKe" title="DanhMucThongKe">
+                                DanhMucThongKe
+                            </a>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col s12 m12 l12">
+        <div class="card card card-default scrollspy">
+            <div class="card-content">
+                <div class="col s12 m12 l11">
+                    <input [(ngModel)]="DanhMucThongKeService.BaseParameter.SearchString" placeholder="Tìm ..."
+                           class="form-control" (keyup.enter)="DanhMucThongKeSearch()">
+                </div>
+                <div class="col s12 m12 l1">
+                    <a style="color: green;" title="Tìm" (click)="DanhMucThongKeSearch()">
+                        <i class="material-icons">play_circle_filled</i>
+                    </a>
+                </div>
+                <div class="KhungOverflow">
+                    <table *ngIf="!NotificationService.IsMobile" mat-table matSort #DanhMucThongKeSort="matSort"
+                           [dataSource]="DanhMucThongKeService.DataSource">
+                        <ng-container matColumnDef="STT">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                                STT
+                            </th>
+                            <td mat-cell *matCellDef="let element; index as i;">
+                                <div *ngIf="DanhMucThongKePaginator">
+                                    {{
+DanhMucThongKePaginator.pageSize *
+                                    DanhMucThongKePaginator.pageIndex + i + 1
+                                    }}
+                                </div>
+                            </td>
+                        </ng-container>
+                        <ng-container matColumnDef="Save">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                            </th>
+                            <td mat-cell *matCellDef="let element">
+                                <a (click)="DanhMucThongKeSave(element)" style="color:#2196f3;">
+                                    <i class="material-icons">save</i>
+                                </a>
+                                <a (click)="DanhMucThongKeDelete(element)" style="color: red;">
+                                    <i class="material-icons">delete_forever</i>
+                                </a>
+                            </td>
+                        </ng-container>
+                        <ng-container matColumnDef="ID">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
+<td mat-cell *matCellDef="let element">{{element.ID}}</td>
+</ng-container>
+<ng-container matColumnDef="ParentID">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ParentID</th>
+<td mat-cell *matCellDef="let element">{{element.ParentID}}</td>
+</ng-container>
+<ng-container matColumnDef="ParentName">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ParentName</th>
+<td mat-cell *matCellDef="let element">{{element.ParentName}}</td>
+</ng-container>
+<ng-container matColumnDef="CreatedDate">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CreatedDate</th>
+<td mat-cell *matCellDef="let element">{{element.CreatedDate}}</td>
+</ng-container>
+<ng-container matColumnDef="CreatedMembershipID">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CreatedMembershipID</th>
+<td mat-cell *matCellDef="let element">{{element.CreatedMembershipID}}</td>
+</ng-container>
+<ng-container matColumnDef="LastUpdatedDate">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>LastUpdatedDate</th>
+<td mat-cell *matCellDef="let element">{{element.LastUpdatedDate}}</td>
+</ng-container>
+<ng-container matColumnDef="LastUpdatedMembershipID">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>LastUpdatedMembershipID</th>
+<td mat-cell *matCellDef="let element">{{element.LastUpdatedMembershipID}}</td>
+</ng-container>
+<ng-container matColumnDef="RowVersion">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>RowVersion</th>
+<td mat-cell *matCellDef="let element">{{element.RowVersion}}</td>
+</ng-container>
+<ng-container matColumnDef="SortOrder">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>SortOrder</th>
+<td mat-cell *matCellDef="let element">{{element.SortOrder}}</td>
+</ng-container>
+<ng-container matColumnDef="Active">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Active</th>
+<td mat-cell *matCellDef="let element">{{element.Active}}</td>
+</ng-container>
+<ng-container matColumnDef="TypeName">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>TypeName</th>
+<td mat-cell *matCellDef="let element">{{element.TypeName}}</td>
+</ng-container>
+<ng-container matColumnDef="Name">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+<td mat-cell *matCellDef="let element">{{element.Name}}</td>
+</ng-container>
+<ng-container matColumnDef="Code">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Code</th>
+<td mat-cell *matCellDef="let element">{{element.Code}}</td>
+</ng-container>
+<ng-container matColumnDef="Note">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Note</th>
+<td mat-cell *matCellDef="let element">{{element.Note}}</td>
+</ng-container>
+<ng-container matColumnDef="Display">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Display</th>
+<td mat-cell *matCellDef="let element">{{element.Display}}</td>
+</ng-container>
+<ng-container matColumnDef="FileName">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>FileName</th>
+<td mat-cell *matCellDef="let element">{{element.FileName}}</td>
+</ng-container>
+<ng-container matColumnDef="Description">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Description</th>
+<td mat-cell *matCellDef="let element">{{element.Description}}</td>
+</ng-container>
+<ng-container matColumnDef="HTMLContent">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>HTMLContent</th>
+<td mat-cell *matCellDef="let element">{{element.HTMLContent}}</td>
+</ng-container>
+<ng-container matColumnDef="DanhMucNgonNguID">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DanhMucNgonNguID</th>
+<td mat-cell *matCellDef="let element">{{element.DanhMucNgonNguID}}</td>
+</ng-container>
+<ng-container matColumnDef="DanhMucUngDungID">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DanhMucUngDungID</th>
+<td mat-cell *matCellDef="let element">{{element.DanhMucUngDungID}}</td>
+</ng-container>
+<ng-container matColumnDef="DanhMucNgonNguName">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DanhMucNgonNguName</th>
+<td mat-cell *matCellDef="let element">{{element.DanhMucNgonNguName}}</td>
+</ng-container>
+<ng-container matColumnDef="DanhMucUngDungName">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DanhMucUngDungName</th>
+<td mat-cell *matCellDef="let element">{{element.DanhMucUngDungName}}</td>
+</ng-container>
+
+                        <tr mat-header-row *matHeaderRowDef="DanhMucThongKeService.DisplayColumns001">
+                        </tr>
+                        <tr mat-row *matRowDef="let row; columns: DanhMucThongKeService.DisplayColumns001;">
+                        </tr>
+                    </table>
+                    <mat-paginator *ngIf="!NotificationService.IsMobile" #DanhMucThongKePaginator="matPaginator"
+                                   [pageSizeOptions]="[10,20,50,100]" [pageSize]="20" [showFirstLastButtons]></mat-paginator>
+
+                    <table *ngIf="NotificationService.IsMobile" mat-table matSort #DanhMucThongKeSort="matSort"
+                           [dataSource]="DanhMucThongKeService.DataSource" class="table table-striped m-0">
+                        <ng-container matColumnDef="STT">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                                Danh sách
+                            </th>
+                            <td mat-cell *matCellDef="let element; index as i;">
+                                <div class="row gx-4">
+                                    <div class="col-lg-12 col-sm-12 col-12">
+<label>ID</label>
+<br />
+<label class="form-label">{{element.ID}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>ParentID</label>
+<br />
+<label class="form-label">{{element.ParentID}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>ParentName</label>
+<br />
+<label class="form-label">{{element.ParentName}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>CreatedDate</label>
+<br />
+<label class="form-label">{{element.CreatedDate}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>CreatedMembershipID</label>
+<br />
+<label class="form-label">{{element.CreatedMembershipID}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>LastUpdatedDate</label>
+<br />
+<label class="form-label">{{element.LastUpdatedDate}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>LastUpdatedMembershipID</label>
+<br />
+<label class="form-label">{{element.LastUpdatedMembershipID}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>RowVersion</label>
+<br />
+<label class="form-label">{{element.RowVersion}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>SortOrder</label>
+<br />
+<label class="form-label">{{element.SortOrder}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>Active</label>
+<br />
+<label class="form-label">{{element.Active}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>TypeName</label>
+<br />
+<label class="form-label">{{element.TypeName}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>Name</label>
+<br />
+<label class="form-label">{{element.Name}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>Code</label>
+<br />
+<label class="form-label">{{element.Code}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>Note</label>
+<br />
+<label class="form-label">{{element.Note}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>Display</label>
+<br />
+<label class="form-label">{{element.Display}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>FileName</label>
+<br />
+<label class="form-label">{{element.FileName}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>Description</label>
+<br />
+<label class="form-label">{{element.Description}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>HTMLContent</label>
+<br />
+<label class="form-label">{{element.HTMLContent}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>DanhMucNgonNguID</label>
+<br />
+<label class="form-label">{{element.DanhMucNgonNguID}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>DanhMucUngDungID</label>
+<br />
+<label class="form-label">{{element.DanhMucUngDungID}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>DanhMucNgonNguName</label>
+<br />
+<label class="form-label">{{element.DanhMucNgonNguName}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>DanhMucUngDungName</label>
+<br />
+<label class="form-label">{{element.DanhMucUngDungName}}</label>
+</div>
+
+                                </div>
+                                <div class="row gx-4">
+                                    <div class="col s6 m6 l6">
+                                        <a (click)="DanhMucThongKeSave(element)" style="color:#2196f3;">
+                                            <i class="material-icons">save</i>
+                                        </a>
+                                    </div>
+                                    <div class="col s6 m6 l6">
+                                        <a (click)="DanhMucThongKeDelete(element)"
+                                           style="color: red;"><i class="material-icons">delete_forever</i></a>
+                                    </div>
+                                </div>
+                                <br />
+                            </td>
+                        </ng-container>
+                        <tr mat-header-row *matHeaderRowDef="DanhMucThongKeService.DisplayColumnsMobile">
+                        </tr>
+                        <tr mat-row *matRowDef="let row; columns: DanhMucThongKeService.DisplayColumnsMobile;">
+                        </tr>
+                    </table>
+                    <mat-paginator *ngIf="NotificationService.IsMobile" #DanhMucThongKePaginator="matPaginator"
+                                   [pageSizeOptions]="[10,20,50,100]" [pageSize]="10000" [showFirstLastButtons]></mat-paginator>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-loading *ngIf="DanhMucThongKeService.IsShowLoading"></app-loading>
+

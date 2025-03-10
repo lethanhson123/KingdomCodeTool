@@ -1,0 +1,152 @@
+﻿<div class="row">
+    <div id="breadcrumbs-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m6 l6">
+                    <h6 class="breadcrumbs-title">
+                        DanhMucLuongCoBan:
+                        <b>{{DanhMucLuongCoBanService.FormData.ID}} [{{DanhMucLuongCoBanService.FormData.ID}}]</b>
+                    </h6>
+                </div>
+                <div class="col s12 m6 l6 right-align-md">
+                    <ol class="breadcrumbs mb-0">
+                        <li class="breadcrumb-item">
+                            <a href="javascript:history.back()" title="Quay lại">
+                                <<< Quay lại
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/Homepage" title="Trang chủ">Trang chủ</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="#" title=""></a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/DanhMucLuongCoBan" title="DanhMucLuongCoBan">
+                                DanhMucLuongCoBan
+                            </a>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col s12 m12 l12">
+        <div class="card card card-default scrollspy">
+            <div class="card-content">
+                <div class="row">
+                    <div class="col s6 m6 l12">
+                        <a title="Quay lại" href="javascript:history.back()" style="color: green;">
+                            <i class="material-icons">more</i>
+                        </a>
+                        <!--<a title="Thêm mới" (click)="DanhMucLuongCoBanAdd()" style="color: green;"><i
+                class="material-icons">add_box</i></a>-->
+                        <a title="Lưu thay đổi" (click)="DanhMucLuongCoBanSave()" style="color:#2196f3;">
+                            <i class="material-icons">save</i>
+                        </a>
+                    </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12 m12 l12">
+                            <div>
+<label>ID</label>
+<input placeholder="ID" [(ngModel)]="DanhMucLuongCoBanService.FormData.ID"  name="DanhMucLuongCoBanService.FormData.ID" type="text" class="form-control">
+</div>
+<div>
+<label>ParentID</label>
+<input placeholder="ParentID" [(ngModel)]="DanhMucLuongCoBanService.FormData.ParentID"  name="DanhMucLuongCoBanService.FormData.ParentID" type="text" class="form-control">
+</div>
+<div>
+<label>ParentName</label>
+<input placeholder="ParentName" [(ngModel)]="DanhMucLuongCoBanService.FormData.ParentName"  name="DanhMucLuongCoBanService.FormData.ParentName" type="text" class="form-control">
+</div>
+<div>
+<label>CreatedDate</label>
+<input placeholder="CreatedDate" [(ngModel)]="DanhMucLuongCoBanService.FormData.CreatedDate"  name="DanhMucLuongCoBanService.FormData.CreatedDate" type="text" class="form-control">
+</div>
+<div>
+<label>CreatedMembershipID</label>
+<input placeholder="CreatedMembershipID" [(ngModel)]="DanhMucLuongCoBanService.FormData.CreatedMembershipID"  name="DanhMucLuongCoBanService.FormData.CreatedMembershipID" type="text" class="form-control">
+</div>
+<div>
+<label>LastUpdatedDate</label>
+<input placeholder="LastUpdatedDate" [(ngModel)]="DanhMucLuongCoBanService.FormData.LastUpdatedDate"  name="DanhMucLuongCoBanService.FormData.LastUpdatedDate" type="text" class="form-control">
+</div>
+<div>
+<label>LastUpdatedMembershipID</label>
+<input placeholder="LastUpdatedMembershipID" [(ngModel)]="DanhMucLuongCoBanService.FormData.LastUpdatedMembershipID"  name="DanhMucLuongCoBanService.FormData.LastUpdatedMembershipID" type="text" class="form-control">
+</div>
+<div>
+<label>RowVersion</label>
+<input placeholder="RowVersion" [(ngModel)]="DanhMucLuongCoBanService.FormData.RowVersion"  name="DanhMucLuongCoBanService.FormData.RowVersion" type="text" class="form-control">
+</div>
+<div>
+<label>SortOrder</label>
+<input placeholder="SortOrder" [(ngModel)]="DanhMucLuongCoBanService.FormData.SortOrder"  name="DanhMucLuongCoBanService.FormData.SortOrder" type="text" class="form-control">
+</div>
+<div>
+<label>Active</label>
+<input placeholder="Active" [(ngModel)]="DanhMucLuongCoBanService.FormData.Active"  name="DanhMucLuongCoBanService.FormData.Active" type="text" class="form-control">
+</div>
+<div>
+<label>TypeName</label>
+<input placeholder="TypeName" [(ngModel)]="DanhMucLuongCoBanService.FormData.TypeName"  name="DanhMucLuongCoBanService.FormData.TypeName" type="text" class="form-control">
+</div>
+<div>
+<label>Name</label>
+<input placeholder="Name" [(ngModel)]="DanhMucLuongCoBanService.FormData.Name"  name="DanhMucLuongCoBanService.FormData.Name" type="text" class="form-control">
+</div>
+<div>
+<label>Code</label>
+<input placeholder="Code" [(ngModel)]="DanhMucLuongCoBanService.FormData.Code"  name="DanhMucLuongCoBanService.FormData.Code" type="text" class="form-control">
+</div>
+<div>
+<label>Note</label>
+<input placeholder="Note" [(ngModel)]="DanhMucLuongCoBanService.FormData.Note"  name="DanhMucLuongCoBanService.FormData.Note" type="text" class="form-control">
+</div>
+<div>
+<label>Display</label>
+<input placeholder="Display" [(ngModel)]="DanhMucLuongCoBanService.FormData.Display"  name="DanhMucLuongCoBanService.FormData.Display" type="text" class="form-control">
+</div>
+<div>
+<label>FileName</label>
+<input placeholder="FileName" [(ngModel)]="DanhMucLuongCoBanService.FormData.FileName"  name="DanhMucLuongCoBanService.FormData.FileName" type="text" class="form-control">
+</div>
+<div>
+<label>Description</label>
+<input placeholder="Description" [(ngModel)]="DanhMucLuongCoBanService.FormData.Description"  name="DanhMucLuongCoBanService.FormData.Description" type="text" class="form-control">
+</div>
+<div>
+<label>HTMLContent</label>
+<input placeholder="HTMLContent" [(ngModel)]="DanhMucLuongCoBanService.FormData.HTMLContent"  name="DanhMucLuongCoBanService.FormData.HTMLContent" type="text" class="form-control">
+</div>
+<div>
+<label>DanhMucNgonNguID</label>
+<input placeholder="DanhMucNgonNguID" [(ngModel)]="DanhMucLuongCoBanService.FormData.DanhMucNgonNguID"  name="DanhMucLuongCoBanService.FormData.DanhMucNgonNguID" type="text" class="form-control">
+</div>
+<div>
+<label>DanhMucUngDungID</label>
+<input placeholder="DanhMucUngDungID" [(ngModel)]="DanhMucLuongCoBanService.FormData.DanhMucUngDungID"  name="DanhMucLuongCoBanService.FormData.DanhMucUngDungID" type="text" class="form-control">
+</div>
+<div>
+<label>DanhMucNgonNguName</label>
+<input placeholder="DanhMucNgonNguName" [(ngModel)]="DanhMucLuongCoBanService.FormData.DanhMucNgonNguName"  name="DanhMucLuongCoBanService.FormData.DanhMucNgonNguName" type="text" class="form-control">
+</div>
+<div>
+<label>DanhMucUngDungName</label>
+<input placeholder="DanhMucUngDungName" [(ngModel)]="DanhMucLuongCoBanService.FormData.DanhMucUngDungName"  name="DanhMucLuongCoBanService.FormData.DanhMucUngDungName" type="text" class="form-control">
+</div>
+<div>
+<label>HeSo</label>
+<input placeholder="HeSo" [(ngModel)]="DanhMucLuongCoBanService.FormData.HeSo"  name="DanhMucLuongCoBanService.FormData.HeSo" type="text" class="form-control">
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <app-loading *ngIf="DanhMucLuongCoBanService.IsShowLoading"></app-loading>
+

@@ -1,0 +1,148 @@
+﻿<div class="row">
+    <div id="breadcrumbs-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m6 l6">
+                    <h6 class="breadcrumbs-title">
+                        DanhMucDonViTinh:
+                        <b>{{DanhMucDonViTinhService.FormData.ID}} [{{DanhMucDonViTinhService.FormData.ID}}]</b>
+                    </h6>
+                </div>
+                <div class="col s12 m6 l6 right-align-md">
+                    <ol class="breadcrumbs mb-0">
+                        <li class="breadcrumb-item">
+                            <a href="javascript:history.back()" title="Quay lại">
+                                <<< Quay lại
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/Homepage" title="Trang chủ">Trang chủ</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="#" title=""></a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/DanhMucDonViTinh" title="DanhMucDonViTinh">
+                                DanhMucDonViTinh
+                            </a>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col s12 m12 l12">
+        <div class="card card card-default scrollspy">
+            <div class="card-content">
+                <div class="row">
+                    <div class="col s6 m6 l12">
+                        <a title="Quay lại" href="javascript:history.back()" style="color: green;">
+                            <i class="material-icons">more</i>
+                        </a>
+                        <!--<a title="Thêm mới" (click)="DanhMucDonViTinhAdd()" style="color: green;"><i
+                class="material-icons">add_box</i></a>-->
+                        <a title="Lưu thay đổi" (click)="DanhMucDonViTinhSave()" style="color:#2196f3;">
+                            <i class="material-icons">save</i>
+                        </a>
+                    </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12 m12 l12">
+                            <div>
+<label>ID</label>
+<input placeholder="ID" [(ngModel)]="DanhMucDonViTinhService.FormData.ID"  name="DanhMucDonViTinhService.FormData.ID" type="text" class="form-control">
+</div>
+<div>
+<label>ParentID</label>
+<input placeholder="ParentID" [(ngModel)]="DanhMucDonViTinhService.FormData.ParentID"  name="DanhMucDonViTinhService.FormData.ParentID" type="text" class="form-control">
+</div>
+<div>
+<label>ParentName</label>
+<input placeholder="ParentName" [(ngModel)]="DanhMucDonViTinhService.FormData.ParentName"  name="DanhMucDonViTinhService.FormData.ParentName" type="text" class="form-control">
+</div>
+<div>
+<label>CreatedDate</label>
+<input placeholder="CreatedDate" [(ngModel)]="DanhMucDonViTinhService.FormData.CreatedDate"  name="DanhMucDonViTinhService.FormData.CreatedDate" type="text" class="form-control">
+</div>
+<div>
+<label>CreatedMembershipID</label>
+<input placeholder="CreatedMembershipID" [(ngModel)]="DanhMucDonViTinhService.FormData.CreatedMembershipID"  name="DanhMucDonViTinhService.FormData.CreatedMembershipID" type="text" class="form-control">
+</div>
+<div>
+<label>LastUpdatedDate</label>
+<input placeholder="LastUpdatedDate" [(ngModel)]="DanhMucDonViTinhService.FormData.LastUpdatedDate"  name="DanhMucDonViTinhService.FormData.LastUpdatedDate" type="text" class="form-control">
+</div>
+<div>
+<label>LastUpdatedMembershipID</label>
+<input placeholder="LastUpdatedMembershipID" [(ngModel)]="DanhMucDonViTinhService.FormData.LastUpdatedMembershipID"  name="DanhMucDonViTinhService.FormData.LastUpdatedMembershipID" type="text" class="form-control">
+</div>
+<div>
+<label>RowVersion</label>
+<input placeholder="RowVersion" [(ngModel)]="DanhMucDonViTinhService.FormData.RowVersion"  name="DanhMucDonViTinhService.FormData.RowVersion" type="text" class="form-control">
+</div>
+<div>
+<label>SortOrder</label>
+<input placeholder="SortOrder" [(ngModel)]="DanhMucDonViTinhService.FormData.SortOrder"  name="DanhMucDonViTinhService.FormData.SortOrder" type="text" class="form-control">
+</div>
+<div>
+<label>Active</label>
+<input placeholder="Active" [(ngModel)]="DanhMucDonViTinhService.FormData.Active"  name="DanhMucDonViTinhService.FormData.Active" type="text" class="form-control">
+</div>
+<div>
+<label>TypeName</label>
+<input placeholder="TypeName" [(ngModel)]="DanhMucDonViTinhService.FormData.TypeName"  name="DanhMucDonViTinhService.FormData.TypeName" type="text" class="form-control">
+</div>
+<div>
+<label>Name</label>
+<input placeholder="Name" [(ngModel)]="DanhMucDonViTinhService.FormData.Name"  name="DanhMucDonViTinhService.FormData.Name" type="text" class="form-control">
+</div>
+<div>
+<label>Code</label>
+<input placeholder="Code" [(ngModel)]="DanhMucDonViTinhService.FormData.Code"  name="DanhMucDonViTinhService.FormData.Code" type="text" class="form-control">
+</div>
+<div>
+<label>Note</label>
+<input placeholder="Note" [(ngModel)]="DanhMucDonViTinhService.FormData.Note"  name="DanhMucDonViTinhService.FormData.Note" type="text" class="form-control">
+</div>
+<div>
+<label>Display</label>
+<input placeholder="Display" [(ngModel)]="DanhMucDonViTinhService.FormData.Display"  name="DanhMucDonViTinhService.FormData.Display" type="text" class="form-control">
+</div>
+<div>
+<label>FileName</label>
+<input placeholder="FileName" [(ngModel)]="DanhMucDonViTinhService.FormData.FileName"  name="DanhMucDonViTinhService.FormData.FileName" type="text" class="form-control">
+</div>
+<div>
+<label>Description</label>
+<input placeholder="Description" [(ngModel)]="DanhMucDonViTinhService.FormData.Description"  name="DanhMucDonViTinhService.FormData.Description" type="text" class="form-control">
+</div>
+<div>
+<label>HTMLContent</label>
+<input placeholder="HTMLContent" [(ngModel)]="DanhMucDonViTinhService.FormData.HTMLContent"  name="DanhMucDonViTinhService.FormData.HTMLContent" type="text" class="form-control">
+</div>
+<div>
+<label>DanhMucNgonNguID</label>
+<input placeholder="DanhMucNgonNguID" [(ngModel)]="DanhMucDonViTinhService.FormData.DanhMucNgonNguID"  name="DanhMucDonViTinhService.FormData.DanhMucNgonNguID" type="text" class="form-control">
+</div>
+<div>
+<label>DanhMucUngDungID</label>
+<input placeholder="DanhMucUngDungID" [(ngModel)]="DanhMucDonViTinhService.FormData.DanhMucUngDungID"  name="DanhMucDonViTinhService.FormData.DanhMucUngDungID" type="text" class="form-control">
+</div>
+<div>
+<label>DanhMucNgonNguName</label>
+<input placeholder="DanhMucNgonNguName" [(ngModel)]="DanhMucDonViTinhService.FormData.DanhMucNgonNguName"  name="DanhMucDonViTinhService.FormData.DanhMucNgonNguName" type="text" class="form-control">
+</div>
+<div>
+<label>DanhMucUngDungName</label>
+<input placeholder="DanhMucUngDungName" [(ngModel)]="DanhMucDonViTinhService.FormData.DanhMucUngDungName"  name="DanhMucDonViTinhService.FormData.DanhMucUngDungName" type="text" class="form-control">
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <app-loading *ngIf="DanhMucDonViTinhService.IsShowLoading"></app-loading>
+

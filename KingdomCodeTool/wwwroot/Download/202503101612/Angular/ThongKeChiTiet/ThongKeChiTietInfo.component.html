@@ -1,0 +1,336 @@
+﻿<div class="row">
+    <div id="breadcrumbs-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m6 l6">
+                    <h6 class="breadcrumbs-title">
+                        ThongKeChiTiet:
+                        <b>{{ThongKeChiTietService.FormData.ID}} [{{ThongKeChiTietService.FormData.ID}}]</b>
+                    </h6>
+                </div>
+                <div class="col s12 m6 l6 right-align-md">
+                    <ol class="breadcrumbs mb-0">
+                        <li class="breadcrumb-item">
+                            <a href="javascript:history.back()" title="Quay lại">
+                                <<< Quay lại
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/Homepage" title="Trang chủ">Trang chủ</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="#" title=""></a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/ThongKeChiTiet" title="ThongKeChiTiet">
+                                ThongKeChiTiet
+                            </a>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col s12 m12 l12">
+        <div class="card card card-default scrollspy">
+            <div class="card-content">
+                <div class="row">
+                    <div class="col s6 m6 l12">
+                        <a title="Quay lại" href="javascript:history.back()" style="color: green;">
+                            <i class="material-icons">more</i>
+                        </a>
+                        <!--<a title="Thêm mới" (click)="ThongKeChiTietAdd()" style="color: green;"><i
+                class="material-icons">add_box</i></a>-->
+                        <a title="Lưu thay đổi" (click)="ThongKeChiTietSave()" style="color:#2196f3;">
+                            <i class="material-icons">save</i>
+                        </a>
+                    </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12 m12 l12">
+                            <div>
+<label>ID</label>
+<input placeholder="ID" [(ngModel)]="ThongKeChiTietService.FormData.ID"  name="ThongKeChiTietService.FormData.ID" type="text" class="form-control">
+</div>
+<div>
+<label>ParentID</label>
+<input placeholder="ParentID" [(ngModel)]="ThongKeChiTietService.FormData.ParentID"  name="ThongKeChiTietService.FormData.ParentID" type="text" class="form-control">
+</div>
+<div>
+<label>ParentName</label>
+<input placeholder="ParentName" [(ngModel)]="ThongKeChiTietService.FormData.ParentName"  name="ThongKeChiTietService.FormData.ParentName" type="text" class="form-control">
+</div>
+<div>
+<label>CreatedDate</label>
+<input placeholder="CreatedDate" [(ngModel)]="ThongKeChiTietService.FormData.CreatedDate"  name="ThongKeChiTietService.FormData.CreatedDate" type="text" class="form-control">
+</div>
+<div>
+<label>CreatedMembershipID</label>
+<input placeholder="CreatedMembershipID" [(ngModel)]="ThongKeChiTietService.FormData.CreatedMembershipID"  name="ThongKeChiTietService.FormData.CreatedMembershipID" type="text" class="form-control">
+</div>
+<div>
+<label>LastUpdatedDate</label>
+<input placeholder="LastUpdatedDate" [(ngModel)]="ThongKeChiTietService.FormData.LastUpdatedDate"  name="ThongKeChiTietService.FormData.LastUpdatedDate" type="text" class="form-control">
+</div>
+<div>
+<label>LastUpdatedMembershipID</label>
+<input placeholder="LastUpdatedMembershipID" [(ngModel)]="ThongKeChiTietService.FormData.LastUpdatedMembershipID"  name="ThongKeChiTietService.FormData.LastUpdatedMembershipID" type="text" class="form-control">
+</div>
+<div>
+<label>RowVersion</label>
+<input placeholder="RowVersion" [(ngModel)]="ThongKeChiTietService.FormData.RowVersion"  name="ThongKeChiTietService.FormData.RowVersion" type="text" class="form-control">
+</div>
+<div>
+<label>SortOrder</label>
+<input placeholder="SortOrder" [(ngModel)]="ThongKeChiTietService.FormData.SortOrder"  name="ThongKeChiTietService.FormData.SortOrder" type="text" class="form-control">
+</div>
+<div>
+<label>Active</label>
+<input placeholder="Active" [(ngModel)]="ThongKeChiTietService.FormData.Active"  name="ThongKeChiTietService.FormData.Active" type="text" class="form-control">
+</div>
+<div>
+<label>TypeName</label>
+<input placeholder="TypeName" [(ngModel)]="ThongKeChiTietService.FormData.TypeName"  name="ThongKeChiTietService.FormData.TypeName" type="text" class="form-control">
+</div>
+<div>
+<label>Name</label>
+<input placeholder="Name" [(ngModel)]="ThongKeChiTietService.FormData.Name"  name="ThongKeChiTietService.FormData.Name" type="text" class="form-control">
+</div>
+<div>
+<label>Code</label>
+<input placeholder="Code" [(ngModel)]="ThongKeChiTietService.FormData.Code"  name="ThongKeChiTietService.FormData.Code" type="text" class="form-control">
+</div>
+<div>
+<label>Note</label>
+<input placeholder="Note" [(ngModel)]="ThongKeChiTietService.FormData.Note"  name="ThongKeChiTietService.FormData.Note" type="text" class="form-control">
+</div>
+<div>
+<label>Display</label>
+<input placeholder="Display" [(ngModel)]="ThongKeChiTietService.FormData.Display"  name="ThongKeChiTietService.FormData.Display" type="text" class="form-control">
+</div>
+<div>
+<label>FileName</label>
+<input placeholder="FileName" [(ngModel)]="ThongKeChiTietService.FormData.FileName"  name="ThongKeChiTietService.FormData.FileName" type="text" class="form-control">
+</div>
+<div>
+<label>Description</label>
+<input placeholder="Description" [(ngModel)]="ThongKeChiTietService.FormData.Description"  name="ThongKeChiTietService.FormData.Description" type="text" class="form-control">
+</div>
+<div>
+<label>HTMLContent</label>
+<input placeholder="HTMLContent" [(ngModel)]="ThongKeChiTietService.FormData.HTMLContent"  name="ThongKeChiTietService.FormData.HTMLContent" type="text" class="form-control">
+</div>
+<div>
+<label>DanhMucNgonNguID</label>
+<input placeholder="DanhMucNgonNguID" [(ngModel)]="ThongKeChiTietService.FormData.DanhMucNgonNguID"  name="ThongKeChiTietService.FormData.DanhMucNgonNguID" type="text" class="form-control">
+</div>
+<div>
+<label>DanhMucUngDungID</label>
+<input placeholder="DanhMucUngDungID" [(ngModel)]="ThongKeChiTietService.FormData.DanhMucUngDungID"  name="ThongKeChiTietService.FormData.DanhMucUngDungID" type="text" class="form-control">
+</div>
+<div>
+<label>DanhMucNgonNguName</label>
+<input placeholder="DanhMucNgonNguName" [(ngModel)]="ThongKeChiTietService.FormData.DanhMucNgonNguName"  name="ThongKeChiTietService.FormData.DanhMucNgonNguName" type="text" class="form-control">
+</div>
+<div>
+<label>DanhMucUngDungName</label>
+<input placeholder="DanhMucUngDungName" [(ngModel)]="ThongKeChiTietService.FormData.DanhMucUngDungName"  name="ThongKeChiTietService.FormData.DanhMucUngDungName" type="text" class="form-control">
+</div>
+<div>
+<label>Name001</label>
+<input placeholder="Name001" [(ngModel)]="ThongKeChiTietService.FormData.Name001"  name="ThongKeChiTietService.FormData.Name001" type="text" class="form-control">
+</div>
+<div>
+<label>Name002</label>
+<input placeholder="Name002" [(ngModel)]="ThongKeChiTietService.FormData.Name002"  name="ThongKeChiTietService.FormData.Name002" type="text" class="form-control">
+</div>
+<div>
+<label>Name003</label>
+<input placeholder="Name003" [(ngModel)]="ThongKeChiTietService.FormData.Name003"  name="ThongKeChiTietService.FormData.Name003" type="text" class="form-control">
+</div>
+<div>
+<label>Name004</label>
+<input placeholder="Name004" [(ngModel)]="ThongKeChiTietService.FormData.Name004"  name="ThongKeChiTietService.FormData.Name004" type="text" class="form-control">
+</div>
+<div>
+<label>Name005</label>
+<input placeholder="Name005" [(ngModel)]="ThongKeChiTietService.FormData.Name005"  name="ThongKeChiTietService.FormData.Name005" type="text" class="form-control">
+</div>
+<div>
+<label>Name006</label>
+<input placeholder="Name006" [(ngModel)]="ThongKeChiTietService.FormData.Name006"  name="ThongKeChiTietService.FormData.Name006" type="text" class="form-control">
+</div>
+<div>
+<label>Name007</label>
+<input placeholder="Name007" [(ngModel)]="ThongKeChiTietService.FormData.Name007"  name="ThongKeChiTietService.FormData.Name007" type="text" class="form-control">
+</div>
+<div>
+<label>Name008</label>
+<input placeholder="Name008" [(ngModel)]="ThongKeChiTietService.FormData.Name008"  name="ThongKeChiTietService.FormData.Name008" type="text" class="form-control">
+</div>
+<div>
+<label>Name009</label>
+<input placeholder="Name009" [(ngModel)]="ThongKeChiTietService.FormData.Name009"  name="ThongKeChiTietService.FormData.Name009" type="text" class="form-control">
+</div>
+<div>
+<label>Name010</label>
+<input placeholder="Name010" [(ngModel)]="ThongKeChiTietService.FormData.Name010"  name="ThongKeChiTietService.FormData.Name010" type="text" class="form-control">
+</div>
+<div>
+<label>Name011</label>
+<input placeholder="Name011" [(ngModel)]="ThongKeChiTietService.FormData.Name011"  name="ThongKeChiTietService.FormData.Name011" type="text" class="form-control">
+</div>
+<div>
+<label>Name012</label>
+<input placeholder="Name012" [(ngModel)]="ThongKeChiTietService.FormData.Name012"  name="ThongKeChiTietService.FormData.Name012" type="text" class="form-control">
+</div>
+<div>
+<label>Year</label>
+<input placeholder="Year" [(ngModel)]="ThongKeChiTietService.FormData.Year"  name="ThongKeChiTietService.FormData.Year" type="text" class="form-control">
+</div>
+<div>
+<label>Month</label>
+<input placeholder="Month" [(ngModel)]="ThongKeChiTietService.FormData.Month"  name="ThongKeChiTietService.FormData.Month" type="text" class="form-control">
+</div>
+<div>
+<label>Day</label>
+<input placeholder="Day" [(ngModel)]="ThongKeChiTietService.FormData.Day"  name="ThongKeChiTietService.FormData.Day" type="text" class="form-control">
+</div>
+<div>
+<label>Hour</label>
+<input placeholder="Hour" [(ngModel)]="ThongKeChiTietService.FormData.Hour"  name="ThongKeChiTietService.FormData.Hour" type="text" class="form-control">
+</div>
+<div>
+<label>ThongKe001</label>
+<input placeholder="ThongKe001" [(ngModel)]="ThongKeChiTietService.FormData.ThongKe001"  name="ThongKeChiTietService.FormData.ThongKe001" type="text" class="form-control">
+</div>
+<div>
+<label>ThongKe002</label>
+<input placeholder="ThongKe002" [(ngModel)]="ThongKeChiTietService.FormData.ThongKe002"  name="ThongKeChiTietService.FormData.ThongKe002" type="text" class="form-control">
+</div>
+<div>
+<label>ThongKe003</label>
+<input placeholder="ThongKe003" [(ngModel)]="ThongKeChiTietService.FormData.ThongKe003"  name="ThongKeChiTietService.FormData.ThongKe003" type="text" class="form-control">
+</div>
+<div>
+<label>ThongKe004</label>
+<input placeholder="ThongKe004" [(ngModel)]="ThongKeChiTietService.FormData.ThongKe004"  name="ThongKeChiTietService.FormData.ThongKe004" type="text" class="form-control">
+</div>
+<div>
+<label>ThongKe005</label>
+<input placeholder="ThongKe005" [(ngModel)]="ThongKeChiTietService.FormData.ThongKe005"  name="ThongKeChiTietService.FormData.ThongKe005" type="text" class="form-control">
+</div>
+<div>
+<label>ThongKe006</label>
+<input placeholder="ThongKe006" [(ngModel)]="ThongKeChiTietService.FormData.ThongKe006"  name="ThongKeChiTietService.FormData.ThongKe006" type="text" class="form-control">
+</div>
+<div>
+<label>ThongKe007</label>
+<input placeholder="ThongKe007" [(ngModel)]="ThongKeChiTietService.FormData.ThongKe007"  name="ThongKeChiTietService.FormData.ThongKe007" type="text" class="form-control">
+</div>
+<div>
+<label>ThongKe008</label>
+<input placeholder="ThongKe008" [(ngModel)]="ThongKeChiTietService.FormData.ThongKe008"  name="ThongKeChiTietService.FormData.ThongKe008" type="text" class="form-control">
+</div>
+<div>
+<label>ThongKe009</label>
+<input placeholder="ThongKe009" [(ngModel)]="ThongKeChiTietService.FormData.ThongKe009"  name="ThongKeChiTietService.FormData.ThongKe009" type="text" class="form-control">
+</div>
+<div>
+<label>ThongKe010</label>
+<input placeholder="ThongKe010" [(ngModel)]="ThongKeChiTietService.FormData.ThongKe010"  name="ThongKeChiTietService.FormData.ThongKe010" type="text" class="form-control">
+</div>
+<div>
+<label>ThongKe011</label>
+<input placeholder="ThongKe011" [(ngModel)]="ThongKeChiTietService.FormData.ThongKe011"  name="ThongKeChiTietService.FormData.ThongKe011" type="text" class="form-control">
+</div>
+<div>
+<label>ThongKe012</label>
+<input placeholder="ThongKe012" [(ngModel)]="ThongKeChiTietService.FormData.ThongKe012"  name="ThongKeChiTietService.FormData.ThongKe012" type="text" class="form-control">
+</div>
+<div>
+<label>ThongKe013</label>
+<input placeholder="ThongKe013" [(ngModel)]="ThongKeChiTietService.FormData.ThongKe013"  name="ThongKeChiTietService.FormData.ThongKe013" type="text" class="form-control">
+</div>
+<div>
+<label>ThongKe014</label>
+<input placeholder="ThongKe014" [(ngModel)]="ThongKeChiTietService.FormData.ThongKe014"  name="ThongKeChiTietService.FormData.ThongKe014" type="text" class="form-control">
+</div>
+<div>
+<label>ThongKe015</label>
+<input placeholder="ThongKe015" [(ngModel)]="ThongKeChiTietService.FormData.ThongKe015"  name="ThongKeChiTietService.FormData.ThongKe015" type="text" class="form-control">
+</div>
+<div>
+<label>ThongKe016</label>
+<input placeholder="ThongKe016" [(ngModel)]="ThongKeChiTietService.FormData.ThongKe016"  name="ThongKeChiTietService.FormData.ThongKe016" type="text" class="form-control">
+</div>
+<div>
+<label>ThongKe017</label>
+<input placeholder="ThongKe017" [(ngModel)]="ThongKeChiTietService.FormData.ThongKe017"  name="ThongKeChiTietService.FormData.ThongKe017" type="text" class="form-control">
+</div>
+<div>
+<label>ThongKe018</label>
+<input placeholder="ThongKe018" [(ngModel)]="ThongKeChiTietService.FormData.ThongKe018"  name="ThongKeChiTietService.FormData.ThongKe018" type="text" class="form-control">
+</div>
+<div>
+<label>ThongKe019</label>
+<input placeholder="ThongKe019" [(ngModel)]="ThongKeChiTietService.FormData.ThongKe019"  name="ThongKeChiTietService.FormData.ThongKe019" type="text" class="form-control">
+</div>
+<div>
+<label>ThongKe020</label>
+<input placeholder="ThongKe020" [(ngModel)]="ThongKeChiTietService.FormData.ThongKe020"  name="ThongKeChiTietService.FormData.ThongKe020" type="text" class="form-control">
+</div>
+<div>
+<label>ThongKe021</label>
+<input placeholder="ThongKe021" [(ngModel)]="ThongKeChiTietService.FormData.ThongKe021"  name="ThongKeChiTietService.FormData.ThongKe021" type="text" class="form-control">
+</div>
+<div>
+<label>ThongKe022</label>
+<input placeholder="ThongKe022" [(ngModel)]="ThongKeChiTietService.FormData.ThongKe022"  name="ThongKeChiTietService.FormData.ThongKe022" type="text" class="form-control">
+</div>
+<div>
+<label>ThongKe023</label>
+<input placeholder="ThongKe023" [(ngModel)]="ThongKeChiTietService.FormData.ThongKe023"  name="ThongKeChiTietService.FormData.ThongKe023" type="text" class="form-control">
+</div>
+<div>
+<label>ThongKe024</label>
+<input placeholder="ThongKe024" [(ngModel)]="ThongKeChiTietService.FormData.ThongKe024"  name="ThongKeChiTietService.FormData.ThongKe024" type="text" class="form-control">
+</div>
+<div>
+<label>ThongKe025</label>
+<input placeholder="ThongKe025" [(ngModel)]="ThongKeChiTietService.FormData.ThongKe025"  name="ThongKeChiTietService.FormData.ThongKe025" type="text" class="form-control">
+</div>
+<div>
+<label>ThongKe026</label>
+<input placeholder="ThongKe026" [(ngModel)]="ThongKeChiTietService.FormData.ThongKe026"  name="ThongKeChiTietService.FormData.ThongKe026" type="text" class="form-control">
+</div>
+<div>
+<label>ThongKe027</label>
+<input placeholder="ThongKe027" [(ngModel)]="ThongKeChiTietService.FormData.ThongKe027"  name="ThongKeChiTietService.FormData.ThongKe027" type="text" class="form-control">
+</div>
+<div>
+<label>ThongKe028</label>
+<input placeholder="ThongKe028" [(ngModel)]="ThongKeChiTietService.FormData.ThongKe028"  name="ThongKeChiTietService.FormData.ThongKe028" type="text" class="form-control">
+</div>
+<div>
+<label>ThongKe029</label>
+<input placeholder="ThongKe029" [(ngModel)]="ThongKeChiTietService.FormData.ThongKe029"  name="ThongKeChiTietService.FormData.ThongKe029" type="text" class="form-control">
+</div>
+<div>
+<label>ThongKe030</label>
+<input placeholder="ThongKe030" [(ngModel)]="ThongKeChiTietService.FormData.ThongKe030"  name="ThongKeChiTietService.FormData.ThongKe030" type="text" class="form-control">
+</div>
+<div>
+<label>ThongKe031</label>
+<input placeholder="ThongKe031" [(ngModel)]="ThongKeChiTietService.FormData.ThongKe031"  name="ThongKeChiTietService.FormData.ThongKe031" type="text" class="form-control">
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <app-loading *ngIf="ThongKeChiTietService.IsShowLoading"></app-loading>
+

@@ -1,0 +1,724 @@
+﻿<div class="row">
+    <div id="breadcrumbs-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m6 l6">
+                    <h6 class="breadcrumbs-title">
+                        HRLichCongTac:
+                        <b>{{HRLichCongTacService.FormData.ID}} [{{HRLichCongTacService.FormData.ID}}]</b>
+                    </h6>
+                </div>
+                <div class="col s12 m6 l6 right-align-md">
+                    <ol class="breadcrumbs mb-0">
+                        <li class="breadcrumb-item">
+                            <a href="javascript:history.back()" title="Quay lại">
+                                <<< Quay lại
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/Homepage" title="Trang chủ">Trang chủ</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="#" title=""></a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/HRLichCongTac" title="HRLichCongTac">
+                                HRLichCongTac
+                            </a>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col s12 m12 l12">
+        <div class="card card card-default scrollspy">
+            <div class="card-content">
+                <div class="row">
+                    <div class="col s6 m6 l12">
+                        <a title="Quay lại" href="javascript:history.back()" style="color: green;">
+                            <i class="material-icons">more</i>
+                        </a>
+                        <!--<a title="Thêm mới" (click)="HRLichCongTacAdd()" style="color: green;"><i
+                class="material-icons">add_box</i></a>-->
+                        <a title="Lưu thay đổi" (click)="HRLichCongTacSave()" style="color:#2196f3;">
+                            <i class="material-icons">save</i>
+                        </a>
+                    </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12 m12 l12">
+                            <div>
+<label>ID</label>
+<input placeholder="ID" [(ngModel)]="HRLichCongTacService.FormData.ID"  name="HRLichCongTacService.FormData.ID" type="text" class="form-control">
+</div>
+<div>
+<label>ParentID</label>
+<input placeholder="ParentID" [(ngModel)]="HRLichCongTacService.FormData.ParentID"  name="HRLichCongTacService.FormData.ParentID" type="text" class="form-control">
+</div>
+<div>
+<label>ParentName</label>
+<input placeholder="ParentName" [(ngModel)]="HRLichCongTacService.FormData.ParentName"  name="HRLichCongTacService.FormData.ParentName" type="text" class="form-control">
+</div>
+<div>
+<label>CreatedDate</label>
+<input placeholder="CreatedDate" [(ngModel)]="HRLichCongTacService.FormData.CreatedDate"  name="HRLichCongTacService.FormData.CreatedDate" type="text" class="form-control">
+</div>
+<div>
+<label>CreatedMembershipID</label>
+<input placeholder="CreatedMembershipID" [(ngModel)]="HRLichCongTacService.FormData.CreatedMembershipID"  name="HRLichCongTacService.FormData.CreatedMembershipID" type="text" class="form-control">
+</div>
+<div>
+<label>LastUpdatedDate</label>
+<input placeholder="LastUpdatedDate" [(ngModel)]="HRLichCongTacService.FormData.LastUpdatedDate"  name="HRLichCongTacService.FormData.LastUpdatedDate" type="text" class="form-control">
+</div>
+<div>
+<label>LastUpdatedMembershipID</label>
+<input placeholder="LastUpdatedMembershipID" [(ngModel)]="HRLichCongTacService.FormData.LastUpdatedMembershipID"  name="HRLichCongTacService.FormData.LastUpdatedMembershipID" type="text" class="form-control">
+</div>
+<div>
+<label>RowVersion</label>
+<input placeholder="RowVersion" [(ngModel)]="HRLichCongTacService.FormData.RowVersion"  name="HRLichCongTacService.FormData.RowVersion" type="text" class="form-control">
+</div>
+<div>
+<label>SortOrder</label>
+<input placeholder="SortOrder" [(ngModel)]="HRLichCongTacService.FormData.SortOrder"  name="HRLichCongTacService.FormData.SortOrder" type="text" class="form-control">
+</div>
+<div>
+<label>Active</label>
+<input placeholder="Active" [(ngModel)]="HRLichCongTacService.FormData.Active"  name="HRLichCongTacService.FormData.Active" type="text" class="form-control">
+</div>
+<div>
+<label>TypeName</label>
+<input placeholder="TypeName" [(ngModel)]="HRLichCongTacService.FormData.TypeName"  name="HRLichCongTacService.FormData.TypeName" type="text" class="form-control">
+</div>
+<div>
+<label>Name</label>
+<input placeholder="Name" [(ngModel)]="HRLichCongTacService.FormData.Name"  name="HRLichCongTacService.FormData.Name" type="text" class="form-control">
+</div>
+<div>
+<label>Code</label>
+<input placeholder="Code" [(ngModel)]="HRLichCongTacService.FormData.Code"  name="HRLichCongTacService.FormData.Code" type="text" class="form-control">
+</div>
+<div>
+<label>Note</label>
+<input placeholder="Note" [(ngModel)]="HRLichCongTacService.FormData.Note"  name="HRLichCongTacService.FormData.Note" type="text" class="form-control">
+</div>
+<div>
+<label>Display</label>
+<input placeholder="Display" [(ngModel)]="HRLichCongTacService.FormData.Display"  name="HRLichCongTacService.FormData.Display" type="text" class="form-control">
+</div>
+<div>
+<label>FileName</label>
+<input placeholder="FileName" [(ngModel)]="HRLichCongTacService.FormData.FileName"  name="HRLichCongTacService.FormData.FileName" type="text" class="form-control">
+</div>
+<div>
+<label>Description</label>
+<input placeholder="Description" [(ngModel)]="HRLichCongTacService.FormData.Description"  name="HRLichCongTacService.FormData.Description" type="text" class="form-control">
+</div>
+<div>
+<label>HTMLContent</label>
+<input placeholder="HTMLContent" [(ngModel)]="HRLichCongTacService.FormData.HTMLContent"  name="HRLichCongTacService.FormData.HTMLContent" type="text" class="form-control">
+</div>
+<div>
+<label>DanhMucNgonNguID</label>
+<input placeholder="DanhMucNgonNguID" [(ngModel)]="HRLichCongTacService.FormData.DanhMucNgonNguID"  name="HRLichCongTacService.FormData.DanhMucNgonNguID" type="text" class="form-control">
+</div>
+<div>
+<label>DanhMucUngDungID</label>
+<input placeholder="DanhMucUngDungID" [(ngModel)]="HRLichCongTacService.FormData.DanhMucUngDungID"  name="HRLichCongTacService.FormData.DanhMucUngDungID" type="text" class="form-control">
+</div>
+<div>
+<label>DanhMucNgonNguName</label>
+<input placeholder="DanhMucNgonNguName" [(ngModel)]="HRLichCongTacService.FormData.DanhMucNgonNguName"  name="HRLichCongTacService.FormData.DanhMucNgonNguName" type="text" class="form-control">
+</div>
+<div>
+<label>DanhMucUngDungName</label>
+<input placeholder="DanhMucUngDungName" [(ngModel)]="HRLichCongTacService.FormData.DanhMucUngDungName"  name="HRLichCongTacService.FormData.DanhMucUngDungName" type="text" class="form-control">
+</div>
+<div>
+<label>NgayGhiNhan</label>
+<input placeholder="NgayGhiNhan" [(ngModel)]="HRLichCongTacService.FormData.NgayGhiNhan"  name="HRLichCongTacService.FormData.NgayGhiNhan" type="text" class="form-control">
+</div>
+<div>
+<label>Year</label>
+<input placeholder="Year" [(ngModel)]="HRLichCongTacService.FormData.Year"  name="HRLichCongTacService.FormData.Year" type="text" class="form-control">
+</div>
+<div>
+<label>Month</label>
+<input placeholder="Month" [(ngModel)]="HRLichCongTacService.FormData.Month"  name="HRLichCongTacService.FormData.Month" type="text" class="form-control">
+</div>
+<div>
+<label>Day</label>
+<input placeholder="Day" [(ngModel)]="HRLichCongTacService.FormData.Day"  name="HRLichCongTacService.FormData.Day" type="text" class="form-control">
+</div>
+<div>
+<label>ChamCong</label>
+<input placeholder="ChamCong" [(ngModel)]="HRLichCongTacService.FormData.ChamCong"  name="HRLichCongTacService.FormData.ChamCong" type="text" class="form-control">
+</div>
+<div>
+<label>Ngay01</label>
+<input placeholder="Ngay01" [(ngModel)]="HRLichCongTacService.FormData.Ngay01"  name="HRLichCongTacService.FormData.Ngay01" type="text" class="form-control">
+</div>
+<div>
+<label>Name01</label>
+<input placeholder="Name01" [(ngModel)]="HRLichCongTacService.FormData.Name01"  name="HRLichCongTacService.FormData.Name01" type="text" class="form-control">
+</div>
+<div>
+<label>Code01</label>
+<input placeholder="Code01" [(ngModel)]="HRLichCongTacService.FormData.Code01"  name="HRLichCongTacService.FormData.Code01" type="text" class="form-control">
+</div>
+<div>
+<label>ChamCong01</label>
+<input placeholder="ChamCong01" [(ngModel)]="HRLichCongTacService.FormData.ChamCong01"  name="HRLichCongTacService.FormData.ChamCong01" type="text" class="form-control">
+</div>
+<div>
+<label>Ngay02</label>
+<input placeholder="Ngay02" [(ngModel)]="HRLichCongTacService.FormData.Ngay02"  name="HRLichCongTacService.FormData.Ngay02" type="text" class="form-control">
+</div>
+<div>
+<label>Name02</label>
+<input placeholder="Name02" [(ngModel)]="HRLichCongTacService.FormData.Name02"  name="HRLichCongTacService.FormData.Name02" type="text" class="form-control">
+</div>
+<div>
+<label>Code02</label>
+<input placeholder="Code02" [(ngModel)]="HRLichCongTacService.FormData.Code02"  name="HRLichCongTacService.FormData.Code02" type="text" class="form-control">
+</div>
+<div>
+<label>ChamCong02</label>
+<input placeholder="ChamCong02" [(ngModel)]="HRLichCongTacService.FormData.ChamCong02"  name="HRLichCongTacService.FormData.ChamCong02" type="text" class="form-control">
+</div>
+<div>
+<label>Ngay03</label>
+<input placeholder="Ngay03" [(ngModel)]="HRLichCongTacService.FormData.Ngay03"  name="HRLichCongTacService.FormData.Ngay03" type="text" class="form-control">
+</div>
+<div>
+<label>Name03</label>
+<input placeholder="Name03" [(ngModel)]="HRLichCongTacService.FormData.Name03"  name="HRLichCongTacService.FormData.Name03" type="text" class="form-control">
+</div>
+<div>
+<label>Code03</label>
+<input placeholder="Code03" [(ngModel)]="HRLichCongTacService.FormData.Code03"  name="HRLichCongTacService.FormData.Code03" type="text" class="form-control">
+</div>
+<div>
+<label>ChamCong03</label>
+<input placeholder="ChamCong03" [(ngModel)]="HRLichCongTacService.FormData.ChamCong03"  name="HRLichCongTacService.FormData.ChamCong03" type="text" class="form-control">
+</div>
+<div>
+<label>Ngay04</label>
+<input placeholder="Ngay04" [(ngModel)]="HRLichCongTacService.FormData.Ngay04"  name="HRLichCongTacService.FormData.Ngay04" type="text" class="form-control">
+</div>
+<div>
+<label>Name04</label>
+<input placeholder="Name04" [(ngModel)]="HRLichCongTacService.FormData.Name04"  name="HRLichCongTacService.FormData.Name04" type="text" class="form-control">
+</div>
+<div>
+<label>Code04</label>
+<input placeholder="Code04" [(ngModel)]="HRLichCongTacService.FormData.Code04"  name="HRLichCongTacService.FormData.Code04" type="text" class="form-control">
+</div>
+<div>
+<label>ChamCong04</label>
+<input placeholder="ChamCong04" [(ngModel)]="HRLichCongTacService.FormData.ChamCong04"  name="HRLichCongTacService.FormData.ChamCong04" type="text" class="form-control">
+</div>
+<div>
+<label>Ngay05</label>
+<input placeholder="Ngay05" [(ngModel)]="HRLichCongTacService.FormData.Ngay05"  name="HRLichCongTacService.FormData.Ngay05" type="text" class="form-control">
+</div>
+<div>
+<label>Name05</label>
+<input placeholder="Name05" [(ngModel)]="HRLichCongTacService.FormData.Name05"  name="HRLichCongTacService.FormData.Name05" type="text" class="form-control">
+</div>
+<div>
+<label>Code05</label>
+<input placeholder="Code05" [(ngModel)]="HRLichCongTacService.FormData.Code05"  name="HRLichCongTacService.FormData.Code05" type="text" class="form-control">
+</div>
+<div>
+<label>ChamCong05</label>
+<input placeholder="ChamCong05" [(ngModel)]="HRLichCongTacService.FormData.ChamCong05"  name="HRLichCongTacService.FormData.ChamCong05" type="text" class="form-control">
+</div>
+<div>
+<label>Ngay06</label>
+<input placeholder="Ngay06" [(ngModel)]="HRLichCongTacService.FormData.Ngay06"  name="HRLichCongTacService.FormData.Ngay06" type="text" class="form-control">
+</div>
+<div>
+<label>Name06</label>
+<input placeholder="Name06" [(ngModel)]="HRLichCongTacService.FormData.Name06"  name="HRLichCongTacService.FormData.Name06" type="text" class="form-control">
+</div>
+<div>
+<label>Code06</label>
+<input placeholder="Code06" [(ngModel)]="HRLichCongTacService.FormData.Code06"  name="HRLichCongTacService.FormData.Code06" type="text" class="form-control">
+</div>
+<div>
+<label>ChamCong06</label>
+<input placeholder="ChamCong06" [(ngModel)]="HRLichCongTacService.FormData.ChamCong06"  name="HRLichCongTacService.FormData.ChamCong06" type="text" class="form-control">
+</div>
+<div>
+<label>Ngay07</label>
+<input placeholder="Ngay07" [(ngModel)]="HRLichCongTacService.FormData.Ngay07"  name="HRLichCongTacService.FormData.Ngay07" type="text" class="form-control">
+</div>
+<div>
+<label>Name07</label>
+<input placeholder="Name07" [(ngModel)]="HRLichCongTacService.FormData.Name07"  name="HRLichCongTacService.FormData.Name07" type="text" class="form-control">
+</div>
+<div>
+<label>Code07</label>
+<input placeholder="Code07" [(ngModel)]="HRLichCongTacService.FormData.Code07"  name="HRLichCongTacService.FormData.Code07" type="text" class="form-control">
+</div>
+<div>
+<label>ChamCong07</label>
+<input placeholder="ChamCong07" [(ngModel)]="HRLichCongTacService.FormData.ChamCong07"  name="HRLichCongTacService.FormData.ChamCong07" type="text" class="form-control">
+</div>
+<div>
+<label>Ngay08</label>
+<input placeholder="Ngay08" [(ngModel)]="HRLichCongTacService.FormData.Ngay08"  name="HRLichCongTacService.FormData.Ngay08" type="text" class="form-control">
+</div>
+<div>
+<label>Name08</label>
+<input placeholder="Name08" [(ngModel)]="HRLichCongTacService.FormData.Name08"  name="HRLichCongTacService.FormData.Name08" type="text" class="form-control">
+</div>
+<div>
+<label>Code08</label>
+<input placeholder="Code08" [(ngModel)]="HRLichCongTacService.FormData.Code08"  name="HRLichCongTacService.FormData.Code08" type="text" class="form-control">
+</div>
+<div>
+<label>ChamCong08</label>
+<input placeholder="ChamCong08" [(ngModel)]="HRLichCongTacService.FormData.ChamCong08"  name="HRLichCongTacService.FormData.ChamCong08" type="text" class="form-control">
+</div>
+<div>
+<label>Ngay09</label>
+<input placeholder="Ngay09" [(ngModel)]="HRLichCongTacService.FormData.Ngay09"  name="HRLichCongTacService.FormData.Ngay09" type="text" class="form-control">
+</div>
+<div>
+<label>Name09</label>
+<input placeholder="Name09" [(ngModel)]="HRLichCongTacService.FormData.Name09"  name="HRLichCongTacService.FormData.Name09" type="text" class="form-control">
+</div>
+<div>
+<label>Code09</label>
+<input placeholder="Code09" [(ngModel)]="HRLichCongTacService.FormData.Code09"  name="HRLichCongTacService.FormData.Code09" type="text" class="form-control">
+</div>
+<div>
+<label>ChamCong09</label>
+<input placeholder="ChamCong09" [(ngModel)]="HRLichCongTacService.FormData.ChamCong09"  name="HRLichCongTacService.FormData.ChamCong09" type="text" class="form-control">
+</div>
+<div>
+<label>Ngay10</label>
+<input placeholder="Ngay10" [(ngModel)]="HRLichCongTacService.FormData.Ngay10"  name="HRLichCongTacService.FormData.Ngay10" type="text" class="form-control">
+</div>
+<div>
+<label>Name10</label>
+<input placeholder="Name10" [(ngModel)]="HRLichCongTacService.FormData.Name10"  name="HRLichCongTacService.FormData.Name10" type="text" class="form-control">
+</div>
+<div>
+<label>Code10</label>
+<input placeholder="Code10" [(ngModel)]="HRLichCongTacService.FormData.Code10"  name="HRLichCongTacService.FormData.Code10" type="text" class="form-control">
+</div>
+<div>
+<label>ChamCong10</label>
+<input placeholder="ChamCong10" [(ngModel)]="HRLichCongTacService.FormData.ChamCong10"  name="HRLichCongTacService.FormData.ChamCong10" type="text" class="form-control">
+</div>
+<div>
+<label>Ngay11</label>
+<input placeholder="Ngay11" [(ngModel)]="HRLichCongTacService.FormData.Ngay11"  name="HRLichCongTacService.FormData.Ngay11" type="text" class="form-control">
+</div>
+<div>
+<label>Name11</label>
+<input placeholder="Name11" [(ngModel)]="HRLichCongTacService.FormData.Name11"  name="HRLichCongTacService.FormData.Name11" type="text" class="form-control">
+</div>
+<div>
+<label>Code11</label>
+<input placeholder="Code11" [(ngModel)]="HRLichCongTacService.FormData.Code11"  name="HRLichCongTacService.FormData.Code11" type="text" class="form-control">
+</div>
+<div>
+<label>ChamCong11</label>
+<input placeholder="ChamCong11" [(ngModel)]="HRLichCongTacService.FormData.ChamCong11"  name="HRLichCongTacService.FormData.ChamCong11" type="text" class="form-control">
+</div>
+<div>
+<label>Ngay12</label>
+<input placeholder="Ngay12" [(ngModel)]="HRLichCongTacService.FormData.Ngay12"  name="HRLichCongTacService.FormData.Ngay12" type="text" class="form-control">
+</div>
+<div>
+<label>Name12</label>
+<input placeholder="Name12" [(ngModel)]="HRLichCongTacService.FormData.Name12"  name="HRLichCongTacService.FormData.Name12" type="text" class="form-control">
+</div>
+<div>
+<label>Code12</label>
+<input placeholder="Code12" [(ngModel)]="HRLichCongTacService.FormData.Code12"  name="HRLichCongTacService.FormData.Code12" type="text" class="form-control">
+</div>
+<div>
+<label>ChamCong12</label>
+<input placeholder="ChamCong12" [(ngModel)]="HRLichCongTacService.FormData.ChamCong12"  name="HRLichCongTacService.FormData.ChamCong12" type="text" class="form-control">
+</div>
+<div>
+<label>Ngay13</label>
+<input placeholder="Ngay13" [(ngModel)]="HRLichCongTacService.FormData.Ngay13"  name="HRLichCongTacService.FormData.Ngay13" type="text" class="form-control">
+</div>
+<div>
+<label>Name13</label>
+<input placeholder="Name13" [(ngModel)]="HRLichCongTacService.FormData.Name13"  name="HRLichCongTacService.FormData.Name13" type="text" class="form-control">
+</div>
+<div>
+<label>Code13</label>
+<input placeholder="Code13" [(ngModel)]="HRLichCongTacService.FormData.Code13"  name="HRLichCongTacService.FormData.Code13" type="text" class="form-control">
+</div>
+<div>
+<label>ChamCong13</label>
+<input placeholder="ChamCong13" [(ngModel)]="HRLichCongTacService.FormData.ChamCong13"  name="HRLichCongTacService.FormData.ChamCong13" type="text" class="form-control">
+</div>
+<div>
+<label>Ngay14</label>
+<input placeholder="Ngay14" [(ngModel)]="HRLichCongTacService.FormData.Ngay14"  name="HRLichCongTacService.FormData.Ngay14" type="text" class="form-control">
+</div>
+<div>
+<label>Name14</label>
+<input placeholder="Name14" [(ngModel)]="HRLichCongTacService.FormData.Name14"  name="HRLichCongTacService.FormData.Name14" type="text" class="form-control">
+</div>
+<div>
+<label>Code14</label>
+<input placeholder="Code14" [(ngModel)]="HRLichCongTacService.FormData.Code14"  name="HRLichCongTacService.FormData.Code14" type="text" class="form-control">
+</div>
+<div>
+<label>Ngay15</label>
+<input placeholder="Ngay15" [(ngModel)]="HRLichCongTacService.FormData.Ngay15"  name="HRLichCongTacService.FormData.Ngay15" type="text" class="form-control">
+</div>
+<div>
+<label>Name15</label>
+<input placeholder="Name15" [(ngModel)]="HRLichCongTacService.FormData.Name15"  name="HRLichCongTacService.FormData.Name15" type="text" class="form-control">
+</div>
+<div>
+<label>Code15</label>
+<input placeholder="Code15" [(ngModel)]="HRLichCongTacService.FormData.Code15"  name="HRLichCongTacService.FormData.Code15" type="text" class="form-control">
+</div>
+<div>
+<label>ChamCong15</label>
+<input placeholder="ChamCong15" [(ngModel)]="HRLichCongTacService.FormData.ChamCong15"  name="HRLichCongTacService.FormData.ChamCong15" type="text" class="form-control">
+</div>
+<div>
+<label>Ngay16</label>
+<input placeholder="Ngay16" [(ngModel)]="HRLichCongTacService.FormData.Ngay16"  name="HRLichCongTacService.FormData.Ngay16" type="text" class="form-control">
+</div>
+<div>
+<label>Name16</label>
+<input placeholder="Name16" [(ngModel)]="HRLichCongTacService.FormData.Name16"  name="HRLichCongTacService.FormData.Name16" type="text" class="form-control">
+</div>
+<div>
+<label>Code16</label>
+<input placeholder="Code16" [(ngModel)]="HRLichCongTacService.FormData.Code16"  name="HRLichCongTacService.FormData.Code16" type="text" class="form-control">
+</div>
+<div>
+<label>ChamCong16</label>
+<input placeholder="ChamCong16" [(ngModel)]="HRLichCongTacService.FormData.ChamCong16"  name="HRLichCongTacService.FormData.ChamCong16" type="text" class="form-control">
+</div>
+<div>
+<label>Ngay17</label>
+<input placeholder="Ngay17" [(ngModel)]="HRLichCongTacService.FormData.Ngay17"  name="HRLichCongTacService.FormData.Ngay17" type="text" class="form-control">
+</div>
+<div>
+<label>Name17</label>
+<input placeholder="Name17" [(ngModel)]="HRLichCongTacService.FormData.Name17"  name="HRLichCongTacService.FormData.Name17" type="text" class="form-control">
+</div>
+<div>
+<label>Code17</label>
+<input placeholder="Code17" [(ngModel)]="HRLichCongTacService.FormData.Code17"  name="HRLichCongTacService.FormData.Code17" type="text" class="form-control">
+</div>
+<div>
+<label>ChamCong17</label>
+<input placeholder="ChamCong17" [(ngModel)]="HRLichCongTacService.FormData.ChamCong17"  name="HRLichCongTacService.FormData.ChamCong17" type="text" class="form-control">
+</div>
+<div>
+<label>Ngay18</label>
+<input placeholder="Ngay18" [(ngModel)]="HRLichCongTacService.FormData.Ngay18"  name="HRLichCongTacService.FormData.Ngay18" type="text" class="form-control">
+</div>
+<div>
+<label>Name18</label>
+<input placeholder="Name18" [(ngModel)]="HRLichCongTacService.FormData.Name18"  name="HRLichCongTacService.FormData.Name18" type="text" class="form-control">
+</div>
+<div>
+<label>Code18</label>
+<input placeholder="Code18" [(ngModel)]="HRLichCongTacService.FormData.Code18"  name="HRLichCongTacService.FormData.Code18" type="text" class="form-control">
+</div>
+<div>
+<label>ChamCong18</label>
+<input placeholder="ChamCong18" [(ngModel)]="HRLichCongTacService.FormData.ChamCong18"  name="HRLichCongTacService.FormData.ChamCong18" type="text" class="form-control">
+</div>
+<div>
+<label>Ngay19</label>
+<input placeholder="Ngay19" [(ngModel)]="HRLichCongTacService.FormData.Ngay19"  name="HRLichCongTacService.FormData.Ngay19" type="text" class="form-control">
+</div>
+<div>
+<label>Name19</label>
+<input placeholder="Name19" [(ngModel)]="HRLichCongTacService.FormData.Name19"  name="HRLichCongTacService.FormData.Name19" type="text" class="form-control">
+</div>
+<div>
+<label>Code19</label>
+<input placeholder="Code19" [(ngModel)]="HRLichCongTacService.FormData.Code19"  name="HRLichCongTacService.FormData.Code19" type="text" class="form-control">
+</div>
+<div>
+<label>ChamCong19</label>
+<input placeholder="ChamCong19" [(ngModel)]="HRLichCongTacService.FormData.ChamCong19"  name="HRLichCongTacService.FormData.ChamCong19" type="text" class="form-control">
+</div>
+<div>
+<label>Ngay20</label>
+<input placeholder="Ngay20" [(ngModel)]="HRLichCongTacService.FormData.Ngay20"  name="HRLichCongTacService.FormData.Ngay20" type="text" class="form-control">
+</div>
+<div>
+<label>Name20</label>
+<input placeholder="Name20" [(ngModel)]="HRLichCongTacService.FormData.Name20"  name="HRLichCongTacService.FormData.Name20" type="text" class="form-control">
+</div>
+<div>
+<label>Code20</label>
+<input placeholder="Code20" [(ngModel)]="HRLichCongTacService.FormData.Code20"  name="HRLichCongTacService.FormData.Code20" type="text" class="form-control">
+</div>
+<div>
+<label>ChamCong20</label>
+<input placeholder="ChamCong20" [(ngModel)]="HRLichCongTacService.FormData.ChamCong20"  name="HRLichCongTacService.FormData.ChamCong20" type="text" class="form-control">
+</div>
+<div>
+<label>Ngay21</label>
+<input placeholder="Ngay21" [(ngModel)]="HRLichCongTacService.FormData.Ngay21"  name="HRLichCongTacService.FormData.Ngay21" type="text" class="form-control">
+</div>
+<div>
+<label>Name21</label>
+<input placeholder="Name21" [(ngModel)]="HRLichCongTacService.FormData.Name21"  name="HRLichCongTacService.FormData.Name21" type="text" class="form-control">
+</div>
+<div>
+<label>Code21</label>
+<input placeholder="Code21" [(ngModel)]="HRLichCongTacService.FormData.Code21"  name="HRLichCongTacService.FormData.Code21" type="text" class="form-control">
+</div>
+<div>
+<label>ChamCong21</label>
+<input placeholder="ChamCong21" [(ngModel)]="HRLichCongTacService.FormData.ChamCong21"  name="HRLichCongTacService.FormData.ChamCong21" type="text" class="form-control">
+</div>
+<div>
+<label>Ngay22</label>
+<input placeholder="Ngay22" [(ngModel)]="HRLichCongTacService.FormData.Ngay22"  name="HRLichCongTacService.FormData.Ngay22" type="text" class="form-control">
+</div>
+<div>
+<label>Name22</label>
+<input placeholder="Name22" [(ngModel)]="HRLichCongTacService.FormData.Name22"  name="HRLichCongTacService.FormData.Name22" type="text" class="form-control">
+</div>
+<div>
+<label>Code22</label>
+<input placeholder="Code22" [(ngModel)]="HRLichCongTacService.FormData.Code22"  name="HRLichCongTacService.FormData.Code22" type="text" class="form-control">
+</div>
+<div>
+<label>ChamCong22</label>
+<input placeholder="ChamCong22" [(ngModel)]="HRLichCongTacService.FormData.ChamCong22"  name="HRLichCongTacService.FormData.ChamCong22" type="text" class="form-control">
+</div>
+<div>
+<label>Ngay23</label>
+<input placeholder="Ngay23" [(ngModel)]="HRLichCongTacService.FormData.Ngay23"  name="HRLichCongTacService.FormData.Ngay23" type="text" class="form-control">
+</div>
+<div>
+<label>Name23</label>
+<input placeholder="Name23" [(ngModel)]="HRLichCongTacService.FormData.Name23"  name="HRLichCongTacService.FormData.Name23" type="text" class="form-control">
+</div>
+<div>
+<label>Code23</label>
+<input placeholder="Code23" [(ngModel)]="HRLichCongTacService.FormData.Code23"  name="HRLichCongTacService.FormData.Code23" type="text" class="form-control">
+</div>
+<div>
+<label>ChamCong23</label>
+<input placeholder="ChamCong23" [(ngModel)]="HRLichCongTacService.FormData.ChamCong23"  name="HRLichCongTacService.FormData.ChamCong23" type="text" class="form-control">
+</div>
+<div>
+<label>Ngay24</label>
+<input placeholder="Ngay24" [(ngModel)]="HRLichCongTacService.FormData.Ngay24"  name="HRLichCongTacService.FormData.Ngay24" type="text" class="form-control">
+</div>
+<div>
+<label>Name24</label>
+<input placeholder="Name24" [(ngModel)]="HRLichCongTacService.FormData.Name24"  name="HRLichCongTacService.FormData.Name24" type="text" class="form-control">
+</div>
+<div>
+<label>Code24</label>
+<input placeholder="Code24" [(ngModel)]="HRLichCongTacService.FormData.Code24"  name="HRLichCongTacService.FormData.Code24" type="text" class="form-control">
+</div>
+<div>
+<label>ChamCong24</label>
+<input placeholder="ChamCong24" [(ngModel)]="HRLichCongTacService.FormData.ChamCong24"  name="HRLichCongTacService.FormData.ChamCong24" type="text" class="form-control">
+</div>
+<div>
+<label>Ngay25</label>
+<input placeholder="Ngay25" [(ngModel)]="HRLichCongTacService.FormData.Ngay25"  name="HRLichCongTacService.FormData.Ngay25" type="text" class="form-control">
+</div>
+<div>
+<label>Name25</label>
+<input placeholder="Name25" [(ngModel)]="HRLichCongTacService.FormData.Name25"  name="HRLichCongTacService.FormData.Name25" type="text" class="form-control">
+</div>
+<div>
+<label>Code25</label>
+<input placeholder="Code25" [(ngModel)]="HRLichCongTacService.FormData.Code25"  name="HRLichCongTacService.FormData.Code25" type="text" class="form-control">
+</div>
+<div>
+<label>ChamCong25</label>
+<input placeholder="ChamCong25" [(ngModel)]="HRLichCongTacService.FormData.ChamCong25"  name="HRLichCongTacService.FormData.ChamCong25" type="text" class="form-control">
+</div>
+<div>
+<label>Ngay26</label>
+<input placeholder="Ngay26" [(ngModel)]="HRLichCongTacService.FormData.Ngay26"  name="HRLichCongTacService.FormData.Ngay26" type="text" class="form-control">
+</div>
+<div>
+<label>Name26</label>
+<input placeholder="Name26" [(ngModel)]="HRLichCongTacService.FormData.Name26"  name="HRLichCongTacService.FormData.Name26" type="text" class="form-control">
+</div>
+<div>
+<label>Code26</label>
+<input placeholder="Code26" [(ngModel)]="HRLichCongTacService.FormData.Code26"  name="HRLichCongTacService.FormData.Code26" type="text" class="form-control">
+</div>
+<div>
+<label>ChamCong26</label>
+<input placeholder="ChamCong26" [(ngModel)]="HRLichCongTacService.FormData.ChamCong26"  name="HRLichCongTacService.FormData.ChamCong26" type="text" class="form-control">
+</div>
+<div>
+<label>Ngay27</label>
+<input placeholder="Ngay27" [(ngModel)]="HRLichCongTacService.FormData.Ngay27"  name="HRLichCongTacService.FormData.Ngay27" type="text" class="form-control">
+</div>
+<div>
+<label>Name27</label>
+<input placeholder="Name27" [(ngModel)]="HRLichCongTacService.FormData.Name27"  name="HRLichCongTacService.FormData.Name27" type="text" class="form-control">
+</div>
+<div>
+<label>Code27</label>
+<input placeholder="Code27" [(ngModel)]="HRLichCongTacService.FormData.Code27"  name="HRLichCongTacService.FormData.Code27" type="text" class="form-control">
+</div>
+<div>
+<label>ChamCong27</label>
+<input placeholder="ChamCong27" [(ngModel)]="HRLichCongTacService.FormData.ChamCong27"  name="HRLichCongTacService.FormData.ChamCong27" type="text" class="form-control">
+</div>
+<div>
+<label>Ngay28</label>
+<input placeholder="Ngay28" [(ngModel)]="HRLichCongTacService.FormData.Ngay28"  name="HRLichCongTacService.FormData.Ngay28" type="text" class="form-control">
+</div>
+<div>
+<label>Name28</label>
+<input placeholder="Name28" [(ngModel)]="HRLichCongTacService.FormData.Name28"  name="HRLichCongTacService.FormData.Name28" type="text" class="form-control">
+</div>
+<div>
+<label>Code28</label>
+<input placeholder="Code28" [(ngModel)]="HRLichCongTacService.FormData.Code28"  name="HRLichCongTacService.FormData.Code28" type="text" class="form-control">
+</div>
+<div>
+<label>ChamCong28</label>
+<input placeholder="ChamCong28" [(ngModel)]="HRLichCongTacService.FormData.ChamCong28"  name="HRLichCongTacService.FormData.ChamCong28" type="text" class="form-control">
+</div>
+<div>
+<label>Ngay29</label>
+<input placeholder="Ngay29" [(ngModel)]="HRLichCongTacService.FormData.Ngay29"  name="HRLichCongTacService.FormData.Ngay29" type="text" class="form-control">
+</div>
+<div>
+<label>Name29</label>
+<input placeholder="Name29" [(ngModel)]="HRLichCongTacService.FormData.Name29"  name="HRLichCongTacService.FormData.Name29" type="text" class="form-control">
+</div>
+<div>
+<label>Code29</label>
+<input placeholder="Code29" [(ngModel)]="HRLichCongTacService.FormData.Code29"  name="HRLichCongTacService.FormData.Code29" type="text" class="form-control">
+</div>
+<div>
+<label>ChamCong29</label>
+<input placeholder="ChamCong29" [(ngModel)]="HRLichCongTacService.FormData.ChamCong29"  name="HRLichCongTacService.FormData.ChamCong29" type="text" class="form-control">
+</div>
+<div>
+<label>Ngay30</label>
+<input placeholder="Ngay30" [(ngModel)]="HRLichCongTacService.FormData.Ngay30"  name="HRLichCongTacService.FormData.Ngay30" type="text" class="form-control">
+</div>
+<div>
+<label>Name30</label>
+<input placeholder="Name30" [(ngModel)]="HRLichCongTacService.FormData.Name30"  name="HRLichCongTacService.FormData.Name30" type="text" class="form-control">
+</div>
+<div>
+<label>Code30</label>
+<input placeholder="Code30" [(ngModel)]="HRLichCongTacService.FormData.Code30"  name="HRLichCongTacService.FormData.Code30" type="text" class="form-control">
+</div>
+<div>
+<label>ChamCong30</label>
+<input placeholder="ChamCong30" [(ngModel)]="HRLichCongTacService.FormData.ChamCong30"  name="HRLichCongTacService.FormData.ChamCong30" type="text" class="form-control">
+</div>
+<div>
+<label>Ngay31</label>
+<input placeholder="Ngay31" [(ngModel)]="HRLichCongTacService.FormData.Ngay31"  name="HRLichCongTacService.FormData.Ngay31" type="text" class="form-control">
+</div>
+<div>
+<label>Name31</label>
+<input placeholder="Name31" [(ngModel)]="HRLichCongTacService.FormData.Name31"  name="HRLichCongTacService.FormData.Name31" type="text" class="form-control">
+</div>
+<div>
+<label>Code31</label>
+<input placeholder="Code31" [(ngModel)]="HRLichCongTacService.FormData.Code31"  name="HRLichCongTacService.FormData.Code31" type="text" class="form-control">
+</div>
+<div>
+<label>ChamCong31</label>
+<input placeholder="ChamCong31" [(ngModel)]="HRLichCongTacService.FormData.ChamCong31"  name="HRLichCongTacService.FormData.ChamCong31" type="text" class="form-control">
+</div>
+<div>
+<label>Ngay32</label>
+<input placeholder="Ngay32" [(ngModel)]="HRLichCongTacService.FormData.Ngay32"  name="HRLichCongTacService.FormData.Ngay32" type="text" class="form-control">
+</div>
+<div>
+<label>Name32</label>
+<input placeholder="Name32" [(ngModel)]="HRLichCongTacService.FormData.Name32"  name="HRLichCongTacService.FormData.Name32" type="text" class="form-control">
+</div>
+<div>
+<label>Code32</label>
+<input placeholder="Code32" [(ngModel)]="HRLichCongTacService.FormData.Code32"  name="HRLichCongTacService.FormData.Code32" type="text" class="form-control">
+</div>
+<div>
+<label>ChamCong32</label>
+<input placeholder="ChamCong32" [(ngModel)]="HRLichCongTacService.FormData.ChamCong32"  name="HRLichCongTacService.FormData.ChamCong32" type="text" class="form-control">
+</div>
+<div>
+<label>Ngay33</label>
+<input placeholder="Ngay33" [(ngModel)]="HRLichCongTacService.FormData.Ngay33"  name="HRLichCongTacService.FormData.Ngay33" type="text" class="form-control">
+</div>
+<div>
+<label>Name33</label>
+<input placeholder="Name33" [(ngModel)]="HRLichCongTacService.FormData.Name33"  name="HRLichCongTacService.FormData.Name33" type="text" class="form-control">
+</div>
+<div>
+<label>Code33</label>
+<input placeholder="Code33" [(ngModel)]="HRLichCongTacService.FormData.Code33"  name="HRLichCongTacService.FormData.Code33" type="text" class="form-control">
+</div>
+<div>
+<label>ChamCong33</label>
+<input placeholder="ChamCong33" [(ngModel)]="HRLichCongTacService.FormData.ChamCong33"  name="HRLichCongTacService.FormData.ChamCong33" type="text" class="form-control">
+</div>
+<div>
+<label>Ngay34</label>
+<input placeholder="Ngay34" [(ngModel)]="HRLichCongTacService.FormData.Ngay34"  name="HRLichCongTacService.FormData.Ngay34" type="text" class="form-control">
+</div>
+<div>
+<label>Name34</label>
+<input placeholder="Name34" [(ngModel)]="HRLichCongTacService.FormData.Name34"  name="HRLichCongTacService.FormData.Name34" type="text" class="form-control">
+</div>
+<div>
+<label>Code34</label>
+<input placeholder="Code34" [(ngModel)]="HRLichCongTacService.FormData.Code34"  name="HRLichCongTacService.FormData.Code34" type="text" class="form-control">
+</div>
+<div>
+<label>ChamCong34</label>
+<input placeholder="ChamCong34" [(ngModel)]="HRLichCongTacService.FormData.ChamCong34"  name="HRLichCongTacService.FormData.ChamCong34" type="text" class="form-control">
+</div>
+<div>
+<label>Ngay35</label>
+<input placeholder="Ngay35" [(ngModel)]="HRLichCongTacService.FormData.Ngay35"  name="HRLichCongTacService.FormData.Ngay35" type="text" class="form-control">
+</div>
+<div>
+<label>Name35</label>
+<input placeholder="Name35" [(ngModel)]="HRLichCongTacService.FormData.Name35"  name="HRLichCongTacService.FormData.Name35" type="text" class="form-control">
+</div>
+<div>
+<label>Code35</label>
+<input placeholder="Code35" [(ngModel)]="HRLichCongTacService.FormData.Code35"  name="HRLichCongTacService.FormData.Code35" type="text" class="form-control">
+</div>
+<div>
+<label>ChamCong35</label>
+<input placeholder="ChamCong35" [(ngModel)]="HRLichCongTacService.FormData.ChamCong35"  name="HRLichCongTacService.FormData.ChamCong35" type="text" class="form-control">
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <app-loading *ngIf="HRLichCongTacService.IsShowLoading"></app-loading>
+

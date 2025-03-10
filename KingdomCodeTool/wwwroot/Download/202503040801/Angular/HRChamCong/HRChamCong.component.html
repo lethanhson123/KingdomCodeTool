@@ -1,0 +1,753 @@
+﻿<div class="row">
+    <div id="breadcrumbs-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m6 l6">
+                    <h6 class="breadcrumbs-title">
+                        HRChamCong
+                        <span *ngIf="HRChamCongService.List">({{HRChamCongService.List.length-1}} items)</span>
+                    </h6>
+                </div>
+                <div class="col s12 m6 l6 right-align-md">
+                    <ol class="breadcrumbs mb-0">
+                        <li class="breadcrumb-item">
+                            <a href="javascript:history.back()" title="Quay lại">
+                                <<< Quay lại
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/Homepage" title="Trang chủ">Trang chủ</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/ThanhVien" title="Quản trị">Quản trị</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/HRChamCong" title="HRChamCong">
+                                HRChamCong
+                            </a>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col s12 m12 l12">
+        <div class="card card card-default scrollspy">
+            <div class="card-content">
+                <div class="col s12 m12 l11">
+                    <input [(ngModel)]="HRChamCongService.BaseParameter.SearchString" placeholder="Tìm ..."
+                           class="form-control" (keyup.enter)="HRChamCongSearch()">
+                </div>
+                <div class="col s12 m12 l1">
+                    <a style="color: green;" title="Tìm" (click)="HRChamCongSearch()">
+                        <i class="material-icons">play_circle_filled</i>
+                    </a>
+                </div>
+                <div class="KhungOverflow">
+                    <table *ngIf="!NotificationService.IsMobile" mat-table matSort #HRChamCongSort="matSort"
+                           [dataSource]="HRChamCongService.DataSource">
+                        <ng-container matColumnDef="STT">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                                STT
+                            </th>
+                            <td mat-cell *matCellDef="let element; index as i;">
+                                <div *ngIf="HRChamCongPaginator">
+                                    {{
+HRChamCongPaginator.pageSize *
+                                    HRChamCongPaginator.pageIndex + i + 1
+                                    }}
+                                </div>
+                            </td>
+                        </ng-container>
+                        <ng-container matColumnDef="Save">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                            </th>
+                            <td mat-cell *matCellDef="let element">
+                                <a (click)="HRChamCongSave(element)" style="color:#2196f3;">
+                                    <i class="material-icons">save</i>
+                                </a>
+                                <!-- <a (click)="HRChamCongDelete(element)" style="color: red;">
+            <i class="material-icons">delete_forever</i>
+        </a> -->
+                            </td>
+                            </ng-container>
+                            <ng-container matColumnDef="ID">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="ID" name="ID" [(ngModel)]="element.ID"></td>
+</ng-container>
+<ng-container matColumnDef="ParentID">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ParentID</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="ParentID" name="ParentID" [(ngModel)]="element.ParentID"></td>
+</ng-container>
+<ng-container matColumnDef="ParentName">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ParentName</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="ParentName" name="ParentName" [(ngModel)]="element.ParentName"></td>
+</ng-container>
+<ng-container matColumnDef="CreatedDate">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CreatedDate</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="CreatedDate" name="CreatedDate" [(ngModel)]="element.CreatedDate"></td>
+</ng-container>
+<ng-container matColumnDef="CreatedMembershipID">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CreatedMembershipID</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="CreatedMembershipID" name="CreatedMembershipID" [(ngModel)]="element.CreatedMembershipID"></td>
+</ng-container>
+<ng-container matColumnDef="LastUpdatedDate">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>LastUpdatedDate</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="LastUpdatedDate" name="LastUpdatedDate" [(ngModel)]="element.LastUpdatedDate"></td>
+</ng-container>
+<ng-container matColumnDef="LastUpdatedMembershipID">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>LastUpdatedMembershipID</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="LastUpdatedMembershipID" name="LastUpdatedMembershipID" [(ngModel)]="element.LastUpdatedMembershipID"></td>
+</ng-container>
+<ng-container matColumnDef="RowVersion">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>RowVersion</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="RowVersion" name="RowVersion" [(ngModel)]="element.RowVersion"></td>
+</ng-container>
+<ng-container matColumnDef="SortOrder">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>SortOrder</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="SortOrder" name="SortOrder" [(ngModel)]="element.SortOrder"></td>
+</ng-container>
+<ng-container matColumnDef="Active">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Active</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Active" name="Active" [(ngModel)]="element.Active"></td>
+</ng-container>
+<ng-container matColumnDef="TypeName">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>TypeName</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="TypeName" name="TypeName" [(ngModel)]="element.TypeName"></td>
+</ng-container>
+<ng-container matColumnDef="Name">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Name" name="Name" [(ngModel)]="element.Name"></td>
+</ng-container>
+<ng-container matColumnDef="Code">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Code</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Code" name="Code" [(ngModel)]="element.Code"></td>
+</ng-container>
+<ng-container matColumnDef="Note">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Note</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Note" name="Note" [(ngModel)]="element.Note"></td>
+</ng-container>
+<ng-container matColumnDef="Display">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Display</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Display" name="Display" [(ngModel)]="element.Display"></td>
+</ng-container>
+<ng-container matColumnDef="FileName">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>FileName</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="FileName" name="FileName" [(ngModel)]="element.FileName"></td>
+</ng-container>
+<ng-container matColumnDef="Description">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Description</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Description" name="Description" [(ngModel)]="element.Description"></td>
+</ng-container>
+<ng-container matColumnDef="HTMLContent">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>HTMLContent</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="HTMLContent" name="HTMLContent" [(ngModel)]="element.HTMLContent"></td>
+</ng-container>
+<ng-container matColumnDef="DanhMucNgonNguID">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DanhMucNgonNguID</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="DanhMucNgonNguID" name="DanhMucNgonNguID" [(ngModel)]="element.DanhMucNgonNguID"></td>
+</ng-container>
+<ng-container matColumnDef="DanhMucUngDungID">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DanhMucUngDungID</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="DanhMucUngDungID" name="DanhMucUngDungID" [(ngModel)]="element.DanhMucUngDungID"></td>
+</ng-container>
+<ng-container matColumnDef="DanhMucNgonNguName">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DanhMucNgonNguName</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="DanhMucNgonNguName" name="DanhMucNgonNguName" [(ngModel)]="element.DanhMucNgonNguName"></td>
+</ng-container>
+<ng-container matColumnDef="DanhMucUngDungName">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DanhMucUngDungName</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="DanhMucUngDungName" name="DanhMucUngDungName" [(ngModel)]="element.DanhMucUngDungName"></td>
+</ng-container>
+<ng-container matColumnDef="NgayGhiNhan">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>NgayGhiNhan</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="NgayGhiNhan" name="NgayGhiNhan" [(ngModel)]="element.NgayGhiNhan"></td>
+</ng-container>
+<ng-container matColumnDef="Year">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Year</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Year" name="Year" [(ngModel)]="element.Year"></td>
+</ng-container>
+<ng-container matColumnDef="Month">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Month</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Month" name="Month" [(ngModel)]="element.Month"></td>
+</ng-container>
+<ng-container matColumnDef="Day">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Day</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Day" name="Day" [(ngModel)]="element.Day"></td>
+</ng-container>
+<ng-container matColumnDef="ChamCong">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ChamCong</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="ChamCong" name="ChamCong" [(ngModel)]="element.ChamCong"></td>
+</ng-container>
+<ng-container matColumnDef="Ngay01">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Ngay01</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Ngay01" name="Ngay01" [(ngModel)]="element.Ngay01"></td>
+</ng-container>
+<ng-container matColumnDef="Name01">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Name01</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Name01" name="Name01" [(ngModel)]="element.Name01"></td>
+</ng-container>
+<ng-container matColumnDef="Code01">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Code01</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Code01" name="Code01" [(ngModel)]="element.Code01"></td>
+</ng-container>
+<ng-container matColumnDef="ChamCong01">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ChamCong01</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="ChamCong01" name="ChamCong01" [(ngModel)]="element.ChamCong01"></td>
+</ng-container>
+<ng-container matColumnDef="Ngay02">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Ngay02</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Ngay02" name="Ngay02" [(ngModel)]="element.Ngay02"></td>
+</ng-container>
+<ng-container matColumnDef="Name02">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Name02</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Name02" name="Name02" [(ngModel)]="element.Name02"></td>
+</ng-container>
+<ng-container matColumnDef="Code02">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Code02</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Code02" name="Code02" [(ngModel)]="element.Code02"></td>
+</ng-container>
+<ng-container matColumnDef="ChamCong02">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ChamCong02</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="ChamCong02" name="ChamCong02" [(ngModel)]="element.ChamCong02"></td>
+</ng-container>
+<ng-container matColumnDef="Ngay03">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Ngay03</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Ngay03" name="Ngay03" [(ngModel)]="element.Ngay03"></td>
+</ng-container>
+<ng-container matColumnDef="Name03">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Name03</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Name03" name="Name03" [(ngModel)]="element.Name03"></td>
+</ng-container>
+<ng-container matColumnDef="Code03">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Code03</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Code03" name="Code03" [(ngModel)]="element.Code03"></td>
+</ng-container>
+<ng-container matColumnDef="ChamCong03">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ChamCong03</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="ChamCong03" name="ChamCong03" [(ngModel)]="element.ChamCong03"></td>
+</ng-container>
+<ng-container matColumnDef="Ngay04">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Ngay04</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Ngay04" name="Ngay04" [(ngModel)]="element.Ngay04"></td>
+</ng-container>
+<ng-container matColumnDef="Name04">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Name04</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Name04" name="Name04" [(ngModel)]="element.Name04"></td>
+</ng-container>
+<ng-container matColumnDef="Code04">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Code04</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Code04" name="Code04" [(ngModel)]="element.Code04"></td>
+</ng-container>
+<ng-container matColumnDef="ChamCong04">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ChamCong04</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="ChamCong04" name="ChamCong04" [(ngModel)]="element.ChamCong04"></td>
+</ng-container>
+<ng-container matColumnDef="Ngay05">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Ngay05</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Ngay05" name="Ngay05" [(ngModel)]="element.Ngay05"></td>
+</ng-container>
+<ng-container matColumnDef="Name05">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Name05</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Name05" name="Name05" [(ngModel)]="element.Name05"></td>
+</ng-container>
+<ng-container matColumnDef="Code05">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Code05</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Code05" name="Code05" [(ngModel)]="element.Code05"></td>
+</ng-container>
+<ng-container matColumnDef="ChamCong05">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ChamCong05</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="ChamCong05" name="ChamCong05" [(ngModel)]="element.ChamCong05"></td>
+</ng-container>
+<ng-container matColumnDef="Ngay06">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Ngay06</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Ngay06" name="Ngay06" [(ngModel)]="element.Ngay06"></td>
+</ng-container>
+<ng-container matColumnDef="Name06">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Name06</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Name06" name="Name06" [(ngModel)]="element.Name06"></td>
+</ng-container>
+<ng-container matColumnDef="Code06">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Code06</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Code06" name="Code06" [(ngModel)]="element.Code06"></td>
+</ng-container>
+<ng-container matColumnDef="ChamCong06">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ChamCong06</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="ChamCong06" name="ChamCong06" [(ngModel)]="element.ChamCong06"></td>
+</ng-container>
+<ng-container matColumnDef="Ngay07">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Ngay07</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Ngay07" name="Ngay07" [(ngModel)]="element.Ngay07"></td>
+</ng-container>
+<ng-container matColumnDef="Name07">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Name07</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Name07" name="Name07" [(ngModel)]="element.Name07"></td>
+</ng-container>
+<ng-container matColumnDef="Code07">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Code07</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Code07" name="Code07" [(ngModel)]="element.Code07"></td>
+</ng-container>
+<ng-container matColumnDef="ChamCong07">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ChamCong07</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="ChamCong07" name="ChamCong07" [(ngModel)]="element.ChamCong07"></td>
+</ng-container>
+<ng-container matColumnDef="Ngay08">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Ngay08</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Ngay08" name="Ngay08" [(ngModel)]="element.Ngay08"></td>
+</ng-container>
+<ng-container matColumnDef="Name08">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Name08</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Name08" name="Name08" [(ngModel)]="element.Name08"></td>
+</ng-container>
+<ng-container matColumnDef="Code08">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Code08</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Code08" name="Code08" [(ngModel)]="element.Code08"></td>
+</ng-container>
+<ng-container matColumnDef="ChamCong08">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ChamCong08</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="ChamCong08" name="ChamCong08" [(ngModel)]="element.ChamCong08"></td>
+</ng-container>
+<ng-container matColumnDef="Ngay09">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Ngay09</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Ngay09" name="Ngay09" [(ngModel)]="element.Ngay09"></td>
+</ng-container>
+<ng-container matColumnDef="Name09">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Name09</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Name09" name="Name09" [(ngModel)]="element.Name09"></td>
+</ng-container>
+<ng-container matColumnDef="Code09">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Code09</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Code09" name="Code09" [(ngModel)]="element.Code09"></td>
+</ng-container>
+<ng-container matColumnDef="ChamCong09">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ChamCong09</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="ChamCong09" name="ChamCong09" [(ngModel)]="element.ChamCong09"></td>
+</ng-container>
+<ng-container matColumnDef="Ngay10">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Ngay10</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Ngay10" name="Ngay10" [(ngModel)]="element.Ngay10"></td>
+</ng-container>
+<ng-container matColumnDef="Name10">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Name10</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Name10" name="Name10" [(ngModel)]="element.Name10"></td>
+</ng-container>
+<ng-container matColumnDef="Code10">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Code10</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Code10" name="Code10" [(ngModel)]="element.Code10"></td>
+</ng-container>
+<ng-container matColumnDef="ChamCong10">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ChamCong10</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="ChamCong10" name="ChamCong10" [(ngModel)]="element.ChamCong10"></td>
+</ng-container>
+<ng-container matColumnDef="Ngay11">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Ngay11</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Ngay11" name="Ngay11" [(ngModel)]="element.Ngay11"></td>
+</ng-container>
+<ng-container matColumnDef="Name11">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Name11</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Name11" name="Name11" [(ngModel)]="element.Name11"></td>
+</ng-container>
+<ng-container matColumnDef="Code11">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Code11</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Code11" name="Code11" [(ngModel)]="element.Code11"></td>
+</ng-container>
+<ng-container matColumnDef="ChamCong11">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ChamCong11</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="ChamCong11" name="ChamCong11" [(ngModel)]="element.ChamCong11"></td>
+</ng-container>
+<ng-container matColumnDef="Ngay12">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Ngay12</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Ngay12" name="Ngay12" [(ngModel)]="element.Ngay12"></td>
+</ng-container>
+<ng-container matColumnDef="Name12">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Name12</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Name12" name="Name12" [(ngModel)]="element.Name12"></td>
+</ng-container>
+<ng-container matColumnDef="Code12">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Code12</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Code12" name="Code12" [(ngModel)]="element.Code12"></td>
+</ng-container>
+<ng-container matColumnDef="ChamCong12">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ChamCong12</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="ChamCong12" name="ChamCong12" [(ngModel)]="element.ChamCong12"></td>
+</ng-container>
+<ng-container matColumnDef="Ngay13">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Ngay13</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Ngay13" name="Ngay13" [(ngModel)]="element.Ngay13"></td>
+</ng-container>
+<ng-container matColumnDef="Name13">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Name13</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Name13" name="Name13" [(ngModel)]="element.Name13"></td>
+</ng-container>
+<ng-container matColumnDef="Code13">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Code13</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Code13" name="Code13" [(ngModel)]="element.Code13"></td>
+</ng-container>
+<ng-container matColumnDef="ChamCong13">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ChamCong13</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="ChamCong13" name="ChamCong13" [(ngModel)]="element.ChamCong13"></td>
+</ng-container>
+<ng-container matColumnDef="Ngay14">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Ngay14</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Ngay14" name="Ngay14" [(ngModel)]="element.Ngay14"></td>
+</ng-container>
+<ng-container matColumnDef="Name14">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Name14</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Name14" name="Name14" [(ngModel)]="element.Name14"></td>
+</ng-container>
+<ng-container matColumnDef="Code14">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Code14</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Code14" name="Code14" [(ngModel)]="element.Code14"></td>
+</ng-container>
+<ng-container matColumnDef="Ngay15">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Ngay15</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Ngay15" name="Ngay15" [(ngModel)]="element.Ngay15"></td>
+</ng-container>
+<ng-container matColumnDef="Name15">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Name15</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Name15" name="Name15" [(ngModel)]="element.Name15"></td>
+</ng-container>
+<ng-container matColumnDef="Code15">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Code15</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Code15" name="Code15" [(ngModel)]="element.Code15"></td>
+</ng-container>
+<ng-container matColumnDef="ChamCong15">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ChamCong15</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="ChamCong15" name="ChamCong15" [(ngModel)]="element.ChamCong15"></td>
+</ng-container>
+<ng-container matColumnDef="Ngay16">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Ngay16</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Ngay16" name="Ngay16" [(ngModel)]="element.Ngay16"></td>
+</ng-container>
+<ng-container matColumnDef="Name16">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Name16</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Name16" name="Name16" [(ngModel)]="element.Name16"></td>
+</ng-container>
+<ng-container matColumnDef="Code16">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Code16</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Code16" name="Code16" [(ngModel)]="element.Code16"></td>
+</ng-container>
+<ng-container matColumnDef="ChamCong16">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ChamCong16</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="ChamCong16" name="ChamCong16" [(ngModel)]="element.ChamCong16"></td>
+</ng-container>
+<ng-container matColumnDef="Ngay17">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Ngay17</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Ngay17" name="Ngay17" [(ngModel)]="element.Ngay17"></td>
+</ng-container>
+<ng-container matColumnDef="Name17">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Name17</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Name17" name="Name17" [(ngModel)]="element.Name17"></td>
+</ng-container>
+<ng-container matColumnDef="Code17">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Code17</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Code17" name="Code17" [(ngModel)]="element.Code17"></td>
+</ng-container>
+<ng-container matColumnDef="ChamCong17">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ChamCong17</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="ChamCong17" name="ChamCong17" [(ngModel)]="element.ChamCong17"></td>
+</ng-container>
+<ng-container matColumnDef="Ngay18">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Ngay18</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Ngay18" name="Ngay18" [(ngModel)]="element.Ngay18"></td>
+</ng-container>
+<ng-container matColumnDef="Name18">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Name18</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Name18" name="Name18" [(ngModel)]="element.Name18"></td>
+</ng-container>
+<ng-container matColumnDef="Code18">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Code18</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Code18" name="Code18" [(ngModel)]="element.Code18"></td>
+</ng-container>
+<ng-container matColumnDef="ChamCong18">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ChamCong18</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="ChamCong18" name="ChamCong18" [(ngModel)]="element.ChamCong18"></td>
+</ng-container>
+<ng-container matColumnDef="Ngay19">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Ngay19</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Ngay19" name="Ngay19" [(ngModel)]="element.Ngay19"></td>
+</ng-container>
+<ng-container matColumnDef="Name19">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Name19</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Name19" name="Name19" [(ngModel)]="element.Name19"></td>
+</ng-container>
+<ng-container matColumnDef="Code19">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Code19</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Code19" name="Code19" [(ngModel)]="element.Code19"></td>
+</ng-container>
+<ng-container matColumnDef="ChamCong19">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ChamCong19</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="ChamCong19" name="ChamCong19" [(ngModel)]="element.ChamCong19"></td>
+</ng-container>
+<ng-container matColumnDef="Ngay20">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Ngay20</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Ngay20" name="Ngay20" [(ngModel)]="element.Ngay20"></td>
+</ng-container>
+<ng-container matColumnDef="Name20">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Name20</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Name20" name="Name20" [(ngModel)]="element.Name20"></td>
+</ng-container>
+<ng-container matColumnDef="Code20">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Code20</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Code20" name="Code20" [(ngModel)]="element.Code20"></td>
+</ng-container>
+<ng-container matColumnDef="ChamCong20">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ChamCong20</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="ChamCong20" name="ChamCong20" [(ngModel)]="element.ChamCong20"></td>
+</ng-container>
+<ng-container matColumnDef="Ngay21">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Ngay21</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Ngay21" name="Ngay21" [(ngModel)]="element.Ngay21"></td>
+</ng-container>
+<ng-container matColumnDef="Name21">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Name21</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Name21" name="Name21" [(ngModel)]="element.Name21"></td>
+</ng-container>
+<ng-container matColumnDef="Code21">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Code21</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Code21" name="Code21" [(ngModel)]="element.Code21"></td>
+</ng-container>
+<ng-container matColumnDef="ChamCong21">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ChamCong21</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="ChamCong21" name="ChamCong21" [(ngModel)]="element.ChamCong21"></td>
+</ng-container>
+<ng-container matColumnDef="Ngay22">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Ngay22</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Ngay22" name="Ngay22" [(ngModel)]="element.Ngay22"></td>
+</ng-container>
+<ng-container matColumnDef="Name22">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Name22</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Name22" name="Name22" [(ngModel)]="element.Name22"></td>
+</ng-container>
+<ng-container matColumnDef="Code22">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Code22</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Code22" name="Code22" [(ngModel)]="element.Code22"></td>
+</ng-container>
+<ng-container matColumnDef="ChamCong22">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ChamCong22</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="ChamCong22" name="ChamCong22" [(ngModel)]="element.ChamCong22"></td>
+</ng-container>
+<ng-container matColumnDef="Ngay23">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Ngay23</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Ngay23" name="Ngay23" [(ngModel)]="element.Ngay23"></td>
+</ng-container>
+<ng-container matColumnDef="Name23">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Name23</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Name23" name="Name23" [(ngModel)]="element.Name23"></td>
+</ng-container>
+<ng-container matColumnDef="Code23">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Code23</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Code23" name="Code23" [(ngModel)]="element.Code23"></td>
+</ng-container>
+<ng-container matColumnDef="ChamCong23">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ChamCong23</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="ChamCong23" name="ChamCong23" [(ngModel)]="element.ChamCong23"></td>
+</ng-container>
+<ng-container matColumnDef="Ngay24">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Ngay24</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Ngay24" name="Ngay24" [(ngModel)]="element.Ngay24"></td>
+</ng-container>
+<ng-container matColumnDef="Name24">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Name24</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Name24" name="Name24" [(ngModel)]="element.Name24"></td>
+</ng-container>
+<ng-container matColumnDef="Code24">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Code24</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Code24" name="Code24" [(ngModel)]="element.Code24"></td>
+</ng-container>
+<ng-container matColumnDef="ChamCong24">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ChamCong24</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="ChamCong24" name="ChamCong24" [(ngModel)]="element.ChamCong24"></td>
+</ng-container>
+<ng-container matColumnDef="Ngay25">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Ngay25</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Ngay25" name="Ngay25" [(ngModel)]="element.Ngay25"></td>
+</ng-container>
+<ng-container matColumnDef="Name25">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Name25</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Name25" name="Name25" [(ngModel)]="element.Name25"></td>
+</ng-container>
+<ng-container matColumnDef="Code25">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Code25</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Code25" name="Code25" [(ngModel)]="element.Code25"></td>
+</ng-container>
+<ng-container matColumnDef="ChamCong25">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ChamCong25</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="ChamCong25" name="ChamCong25" [(ngModel)]="element.ChamCong25"></td>
+</ng-container>
+<ng-container matColumnDef="Ngay26">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Ngay26</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Ngay26" name="Ngay26" [(ngModel)]="element.Ngay26"></td>
+</ng-container>
+<ng-container matColumnDef="Name26">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Name26</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Name26" name="Name26" [(ngModel)]="element.Name26"></td>
+</ng-container>
+<ng-container matColumnDef="Code26">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Code26</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Code26" name="Code26" [(ngModel)]="element.Code26"></td>
+</ng-container>
+<ng-container matColumnDef="ChamCong26">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ChamCong26</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="ChamCong26" name="ChamCong26" [(ngModel)]="element.ChamCong26"></td>
+</ng-container>
+<ng-container matColumnDef="Ngay27">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Ngay27</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Ngay27" name="Ngay27" [(ngModel)]="element.Ngay27"></td>
+</ng-container>
+<ng-container matColumnDef="Name27">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Name27</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Name27" name="Name27" [(ngModel)]="element.Name27"></td>
+</ng-container>
+<ng-container matColumnDef="Code27">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Code27</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Code27" name="Code27" [(ngModel)]="element.Code27"></td>
+</ng-container>
+<ng-container matColumnDef="ChamCong27">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ChamCong27</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="ChamCong27" name="ChamCong27" [(ngModel)]="element.ChamCong27"></td>
+</ng-container>
+<ng-container matColumnDef="Ngay28">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Ngay28</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Ngay28" name="Ngay28" [(ngModel)]="element.Ngay28"></td>
+</ng-container>
+<ng-container matColumnDef="Name28">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Name28</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Name28" name="Name28" [(ngModel)]="element.Name28"></td>
+</ng-container>
+<ng-container matColumnDef="Code28">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Code28</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Code28" name="Code28" [(ngModel)]="element.Code28"></td>
+</ng-container>
+<ng-container matColumnDef="ChamCong28">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ChamCong28</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="ChamCong28" name="ChamCong28" [(ngModel)]="element.ChamCong28"></td>
+</ng-container>
+<ng-container matColumnDef="Ngay29">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Ngay29</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Ngay29" name="Ngay29" [(ngModel)]="element.Ngay29"></td>
+</ng-container>
+<ng-container matColumnDef="Name29">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Name29</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Name29" name="Name29" [(ngModel)]="element.Name29"></td>
+</ng-container>
+<ng-container matColumnDef="Code29">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Code29</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Code29" name="Code29" [(ngModel)]="element.Code29"></td>
+</ng-container>
+<ng-container matColumnDef="ChamCong29">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ChamCong29</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="ChamCong29" name="ChamCong29" [(ngModel)]="element.ChamCong29"></td>
+</ng-container>
+<ng-container matColumnDef="Ngay30">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Ngay30</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Ngay30" name="Ngay30" [(ngModel)]="element.Ngay30"></td>
+</ng-container>
+<ng-container matColumnDef="Name30">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Name30</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Name30" name="Name30" [(ngModel)]="element.Name30"></td>
+</ng-container>
+<ng-container matColumnDef="Code30">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Code30</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Code30" name="Code30" [(ngModel)]="element.Code30"></td>
+</ng-container>
+<ng-container matColumnDef="ChamCong30">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ChamCong30</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="ChamCong30" name="ChamCong30" [(ngModel)]="element.ChamCong30"></td>
+</ng-container>
+<ng-container matColumnDef="Ngay31">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Ngay31</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Ngay31" name="Ngay31" [(ngModel)]="element.Ngay31"></td>
+</ng-container>
+<ng-container matColumnDef="Name31">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Name31</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Name31" name="Name31" [(ngModel)]="element.Name31"></td>
+</ng-container>
+<ng-container matColumnDef="Code31">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Code31</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Code31" name="Code31" [(ngModel)]="element.Code31"></td>
+</ng-container>
+<ng-container matColumnDef="ChamCong31">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ChamCong31</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="ChamCong31" name="ChamCong31" [(ngModel)]="element.ChamCong31"></td>
+</ng-container>
+<ng-container matColumnDef="Ngay32">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Ngay32</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Ngay32" name="Ngay32" [(ngModel)]="element.Ngay32"></td>
+</ng-container>
+<ng-container matColumnDef="Name32">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Name32</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Name32" name="Name32" [(ngModel)]="element.Name32"></td>
+</ng-container>
+<ng-container matColumnDef="Code32">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Code32</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Code32" name="Code32" [(ngModel)]="element.Code32"></td>
+</ng-container>
+<ng-container matColumnDef="ChamCong32">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ChamCong32</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="ChamCong32" name="ChamCong32" [(ngModel)]="element.ChamCong32"></td>
+</ng-container>
+<ng-container matColumnDef="Ngay33">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Ngay33</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Ngay33" name="Ngay33" [(ngModel)]="element.Ngay33"></td>
+</ng-container>
+<ng-container matColumnDef="Name33">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Name33</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Name33" name="Name33" [(ngModel)]="element.Name33"></td>
+</ng-container>
+<ng-container matColumnDef="Code33">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Code33</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Code33" name="Code33" [(ngModel)]="element.Code33"></td>
+</ng-container>
+<ng-container matColumnDef="ChamCong33">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ChamCong33</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="ChamCong33" name="ChamCong33" [(ngModel)]="element.ChamCong33"></td>
+</ng-container>
+<ng-container matColumnDef="Ngay34">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Ngay34</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Ngay34" name="Ngay34" [(ngModel)]="element.Ngay34"></td>
+</ng-container>
+<ng-container matColumnDef="Name34">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Name34</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Name34" name="Name34" [(ngModel)]="element.Name34"></td>
+</ng-container>
+<ng-container matColumnDef="Code34">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Code34</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Code34" name="Code34" [(ngModel)]="element.Code34"></td>
+</ng-container>
+<ng-container matColumnDef="ChamCong34">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ChamCong34</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="ChamCong34" name="ChamCong34" [(ngModel)]="element.ChamCong34"></td>
+</ng-container>
+<ng-container matColumnDef="Ngay35">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Ngay35</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Ngay35" name="Ngay35" [(ngModel)]="element.Ngay35"></td>
+</ng-container>
+<ng-container matColumnDef="Name35">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Name35</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Name35" name="Name35" [(ngModel)]="element.Name35"></td>
+</ng-container>
+<ng-container matColumnDef="Code35">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Code35</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Code35" name="Code35" [(ngModel)]="element.Code35"></td>
+</ng-container>
+<ng-container matColumnDef="ChamCong35">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ChamCong35</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="ChamCong35" name="ChamCong35" [(ngModel)]="element.ChamCong35"></td>
+</ng-container>
+
+                            <tr mat-header-row *matHeaderRowDef="HRChamCongService.DisplayColumns001">
+                            </tr>
+                            <tr mat-row *matRowDef="let row; columns: HRChamCongService.DisplayColumns001;">
+                            </tr>
+                        </table>
+                        <mat-paginator *ngIf="!NotificationService.IsMobile" #HRChamCongPaginator="matPaginator"
+                                       [pageSizeOptions]="[10,20,50,100]" [pageSize]="20" [showFirstLastButtons]></mat-paginator>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <app-loading *ngIf="HRChamCongService.IsShowLoading"></app-loading>
+

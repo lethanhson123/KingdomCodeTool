@@ -1,0 +1,192 @@
+﻿<div class="row">
+    <div id="breadcrumbs-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m6 l6">
+                    <h6 class="breadcrumbs-title">
+                        HRNhanVienHopDong:
+                        <b>{{HRNhanVienHopDongService.FormData.ID}} [{{HRNhanVienHopDongService.FormData.ID}}]</b>
+                    </h6>
+                </div>
+                <div class="col s12 m6 l6 right-align-md">
+                    <ol class="breadcrumbs mb-0">
+                        <li class="breadcrumb-item">
+                            <a href="javascript:history.back()" title="Quay lại">
+                                <<< Quay lại
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/Homepage" title="Trang chủ">Trang chủ</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="#" title=""></a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/HRNhanVienHopDong" title="HRNhanVienHopDong">
+                                HRNhanVienHopDong
+                            </a>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col s12 m12 l12">
+        <div class="card card card-default scrollspy">
+            <div class="card-content">
+                <div class="row">
+                    <div class="col s6 m6 l12">
+                        <a title="Quay lại" href="javascript:history.back()" style="color: green;">
+                            <i class="material-icons">more</i>
+                        </a>
+                        <!--<a title="Thêm mới" (click)="HRNhanVienHopDongAdd()" style="color: green;"><i
+                class="material-icons">add_box</i></a>-->
+                        <a title="Lưu thay đổi" (click)="HRNhanVienHopDongSave()" style="color:#2196f3;">
+                            <i class="material-icons">save</i>
+                        </a>
+                    </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12 m12 l12">
+                            <div>
+<label>ID</label>
+<input placeholder="ID" [(ngModel)]="HRNhanVienHopDongService.FormData.ID"  name="HRNhanVienHopDongService.FormData.ID" type="text" class="form-control">
+</div>
+<div>
+<label>ParentID</label>
+<input placeholder="ParentID" [(ngModel)]="HRNhanVienHopDongService.FormData.ParentID"  name="HRNhanVienHopDongService.FormData.ParentID" type="text" class="form-control">
+</div>
+<div>
+<label>ParentName</label>
+<input placeholder="ParentName" [(ngModel)]="HRNhanVienHopDongService.FormData.ParentName"  name="HRNhanVienHopDongService.FormData.ParentName" type="text" class="form-control">
+</div>
+<div>
+<label>CreatedDate</label>
+<input placeholder="CreatedDate" [(ngModel)]="HRNhanVienHopDongService.FormData.CreatedDate"  name="HRNhanVienHopDongService.FormData.CreatedDate" type="text" class="form-control">
+</div>
+<div>
+<label>CreatedMembershipID</label>
+<input placeholder="CreatedMembershipID" [(ngModel)]="HRNhanVienHopDongService.FormData.CreatedMembershipID"  name="HRNhanVienHopDongService.FormData.CreatedMembershipID" type="text" class="form-control">
+</div>
+<div>
+<label>LastUpdatedDate</label>
+<input placeholder="LastUpdatedDate" [(ngModel)]="HRNhanVienHopDongService.FormData.LastUpdatedDate"  name="HRNhanVienHopDongService.FormData.LastUpdatedDate" type="text" class="form-control">
+</div>
+<div>
+<label>LastUpdatedMembershipID</label>
+<input placeholder="LastUpdatedMembershipID" [(ngModel)]="HRNhanVienHopDongService.FormData.LastUpdatedMembershipID"  name="HRNhanVienHopDongService.FormData.LastUpdatedMembershipID" type="text" class="form-control">
+</div>
+<div>
+<label>RowVersion</label>
+<input placeholder="RowVersion" [(ngModel)]="HRNhanVienHopDongService.FormData.RowVersion"  name="HRNhanVienHopDongService.FormData.RowVersion" type="text" class="form-control">
+</div>
+<div>
+<label>SortOrder</label>
+<input placeholder="SortOrder" [(ngModel)]="HRNhanVienHopDongService.FormData.SortOrder"  name="HRNhanVienHopDongService.FormData.SortOrder" type="text" class="form-control">
+</div>
+<div>
+<label>Active</label>
+<input placeholder="Active" [(ngModel)]="HRNhanVienHopDongService.FormData.Active"  name="HRNhanVienHopDongService.FormData.Active" type="text" class="form-control">
+</div>
+<div>
+<label>TypeName</label>
+<input placeholder="TypeName" [(ngModel)]="HRNhanVienHopDongService.FormData.TypeName"  name="HRNhanVienHopDongService.FormData.TypeName" type="text" class="form-control">
+</div>
+<div>
+<label>Name</label>
+<input placeholder="Name" [(ngModel)]="HRNhanVienHopDongService.FormData.Name"  name="HRNhanVienHopDongService.FormData.Name" type="text" class="form-control">
+</div>
+<div>
+<label>Code</label>
+<input placeholder="Code" [(ngModel)]="HRNhanVienHopDongService.FormData.Code"  name="HRNhanVienHopDongService.FormData.Code" type="text" class="form-control">
+</div>
+<div>
+<label>Note</label>
+<input placeholder="Note" [(ngModel)]="HRNhanVienHopDongService.FormData.Note"  name="HRNhanVienHopDongService.FormData.Note" type="text" class="form-control">
+</div>
+<div>
+<label>Display</label>
+<input placeholder="Display" [(ngModel)]="HRNhanVienHopDongService.FormData.Display"  name="HRNhanVienHopDongService.FormData.Display" type="text" class="form-control">
+</div>
+<div>
+<label>FileName</label>
+<input placeholder="FileName" [(ngModel)]="HRNhanVienHopDongService.FormData.FileName"  name="HRNhanVienHopDongService.FormData.FileName" type="text" class="form-control">
+</div>
+<div>
+<label>Description</label>
+<input placeholder="Description" [(ngModel)]="HRNhanVienHopDongService.FormData.Description"  name="HRNhanVienHopDongService.FormData.Description" type="text" class="form-control">
+</div>
+<div>
+<label>HTMLContent</label>
+<input placeholder="HTMLContent" [(ngModel)]="HRNhanVienHopDongService.FormData.HTMLContent"  name="HRNhanVienHopDongService.FormData.HTMLContent" type="text" class="form-control">
+</div>
+<div>
+<label>DanhMucNgonNguID</label>
+<input placeholder="DanhMucNgonNguID" [(ngModel)]="HRNhanVienHopDongService.FormData.DanhMucNgonNguID"  name="HRNhanVienHopDongService.FormData.DanhMucNgonNguID" type="text" class="form-control">
+</div>
+<div>
+<label>DanhMucUngDungID</label>
+<input placeholder="DanhMucUngDungID" [(ngModel)]="HRNhanVienHopDongService.FormData.DanhMucUngDungID"  name="HRNhanVienHopDongService.FormData.DanhMucUngDungID" type="text" class="form-control">
+</div>
+<div>
+<label>DanhMucNgonNguName</label>
+<input placeholder="DanhMucNgonNguName" [(ngModel)]="HRNhanVienHopDongService.FormData.DanhMucNgonNguName"  name="HRNhanVienHopDongService.FormData.DanhMucNgonNguName" type="text" class="form-control">
+</div>
+<div>
+<label>DanhMucUngDungName</label>
+<input placeholder="DanhMucUngDungName" [(ngModel)]="HRNhanVienHopDongService.FormData.DanhMucUngDungName"  name="HRNhanVienHopDongService.FormData.DanhMucUngDungName" type="text" class="form-control">
+</div>
+<div>
+<label>DanhMucHopDongID</label>
+<input placeholder="DanhMucHopDongID" [(ngModel)]="HRNhanVienHopDongService.FormData.DanhMucHopDongID"  name="HRNhanVienHopDongService.FormData.DanhMucHopDongID" type="text" class="form-control">
+</div>
+<div>
+<label>DanhMucHopDongName</label>
+<input placeholder="DanhMucHopDongName" [(ngModel)]="HRNhanVienHopDongService.FormData.DanhMucHopDongName"  name="HRNhanVienHopDongService.FormData.DanhMucHopDongName" type="text" class="form-control">
+</div>
+<div>
+<label>DanhMucBacLuongID</label>
+<input placeholder="DanhMucBacLuongID" [(ngModel)]="HRNhanVienHopDongService.FormData.DanhMucBacLuongID"  name="HRNhanVienHopDongService.FormData.DanhMucBacLuongID" type="text" class="form-control">
+</div>
+<div>
+<label>DanhMucBacLuongName</label>
+<input placeholder="DanhMucBacLuongName" [(ngModel)]="HRNhanVienHopDongService.FormData.DanhMucBacLuongName"  name="HRNhanVienHopDongService.FormData.DanhMucBacLuongName" type="text" class="form-control">
+</div>
+<div>
+<label>DanhMucChucDanhID</label>
+<input placeholder="DanhMucChucDanhID" [(ngModel)]="HRNhanVienHopDongService.FormData.DanhMucChucDanhID"  name="HRNhanVienHopDongService.FormData.DanhMucChucDanhID" type="text" class="form-control">
+</div>
+<div>
+<label>DanhMucChucDanhName</label>
+<input placeholder="DanhMucChucDanhName" [(ngModel)]="HRNhanVienHopDongService.FormData.DanhMucChucDanhName"  name="HRNhanVienHopDongService.FormData.DanhMucChucDanhName" type="text" class="form-control">
+</div>
+<div>
+<label>DanhMucChucVuID</label>
+<input placeholder="DanhMucChucVuID" [(ngModel)]="HRNhanVienHopDongService.FormData.DanhMucChucVuID"  name="HRNhanVienHopDongService.FormData.DanhMucChucVuID" type="text" class="form-control">
+</div>
+<div>
+<label>DanhMucChucVuName</label>
+<input placeholder="DanhMucChucVuName" [(ngModel)]="HRNhanVienHopDongService.FormData.DanhMucChucVuName"  name="HRNhanVienHopDongService.FormData.DanhMucChucVuName" type="text" class="form-control">
+</div>
+<div>
+<label>NgayBatDau</label>
+<input placeholder="NgayBatDau" [(ngModel)]="HRNhanVienHopDongService.FormData.NgayBatDau"  name="HRNhanVienHopDongService.FormData.NgayBatDau" type="text" class="form-control">
+</div>
+<div>
+<label>NgayKetThuc</label>
+<input placeholder="NgayKetThuc" [(ngModel)]="HRNhanVienHopDongService.FormData.NgayKetThuc"  name="HRNhanVienHopDongService.FormData.NgayKetThuc" type="text" class="form-control">
+</div>
+<div>
+<label>HeSo</label>
+<input placeholder="HeSo" [(ngModel)]="HRNhanVienHopDongService.FormData.HeSo"  name="HRNhanVienHopDongService.FormData.HeSo" type="text" class="form-control">
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <app-loading *ngIf="HRNhanVienHopDongService.IsShowLoading"></app-loading>
+

@@ -1,0 +1,742 @@
+﻿<div class="row">
+    <div id="breadcrumbs-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m6 l6">
+                    <h6 class="breadcrumbs-title">
+                        ThongKeChiTiet
+                        <span *ngIf="ThongKeChiTietService.List">({{ThongKeChiTietService.List.length-1}} items)</span>
+                    </h6>
+                </div>
+                <div class="col s12 m6 l6 right-align-md">
+                    <ol class="breadcrumbs mb-0">
+                        <li class="breadcrumb-item">
+                            <a href="javascript:history.back()" title="Quay lại">
+                                <<< Quay lại
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/Homepage" title="Trang chủ">Trang chủ</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/ThanhVien" title="Quản trị">Quản trị</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/ThongKeChiTiet" title="ThongKeChiTiet">
+                                ThongKeChiTiet
+                            </a>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col s12 m12 l12">
+        <div class="card card card-default scrollspy">
+            <div class="card-content">
+                <div class="col s12 m12 l11">
+                    <input [(ngModel)]="ThongKeChiTietService.BaseParameter.SearchString" placeholder="Tìm ..."
+                           class="form-control" (keyup.enter)="ThongKeChiTietSearch()">
+                </div>
+                <div class="col s12 m12 l1">
+                    <a style="color: green;" title="Tìm" (click)="ThongKeChiTietSearch()">
+                        <i class="material-icons">play_circle_filled</i>
+                    </a>
+                </div>
+                <div class="KhungOverflow">
+                    <table *ngIf="!NotificationService.IsMobile" mat-table matSort #ThongKeChiTietSort="matSort"
+                           [dataSource]="ThongKeChiTietService.DataSource">
+                        <ng-container matColumnDef="STT">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                                STT
+                            </th>
+                            <td mat-cell *matCellDef="let element; index as i;">
+                                <div *ngIf="ThongKeChiTietPaginator">
+                                    {{
+ThongKeChiTietPaginator.pageSize *
+                                    ThongKeChiTietPaginator.pageIndex + i + 1
+                                    }}
+                                </div>
+                            </td>
+                        </ng-container>
+                        <ng-container matColumnDef="Save">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                            </th>
+                            <td mat-cell *matCellDef="let element">
+                                <a (click)="ThongKeChiTietSave(element)" style="color:#2196f3;">
+                                    <i class="material-icons">save</i>
+                                </a>
+                                <a (click)="ThongKeChiTietDelete(element)" style="color: red;">
+                                    <i class="material-icons">delete_forever</i>
+                                </a>
+                            </td>
+                        </ng-container>
+                        <ng-container matColumnDef="ID">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
+<td mat-cell *matCellDef="let element">{{element.ID}}</td>
+</ng-container>
+<ng-container matColumnDef="ParentID">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ParentID</th>
+<td mat-cell *matCellDef="let element">{{element.ParentID}}</td>
+</ng-container>
+<ng-container matColumnDef="ParentName">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ParentName</th>
+<td mat-cell *matCellDef="let element">{{element.ParentName}}</td>
+</ng-container>
+<ng-container matColumnDef="CreatedDate">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CreatedDate</th>
+<td mat-cell *matCellDef="let element">{{element.CreatedDate}}</td>
+</ng-container>
+<ng-container matColumnDef="CreatedMembershipID">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CreatedMembershipID</th>
+<td mat-cell *matCellDef="let element">{{element.CreatedMembershipID}}</td>
+</ng-container>
+<ng-container matColumnDef="LastUpdatedDate">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>LastUpdatedDate</th>
+<td mat-cell *matCellDef="let element">{{element.LastUpdatedDate}}</td>
+</ng-container>
+<ng-container matColumnDef="LastUpdatedMembershipID">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>LastUpdatedMembershipID</th>
+<td mat-cell *matCellDef="let element">{{element.LastUpdatedMembershipID}}</td>
+</ng-container>
+<ng-container matColumnDef="RowVersion">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>RowVersion</th>
+<td mat-cell *matCellDef="let element">{{element.RowVersion}}</td>
+</ng-container>
+<ng-container matColumnDef="SortOrder">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>SortOrder</th>
+<td mat-cell *matCellDef="let element">{{element.SortOrder}}</td>
+</ng-container>
+<ng-container matColumnDef="Active">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Active</th>
+<td mat-cell *matCellDef="let element">{{element.Active}}</td>
+</ng-container>
+<ng-container matColumnDef="TypeName">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>TypeName</th>
+<td mat-cell *matCellDef="let element">{{element.TypeName}}</td>
+</ng-container>
+<ng-container matColumnDef="Name">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+<td mat-cell *matCellDef="let element">{{element.Name}}</td>
+</ng-container>
+<ng-container matColumnDef="Code">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Code</th>
+<td mat-cell *matCellDef="let element">{{element.Code}}</td>
+</ng-container>
+<ng-container matColumnDef="Note">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Note</th>
+<td mat-cell *matCellDef="let element">{{element.Note}}</td>
+</ng-container>
+<ng-container matColumnDef="Display">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Display</th>
+<td mat-cell *matCellDef="let element">{{element.Display}}</td>
+</ng-container>
+<ng-container matColumnDef="FileName">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>FileName</th>
+<td mat-cell *matCellDef="let element">{{element.FileName}}</td>
+</ng-container>
+<ng-container matColumnDef="Description">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Description</th>
+<td mat-cell *matCellDef="let element">{{element.Description}}</td>
+</ng-container>
+<ng-container matColumnDef="HTMLContent">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>HTMLContent</th>
+<td mat-cell *matCellDef="let element">{{element.HTMLContent}}</td>
+</ng-container>
+<ng-container matColumnDef="DanhMucNgonNguID">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DanhMucNgonNguID</th>
+<td mat-cell *matCellDef="let element">{{element.DanhMucNgonNguID}}</td>
+</ng-container>
+<ng-container matColumnDef="DanhMucUngDungID">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DanhMucUngDungID</th>
+<td mat-cell *matCellDef="let element">{{element.DanhMucUngDungID}}</td>
+</ng-container>
+<ng-container matColumnDef="DanhMucNgonNguName">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DanhMucNgonNguName</th>
+<td mat-cell *matCellDef="let element">{{element.DanhMucNgonNguName}}</td>
+</ng-container>
+<ng-container matColumnDef="DanhMucUngDungName">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DanhMucUngDungName</th>
+<td mat-cell *matCellDef="let element">{{element.DanhMucUngDungName}}</td>
+</ng-container>
+<ng-container matColumnDef="Name001">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Name001</th>
+<td mat-cell *matCellDef="let element">{{element.Name001}}</td>
+</ng-container>
+<ng-container matColumnDef="Name002">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Name002</th>
+<td mat-cell *matCellDef="let element">{{element.Name002}}</td>
+</ng-container>
+<ng-container matColumnDef="Name003">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Name003</th>
+<td mat-cell *matCellDef="let element">{{element.Name003}}</td>
+</ng-container>
+<ng-container matColumnDef="Name004">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Name004</th>
+<td mat-cell *matCellDef="let element">{{element.Name004}}</td>
+</ng-container>
+<ng-container matColumnDef="Name005">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Name005</th>
+<td mat-cell *matCellDef="let element">{{element.Name005}}</td>
+</ng-container>
+<ng-container matColumnDef="Name006">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Name006</th>
+<td mat-cell *matCellDef="let element">{{element.Name006}}</td>
+</ng-container>
+<ng-container matColumnDef="Name007">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Name007</th>
+<td mat-cell *matCellDef="let element">{{element.Name007}}</td>
+</ng-container>
+<ng-container matColumnDef="Name008">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Name008</th>
+<td mat-cell *matCellDef="let element">{{element.Name008}}</td>
+</ng-container>
+<ng-container matColumnDef="Name009">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Name009</th>
+<td mat-cell *matCellDef="let element">{{element.Name009}}</td>
+</ng-container>
+<ng-container matColumnDef="Name010">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Name010</th>
+<td mat-cell *matCellDef="let element">{{element.Name010}}</td>
+</ng-container>
+<ng-container matColumnDef="Name011">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Name011</th>
+<td mat-cell *matCellDef="let element">{{element.Name011}}</td>
+</ng-container>
+<ng-container matColumnDef="Name012">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Name012</th>
+<td mat-cell *matCellDef="let element">{{element.Name012}}</td>
+</ng-container>
+<ng-container matColumnDef="Year">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Year</th>
+<td mat-cell *matCellDef="let element">{{element.Year}}</td>
+</ng-container>
+<ng-container matColumnDef="Month">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Month</th>
+<td mat-cell *matCellDef="let element">{{element.Month}}</td>
+</ng-container>
+<ng-container matColumnDef="Day">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Day</th>
+<td mat-cell *matCellDef="let element">{{element.Day}}</td>
+</ng-container>
+<ng-container matColumnDef="Hour">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Hour</th>
+<td mat-cell *matCellDef="let element">{{element.Hour}}</td>
+</ng-container>
+<ng-container matColumnDef="ThongKe001">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ThongKe001</th>
+<td mat-cell *matCellDef="let element">{{element.ThongKe001}}</td>
+</ng-container>
+<ng-container matColumnDef="ThongKe002">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ThongKe002</th>
+<td mat-cell *matCellDef="let element">{{element.ThongKe002}}</td>
+</ng-container>
+<ng-container matColumnDef="ThongKe003">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ThongKe003</th>
+<td mat-cell *matCellDef="let element">{{element.ThongKe003}}</td>
+</ng-container>
+<ng-container matColumnDef="ThongKe004">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ThongKe004</th>
+<td mat-cell *matCellDef="let element">{{element.ThongKe004}}</td>
+</ng-container>
+<ng-container matColumnDef="ThongKe005">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ThongKe005</th>
+<td mat-cell *matCellDef="let element">{{element.ThongKe005}}</td>
+</ng-container>
+<ng-container matColumnDef="ThongKe006">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ThongKe006</th>
+<td mat-cell *matCellDef="let element">{{element.ThongKe006}}</td>
+</ng-container>
+<ng-container matColumnDef="ThongKe007">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ThongKe007</th>
+<td mat-cell *matCellDef="let element">{{element.ThongKe007}}</td>
+</ng-container>
+<ng-container matColumnDef="ThongKe008">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ThongKe008</th>
+<td mat-cell *matCellDef="let element">{{element.ThongKe008}}</td>
+</ng-container>
+<ng-container matColumnDef="ThongKe009">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ThongKe009</th>
+<td mat-cell *matCellDef="let element">{{element.ThongKe009}}</td>
+</ng-container>
+<ng-container matColumnDef="ThongKe010">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ThongKe010</th>
+<td mat-cell *matCellDef="let element">{{element.ThongKe010}}</td>
+</ng-container>
+<ng-container matColumnDef="ThongKe011">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ThongKe011</th>
+<td mat-cell *matCellDef="let element">{{element.ThongKe011}}</td>
+</ng-container>
+<ng-container matColumnDef="ThongKe012">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ThongKe012</th>
+<td mat-cell *matCellDef="let element">{{element.ThongKe012}}</td>
+</ng-container>
+<ng-container matColumnDef="ThongKe013">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ThongKe013</th>
+<td mat-cell *matCellDef="let element">{{element.ThongKe013}}</td>
+</ng-container>
+<ng-container matColumnDef="ThongKe014">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ThongKe014</th>
+<td mat-cell *matCellDef="let element">{{element.ThongKe014}}</td>
+</ng-container>
+<ng-container matColumnDef="ThongKe015">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ThongKe015</th>
+<td mat-cell *matCellDef="let element">{{element.ThongKe015}}</td>
+</ng-container>
+<ng-container matColumnDef="ThongKe016">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ThongKe016</th>
+<td mat-cell *matCellDef="let element">{{element.ThongKe016}}</td>
+</ng-container>
+<ng-container matColumnDef="ThongKe017">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ThongKe017</th>
+<td mat-cell *matCellDef="let element">{{element.ThongKe017}}</td>
+</ng-container>
+<ng-container matColumnDef="ThongKe018">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ThongKe018</th>
+<td mat-cell *matCellDef="let element">{{element.ThongKe018}}</td>
+</ng-container>
+<ng-container matColumnDef="ThongKe019">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ThongKe019</th>
+<td mat-cell *matCellDef="let element">{{element.ThongKe019}}</td>
+</ng-container>
+<ng-container matColumnDef="ThongKe020">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ThongKe020</th>
+<td mat-cell *matCellDef="let element">{{element.ThongKe020}}</td>
+</ng-container>
+<ng-container matColumnDef="ThongKe021">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ThongKe021</th>
+<td mat-cell *matCellDef="let element">{{element.ThongKe021}}</td>
+</ng-container>
+<ng-container matColumnDef="ThongKe022">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ThongKe022</th>
+<td mat-cell *matCellDef="let element">{{element.ThongKe022}}</td>
+</ng-container>
+<ng-container matColumnDef="ThongKe023">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ThongKe023</th>
+<td mat-cell *matCellDef="let element">{{element.ThongKe023}}</td>
+</ng-container>
+<ng-container matColumnDef="ThongKe024">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ThongKe024</th>
+<td mat-cell *matCellDef="let element">{{element.ThongKe024}}</td>
+</ng-container>
+<ng-container matColumnDef="ThongKe025">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ThongKe025</th>
+<td mat-cell *matCellDef="let element">{{element.ThongKe025}}</td>
+</ng-container>
+<ng-container matColumnDef="ThongKe026">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ThongKe026</th>
+<td mat-cell *matCellDef="let element">{{element.ThongKe026}}</td>
+</ng-container>
+<ng-container matColumnDef="ThongKe027">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ThongKe027</th>
+<td mat-cell *matCellDef="let element">{{element.ThongKe027}}</td>
+</ng-container>
+<ng-container matColumnDef="ThongKe028">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ThongKe028</th>
+<td mat-cell *matCellDef="let element">{{element.ThongKe028}}</td>
+</ng-container>
+<ng-container matColumnDef="ThongKe029">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ThongKe029</th>
+<td mat-cell *matCellDef="let element">{{element.ThongKe029}}</td>
+</ng-container>
+<ng-container matColumnDef="ThongKe030">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ThongKe030</th>
+<td mat-cell *matCellDef="let element">{{element.ThongKe030}}</td>
+</ng-container>
+<ng-container matColumnDef="ThongKe031">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ThongKe031</th>
+<td mat-cell *matCellDef="let element">{{element.ThongKe031}}</td>
+</ng-container>
+
+                        <tr mat-header-row *matHeaderRowDef="ThongKeChiTietService.DisplayColumns001">
+                        </tr>
+                        <tr mat-row *matRowDef="let row; columns: ThongKeChiTietService.DisplayColumns001;">
+                        </tr>
+                    </table>
+                    <mat-paginator *ngIf="!NotificationService.IsMobile" #ThongKeChiTietPaginator="matPaginator"
+                                   [pageSizeOptions]="[10,20,50,100]" [pageSize]="20" [showFirstLastButtons]></mat-paginator>
+
+                    <table *ngIf="NotificationService.IsMobile" mat-table matSort #ThongKeChiTietSort="matSort"
+                           [dataSource]="ThongKeChiTietService.DataSource" class="table table-striped m-0">
+                        <ng-container matColumnDef="STT">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                                Danh sách
+                            </th>
+                            <td mat-cell *matCellDef="let element; index as i;">
+                                <div class="row gx-4">
+                                    <div class="col-lg-12 col-sm-12 col-12">
+<label>ID</label>
+<br />
+<label class="form-label">{{element.ID}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>ParentID</label>
+<br />
+<label class="form-label">{{element.ParentID}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>ParentName</label>
+<br />
+<label class="form-label">{{element.ParentName}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>CreatedDate</label>
+<br />
+<label class="form-label">{{element.CreatedDate}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>CreatedMembershipID</label>
+<br />
+<label class="form-label">{{element.CreatedMembershipID}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>LastUpdatedDate</label>
+<br />
+<label class="form-label">{{element.LastUpdatedDate}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>LastUpdatedMembershipID</label>
+<br />
+<label class="form-label">{{element.LastUpdatedMembershipID}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>RowVersion</label>
+<br />
+<label class="form-label">{{element.RowVersion}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>SortOrder</label>
+<br />
+<label class="form-label">{{element.SortOrder}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>Active</label>
+<br />
+<label class="form-label">{{element.Active}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>TypeName</label>
+<br />
+<label class="form-label">{{element.TypeName}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>Name</label>
+<br />
+<label class="form-label">{{element.Name}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>Code</label>
+<br />
+<label class="form-label">{{element.Code}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>Note</label>
+<br />
+<label class="form-label">{{element.Note}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>Display</label>
+<br />
+<label class="form-label">{{element.Display}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>FileName</label>
+<br />
+<label class="form-label">{{element.FileName}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>Description</label>
+<br />
+<label class="form-label">{{element.Description}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>HTMLContent</label>
+<br />
+<label class="form-label">{{element.HTMLContent}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>DanhMucNgonNguID</label>
+<br />
+<label class="form-label">{{element.DanhMucNgonNguID}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>DanhMucUngDungID</label>
+<br />
+<label class="form-label">{{element.DanhMucUngDungID}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>DanhMucNgonNguName</label>
+<br />
+<label class="form-label">{{element.DanhMucNgonNguName}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>DanhMucUngDungName</label>
+<br />
+<label class="form-label">{{element.DanhMucUngDungName}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>Name001</label>
+<br />
+<label class="form-label">{{element.Name001}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>Name002</label>
+<br />
+<label class="form-label">{{element.Name002}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>Name003</label>
+<br />
+<label class="form-label">{{element.Name003}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>Name004</label>
+<br />
+<label class="form-label">{{element.Name004}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>Name005</label>
+<br />
+<label class="form-label">{{element.Name005}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>Name006</label>
+<br />
+<label class="form-label">{{element.Name006}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>Name007</label>
+<br />
+<label class="form-label">{{element.Name007}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>Name008</label>
+<br />
+<label class="form-label">{{element.Name008}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>Name009</label>
+<br />
+<label class="form-label">{{element.Name009}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>Name010</label>
+<br />
+<label class="form-label">{{element.Name010}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>Name011</label>
+<br />
+<label class="form-label">{{element.Name011}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>Name012</label>
+<br />
+<label class="form-label">{{element.Name012}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>Year</label>
+<br />
+<label class="form-label">{{element.Year}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>Month</label>
+<br />
+<label class="form-label">{{element.Month}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>Day</label>
+<br />
+<label class="form-label">{{element.Day}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>Hour</label>
+<br />
+<label class="form-label">{{element.Hour}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>ThongKe001</label>
+<br />
+<label class="form-label">{{element.ThongKe001}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>ThongKe002</label>
+<br />
+<label class="form-label">{{element.ThongKe002}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>ThongKe003</label>
+<br />
+<label class="form-label">{{element.ThongKe003}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>ThongKe004</label>
+<br />
+<label class="form-label">{{element.ThongKe004}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>ThongKe005</label>
+<br />
+<label class="form-label">{{element.ThongKe005}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>ThongKe006</label>
+<br />
+<label class="form-label">{{element.ThongKe006}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>ThongKe007</label>
+<br />
+<label class="form-label">{{element.ThongKe007}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>ThongKe008</label>
+<br />
+<label class="form-label">{{element.ThongKe008}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>ThongKe009</label>
+<br />
+<label class="form-label">{{element.ThongKe009}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>ThongKe010</label>
+<br />
+<label class="form-label">{{element.ThongKe010}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>ThongKe011</label>
+<br />
+<label class="form-label">{{element.ThongKe011}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>ThongKe012</label>
+<br />
+<label class="form-label">{{element.ThongKe012}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>ThongKe013</label>
+<br />
+<label class="form-label">{{element.ThongKe013}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>ThongKe014</label>
+<br />
+<label class="form-label">{{element.ThongKe014}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>ThongKe015</label>
+<br />
+<label class="form-label">{{element.ThongKe015}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>ThongKe016</label>
+<br />
+<label class="form-label">{{element.ThongKe016}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>ThongKe017</label>
+<br />
+<label class="form-label">{{element.ThongKe017}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>ThongKe018</label>
+<br />
+<label class="form-label">{{element.ThongKe018}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>ThongKe019</label>
+<br />
+<label class="form-label">{{element.ThongKe019}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>ThongKe020</label>
+<br />
+<label class="form-label">{{element.ThongKe020}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>ThongKe021</label>
+<br />
+<label class="form-label">{{element.ThongKe021}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>ThongKe022</label>
+<br />
+<label class="form-label">{{element.ThongKe022}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>ThongKe023</label>
+<br />
+<label class="form-label">{{element.ThongKe023}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>ThongKe024</label>
+<br />
+<label class="form-label">{{element.ThongKe024}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>ThongKe025</label>
+<br />
+<label class="form-label">{{element.ThongKe025}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>ThongKe026</label>
+<br />
+<label class="form-label">{{element.ThongKe026}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>ThongKe027</label>
+<br />
+<label class="form-label">{{element.ThongKe027}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>ThongKe028</label>
+<br />
+<label class="form-label">{{element.ThongKe028}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>ThongKe029</label>
+<br />
+<label class="form-label">{{element.ThongKe029}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>ThongKe030</label>
+<br />
+<label class="form-label">{{element.ThongKe030}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>ThongKe031</label>
+<br />
+<label class="form-label">{{element.ThongKe031}}</label>
+</div>
+
+                                </div>
+                                <div class="row gx-4">
+                                    <div class="col s6 m6 l6">
+                                        <a (click)="ThongKeChiTietSave(element)" style="color:#2196f3;">
+                                            <i class="material-icons">save</i>
+                                        </a>
+                                    </div>
+                                    <div class="col s6 m6 l6">
+                                        <a (click)="ThongKeChiTietDelete(element)"
+                                           style="color: red;"><i class="material-icons">delete_forever</i></a>
+                                    </div>
+                                </div>
+                                <br />
+                            </td>
+                        </ng-container>
+                        <tr mat-header-row *matHeaderRowDef="ThongKeChiTietService.DisplayColumnsMobile">
+                        </tr>
+                        <tr mat-row *matRowDef="let row; columns: ThongKeChiTietService.DisplayColumnsMobile;">
+                        </tr>
+                    </table>
+                    <mat-paginator *ngIf="NotificationService.IsMobile" #ThongKeChiTietPaginator="matPaginator"
+                                   [pageSizeOptions]="[10,20,50,100]" [pageSize]="10000" [showFirstLastButtons]></mat-paginator>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-loading *ngIf="ThongKeChiTietService.IsShowLoading"></app-loading>
+
