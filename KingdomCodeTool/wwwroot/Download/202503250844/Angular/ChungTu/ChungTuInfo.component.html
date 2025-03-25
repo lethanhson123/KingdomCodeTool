@@ -1,0 +1,436 @@
+﻿<div class="row">
+    <div id="breadcrumbs-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m6 l6">
+                    <h6 class="breadcrumbs-title">
+                        ChungTu:
+                        <b>{{ChungTuService.FormData.ChungTu_Id}} [{{ChungTuService.FormData.ChungTu_Id}}]</b>
+                    </h6>
+                </div>
+                <div class="col s12 m6 l6 right-align-md">
+                    <ol class="breadcrumbs mb-0">
+                        <li class="breadcrumb-item">
+                            <a href="javascript:history.back()" title="Quay lại">
+                                <<< Quay lại
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/Homepage" title="Trang chủ">Trang chủ</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="#" title="eHospital_DongNai_A/">eHospital_DongNai_A/</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/ChungTu" title="ChungTu">
+                                ChungTu
+                            </a>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col s12 m12 l12">
+        <div class="card card card-default scrollspy">
+            <div class="card-content">
+                <div class="row">
+                    <div class="col s6 m6 l12">
+                        <a title="Quay lại" href="javascript:history.back()" style="color: green;">
+                            <i class="material-icons">more</i>
+                        </a>
+                        <!--<a title="Thêm mới" (click)="ChungTuAdd()" style="color: green;"><i
+                class="material-icons">add_box</i></a>-->
+                        <a title="Lưu thay đổi" (click)="ChungTuSave()" style="color:#2196f3;">
+                            <i class="material-icons">save</i>
+                        </a>
+                    </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12 m12 l12">
+                            <div>
+<label>ChungTu_Id</label>
+<input placeholder="ChungTu_Id" [(ngModel)]="ChungTuService.FormData.ChungTu_Id"  name="ChungTuService.FormData.ChungTu_Id" type="text" class="form-control">
+</div>
+<div>
+<label>MaChungTu</label>
+<input placeholder="MaChungTu" [(ngModel)]="ChungTuService.FormData.MaChungTu"  name="ChungTuService.FormData.MaChungTu" type="text" class="form-control">
+</div>
+<div>
+<label>SoChungTu</label>
+<input placeholder="SoChungTu" [(ngModel)]="ChungTuService.FormData.SoChungTu"  name="ChungTuService.FormData.SoChungTu" type="text" class="form-control">
+</div>
+<div>
+<label>NgayChungTu</label>
+<input placeholder="NgayChungTu" [(ngModel)]="ChungTuService.FormData.NgayChungTu"  name="ChungTuService.FormData.NgayChungTu" type="text" class="form-control">
+</div>
+<div>
+<label>LoaiChungTu</label>
+<input placeholder="LoaiChungTu" [(ngModel)]="ChungTuService.FormData.LoaiChungTu"  name="ChungTuService.FormData.LoaiChungTu" type="text" class="form-control">
+</div>
+<div>
+<label>MucDichChungTu_Id</label>
+<input placeholder="MucDichChungTu_Id" [(ngModel)]="ChungTuService.FormData.MucDichChungTu_Id"  name="ChungTuService.FormData.MucDichChungTu_Id" type="text" class="form-control">
+</div>
+<div>
+<label>KhoXuat_Id</label>
+<input placeholder="KhoXuat_Id" [(ngModel)]="ChungTuService.FormData.KhoXuat_Id"  name="ChungTuService.FormData.KhoXuat_Id" type="text" class="form-control">
+</div>
+<div>
+<label>NguoiGiao_Id</label>
+<input placeholder="NguoiGiao_Id" [(ngModel)]="ChungTuService.FormData.NguoiGiao_Id"  name="ChungTuService.FormData.NguoiGiao_Id" type="text" class="form-control">
+</div>
+<div>
+<label>NguoiGiao</label>
+<input placeholder="NguoiGiao" [(ngModel)]="ChungTuService.FormData.NguoiGiao"  name="ChungTuService.FormData.NguoiGiao" type="text" class="form-control">
+</div>
+<div>
+<label>KhoNhap_Id</label>
+<input placeholder="KhoNhap_Id" [(ngModel)]="ChungTuService.FormData.KhoNhap_Id"  name="ChungTuService.FormData.KhoNhap_Id" type="text" class="form-control">
+</div>
+<div>
+<label>NguoiNhan_Id</label>
+<input placeholder="NguoiNhan_Id" [(ngModel)]="ChungTuService.FormData.NguoiNhan_Id"  name="ChungTuService.FormData.NguoiNhan_Id" type="text" class="form-control">
+</div>
+<div>
+<label>NguoiNhan</label>
+<input placeholder="NguoiNhan" [(ngModel)]="ChungTuService.FormData.NguoiNhan"  name="ChungTuService.FormData.NguoiNhan" type="text" class="form-control">
+</div>
+<div>
+<label>NguoiKiemTra_Id</label>
+<input placeholder="NguoiKiemTra_Id" [(ngModel)]="ChungTuService.FormData.NguoiKiemTra_Id"  name="ChungTuService.FormData.NguoiKiemTra_Id" type="text" class="form-control">
+</div>
+<div>
+<label>NguoiKiemTra</label>
+<input placeholder="NguoiKiemTra" [(ngModel)]="ChungTuService.FormData.NguoiKiemTra"  name="ChungTuService.FormData.NguoiKiemTra" type="text" class="form-control">
+</div>
+<div>
+<label>NguoiDuyet_Id</label>
+<input placeholder="NguoiDuyet_Id" [(ngModel)]="ChungTuService.FormData.NguoiDuyet_Id"  name="ChungTuService.FormData.NguoiDuyet_Id" type="text" class="form-control">
+</div>
+<div>
+<label>NguoiDuyet</label>
+<input placeholder="NguoiDuyet" [(ngModel)]="ChungTuService.FormData.NguoiDuyet"  name="ChungTuService.FormData.NguoiDuyet" type="text" class="form-control">
+</div>
+<div>
+<label>KeToanTruong_Id</label>
+<input placeholder="KeToanTruong_Id" [(ngModel)]="ChungTuService.FormData.KeToanTruong_Id"  name="ChungTuService.FormData.KeToanTruong_Id" type="text" class="form-control">
+</div>
+<div>
+<label>KeToanTruong</label>
+<input placeholder="KeToanTruong" [(ngModel)]="ChungTuService.FormData.KeToanTruong"  name="ChungTuService.FormData.KeToanTruong" type="text" class="form-control">
+</div>
+<div>
+<label>ThuKho_Id</label>
+<input placeholder="ThuKho_Id" [(ngModel)]="ChungTuService.FormData.ThuKho_Id"  name="ChungTuService.FormData.ThuKho_Id" type="text" class="form-control">
+</div>
+<div>
+<label>ThuKho</label>
+<input placeholder="ThuKho" [(ngModel)]="ChungTuService.FormData.ThuKho"  name="ChungTuService.FormData.ThuKho" type="text" class="form-control">
+</div>
+<div>
+<label>SoSeri</label>
+<input placeholder="SoSeri" [(ngModel)]="ChungTuService.FormData.SoSeri"  name="ChungTuService.FormData.SoSeri" type="text" class="form-control">
+</div>
+<div>
+<label>SoHoaDon</label>
+<input placeholder="SoHoaDon" [(ngModel)]="ChungTuService.FormData.SoHoaDon"  name="ChungTuService.FormData.SoHoaDon" type="text" class="form-control">
+</div>
+<div>
+<label>DienGiai</label>
+<input placeholder="DienGiai" [(ngModel)]="ChungTuService.FormData.DienGiai"  name="ChungTuService.FormData.DienGiai" type="text" class="form-control">
+</div>
+<div>
+<label>GiaTri</label>
+<input placeholder="GiaTri" [(ngModel)]="ChungTuService.FormData.GiaTri"  name="ChungTuService.FormData.GiaTri" type="text" class="form-control">
+</div>
+<div>
+<label>GiaTriThanhToan</label>
+<input placeholder="GiaTriThanhToan" [(ngModel)]="ChungTuService.FormData.GiaTriThanhToan"  name="ChungTuService.FormData.GiaTriThanhToan" type="text" class="form-control">
+</div>
+<div>
+<label>TyLeVat</label>
+<input placeholder="TyLeVat" [(ngModel)]="ChungTuService.FormData.TyLeVat"  name="ChungTuService.FormData.TyLeVat" type="text" class="form-control">
+</div>
+<div>
+<label>GiaTriVat</label>
+<input placeholder="GiaTriVat" [(ngModel)]="ChungTuService.FormData.GiaTriVat"  name="ChungTuService.FormData.GiaTriVat" type="text" class="form-control">
+</div>
+<div>
+<label>ThueSuat</label>
+<input placeholder="ThueSuat" [(ngModel)]="ChungTuService.FormData.ThueSuat"  name="ChungTuService.FormData.ThueSuat" type="text" class="form-control">
+</div>
+<div>
+<label>GiaTriThue</label>
+<input placeholder="GiaTriThue" [(ngModel)]="ChungTuService.FormData.GiaTriThue"  name="ChungTuService.FormData.GiaTriThue" type="text" class="form-control">
+</div>
+<div>
+<label>TyleChietKhau</label>
+<input placeholder="TyleChietKhau" [(ngModel)]="ChungTuService.FormData.TyleChietKhau"  name="ChungTuService.FormData.TyleChietKhau" type="text" class="form-control">
+</div>
+<div>
+<label>GiaTriChietKhau</label>
+<input placeholder="GiaTriChietKhau" [(ngModel)]="ChungTuService.FormData.GiaTriChietKhau"  name="ChungTuService.FormData.GiaTriChietKhau" type="text" class="form-control">
+</div>
+<div>
+<label>TienTe_Id</label>
+<input placeholder="TienTe_Id" [(ngModel)]="ChungTuService.FormData.TienTe_Id"  name="ChungTuService.FormData.TienTe_Id" type="text" class="form-control">
+</div>
+<div>
+<label>TyGia</label>
+<input placeholder="TyGia" [(ngModel)]="ChungTuService.FormData.TyGia"  name="ChungTuService.FormData.TyGia" type="text" class="form-control">
+</div>
+<div>
+<label>SoChungTuGoc</label>
+<input placeholder="SoChungTuGoc" [(ngModel)]="ChungTuService.FormData.SoChungTuGoc"  name="ChungTuService.FormData.SoChungTuGoc" type="text" class="form-control">
+</div>
+<div>
+<label>NgayChungTuGoc</label>
+<input placeholder="NgayChungTuGoc" [(ngModel)]="ChungTuService.FormData.NgayChungTuGoc"  name="ChungTuService.FormData.NgayChungTuGoc" type="text" class="form-control">
+</div>
+<div>
+<label>NhaCungCap_Id</label>
+<input placeholder="NhaCungCap_Id" [(ngModel)]="ChungTuService.FormData.NhaCungCap_Id"  name="ChungTuService.FormData.NhaCungCap_Id" type="text" class="form-control">
+</div>
+<div>
+<label>HinhThucThanhToan_Id</label>
+<input placeholder="HinhThucThanhToan_Id" [(ngModel)]="ChungTuService.FormData.HinhThucThanhToan_Id"  name="ChungTuService.FormData.HinhThucThanhToan_Id" type="text" class="form-control">
+</div>
+<div>
+<label>NguonDuoc_Id</label>
+<input placeholder="NguonDuoc_Id" [(ngModel)]="ChungTuService.FormData.NguonDuoc_Id"  name="ChungTuService.FormData.NguonDuoc_Id" type="text" class="form-control">
+</div>
+<div>
+<label>ChungTuLienQuan_Id</label>
+<input placeholder="ChungTuLienQuan_Id" [(ngModel)]="ChungTuService.FormData.ChungTuLienQuan_Id"  name="ChungTuService.FormData.ChungTuLienQuan_Id" type="text" class="form-control">
+</div>
+<div>
+<label>KhamBenh_Id</label>
+<input placeholder="KhamBenh_Id" [(ngModel)]="ChungTuService.FormData.KhamBenh_Id"  name="ChungTuService.FormData.KhamBenh_Id" type="text" class="form-control">
+</div>
+<div>
+<label>ToaThuocNoiTru_Id</label>
+<input placeholder="ToaThuocNoiTru_Id" [(ngModel)]="ChungTuService.FormData.ToaThuocNoiTru_Id"  name="ChungTuService.FormData.ToaThuocNoiTru_Id" type="text" class="form-control">
+</div>
+<div>
+<label>BenhAn_Id</label>
+<input placeholder="BenhAn_Id" [(ngModel)]="ChungTuService.FormData.BenhAn_Id"  name="ChungTuService.FormData.BenhAn_Id" type="text" class="form-control">
+</div>
+<div>
+<label>DaNhanThuoc</label>
+<input placeholder="DaNhanThuoc" [(ngModel)]="ChungTuService.FormData.DaNhanThuoc"  name="ChungTuService.FormData.DaNhanThuoc" type="text" class="form-control">
+</div>
+<div>
+<label>NguoiNhap_Id</label>
+<input placeholder="NguoiNhap_Id" [(ngModel)]="ChungTuService.FormData.NguoiNhap_Id"  name="ChungTuService.FormData.NguoiNhap_Id" type="text" class="form-control">
+</div>
+<div>
+<label>NgayNhap</label>
+<input placeholder="NgayNhap" [(ngModel)]="ChungTuService.FormData.NgayNhap"  name="ChungTuService.FormData.NgayNhap" type="text" class="form-control">
+</div>
+<div>
+<label>TrangThai</label>
+<input placeholder="TrangThai" [(ngModel)]="ChungTuService.FormData.TrangThai"  name="ChungTuService.FormData.TrangThai" type="text" class="form-control">
+</div>
+<div>
+<label>NgayTao</label>
+<input placeholder="NgayTao" [(ngModel)]="ChungTuService.FormData.NgayTao"  name="ChungTuService.FormData.NgayTao" type="text" class="form-control">
+</div>
+<div>
+<label>NguoiTao_Id</label>
+<input placeholder="NguoiTao_Id" [(ngModel)]="ChungTuService.FormData.NguoiTao_Id"  name="ChungTuService.FormData.NguoiTao_Id" type="text" class="form-control">
+</div>
+<div>
+<label>NgayCapNhat</label>
+<input placeholder="NgayCapNhat" [(ngModel)]="ChungTuService.FormData.NgayCapNhat"  name="ChungTuService.FormData.NgayCapNhat" type="text" class="form-control">
+</div>
+<div>
+<label>NguoiCapNhat_Id</label>
+<input placeholder="NguoiCapNhat_Id" [(ngModel)]="ChungTuService.FormData.NguoiCapNhat_Id"  name="ChungTuService.FormData.NguoiCapNhat_Id" type="text" class="form-control">
+</div>
+<div>
+<label>PhieuLinh_Id</label>
+<input placeholder="PhieuLinh_Id" [(ngModel)]="ChungTuService.FormData.PhieuLinh_Id"  name="ChungTuService.FormData.PhieuLinh_Id" type="text" class="form-control">
+</div>
+<div>
+<label>DienGiaiNghiepVuPhatSinh</label>
+<input placeholder="DienGiaiNghiepVuPhatSinh" [(ngModel)]="ChungTuService.FormData.DienGiaiNghiepVuPhatSinh"  name="ChungTuService.FormData.DienGiaiNghiepVuPhatSinh" type="text" class="form-control">
+</div>
+<div>
+<label>DonViGiao_Id</label>
+<input placeholder="DonViGiao_Id" [(ngModel)]="ChungTuService.FormData.DonViGiao_Id"  name="ChungTuService.FormData.DonViGiao_Id" type="text" class="form-control">
+</div>
+<div>
+<label>TyLeVATNhapKhau</label>
+<input placeholder="TyLeVATNhapKhau" [(ngModel)]="ChungTuService.FormData.TyLeVATNhapKhau"  name="ChungTuService.FormData.TyLeVATNhapKhau" type="text" class="form-control">
+</div>
+<div>
+<label>GiaTriVATNhapKhau</label>
+<input placeholder="GiaTriVATNhapKhau" [(ngModel)]="ChungTuService.FormData.GiaTriVATNhapKhau"  name="ChungTuService.FormData.GiaTriVATNhapKhau" type="text" class="form-control">
+</div>
+<div>
+<label>SoSeriNuocNgoai</label>
+<input placeholder="SoSeriNuocNgoai" [(ngModel)]="ChungTuService.FormData.SoSeriNuocNgoai"  name="ChungTuService.FormData.SoSeriNuocNgoai" type="text" class="form-control">
+</div>
+<div>
+<label>SoHoaDonNuocNgoai</label>
+<input placeholder="SoHoaDonNuocNgoai" [(ngModel)]="ChungTuService.FormData.SoHoaDonNuocNgoai"  name="ChungTuService.FormData.SoHoaDonNuocNgoai" type="text" class="form-control">
+</div>
+<div>
+<label>NgayHoaDonNuocNgoai</label>
+<input placeholder="NgayHoaDonNuocNgoai" [(ngModel)]="ChungTuService.FormData.NgayHoaDonNuocNgoai"  name="ChungTuService.FormData.NgayHoaDonNuocNgoai" type="text" class="form-control">
+</div>
+<div>
+<label>KhoSuDung_Id</label>
+<input placeholder="KhoSuDung_Id" [(ngModel)]="ChungTuService.FormData.KhoSuDung_Id"  name="ChungTuService.FormData.KhoSuDung_Id" type="text" class="form-control">
+</div>
+<div>
+<label>LoaiVatTu_Id</label>
+<input placeholder="LoaiVatTu_Id" [(ngModel)]="ChungTuService.FormData.LoaiVatTu_Id"  name="ChungTuService.FormData.LoaiVatTu_Id" type="text" class="form-control">
+</div>
+<div>
+<label>BenhNhan_Id</label>
+<input placeholder="BenhNhan_Id" [(ngModel)]="ChungTuService.FormData.BenhNhan_Id"  name="ChungTuService.FormData.BenhNhan_Id" type="text" class="form-control">
+</div>
+<div>
+<label>TenBenhNhan</label>
+<input placeholder="TenBenhNhan" [(ngModel)]="ChungTuService.FormData.TenBenhNhan"  name="ChungTuService.FormData.TenBenhNhan" type="text" class="form-control">
+</div>
+<div>
+<label>GioiTinh</label>
+<input placeholder="GioiTinh" [(ngModel)]="ChungTuService.FormData.GioiTinh"  name="ChungTuService.FormData.GioiTinh" type="text" class="form-control">
+</div>
+<div>
+<label>NamSinh</label>
+<input placeholder="NamSinh" [(ngModel)]="ChungTuService.FormData.NamSinh"  name="ChungTuService.FormData.NamSinh" type="text" class="form-control">
+</div>
+<div>
+<label>DiaChi</label>
+<input placeholder="DiaChi" [(ngModel)]="ChungTuService.FormData.DiaChi"  name="ChungTuService.FormData.DiaChi" type="text" class="form-control">
+</div>
+<div>
+<label>SoDienThoai</label>
+<input placeholder="SoDienThoai" [(ngModel)]="ChungTuService.FormData.SoDienThoai"  name="ChungTuService.FormData.SoDienThoai" type="text" class="form-control">
+</div>
+<div>
+<label>BacSiGioiThieu_Id</label>
+<input placeholder="BacSiGioiThieu_Id" [(ngModel)]="ChungTuService.FormData.BacSiGioiThieu_Id"  name="ChungTuService.FormData.BacSiGioiThieu_Id" type="text" class="form-control">
+</div>
+<div>
+<label>DoiTuong_Id</label>
+<input placeholder="DoiTuong_Id" [(ngModel)]="ChungTuService.FormData.DoiTuong_Id"  name="ChungTuService.FormData.DoiTuong_Id" type="text" class="form-control">
+</div>
+<div>
+<label>IDChuyen</label>
+<input placeholder="IDChuyen" [(ngModel)]="ChungTuService.FormData.IDChuyen"  name="ChungTuService.FormData.IDChuyen" type="text" class="form-control">
+</div>
+<div>
+<label>ChungTuKeToan</label>
+<input placeholder="ChungTuKeToan" [(ngModel)]="ChungTuService.FormData.ChungTuKeToan"  name="ChungTuService.FormData.ChungTuKeToan" type="text" class="form-control">
+</div>
+<div>
+<label>Status</label>
+<input placeholder="Status" [(ngModel)]="ChungTuService.FormData.Status"  name="ChungTuService.FormData.Status" type="text" class="form-control">
+</div>
+<div>
+<label>Transfer_VienPhi_Id</label>
+<input placeholder="Transfer_VienPhi_Id" [(ngModel)]="ChungTuService.FormData.Transfer_VienPhi_Id"  name="ChungTuService.FormData.Transfer_VienPhi_Id" type="text" class="form-control">
+</div>
+<div>
+<label>PhongBan_Id</label>
+<input placeholder="PhongBan_Id" [(ngModel)]="ChungTuService.FormData.PhongBan_Id"  name="ChungTuService.FormData.PhongBan_Id" type="text" class="form-control">
+</div>
+<div>
+<label>BacSi_Id</label>
+<input placeholder="BacSi_Id" [(ngModel)]="ChungTuService.FormData.BacSi_Id"  name="ChungTuService.FormData.BacSi_Id" type="text" class="form-control">
+</div>
+<div>
+<label>TKNo</label>
+<input placeholder="TKNo" [(ngModel)]="ChungTuService.FormData.TKNo"  name="ChungTuService.FormData.TKNo" type="text" class="form-control">
+</div>
+<div>
+<label>TKCo</label>
+<input placeholder="TKCo" [(ngModel)]="ChungTuService.FormData.TKCo"  name="ChungTuService.FormData.TKCo" type="text" class="form-control">
+</div>
+<div>
+<label>MaChungTuRef</label>
+<input placeholder="MaChungTuRef" [(ngModel)]="ChungTuService.FormData.MaChungTuRef"  name="ChungTuService.FormData.MaChungTuRef" type="text" class="form-control">
+</div>
+<div>
+<label>LoaiChungTuRef</label>
+<input placeholder="LoaiChungTuRef" [(ngModel)]="ChungTuService.FormData.LoaiChungTuRef"  name="ChungTuService.FormData.LoaiChungTuRef" type="text" class="form-control">
+</div>
+<div>
+<label>PhieuLinhCanTru_Id</label>
+<input placeholder="PhieuLinhCanTru_Id" [(ngModel)]="ChungTuService.FormData.PhieuLinhCanTru_Id"  name="ChungTuService.FormData.PhieuLinhCanTru_Id" type="text" class="form-control">
+</div>
+<div>
+<label>KhoThucHien_Id</label>
+<input placeholder="KhoThucHien_Id" [(ngModel)]="ChungTuService.FormData.KhoThucHien_Id"  name="ChungTuService.FormData.KhoThucHien_Id" type="text" class="form-control">
+</div>
+<div>
+<label>KhoDoiUng_Id</label>
+<input placeholder="KhoDoiUng_Id" [(ngModel)]="ChungTuService.FormData.KhoDoiUng_Id"  name="ChungTuService.FormData.KhoDoiUng_Id" type="text" class="form-control">
+</div>
+<div>
+<label>Menu_LoaiDuoc_ID</label>
+<input placeholder="Menu_LoaiDuoc_ID" [(ngModel)]="ChungTuService.FormData.Menu_LoaiDuoc_ID"  name="ChungTuService.FormData.Menu_LoaiDuoc_ID" type="text" class="form-control">
+</div>
+<div>
+<label>NguoiSuDungMay_Id</label>
+<input placeholder="NguoiSuDungMay_Id" [(ngModel)]="ChungTuService.FormData.NguoiSuDungMay_Id"  name="ChungTuService.FormData.NguoiSuDungMay_Id" type="text" class="form-control">
+</div>
+<div>
+<label>GoiThau_Id</label>
+<input placeholder="GoiThau_Id" [(ngModel)]="ChungTuService.FormData.GoiThau_Id"  name="ChungTuService.FormData.GoiThau_Id" type="text" class="form-control">
+</div>
+<div>
+<label>XuatThuocBANgoaiTru</label>
+<input placeholder="XuatThuocBANgoaiTru" [(ngModel)]="ChungTuService.FormData.XuatThuocBANgoaiTru"  name="ChungTuService.FormData.XuatThuocBANgoaiTru" type="text" class="form-control">
+</div>
+<div>
+<label>NgayGioChungTu</label>
+<input placeholder="NgayGioChungTu" [(ngModel)]="ChungTuService.FormData.NgayGioChungTu"  name="ChungTuService.FormData.NgayGioChungTu" type="text" class="form-control">
+</div>
+<div>
+<label>NoiDaKham</label>
+<input placeholder="NoiDaKham" [(ngModel)]="ChungTuService.FormData.NoiDaKham"  name="ChungTuService.FormData.NoiDaKham" type="text" class="form-control">
+</div>
+<div>
+<label>ChuyenChungTuID</label>
+<input placeholder="ChuyenChungTuID" [(ngModel)]="ChungTuService.FormData.ChuyenChungTuID"  name="ChungTuService.FormData.ChuyenChungTuID" type="text" class="form-control">
+</div>
+<div>
+<label>ChuyenDoanhThuID</label>
+<input placeholder="ChuyenDoanhThuID" [(ngModel)]="ChungTuService.FormData.ChuyenDoanhThuID"  name="ChungTuService.FormData.ChuyenDoanhThuID" type="text" class="form-control">
+</div>
+<div>
+<label>THANHTOAN_TIMEOUT</label>
+<input placeholder="THANHTOAN_TIMEOUT" [(ngModel)]="ChungTuService.FormData.THANHTOAN_TIMEOUT"  name="ChungTuService.FormData.THANHTOAN_TIMEOUT" type="text" class="form-control">
+</div>
+<div>
+<label>DATHANHTOAN</label>
+<input placeholder="DATHANHTOAN" [(ngModel)]="ChungTuService.FormData.DATHANHTOAN"  name="ChungTuService.FormData.DATHANHTOAN" type="text" class="form-control">
+</div>
+<div>
+<label>NGUOITHANHTOAN_ID</label>
+<input placeholder="NGUOITHANHTOAN_ID" [(ngModel)]="ChungTuService.FormData.NGUOITHANHTOAN_ID"  name="ChungTuService.FormData.NGUOITHANHTOAN_ID" type="text" class="form-control">
+</div>
+<div>
+<label>NGAYTHANHTOAN</label>
+<input placeholder="NGAYTHANHTOAN" [(ngModel)]="ChungTuService.FormData.NGAYTHANHTOAN"  name="ChungTuService.FormData.NGAYTHANHTOAN" type="text" class="form-control">
+</div>
+<div>
+<label>THOIGIANTHANHTOAN</label>
+<input placeholder="THOIGIANTHANHTOAN" [(ngModel)]="ChungTuService.FormData.THOIGIANTHANHTOAN"  name="ChungTuService.FormData.THOIGIANTHANHTOAN" type="text" class="form-control">
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <app-loading *ngIf="ChungTuService.IsShowLoading"></app-loading>
+

@@ -1,0 +1,589 @@
+﻿<div class="row">
+    <div id="breadcrumbs-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m6 l6">
+                    <h6 class="breadcrumbs-title">
+                        CLSKetQua_SieuAmTim
+                        <span *ngIf="CLSKetQua_SieuAmTimService.List">({{CLSKetQua_SieuAmTimService.List.length-1}} items)</span>
+                    </h6>
+                </div>
+                <div class="col s12 m6 l6 right-align-md">
+                    <ol class="breadcrumbs mb-0">
+                        <li class="breadcrumb-item">
+                            <a href="javascript:history.back()" title="Quay lại">
+                                <<< Quay lại
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/Homepage" title="Trang chủ">Trang chủ</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/ThanhVien" title="Quản trị">Quản trị</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/CLSKetQua_SieuAmTim" title="CLSKetQua_SieuAmTim">
+                                CLSKetQua_SieuAmTim
+                            </a>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col s12 m12 l12">
+        <div class="card card card-default scrollspy">
+            <div class="card-content">
+                <div class="col s12 m12 l11">
+                    <input [(ngModel)]="CLSKetQua_SieuAmTimService.BaseParameter.SearchString" placeholder="Tìm ..."
+                           class="form-control" (keyup.enter)="CLSKetQua_SieuAmTimSearch()">
+                </div>
+                <div class="col s12 m12 l1">
+                    <a style="color: green;" title="Tìm" (click)="CLSKetQua_SieuAmTimSearch()">
+                        <i class="material-icons">play_circle_filled</i>
+                    </a>
+                </div>
+                <div class="KhungOverflow">
+                    <table *ngIf="!NotificationService.IsMobile" mat-table matSort #CLSKetQua_SieuAmTimSort="matSort"
+                           [dataSource]="CLSKetQua_SieuAmTimService.DataSource">
+                        <ng-container matColumnDef="STT">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                                STT
+                            </th>
+                            <td mat-cell *matCellDef="let element; index as i;">
+                                <div *ngIf="CLSKetQua_SieuAmTimPaginator">
+                                    {{
+CLSKetQua_SieuAmTimPaginator.pageSize *
+                                    CLSKetQua_SieuAmTimPaginator.pageIndex + i + 1
+                                    }}
+                                </div>
+                            </td>
+                        </ng-container>
+                        <ng-container matColumnDef="Save">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                            </th>
+                            <td mat-cell *matCellDef="let element">
+                                <a (click)="CLSKetQua_SieuAmTimSave(element)" style="color:#2196f3;">
+                                    <i class="material-icons">save</i>
+                                </a>
+                                <a (click)="CLSKetQua_SieuAmTimDelete(element)" style="color: red;">
+                                    <i class="material-icons">delete_forever</i>
+                                </a>
+                            </td>
+                        </ng-container>
+                        <ng-container matColumnDef="CLSKetQua_SieuAmTim_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CLSKetQua_SieuAmTim_Id</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="CLSKetQua_SieuAmTim_Id" name="CLSKetQua_SieuAmTim_Id" [(ngModel)]="element.CLSKetQua_SieuAmTim_Id"></td>
+</ng-container>
+<ng-container matColumnDef="CLSKetQua_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CLSKetQua_Id</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="CLSKetQua_Id" name="CLSKetQua_Id" [(ngModel)]="element.CLSKetQua_Id"></td>
+</ng-container>
+<ng-container matColumnDef="SoPhieu">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>SoPhieu</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="SoPhieu" name="SoPhieu" [(ngModel)]="element.SoPhieu"></td>
+</ng-container>
+<ng-container matColumnDef="VanDMC_dA0">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>VanDMC_dA0</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="VanDMC_dA0" name="VanDMC_dA0" [(ngModel)]="element.VanDMC_dA0"></td>
+</ng-container>
+<ng-container matColumnDef="VanDMC_dA0Ngang">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>VanDMC_dA0Ngang</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="VanDMC_dA0Ngang" name="VanDMC_dA0Ngang" [(ngModel)]="element.VanDMC_dA0Ngang"></td>
+</ng-container>
+<ng-container matColumnDef="VanDMC_deoA0">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>VanDMC_deoA0</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="VanDMC_deoA0" name="VanDMC_deoA0" [(ngModel)]="element.VanDMC_deoA0"></td>
+</ng-container>
+<ng-container matColumnDef="VanDMC_Van2La">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>VanDMC_Van2La</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="VanDMC_Van2La" name="VanDMC_Van2La" [(ngModel)]="element.VanDMC_Van2La"></td>
+</ng-container>
+<ng-container matColumnDef="VanDMC_CDLaVanTruoc">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>VanDMC_CDLaVanTruoc</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="VanDMC_CDLaVanTruoc" name="VanDMC_CDLaVanTruoc" [(ngModel)]="element.VanDMC_CDLaVanTruoc"></td>
+</ng-container>
+<ng-container matColumnDef="VanDMC_DKVongVan2La">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>VanDMC_DKVongVan2La</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="VanDMC_DKVongVan2La" name="VanDMC_DKVongVan2La" [(ngModel)]="element.VanDMC_DKVongVan2La"></td>
+</ng-container>
+<ng-container matColumnDef="VanDMC_TiLe">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>VanDMC_TiLe</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="VanDMC_TiLe" name="VanDMC_TiLe" [(ngModel)]="element.VanDMC_TiLe"></td>
+</ng-container>
+<ng-container matColumnDef="VanDMP_dVongVanDMP">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>VanDMP_dVongVanDMP</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="VanDMP_dVongVanDMP" name="VanDMP_dVongVanDMP" [(ngModel)]="element.VanDMP_dVongVanDMP"></td>
+</ng-container>
+<ng-container matColumnDef="VanDMP_DMPPhai">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>VanDMP_DMPPhai</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="VanDMP_DMPPhai" name="VanDMP_DMPPhai" [(ngModel)]="element.VanDMP_DMPPhai"></td>
+</ng-container>
+<ng-container matColumnDef="VanDMP_DMPTrai">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>VanDMP_DMPTrai</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="VanDMP_DMPTrai" name="VanDMP_DMPTrai" [(ngModel)]="element.VanDMP_DMPTrai"></td>
+</ng-container>
+<ng-container matColumnDef="Van3La">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Van3La</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Van3La" name="Van3La" [(ngModel)]="element.Van3La"></td>
+</ng-container>
+<ng-container matColumnDef="TM_IVSd">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>TM_IVSd</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="TM_IVSd" name="TM_IVSd" [(ngModel)]="element.TM_IVSd"></td>
+</ng-container>
+<ng-container matColumnDef="TM_LVd">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>TM_LVd</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="TM_LVd" name="TM_LVd" [(ngModel)]="element.TM_LVd"></td>
+</ng-container>
+<ng-container matColumnDef="TM_PWd">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>TM_PWd</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="TM_PWd" name="TM_PWd" [(ngModel)]="element.TM_PWd"></td>
+</ng-container>
+<ng-container matColumnDef="TM_IVSs">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>TM_IVSs</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="TM_IVSs" name="TM_IVSs" [(ngModel)]="element.TM_IVSs"></td>
+</ng-container>
+<ng-container matColumnDef="TM_LVs">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>TM_LVs</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="TM_LVs" name="TM_LVs" [(ngModel)]="element.TM_LVs"></td>
+</ng-container>
+<ng-container matColumnDef="TM_PWs">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>TM_PWs</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="TM_PWs" name="TM_PWs" [(ngModel)]="element.TM_PWs"></td>
+</ng-container>
+<ng-container matColumnDef="TM_FS">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>TM_FS</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="TM_FS" name="TM_FS" [(ngModel)]="element.TM_FS"></td>
+</ng-container>
+<ng-container matColumnDef="TM_EF">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>TM_EF</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="TM_EF" name="TM_EF" [(ngModel)]="element.TM_EF"></td>
+</ng-container>
+<ng-container matColumnDef="TM_RV">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>TM_RV</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="TM_RV" name="TM_RV" [(ngModel)]="element.TM_RV"></td>
+</ng-container>
+<ng-container matColumnDef="TM_A0">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>TM_A0</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="TM_A0" name="TM_A0" [(ngModel)]="element.TM_A0"></td>
+</ng-container>
+<ng-container matColumnDef="TM_LA">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>TM_LA</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="TM_LA" name="TM_LA" [(ngModel)]="element.TM_LA"></td>
+</ng-container>
+<ng-container matColumnDef="DQV2La_Vtd">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DQV2La_Vtd</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="DQV2La_Vtd" name="DQV2La_Vtd" [(ngModel)]="element.DQV2La_Vtd"></td>
+</ng-container>
+<ng-container matColumnDef="DQV2La_Gdnttt">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DQV2La_Gdnttt</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="DQV2La_Gdnttt" name="DQV2La_Gdnttt" [(ngModel)]="element.DQV2La_Gdnttt"></td>
+</ng-container>
+<ng-container matColumnDef="DQV2La_EA">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DQV2La_EA</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="DQV2La_EA" name="DQV2La_EA" [(ngModel)]="element.DQV2La_EA"></td>
+</ng-container>
+<ng-container matColumnDef="DQV2La_HepVan2La">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DQV2La_HepVan2La</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="DQV2La_HepVan2La" name="DQV2La_HepVan2La" [(ngModel)]="element.DQV2La_HepVan2La"></td>
+</ng-container>
+<ng-container matColumnDef="DQV2La_SMoVan1">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DQV2La_SMoVan1</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="DQV2La_SMoVan1" name="DQV2La_SMoVan1" [(ngModel)]="element.DQV2La_SMoVan1"></td>
+</ng-container>
+<ng-container matColumnDef="DQV2La_SMoVan2">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DQV2La_SMoVan2</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="DQV2La_SMoVan2" name="DQV2La_SMoVan2" [(ngModel)]="element.DQV2La_SMoVan2"></td>
+</ng-container>
+<ng-container matColumnDef="DQV2La_HoVan2La">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DQV2La_HoVan2La</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="DQV2La_HoVan2La" name="DQV2La_HoVan2La" [(ngModel)]="element.DQV2La_HoVan2La"></td>
+</ng-container>
+<ng-container matColumnDef="DQV2La_DoHo">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DQV2La_DoHo</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="DQV2La_DoHo" name="DQV2La_DoHo" [(ngModel)]="element.DQV2La_DoHo"></td>
+</ng-container>
+<ng-container matColumnDef="DQDMC_Vtd">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DQDMC_Vtd</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="DQDMC_Vtd" name="DQDMC_Vtd" [(ngModel)]="element.DQDMC_Vtd"></td>
+</ng-container>
+<ng-container matColumnDef="DQDMC_GdLVAO">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DQDMC_GdLVAO</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="DQDMC_GdLVAO" name="DQDMC_GdLVAO" [(ngModel)]="element.DQDMC_GdLVAO"></td>
+</ng-container>
+<ng-container matColumnDef="DQDMC_HepVanDMC">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DQDMC_HepVanDMC</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="DQDMC_HepVanDMC" name="DQDMC_HepVanDMC" [(ngModel)]="element.DQDMC_HepVanDMC"></td>
+</ng-container>
+<ng-container matColumnDef="DQDMC_SMoVan">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DQDMC_SMoVan</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="DQDMC_SMoVan" name="DQDMC_SMoVan" [(ngModel)]="element.DQDMC_SMoVan"></td>
+</ng-container>
+<ng-container matColumnDef="DQDMC_HoVanDMC">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DQDMC_HoVanDMC</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="DQDMC_HoVanDMC" name="DQDMC_HoVanDMC" [(ngModel)]="element.DQDMC_HoVanDMC"></td>
+</ng-container>
+<ng-container matColumnDef="DQDMC_DoHoPHT">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DQDMC_DoHoPHT</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="DQDMC_DoHoPHT" name="DQDMC_DoHoPHT" [(ngModel)]="element.DQDMC_DoHoPHT"></td>
+</ng-container>
+<ng-container matColumnDef="DQDMC_DoHoDFO">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DQDMC_DoHoDFO</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="DQDMC_DoHoDFO" name="DQDMC_DoHoDFO" [(ngModel)]="element.DQDMC_DoHoDFO"></td>
+</ng-container>
+<ng-container matColumnDef="DQDMC_EDTD">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DQDMC_EDTD</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="DQDMC_EDTD" name="DQDMC_EDTD" [(ngModel)]="element.DQDMC_EDTD"></td>
+</ng-container>
+<ng-container matColumnDef="DQV3La_Vtd">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DQV3La_Vtd</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="DQV3La_Vtd" name="DQV3La_Vtd" [(ngModel)]="element.DQV3La_Vtd"></td>
+</ng-container>
+<ng-container matColumnDef="DQV3La_GdRARV">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DQV3La_GdRARV</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="DQV3La_GdRARV" name="DQV3La_GdRARV" [(ngModel)]="element.DQV3La_GdRARV"></td>
+</ng-container>
+<ng-container matColumnDef="DQV3La_VDongHo">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DQV3La_VDongHo</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="DQV3La_VDongHo" name="DQV3La_VDongHo" [(ngModel)]="element.DQV3La_VDongHo"></td>
+</ng-container>
+<ng-container matColumnDef="DQV3La_PAPs">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DQV3La_PAPs</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="DQV3La_PAPs" name="DQV3La_PAPs" [(ngModel)]="element.DQV3La_PAPs"></td>
+</ng-container>
+<ng-container matColumnDef="DQVDMP_Vtd">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DQVDMP_Vtd</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="DQVDMP_Vtd" name="DQVDMP_Vtd" [(ngModel)]="element.DQVDMP_Vtd"></td>
+</ng-container>
+<ng-container matColumnDef="DQVDMP_GdRARV">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DQVDMP_GdRARV</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="DQVDMP_GdRARV" name="DQVDMP_GdRARV" [(ngModel)]="element.DQVDMP_GdRARV"></td>
+</ng-container>
+<ng-container matColumnDef="DQVDMP_HoVanDMP">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DQVDMP_HoVanDMP</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="DQVDMP_HoVanDMP" name="DQVDMP_HoVanDMP" [(ngModel)]="element.DQVDMP_HoVanDMP"></td>
+</ng-container>
+<ng-container matColumnDef="DQVDMP_VDongHo">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DQVDMP_VDongHo</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="DQVDMP_VDongHo" name="DQVDMP_VDongHo" [(ngModel)]="element.DQVDMP_VDongHo"></td>
+</ng-container>
+<ng-container matColumnDef="DQVDMP_PAPd">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DQVDMP_PAPd</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="DQVDMP_PAPd" name="DQVDMP_PAPd" [(ngModel)]="element.DQVDMP_PAPd"></td>
+</ng-container>
+<ng-container matColumnDef="DQVDMP_VLTVSST">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DQVDMP_VLTVSST</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="DQVDMP_VLTVSST" name="DQVDMP_VLTVSST" [(ngModel)]="element.DQVDMP_VLTVSST"></td>
+</ng-container>
+<ng-container matColumnDef="DQVDMP_DichMangTim">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DQVDMP_DichMangTim</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="DQVDMP_DichMangTim" name="DQVDMP_DichMangTim" [(ngModel)]="element.DQVDMP_DichMangTim"></td>
+</ng-container>
+
+                        <tr mat-header-row *matHeaderRowDef="CLSKetQua_SieuAmTimService.DisplayColumns001">
+                        </tr>
+                        <tr mat-row *matRowDef="let row; columns: CLSKetQua_SieuAmTimService.DisplayColumns001;">
+                        </tr>
+                    </table>
+                    <mat-paginator *ngIf="!NotificationService.IsMobile" #CLSKetQua_SieuAmTimPaginator="matPaginator"
+                                   [pageSizeOptions]="[10,20,50,100]" [pageSize]="20" [showFirstLastButtons]></mat-paginator>
+
+                    <table *ngIf="NotificationService.IsMobile" mat-table matSort #CLSKetQua_SieuAmTimSort="matSort"
+                           [dataSource]="CLSKetQua_SieuAmTimService.DataSource" class="table table-striped m-0">
+                        <ng-container matColumnDef="STT">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                                Danh sách
+                            </th>
+                            <td mat-cell *matCellDef="let element; index as i;">
+                                <div class="row gx-4">
+                                    <div class="col-lg-12 col-sm-12 col-12">
+<label>CLSKetQua_SieuAmTim_Id</label>
+<br />
+<input class="form-control" type="text" placeholder="CLSKetQua_SieuAmTim_Id" name="CLSKetQua_SieuAmTim_Id{{element.ID}}" [(ngModel)]="element.CLSKetQua_SieuAmTim_Id">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>CLSKetQua_Id</label>
+<br />
+<input class="form-control" type="text" placeholder="CLSKetQua_Id" name="CLSKetQua_Id{{element.ID}}" [(ngModel)]="element.CLSKetQua_Id">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>SoPhieu</label>
+<br />
+<input class="form-control" type="text" placeholder="SoPhieu" name="SoPhieu{{element.ID}}" [(ngModel)]="element.SoPhieu">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>VanDMC_dA0</label>
+<br />
+<input class="form-control" type="text" placeholder="VanDMC_dA0" name="VanDMC_dA0{{element.ID}}" [(ngModel)]="element.VanDMC_dA0">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>VanDMC_dA0Ngang</label>
+<br />
+<input class="form-control" type="text" placeholder="VanDMC_dA0Ngang" name="VanDMC_dA0Ngang{{element.ID}}" [(ngModel)]="element.VanDMC_dA0Ngang">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>VanDMC_deoA0</label>
+<br />
+<input class="form-control" type="text" placeholder="VanDMC_deoA0" name="VanDMC_deoA0{{element.ID}}" [(ngModel)]="element.VanDMC_deoA0">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>VanDMC_Van2La</label>
+<br />
+<input class="form-control" type="text" placeholder="VanDMC_Van2La" name="VanDMC_Van2La{{element.ID}}" [(ngModel)]="element.VanDMC_Van2La">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>VanDMC_CDLaVanTruoc</label>
+<br />
+<input class="form-control" type="text" placeholder="VanDMC_CDLaVanTruoc" name="VanDMC_CDLaVanTruoc{{element.ID}}" [(ngModel)]="element.VanDMC_CDLaVanTruoc">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>VanDMC_DKVongVan2La</label>
+<br />
+<input class="form-control" type="text" placeholder="VanDMC_DKVongVan2La" name="VanDMC_DKVongVan2La{{element.ID}}" [(ngModel)]="element.VanDMC_DKVongVan2La">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>VanDMC_TiLe</label>
+<br />
+<input class="form-control" type="text" placeholder="VanDMC_TiLe" name="VanDMC_TiLe{{element.ID}}" [(ngModel)]="element.VanDMC_TiLe">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>VanDMP_dVongVanDMP</label>
+<br />
+<input class="form-control" type="text" placeholder="VanDMP_dVongVanDMP" name="VanDMP_dVongVanDMP{{element.ID}}" [(ngModel)]="element.VanDMP_dVongVanDMP">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>VanDMP_DMPPhai</label>
+<br />
+<input class="form-control" type="text" placeholder="VanDMP_DMPPhai" name="VanDMP_DMPPhai{{element.ID}}" [(ngModel)]="element.VanDMP_DMPPhai">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>VanDMP_DMPTrai</label>
+<br />
+<input class="form-control" type="text" placeholder="VanDMP_DMPTrai" name="VanDMP_DMPTrai{{element.ID}}" [(ngModel)]="element.VanDMP_DMPTrai">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>Van3La</label>
+<br />
+<input class="form-control" type="text" placeholder="Van3La" name="Van3La{{element.ID}}" [(ngModel)]="element.Van3La">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>TM_IVSd</label>
+<br />
+<input class="form-control" type="text" placeholder="TM_IVSd" name="TM_IVSd{{element.ID}}" [(ngModel)]="element.TM_IVSd">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>TM_LVd</label>
+<br />
+<input class="form-control" type="text" placeholder="TM_LVd" name="TM_LVd{{element.ID}}" [(ngModel)]="element.TM_LVd">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>TM_PWd</label>
+<br />
+<input class="form-control" type="text" placeholder="TM_PWd" name="TM_PWd{{element.ID}}" [(ngModel)]="element.TM_PWd">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>TM_IVSs</label>
+<br />
+<input class="form-control" type="text" placeholder="TM_IVSs" name="TM_IVSs{{element.ID}}" [(ngModel)]="element.TM_IVSs">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>TM_LVs</label>
+<br />
+<input class="form-control" type="text" placeholder="TM_LVs" name="TM_LVs{{element.ID}}" [(ngModel)]="element.TM_LVs">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>TM_PWs</label>
+<br />
+<input class="form-control" type="text" placeholder="TM_PWs" name="TM_PWs{{element.ID}}" [(ngModel)]="element.TM_PWs">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>TM_FS</label>
+<br />
+<input class="form-control" type="text" placeholder="TM_FS" name="TM_FS{{element.ID}}" [(ngModel)]="element.TM_FS">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>TM_EF</label>
+<br />
+<input class="form-control" type="text" placeholder="TM_EF" name="TM_EF{{element.ID}}" [(ngModel)]="element.TM_EF">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>TM_RV</label>
+<br />
+<input class="form-control" type="text" placeholder="TM_RV" name="TM_RV{{element.ID}}" [(ngModel)]="element.TM_RV">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>TM_A0</label>
+<br />
+<input class="form-control" type="text" placeholder="TM_A0" name="TM_A0{{element.ID}}" [(ngModel)]="element.TM_A0">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>TM_LA</label>
+<br />
+<input class="form-control" type="text" placeholder="TM_LA" name="TM_LA{{element.ID}}" [(ngModel)]="element.TM_LA">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>DQV2La_Vtd</label>
+<br />
+<input class="form-control" type="text" placeholder="DQV2La_Vtd" name="DQV2La_Vtd{{element.ID}}" [(ngModel)]="element.DQV2La_Vtd">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>DQV2La_Gdnttt</label>
+<br />
+<input class="form-control" type="text" placeholder="DQV2La_Gdnttt" name="DQV2La_Gdnttt{{element.ID}}" [(ngModel)]="element.DQV2La_Gdnttt">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>DQV2La_EA</label>
+<br />
+<input class="form-control" type="text" placeholder="DQV2La_EA" name="DQV2La_EA{{element.ID}}" [(ngModel)]="element.DQV2La_EA">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>DQV2La_HepVan2La</label>
+<br />
+<input class="form-control" type="text" placeholder="DQV2La_HepVan2La" name="DQV2La_HepVan2La{{element.ID}}" [(ngModel)]="element.DQV2La_HepVan2La">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>DQV2La_SMoVan1</label>
+<br />
+<input class="form-control" type="text" placeholder="DQV2La_SMoVan1" name="DQV2La_SMoVan1{{element.ID}}" [(ngModel)]="element.DQV2La_SMoVan1">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>DQV2La_SMoVan2</label>
+<br />
+<input class="form-control" type="text" placeholder="DQV2La_SMoVan2" name="DQV2La_SMoVan2{{element.ID}}" [(ngModel)]="element.DQV2La_SMoVan2">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>DQV2La_HoVan2La</label>
+<br />
+<input class="form-control" type="text" placeholder="DQV2La_HoVan2La" name="DQV2La_HoVan2La{{element.ID}}" [(ngModel)]="element.DQV2La_HoVan2La">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>DQV2La_DoHo</label>
+<br />
+<input class="form-control" type="text" placeholder="DQV2La_DoHo" name="DQV2La_DoHo{{element.ID}}" [(ngModel)]="element.DQV2La_DoHo">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>DQDMC_Vtd</label>
+<br />
+<input class="form-control" type="text" placeholder="DQDMC_Vtd" name="DQDMC_Vtd{{element.ID}}" [(ngModel)]="element.DQDMC_Vtd">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>DQDMC_GdLVAO</label>
+<br />
+<input class="form-control" type="text" placeholder="DQDMC_GdLVAO" name="DQDMC_GdLVAO{{element.ID}}" [(ngModel)]="element.DQDMC_GdLVAO">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>DQDMC_HepVanDMC</label>
+<br />
+<input class="form-control" type="text" placeholder="DQDMC_HepVanDMC" name="DQDMC_HepVanDMC{{element.ID}}" [(ngModel)]="element.DQDMC_HepVanDMC">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>DQDMC_SMoVan</label>
+<br />
+<input class="form-control" type="text" placeholder="DQDMC_SMoVan" name="DQDMC_SMoVan{{element.ID}}" [(ngModel)]="element.DQDMC_SMoVan">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>DQDMC_HoVanDMC</label>
+<br />
+<input class="form-control" type="text" placeholder="DQDMC_HoVanDMC" name="DQDMC_HoVanDMC{{element.ID}}" [(ngModel)]="element.DQDMC_HoVanDMC">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>DQDMC_DoHoPHT</label>
+<br />
+<input class="form-control" type="text" placeholder="DQDMC_DoHoPHT" name="DQDMC_DoHoPHT{{element.ID}}" [(ngModel)]="element.DQDMC_DoHoPHT">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>DQDMC_DoHoDFO</label>
+<br />
+<input class="form-control" type="text" placeholder="DQDMC_DoHoDFO" name="DQDMC_DoHoDFO{{element.ID}}" [(ngModel)]="element.DQDMC_DoHoDFO">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>DQDMC_EDTD</label>
+<br />
+<input class="form-control" type="text" placeholder="DQDMC_EDTD" name="DQDMC_EDTD{{element.ID}}" [(ngModel)]="element.DQDMC_EDTD">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>DQV3La_Vtd</label>
+<br />
+<input class="form-control" type="text" placeholder="DQV3La_Vtd" name="DQV3La_Vtd{{element.ID}}" [(ngModel)]="element.DQV3La_Vtd">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>DQV3La_GdRARV</label>
+<br />
+<input class="form-control" type="text" placeholder="DQV3La_GdRARV" name="DQV3La_GdRARV{{element.ID}}" [(ngModel)]="element.DQV3La_GdRARV">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>DQV3La_VDongHo</label>
+<br />
+<input class="form-control" type="text" placeholder="DQV3La_VDongHo" name="DQV3La_VDongHo{{element.ID}}" [(ngModel)]="element.DQV3La_VDongHo">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>DQV3La_PAPs</label>
+<br />
+<input class="form-control" type="text" placeholder="DQV3La_PAPs" name="DQV3La_PAPs{{element.ID}}" [(ngModel)]="element.DQV3La_PAPs">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>DQVDMP_Vtd</label>
+<br />
+<input class="form-control" type="text" placeholder="DQVDMP_Vtd" name="DQVDMP_Vtd{{element.ID}}" [(ngModel)]="element.DQVDMP_Vtd">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>DQVDMP_GdRARV</label>
+<br />
+<input class="form-control" type="text" placeholder="DQVDMP_GdRARV" name="DQVDMP_GdRARV{{element.ID}}" [(ngModel)]="element.DQVDMP_GdRARV">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>DQVDMP_HoVanDMP</label>
+<br />
+<input class="form-control" type="text" placeholder="DQVDMP_HoVanDMP" name="DQVDMP_HoVanDMP{{element.ID}}" [(ngModel)]="element.DQVDMP_HoVanDMP">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>DQVDMP_VDongHo</label>
+<br />
+<input class="form-control" type="text" placeholder="DQVDMP_VDongHo" name="DQVDMP_VDongHo{{element.ID}}" [(ngModel)]="element.DQVDMP_VDongHo">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>DQVDMP_PAPd</label>
+<br />
+<input class="form-control" type="text" placeholder="DQVDMP_PAPd" name="DQVDMP_PAPd{{element.ID}}" [(ngModel)]="element.DQVDMP_PAPd">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>DQVDMP_VLTVSST</label>
+<br />
+<input class="form-control" type="text" placeholder="DQVDMP_VLTVSST" name="DQVDMP_VLTVSST{{element.ID}}" [(ngModel)]="element.DQVDMP_VLTVSST">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>DQVDMP_DichMangTim</label>
+<br />
+<input class="form-control" type="text" placeholder="DQVDMP_DichMangTim" name="DQVDMP_DichMangTim{{element.ID}}" [(ngModel)]="element.DQVDMP_DichMangTim">
+</div>
+
+                                </div>
+                                <div class="row gx-4">
+                                    <div class="col s6 m6 l6">
+                                        <a (click)="CLSKetQua_SieuAmTimSave(element)" style="color:#2196f3;">
+                                            <i class="material-icons">save</i>
+                                        </a>
+                                    </div>
+                                    <div class="col s6 m6 l6">
+                                        <a (click)="CLSKetQua_SieuAmTimDelete(element)"
+                                           style="color: red;"><i class="material-icons">delete_forever</i></a>
+                                    </div>
+                                </div>
+                                <br />
+                            </td>
+                        </ng-container>
+                        <tr mat-header-row *matHeaderRowDef="CLSKetQua_SieuAmTimService.DisplayColumnsMobile">
+                        </tr>
+                        <tr mat-row *matRowDef="let row; columns: CLSKetQua_SieuAmTimService.DisplayColumnsMobile;">
+                        </tr>
+                    </table>
+                    <mat-paginator *ngIf="NotificationService.IsMobile" #CLSKetQua_SieuAmTimPaginator="matPaginator"
+                                   [pageSizeOptions]="[10,20,50,100]" [pageSize]="10000" [showFirstLastButtons]></mat-paginator>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-loading *ngIf="CLSKetQua_SieuAmTimService.IsShowLoading"></app-loading>
+

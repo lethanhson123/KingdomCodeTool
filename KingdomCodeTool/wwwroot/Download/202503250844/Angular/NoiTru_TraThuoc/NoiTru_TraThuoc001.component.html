@@ -1,0 +1,256 @@
+﻿<div class="row">
+    <div id="breadcrumbs-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m6 l6">
+                    <h6 class="breadcrumbs-title">
+                        NoiTru_TraThuoc
+                        <span *ngIf="NoiTru_TraThuocService.List">({{NoiTru_TraThuocService.List.length-1}} items)</span>
+                    </h6>
+                </div>
+                <div class="col s12 m6 l6 right-align-md">
+                    <ol class="breadcrumbs mb-0">
+                        <li class="breadcrumb-item">
+                            <a href="javascript:history.back()" title="Quay lại">
+                                <<< Quay lại
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/Homepage" title="Trang chủ">Trang chủ</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/ThanhVien" title="Quản trị">Quản trị</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/NoiTru_TraThuoc" title="NoiTru_TraThuoc">
+                                NoiTru_TraThuoc
+                            </a>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col s12 m12 l12">
+        <div class="card card card-default scrollspy">
+            <div class="card-content">
+                <div class="col s12 m12 l11">
+                    <input [(ngModel)]="NoiTru_TraThuocService.BaseParameter.SearchString" placeholder="Tìm ..."
+                           class="form-control" (keyup.enter)="NoiTru_TraThuocSearch()">
+                </div>
+                <div class="col s12 m12 l1">
+                    <a style="color: green;" title="Tìm" (click)="NoiTru_TraThuocSearch()">
+                        <i class="material-icons">play_circle_filled</i>
+                    </a>
+                </div>
+                <div class="KhungOverflow">
+                    <table *ngIf="!NotificationService.IsMobile" mat-table matSort #NoiTru_TraThuocSort="matSort"
+                           [dataSource]="NoiTru_TraThuocService.DataSource">
+                        <ng-container matColumnDef="STT">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                                STT
+                            </th>
+                            <td mat-cell *matCellDef="let element; index as i;">
+                                <div *ngIf="NoiTru_TraThuocPaginator">
+                                    {{
+NoiTru_TraThuocPaginator.pageSize *
+                                    NoiTru_TraThuocPaginator.pageIndex + i + 1
+                                    }}
+                                </div>
+                            </td>
+                        </ng-container>
+                        <ng-container matColumnDef="Save">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                            </th>
+                            <td mat-cell *matCellDef="let element">
+                                <a (click)="NoiTru_TraThuocSave(element)" style="color:#2196f3;">
+                                    <i class="material-icons">save</i>
+                                </a>
+                                <a (click)="NoiTru_TraThuocDelete(element)" style="color: red;">
+                                    <i class="material-icons">delete_forever</i>
+                                </a>
+                            </td>
+                        </ng-container>
+                        <ng-container matColumnDef="NoiTru_TraThuoc_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>NoiTru_TraThuoc_Id</th>
+<td mat-cell *matCellDef="let element">{{element.NoiTru_TraThuoc_Id}}</td>
+</ng-container>
+<ng-container matColumnDef="SoPhieu">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>SoPhieu</th>
+<td mat-cell *matCellDef="let element">{{element.SoPhieu}}</td>
+</ng-container>
+<ng-container matColumnDef="BenhAn_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>BenhAn_Id</th>
+<td mat-cell *matCellDef="let element">{{element.BenhAn_Id}}</td>
+</ng-container>
+<ng-container matColumnDef="LuuTru_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>LuuTru_Id</th>
+<td mat-cell *matCellDef="let element">{{element.LuuTru_Id}}</td>
+</ng-container>
+<ng-container matColumnDef="NgayTra">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>NgayTra</th>
+<td mat-cell *matCellDef="let element">{{element.NgayTra}}</td>
+</ng-container>
+<ng-container matColumnDef="NguoiNhan_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>NguoiNhan_Id</th>
+<td mat-cell *matCellDef="let element">{{element.NguoiNhan_Id}}</td>
+</ng-container>
+<ng-container matColumnDef="GhiChu">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>GhiChu</th>
+<td mat-cell *matCellDef="let element">{{element.GhiChu}}</td>
+</ng-container>
+<ng-container matColumnDef="TrangThai">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>TrangThai</th>
+<td mat-cell *matCellDef="let element">{{element.TrangThai}}</td>
+</ng-container>
+<ng-container matColumnDef="NgayTao">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>NgayTao</th>
+<td mat-cell *matCellDef="let element">{{element.NgayTao}}</td>
+</ng-container>
+<ng-container matColumnDef="NguoiTao_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>NguoiTao_Id</th>
+<td mat-cell *matCellDef="let element">{{element.NguoiTao_Id}}</td>
+</ng-container>
+<ng-container matColumnDef="NgayCapNhat">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>NgayCapNhat</th>
+<td mat-cell *matCellDef="let element">{{element.NgayCapNhat}}</td>
+</ng-container>
+<ng-container matColumnDef="NguoiCapNhat_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>NguoiCapNhat_Id</th>
+<td mat-cell *matCellDef="let element">{{element.NguoiCapNhat_Id}}</td>
+</ng-container>
+<ng-container matColumnDef="DienGiaiNghiepVuPhatSinh">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DienGiaiNghiepVuPhatSinh</th>
+<td mat-cell *matCellDef="let element">{{element.DienGiaiNghiepVuPhatSinh}}</td>
+</ng-container>
+<ng-container matColumnDef="ThoiGianTra">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ThoiGianTra</th>
+<td mat-cell *matCellDef="let element">{{element.ThoiGianTra}}</td>
+</ng-container>
+<ng-container matColumnDef="ChungTu_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ChungTu_Id</th>
+<td mat-cell *matCellDef="let element">{{element.ChungTu_Id}}</td>
+</ng-container>
+
+                        <tr mat-header-row *matHeaderRowDef="NoiTru_TraThuocService.DisplayColumns001">
+                        </tr>
+                        <tr mat-row *matRowDef="let row; columns: NoiTru_TraThuocService.DisplayColumns001;">
+                        </tr>
+                    </table>
+                    <mat-paginator *ngIf="!NotificationService.IsMobile" #NoiTru_TraThuocPaginator="matPaginator"
+                                   [pageSizeOptions]="[10,20,50,100]" [pageSize]="20" [showFirstLastButtons]></mat-paginator>
+
+                    <table *ngIf="NotificationService.IsMobile" mat-table matSort #NoiTru_TraThuocSort="matSort"
+                           [dataSource]="NoiTru_TraThuocService.DataSource" class="table table-striped m-0">
+                        <ng-container matColumnDef="STT">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                                Danh sách
+                            </th>
+                            <td mat-cell *matCellDef="let element; index as i;">
+                                <div class="row gx-4">
+                                    <div class="col-lg-12 col-sm-12 col-12">
+<label>NoiTru_TraThuoc_Id</label>
+<br />
+<label class="form-label">{{element.NoiTru_TraThuoc_Id}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>SoPhieu</label>
+<br />
+<label class="form-label">{{element.SoPhieu}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>BenhAn_Id</label>
+<br />
+<label class="form-label">{{element.BenhAn_Id}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>LuuTru_Id</label>
+<br />
+<label class="form-label">{{element.LuuTru_Id}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>NgayTra</label>
+<br />
+<label class="form-label">{{element.NgayTra}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>NguoiNhan_Id</label>
+<br />
+<label class="form-label">{{element.NguoiNhan_Id}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>GhiChu</label>
+<br />
+<label class="form-label">{{element.GhiChu}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>TrangThai</label>
+<br />
+<label class="form-label">{{element.TrangThai}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>NgayTao</label>
+<br />
+<label class="form-label">{{element.NgayTao}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>NguoiTao_Id</label>
+<br />
+<label class="form-label">{{element.NguoiTao_Id}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>NgayCapNhat</label>
+<br />
+<label class="form-label">{{element.NgayCapNhat}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>NguoiCapNhat_Id</label>
+<br />
+<label class="form-label">{{element.NguoiCapNhat_Id}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>DienGiaiNghiepVuPhatSinh</label>
+<br />
+<label class="form-label">{{element.DienGiaiNghiepVuPhatSinh}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>ThoiGianTra</label>
+<br />
+<label class="form-label">{{element.ThoiGianTra}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>ChungTu_Id</label>
+<br />
+<label class="form-label">{{element.ChungTu_Id}}</label>
+</div>
+
+                                </div>
+                                <div class="row gx-4">
+                                    <div class="col s6 m6 l6">
+                                        <a (click)="NoiTru_TraThuocSave(element)" style="color:#2196f3;">
+                                            <i class="material-icons">save</i>
+                                        </a>
+                                    </div>
+                                    <div class="col s6 m6 l6">
+                                        <a (click)="NoiTru_TraThuocDelete(element)"
+                                           style="color: red;"><i class="material-icons">delete_forever</i></a>
+                                    </div>
+                                </div>
+                                <br />
+                            </td>
+                        </ng-container>
+                        <tr mat-header-row *matHeaderRowDef="NoiTru_TraThuocService.DisplayColumnsMobile">
+                        </tr>
+                        <tr mat-row *matRowDef="let row; columns: NoiTru_TraThuocService.DisplayColumnsMobile;">
+                        </tr>
+                    </table>
+                    <mat-paginator *ngIf="NotificationService.IsMobile" #NoiTru_TraThuocPaginator="matPaginator"
+                                   [pageSizeOptions]="[10,20,50,100]" [pageSize]="10000" [showFirstLastButtons]></mat-paginator>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-loading *ngIf="NoiTru_TraThuocService.IsShowLoading"></app-loading>
+

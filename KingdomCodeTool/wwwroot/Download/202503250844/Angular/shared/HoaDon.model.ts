@@ -1,0 +1,70 @@
+﻿import { Base } from "./Base.model";
+
+export class HoaDon extends Base{
+HoaDon_Id?: number;
+SoHoaDon?: string;
+LoaiHoaDon?: string;
+TiepNhan_Id?: number;
+BenhNhan_Id?: number;
+NgayPhatSinh?: Date;
+ThoiGianPhatSinh?: Date;
+NoiPhatSinh_Id?: number;
+NguoiLap_Id?: number;
+NgayTra?: Date;
+ThoiGianTra?: Date;
+NguoiTra_Id?: number;
+NoiTra_Id?: number;
+NgayHoaDon?: Date;
+ThoiGianHoaDon?: Date;
+NoiThuTien_Id?: number;
+NguoiThuTien_Id?: number;
+GiaTriHoaDon?: string;
+GiaTriVAT?: string;
+GiaTriThucThu?: string;
+HinhThucThanhToan_Id?: number;
+TienTe_Id?: string;
+TyGia?: string;
+GiaTriVND?: string;
+DaThanhToan?: boolean;
+NgoaiGio?: boolean;
+HuyHoaDon?: boolean;
+HoanTra?: boolean;
+HoaDonLienQuan_Id?: number;
+GhiChu?: string;
+TrangThai?: string;
+DangKyHoaDon_Id?: number;
+SoSerieVAT?: string;
+SoHoaDonVAT?: number;
+KH_MaSoThue?: string;
+KH_TenCongTy?: string;
+KH_DiaChi?: string;
+KH_NguoiDaiDien?: string;
+NgayTao?: Date;
+NguoiTao_Id?: number;
+NgayCapNhat?: Date;
+NguoiCapNhat_Id?: number;
+IDChuyen?: number;
+Status?: number;
+Transfer_VienPhi_Id?: number;
+DoiTuong_Id?: number;
+InLai?: number;
+InLai_User_Id?: number;
+IDChuyenHuy?: number;
+IDChuyenHoan?: number;
+ThuHD_BL?: string;
+NgayKhoaGoi?: Date;
+TenCongTy?: string;
+MaSoThue?: string;
+DiaChiCongTy?: string;
+NhomThanhToan_ID?: number;
+HoaDonDoiUng?: string;
+ChuyenChungTuID?: number;
+ChuyenChungTuHoanID?: number;
+ChuyenChungTuHuyID?: number;
+ChuyenDoanhThuID?: number;
+ChuyenDoanhThuHoanID?: number;
+ChuyenDoanhThuHuyID?: number;
+
+}
+
+

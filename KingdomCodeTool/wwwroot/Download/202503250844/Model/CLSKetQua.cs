@@ -1,0 +1,135 @@
+﻿namespace Data_eHospital_DongNai_A.Model
+{
+    public partial class CLSKetQua : BaseModel
+    {
+        [Key]
+        public int? CLSKetQua_Id { get; set; }
+public int? CLSYeuCau_Id { get; set; }
+public DateTime? NgayThucHien { get; set; }
+public DateTime? ThoiGianThucHien { get; set; }
+public DateTime? NgayGioThucHien { get; set; }
+public int? GioThucHien { get; set; }
+public int? NamThucHien { get; set; }
+public int? ThangThucHien { get; set; }
+public int? NoiThucHien_Id { get; set; }
+public int? BacSiThucHien_Id { get; set; }
+public int? KyThuatVien01_Id { get; set; }
+public int? KyThuatVien02_Id { get; set; }
+public int? BacSiKetLuan_Id { get; set; }
+public bool? ThucHienBenNgoai { get; set; }
+public int? BenhVienThucHien_Id { get; set; }
+public string? TenBacSiBenNgoai { get; set; }
+public string? VungKhaoSat { get; set; }
+public string? MoTa { get; set; }
+public string? MoTa_Text { get; set; }
+public string? KetLuan { get; set; }
+public string? GhiChu { get; set; }
+public int? NhomDichVu_Id { get; set; }
+public string? MaPhim { get; set; }
+public bool? TiemCanQuang { get; set; }
+public decimal? SoPhimSuDung { get; set; }
+public decimal? SoThuocSuDung { get; set; }
+public bool? SinhThiet { get; set; }
+public bool? Clotest { get; set; }
+public bool? Photo { get; set; }
+public bool? Video { get; set; }
+public string? Mach { get; set; }
+public string? HuyetAp { get; set; }
+public string? NhipTho { get; set; }
+public string? NhietDo { get; set; }
+public string? ChieuCao { get; set; }
+public string? CanNang { get; set; }
+public string? BSA { get; set; }
+public int? ThietBi_Id { get; set; }
+public int? PhanLoaiKetQua_Id { get; set; }
+public bool? KhoaDuLieu { get; set; }
+public DateTime? NgayKhoaDuLieu { get; set; }
+public DateTime? ThoiGianKhoaDuLieu { get; set; }
+public int? NguoiKhoa_Id { get; set; }
+public int? MaNguoiKhoa { get; set; }
+public string? TenNguoiKhoa { get; set; }
+public string? TrangThai { get; set; }
+public DateTime? NgayTao { get; set; }
+public int? NguoiTao_Id { get; set; }
+public DateTime? NgayCapNhat { get; set; }
+public int? NguoiCapNhat_Id { get; set; }
+public string? TinhTrangDienNao { get; set; }
+public string? GPB_AmSo { get; set; }
+public int? GPB_PhanLoaiKetQua_Id { get; set; }
+public int? GPB_PhuongPhapLayBenhPham_Id { get; set; }
+public string? GPB_SoMau { get; set; }
+public int? GPB_SoLuongMau { get; set; }
+public int? GPB_Topo_Id { get; set; }
+public int? GPB_TopoRegions_Id { get; set; }
+public int? GPB_Morpho_Id { get; set; }
+public int? GPB_Etio_Id { get; set; }
+public string? GPB_DaiThe { get; set; }
+public string? GPB_ViThe { get; set; }
+public bool? GPB_Nhuom_HE { get; set; }
+public bool? GPB_Nhuom_PAS { get; set; }
+public bool? GPB_Nhuom_Tri { get; set; }
+public bool? GPB_Nhuom_AFB { get; set; }
+public bool? GPB_Nhuom_Giemsa { get; set; }
+public bool? GPB_Nhuom_Other { get; set; }
+public bool? GPB_HoaMienDich { get; set; }
+public bool? GPB_HoaMienDichHuynhQuang { get; set; }
+public bool? GPB_HoiChan { get; set; }
+public string? SoVaoVien { get; set; }
+public string? MaYTe { get; set; }
+public string? TenBenhNhan { get; set; }
+public int? NamSinh { get; set; }
+public string? GioiTinh { get; set; }
+public string? DiaChi { get; set; }
+public int? NoiChiDinh_Id { get; set; }
+public string? BacSiChiDinh { get; set; }
+public DateTime? NgayChiDinh { get; set; }
+public int? MauThu_Id { get; set; }
+public DateTime? ThoiGiannhan { get; set; }
+public string? Mau { get; set; }
+public string? DeNghi { get; set; }
+public int? LoaiFilm_Id { get; set; }
+public int? LoaiThuocCanQuang_Id { get; set; }
+public string? Ma { get; set; }
+public string? IDHinh { get; set; }
+public int? BacSiChiDinh_Id { get; set; }
+public string? SoPhimHu { get; set; }
+public int? LoaiPhimHu_Id { get; set; }
+public string? DoSoi { get; set; }
+public int? DoSoi_Id { get; set; }
+public string? BanKinhSoi { get; set; }
+public string? ChanDoanLamSang { get; set; }
+public string? SoDT { get; set; }
+public string? KyThuat { get; set; }
+public string? KyThuat_Text { get; set; }
+public decimal? SoPhimSuDung2 { get; set; }
+public int? LoaiFilm_Id2 { get; set; }
+public decimal? SoPhimSuDung3 { get; set; }
+public int? LoaiFilm_Id3 { get; set; }
+public string? ResistanceMarkers { get; set; }
+public string? SiteCode { get; set; }
+public int? NoiThucHien_ID_2 { get; set; }
+public string? TenNoiThucHien_2 { get; set; }
+public int? BacSiThucHien_ID_2 { get; set; }
+public string? TenBacSiThucHien_2 { get; set; }
+public int? BacSiKetLuan_ID_2 { get; set; }
+public string? TenBacSiKetLuan_2 { get; set; }
+public int? KyThuatVien01_ID_2 { get; set; }
+public string? TenKyThuatVien01_2 { get; set; }
+public int? KyThuatVien02_ID_2 { get; set; }
+public string? TenKyThuatVien02_2 { get; set; }
+public int? NguoiTao_ID_2 { get; set; }
+public int? NguoiCapNhat_ID_2 { get; set; }
+public bool? DicomImageAvailable { get; set; }
+public string? DicomImageResultDate { get; set; }
+public DateTime? DicomImageResultDateTime { get; set; }
+public string? DicomImageStudyInstanceUID { get; set; }
+public string? DicomImageOpenViewURL { get; set; }
+public DateTime? ThoiGianNhanMau { get; set; }
+public DateTime? ThoiGianKetQua { get; set; }
+
+        public CLSKetQua()
+        {
+        }
+    }
+}
+

@@ -1,0 +1,108 @@
+﻿<div class="row">
+    <div id="breadcrumbs-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m6 l6">
+                    <h6 class="breadcrumbs-title">
+                        CLSKetQuaKhangSinhDo:
+                        <b>{{CLSKetQuaKhangSinhDoService.FormData.KetQuaKhangSinhDo_Id}} [{{CLSKetQuaKhangSinhDoService.FormData.KetQuaKhangSinhDo_Id}}]</b>
+                    </h6>
+                </div>
+                <div class="col s12 m6 l6 right-align-md">
+                    <ol class="breadcrumbs mb-0">
+                        <li class="breadcrumb-item">
+                            <a href="javascript:history.back()" title="Quay lại">
+                                <<< Quay lại
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/Homepage" title="Trang chủ">Trang chủ</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="#" title="eHospital_DongNai_A/">eHospital_DongNai_A/</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/CLSKetQuaKhangSinhDo" title="CLSKetQuaKhangSinhDo">
+                                CLSKetQuaKhangSinhDo
+                            </a>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col s12 m12 l12">
+        <div class="card card card-default scrollspy">
+            <div class="card-content">
+                <div class="row">
+                    <div class="col s6 m6 l12">
+                        <a title="Quay lại" href="javascript:history.back()" style="color: green;">
+                            <i class="material-icons">more</i>
+                        </a>
+                        <!--<a title="Thêm mới" (click)="CLSKetQuaKhangSinhDoAdd()" style="color: green;"><i
+                class="material-icons">add_box</i></a>-->
+                        <a title="Lưu thay đổi" (click)="CLSKetQuaKhangSinhDoSave()" style="color:#2196f3;">
+                            <i class="material-icons">save</i>
+                        </a>
+                    </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12 m12 l12">
+                            <div>
+<label>KetQuaKhangSinhDo_Id</label>
+<input placeholder="KetQuaKhangSinhDo_Id" [(ngModel)]="CLSKetQuaKhangSinhDoService.FormData.KetQuaKhangSinhDo_Id"  name="CLSKetQuaKhangSinhDoService.FormData.KetQuaKhangSinhDo_Id" type="text" class="form-control">
+</div>
+<div>
+<label>CLSKetQua_Id</label>
+<input placeholder="CLSKetQua_Id" [(ngModel)]="CLSKetQuaKhangSinhDoService.FormData.CLSKetQua_Id"  name="CLSKetQuaKhangSinhDoService.FormData.CLSKetQua_Id" type="text" class="form-control">
+</div>
+<div>
+<label>KhangSinhDo_Id</label>
+<input placeholder="KhangSinhDo_Id" [(ngModel)]="CLSKetQuaKhangSinhDoService.FormData.KhangSinhDo_Id"  name="CLSKetQuaKhangSinhDoService.FormData.KhangSinhDo_Id" type="text" class="form-control">
+</div>
+<div>
+<label>NhomKhangSinhDo_Id</label>
+<input placeholder="NhomKhangSinhDo_Id" [(ngModel)]="CLSKetQuaKhangSinhDoService.FormData.NhomKhangSinhDo_Id"  name="CLSKetQuaKhangSinhDoService.FormData.NhomKhangSinhDo_Id" type="text" class="form-control">
+</div>
+<div>
+<label>TenNguonXetNghiem</label>
+<input placeholder="TenNguonXetNghiem" [(ngModel)]="CLSKetQuaKhangSinhDoService.FormData.TenNguonXetNghiem"  name="CLSKetQuaKhangSinhDoService.FormData.TenNguonXetNghiem" type="text" class="form-control">
+</div>
+<div>
+<label>KetQua</label>
+<input placeholder="KetQua" [(ngModel)]="CLSKetQuaKhangSinhDoService.FormData.KetQua"  name="CLSKetQuaKhangSinhDoService.FormData.KetQua" type="text" class="form-control">
+</div>
+<div>
+<label>KhangSinhDo</label>
+<input placeholder="KhangSinhDo" [(ngModel)]="CLSKetQuaKhangSinhDoService.FormData.KhangSinhDo"  name="CLSKetQuaKhangSinhDoService.FormData.KhangSinhDo" type="text" class="form-control">
+</div>
+<div>
+<label>TenKetQua</label>
+<input placeholder="TenKetQua" [(ngModel)]="CLSKetQuaKhangSinhDoService.FormData.TenKetQua"  name="CLSKetQuaKhangSinhDoService.FormData.TenKetQua" type="text" class="form-control">
+</div>
+<div>
+<label>CapTren_Id</label>
+<input placeholder="CapTren_Id" [(ngModel)]="CLSKetQuaKhangSinhDoService.FormData.CapTren_Id"  name="CLSKetQuaKhangSinhDoService.FormData.CapTren_Id" type="text" class="form-control">
+</div>
+<div>
+<label>InstrMIC</label>
+<input placeholder="InstrMIC" [(ngModel)]="CLSKetQuaKhangSinhDoService.FormData.InstrMIC"  name="CLSKetQuaKhangSinhDoService.FormData.InstrMIC" type="text" class="form-control">
+</div>
+<div>
+<label>FinalSIR</label>
+<input placeholder="FinalSIR" [(ngModel)]="CLSKetQuaKhangSinhDoService.FormData.FinalSIR"  name="CLSKetQuaKhangSinhDoService.FormData.FinalSIR" type="text" class="form-control">
+</div>
+<div>
+<label>Rules</label>
+<input placeholder="Rules" [(ngModel)]="CLSKetQuaKhangSinhDoService.FormData.Rules"  name="CLSKetQuaKhangSinhDoService.FormData.Rules" type="text" class="form-control">
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <app-loading *ngIf="CLSKetQuaKhangSinhDoService.IsShowLoading"></app-loading>
+

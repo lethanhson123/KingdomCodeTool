@@ -1,0 +1,552 @@
+﻿<div class="row">
+    <div id="breadcrumbs-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m6 l6">
+                    <h6 class="breadcrumbs-title">
+                        CLSKetQua:
+                        <b>{{CLSKetQuaService.FormData.CLSKetQua_Id}} [{{CLSKetQuaService.FormData.CLSKetQua_Id}}]</b>
+                    </h6>
+                </div>
+                <div class="col s12 m6 l6 right-align-md">
+                    <ol class="breadcrumbs mb-0">
+                        <li class="breadcrumb-item">
+                            <a href="javascript:history.back()" title="Quay lại">
+                                <<< Quay lại
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/Homepage" title="Trang chủ">Trang chủ</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="#" title="eHospital_DongNai_A/">eHospital_DongNai_A/</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/CLSKetQua" title="CLSKetQua">
+                                CLSKetQua
+                            </a>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col s12 m12 l12">
+        <div class="card card card-default scrollspy">
+            <div class="card-content">
+                <div class="row">
+                    <div class="col s6 m6 l12">
+                        <a title="Quay lại" href="javascript:history.back()" style="color: green;">
+                            <i class="material-icons">more</i>
+                        </a>
+                        <!--<a title="Thêm mới" (click)="CLSKetQuaAdd()" style="color: green;"><i
+                class="material-icons">add_box</i></a>-->
+                        <a title="Lưu thay đổi" (click)="CLSKetQuaSave()" style="color:#2196f3;">
+                            <i class="material-icons">save</i>
+                        </a>
+                    </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12 m12 l12">
+                            <div>
+<label>CLSKetQua_Id</label>
+<input placeholder="CLSKetQua_Id" [(ngModel)]="CLSKetQuaService.FormData.CLSKetQua_Id"  name="CLSKetQuaService.FormData.CLSKetQua_Id" type="text" class="form-control">
+</div>
+<div>
+<label>CLSYeuCau_Id</label>
+<input placeholder="CLSYeuCau_Id" [(ngModel)]="CLSKetQuaService.FormData.CLSYeuCau_Id"  name="CLSKetQuaService.FormData.CLSYeuCau_Id" type="text" class="form-control">
+</div>
+<div>
+<label>NgayThucHien</label>
+<input placeholder="NgayThucHien" [(ngModel)]="CLSKetQuaService.FormData.NgayThucHien"  name="CLSKetQuaService.FormData.NgayThucHien" type="text" class="form-control">
+</div>
+<div>
+<label>ThoiGianThucHien</label>
+<input placeholder="ThoiGianThucHien" [(ngModel)]="CLSKetQuaService.FormData.ThoiGianThucHien"  name="CLSKetQuaService.FormData.ThoiGianThucHien" type="text" class="form-control">
+</div>
+<div>
+<label>NgayGioThucHien</label>
+<input placeholder="NgayGioThucHien" [(ngModel)]="CLSKetQuaService.FormData.NgayGioThucHien"  name="CLSKetQuaService.FormData.NgayGioThucHien" type="text" class="form-control">
+</div>
+<div>
+<label>GioThucHien</label>
+<input placeholder="GioThucHien" [(ngModel)]="CLSKetQuaService.FormData.GioThucHien"  name="CLSKetQuaService.FormData.GioThucHien" type="text" class="form-control">
+</div>
+<div>
+<label>NamThucHien</label>
+<input placeholder="NamThucHien" [(ngModel)]="CLSKetQuaService.FormData.NamThucHien"  name="CLSKetQuaService.FormData.NamThucHien" type="text" class="form-control">
+</div>
+<div>
+<label>ThangThucHien</label>
+<input placeholder="ThangThucHien" [(ngModel)]="CLSKetQuaService.FormData.ThangThucHien"  name="CLSKetQuaService.FormData.ThangThucHien" type="text" class="form-control">
+</div>
+<div>
+<label>NoiThucHien_Id</label>
+<input placeholder="NoiThucHien_Id" [(ngModel)]="CLSKetQuaService.FormData.NoiThucHien_Id"  name="CLSKetQuaService.FormData.NoiThucHien_Id" type="text" class="form-control">
+</div>
+<div>
+<label>BacSiThucHien_Id</label>
+<input placeholder="BacSiThucHien_Id" [(ngModel)]="CLSKetQuaService.FormData.BacSiThucHien_Id"  name="CLSKetQuaService.FormData.BacSiThucHien_Id" type="text" class="form-control">
+</div>
+<div>
+<label>KyThuatVien01_Id</label>
+<input placeholder="KyThuatVien01_Id" [(ngModel)]="CLSKetQuaService.FormData.KyThuatVien01_Id"  name="CLSKetQuaService.FormData.KyThuatVien01_Id" type="text" class="form-control">
+</div>
+<div>
+<label>KyThuatVien02_Id</label>
+<input placeholder="KyThuatVien02_Id" [(ngModel)]="CLSKetQuaService.FormData.KyThuatVien02_Id"  name="CLSKetQuaService.FormData.KyThuatVien02_Id" type="text" class="form-control">
+</div>
+<div>
+<label>BacSiKetLuan_Id</label>
+<input placeholder="BacSiKetLuan_Id" [(ngModel)]="CLSKetQuaService.FormData.BacSiKetLuan_Id"  name="CLSKetQuaService.FormData.BacSiKetLuan_Id" type="text" class="form-control">
+</div>
+<div>
+<label>ThucHienBenNgoai</label>
+<input placeholder="ThucHienBenNgoai" [(ngModel)]="CLSKetQuaService.FormData.ThucHienBenNgoai"  name="CLSKetQuaService.FormData.ThucHienBenNgoai" type="text" class="form-control">
+</div>
+<div>
+<label>BenhVienThucHien_Id</label>
+<input placeholder="BenhVienThucHien_Id" [(ngModel)]="CLSKetQuaService.FormData.BenhVienThucHien_Id"  name="CLSKetQuaService.FormData.BenhVienThucHien_Id" type="text" class="form-control">
+</div>
+<div>
+<label>TenBacSiBenNgoai</label>
+<input placeholder="TenBacSiBenNgoai" [(ngModel)]="CLSKetQuaService.FormData.TenBacSiBenNgoai"  name="CLSKetQuaService.FormData.TenBacSiBenNgoai" type="text" class="form-control">
+</div>
+<div>
+<label>VungKhaoSat</label>
+<input placeholder="VungKhaoSat" [(ngModel)]="CLSKetQuaService.FormData.VungKhaoSat"  name="CLSKetQuaService.FormData.VungKhaoSat" type="text" class="form-control">
+</div>
+<div>
+<label>MoTa</label>
+<input placeholder="MoTa" [(ngModel)]="CLSKetQuaService.FormData.MoTa"  name="CLSKetQuaService.FormData.MoTa" type="text" class="form-control">
+</div>
+<div>
+<label>MoTa_Text</label>
+<input placeholder="MoTa_Text" [(ngModel)]="CLSKetQuaService.FormData.MoTa_Text"  name="CLSKetQuaService.FormData.MoTa_Text" type="text" class="form-control">
+</div>
+<div>
+<label>KetLuan</label>
+<input placeholder="KetLuan" [(ngModel)]="CLSKetQuaService.FormData.KetLuan"  name="CLSKetQuaService.FormData.KetLuan" type="text" class="form-control">
+</div>
+<div>
+<label>GhiChu</label>
+<input placeholder="GhiChu" [(ngModel)]="CLSKetQuaService.FormData.GhiChu"  name="CLSKetQuaService.FormData.GhiChu" type="text" class="form-control">
+</div>
+<div>
+<label>NhomDichVu_Id</label>
+<input placeholder="NhomDichVu_Id" [(ngModel)]="CLSKetQuaService.FormData.NhomDichVu_Id"  name="CLSKetQuaService.FormData.NhomDichVu_Id" type="text" class="form-control">
+</div>
+<div>
+<label>MaPhim</label>
+<input placeholder="MaPhim" [(ngModel)]="CLSKetQuaService.FormData.MaPhim"  name="CLSKetQuaService.FormData.MaPhim" type="text" class="form-control">
+</div>
+<div>
+<label>TiemCanQuang</label>
+<input placeholder="TiemCanQuang" [(ngModel)]="CLSKetQuaService.FormData.TiemCanQuang"  name="CLSKetQuaService.FormData.TiemCanQuang" type="text" class="form-control">
+</div>
+<div>
+<label>SoPhimSuDung</label>
+<input placeholder="SoPhimSuDung" [(ngModel)]="CLSKetQuaService.FormData.SoPhimSuDung"  name="CLSKetQuaService.FormData.SoPhimSuDung" type="text" class="form-control">
+</div>
+<div>
+<label>SoThuocSuDung</label>
+<input placeholder="SoThuocSuDung" [(ngModel)]="CLSKetQuaService.FormData.SoThuocSuDung"  name="CLSKetQuaService.FormData.SoThuocSuDung" type="text" class="form-control">
+</div>
+<div>
+<label>SinhThiet</label>
+<input placeholder="SinhThiet" [(ngModel)]="CLSKetQuaService.FormData.SinhThiet"  name="CLSKetQuaService.FormData.SinhThiet" type="text" class="form-control">
+</div>
+<div>
+<label>Clotest</label>
+<input placeholder="Clotest" [(ngModel)]="CLSKetQuaService.FormData.Clotest"  name="CLSKetQuaService.FormData.Clotest" type="text" class="form-control">
+</div>
+<div>
+<label>Photo</label>
+<input placeholder="Photo" [(ngModel)]="CLSKetQuaService.FormData.Photo"  name="CLSKetQuaService.FormData.Photo" type="text" class="form-control">
+</div>
+<div>
+<label>Video</label>
+<input placeholder="Video" [(ngModel)]="CLSKetQuaService.FormData.Video"  name="CLSKetQuaService.FormData.Video" type="text" class="form-control">
+</div>
+<div>
+<label>Mach</label>
+<input placeholder="Mach" [(ngModel)]="CLSKetQuaService.FormData.Mach"  name="CLSKetQuaService.FormData.Mach" type="text" class="form-control">
+</div>
+<div>
+<label>HuyetAp</label>
+<input placeholder="HuyetAp" [(ngModel)]="CLSKetQuaService.FormData.HuyetAp"  name="CLSKetQuaService.FormData.HuyetAp" type="text" class="form-control">
+</div>
+<div>
+<label>NhipTho</label>
+<input placeholder="NhipTho" [(ngModel)]="CLSKetQuaService.FormData.NhipTho"  name="CLSKetQuaService.FormData.NhipTho" type="text" class="form-control">
+</div>
+<div>
+<label>NhietDo</label>
+<input placeholder="NhietDo" [(ngModel)]="CLSKetQuaService.FormData.NhietDo"  name="CLSKetQuaService.FormData.NhietDo" type="text" class="form-control">
+</div>
+<div>
+<label>ChieuCao</label>
+<input placeholder="ChieuCao" [(ngModel)]="CLSKetQuaService.FormData.ChieuCao"  name="CLSKetQuaService.FormData.ChieuCao" type="text" class="form-control">
+</div>
+<div>
+<label>CanNang</label>
+<input placeholder="CanNang" [(ngModel)]="CLSKetQuaService.FormData.CanNang"  name="CLSKetQuaService.FormData.CanNang" type="text" class="form-control">
+</div>
+<div>
+<label>BSA</label>
+<input placeholder="BSA" [(ngModel)]="CLSKetQuaService.FormData.BSA"  name="CLSKetQuaService.FormData.BSA" type="text" class="form-control">
+</div>
+<div>
+<label>ThietBi_Id</label>
+<input placeholder="ThietBi_Id" [(ngModel)]="CLSKetQuaService.FormData.ThietBi_Id"  name="CLSKetQuaService.FormData.ThietBi_Id" type="text" class="form-control">
+</div>
+<div>
+<label>PhanLoaiKetQua_Id</label>
+<input placeholder="PhanLoaiKetQua_Id" [(ngModel)]="CLSKetQuaService.FormData.PhanLoaiKetQua_Id"  name="CLSKetQuaService.FormData.PhanLoaiKetQua_Id" type="text" class="form-control">
+</div>
+<div>
+<label>KhoaDuLieu</label>
+<input placeholder="KhoaDuLieu" [(ngModel)]="CLSKetQuaService.FormData.KhoaDuLieu"  name="CLSKetQuaService.FormData.KhoaDuLieu" type="text" class="form-control">
+</div>
+<div>
+<label>NgayKhoaDuLieu</label>
+<input placeholder="NgayKhoaDuLieu" [(ngModel)]="CLSKetQuaService.FormData.NgayKhoaDuLieu"  name="CLSKetQuaService.FormData.NgayKhoaDuLieu" type="text" class="form-control">
+</div>
+<div>
+<label>ThoiGianKhoaDuLieu</label>
+<input placeholder="ThoiGianKhoaDuLieu" [(ngModel)]="CLSKetQuaService.FormData.ThoiGianKhoaDuLieu"  name="CLSKetQuaService.FormData.ThoiGianKhoaDuLieu" type="text" class="form-control">
+</div>
+<div>
+<label>NguoiKhoa_Id</label>
+<input placeholder="NguoiKhoa_Id" [(ngModel)]="CLSKetQuaService.FormData.NguoiKhoa_Id"  name="CLSKetQuaService.FormData.NguoiKhoa_Id" type="text" class="form-control">
+</div>
+<div>
+<label>MaNguoiKhoa</label>
+<input placeholder="MaNguoiKhoa" [(ngModel)]="CLSKetQuaService.FormData.MaNguoiKhoa"  name="CLSKetQuaService.FormData.MaNguoiKhoa" type="text" class="form-control">
+</div>
+<div>
+<label>TenNguoiKhoa</label>
+<input placeholder="TenNguoiKhoa" [(ngModel)]="CLSKetQuaService.FormData.TenNguoiKhoa"  name="CLSKetQuaService.FormData.TenNguoiKhoa" type="text" class="form-control">
+</div>
+<div>
+<label>TrangThai</label>
+<input placeholder="TrangThai" [(ngModel)]="CLSKetQuaService.FormData.TrangThai"  name="CLSKetQuaService.FormData.TrangThai" type="text" class="form-control">
+</div>
+<div>
+<label>NgayTao</label>
+<input placeholder="NgayTao" [(ngModel)]="CLSKetQuaService.FormData.NgayTao"  name="CLSKetQuaService.FormData.NgayTao" type="text" class="form-control">
+</div>
+<div>
+<label>NguoiTao_Id</label>
+<input placeholder="NguoiTao_Id" [(ngModel)]="CLSKetQuaService.FormData.NguoiTao_Id"  name="CLSKetQuaService.FormData.NguoiTao_Id" type="text" class="form-control">
+</div>
+<div>
+<label>NgayCapNhat</label>
+<input placeholder="NgayCapNhat" [(ngModel)]="CLSKetQuaService.FormData.NgayCapNhat"  name="CLSKetQuaService.FormData.NgayCapNhat" type="text" class="form-control">
+</div>
+<div>
+<label>NguoiCapNhat_Id</label>
+<input placeholder="NguoiCapNhat_Id" [(ngModel)]="CLSKetQuaService.FormData.NguoiCapNhat_Id"  name="CLSKetQuaService.FormData.NguoiCapNhat_Id" type="text" class="form-control">
+</div>
+<div>
+<label>TinhTrangDienNao</label>
+<input placeholder="TinhTrangDienNao" [(ngModel)]="CLSKetQuaService.FormData.TinhTrangDienNao"  name="CLSKetQuaService.FormData.TinhTrangDienNao" type="text" class="form-control">
+</div>
+<div>
+<label>GPB_AmSo</label>
+<input placeholder="GPB_AmSo" [(ngModel)]="CLSKetQuaService.FormData.GPB_AmSo"  name="CLSKetQuaService.FormData.GPB_AmSo" type="text" class="form-control">
+</div>
+<div>
+<label>GPB_PhanLoaiKetQua_Id</label>
+<input placeholder="GPB_PhanLoaiKetQua_Id" [(ngModel)]="CLSKetQuaService.FormData.GPB_PhanLoaiKetQua_Id"  name="CLSKetQuaService.FormData.GPB_PhanLoaiKetQua_Id" type="text" class="form-control">
+</div>
+<div>
+<label>GPB_PhuongPhapLayBenhPham_Id</label>
+<input placeholder="GPB_PhuongPhapLayBenhPham_Id" [(ngModel)]="CLSKetQuaService.FormData.GPB_PhuongPhapLayBenhPham_Id"  name="CLSKetQuaService.FormData.GPB_PhuongPhapLayBenhPham_Id" type="text" class="form-control">
+</div>
+<div>
+<label>GPB_SoMau</label>
+<input placeholder="GPB_SoMau" [(ngModel)]="CLSKetQuaService.FormData.GPB_SoMau"  name="CLSKetQuaService.FormData.GPB_SoMau" type="text" class="form-control">
+</div>
+<div>
+<label>GPB_SoLuongMau</label>
+<input placeholder="GPB_SoLuongMau" [(ngModel)]="CLSKetQuaService.FormData.GPB_SoLuongMau"  name="CLSKetQuaService.FormData.GPB_SoLuongMau" type="text" class="form-control">
+</div>
+<div>
+<label>GPB_Topo_Id</label>
+<input placeholder="GPB_Topo_Id" [(ngModel)]="CLSKetQuaService.FormData.GPB_Topo_Id"  name="CLSKetQuaService.FormData.GPB_Topo_Id" type="text" class="form-control">
+</div>
+<div>
+<label>GPB_TopoRegions_Id</label>
+<input placeholder="GPB_TopoRegions_Id" [(ngModel)]="CLSKetQuaService.FormData.GPB_TopoRegions_Id"  name="CLSKetQuaService.FormData.GPB_TopoRegions_Id" type="text" class="form-control">
+</div>
+<div>
+<label>GPB_Morpho_Id</label>
+<input placeholder="GPB_Morpho_Id" [(ngModel)]="CLSKetQuaService.FormData.GPB_Morpho_Id"  name="CLSKetQuaService.FormData.GPB_Morpho_Id" type="text" class="form-control">
+</div>
+<div>
+<label>GPB_Etio_Id</label>
+<input placeholder="GPB_Etio_Id" [(ngModel)]="CLSKetQuaService.FormData.GPB_Etio_Id"  name="CLSKetQuaService.FormData.GPB_Etio_Id" type="text" class="form-control">
+</div>
+<div>
+<label>GPB_DaiThe</label>
+<input placeholder="GPB_DaiThe" [(ngModel)]="CLSKetQuaService.FormData.GPB_DaiThe"  name="CLSKetQuaService.FormData.GPB_DaiThe" type="text" class="form-control">
+</div>
+<div>
+<label>GPB_ViThe</label>
+<input placeholder="GPB_ViThe" [(ngModel)]="CLSKetQuaService.FormData.GPB_ViThe"  name="CLSKetQuaService.FormData.GPB_ViThe" type="text" class="form-control">
+</div>
+<div>
+<label>GPB_Nhuom_HE</label>
+<input placeholder="GPB_Nhuom_HE" [(ngModel)]="CLSKetQuaService.FormData.GPB_Nhuom_HE"  name="CLSKetQuaService.FormData.GPB_Nhuom_HE" type="text" class="form-control">
+</div>
+<div>
+<label>GPB_Nhuom_PAS</label>
+<input placeholder="GPB_Nhuom_PAS" [(ngModel)]="CLSKetQuaService.FormData.GPB_Nhuom_PAS"  name="CLSKetQuaService.FormData.GPB_Nhuom_PAS" type="text" class="form-control">
+</div>
+<div>
+<label>GPB_Nhuom_Tri</label>
+<input placeholder="GPB_Nhuom_Tri" [(ngModel)]="CLSKetQuaService.FormData.GPB_Nhuom_Tri"  name="CLSKetQuaService.FormData.GPB_Nhuom_Tri" type="text" class="form-control">
+</div>
+<div>
+<label>GPB_Nhuom_AFB</label>
+<input placeholder="GPB_Nhuom_AFB" [(ngModel)]="CLSKetQuaService.FormData.GPB_Nhuom_AFB"  name="CLSKetQuaService.FormData.GPB_Nhuom_AFB" type="text" class="form-control">
+</div>
+<div>
+<label>GPB_Nhuom_Giemsa</label>
+<input placeholder="GPB_Nhuom_Giemsa" [(ngModel)]="CLSKetQuaService.FormData.GPB_Nhuom_Giemsa"  name="CLSKetQuaService.FormData.GPB_Nhuom_Giemsa" type="text" class="form-control">
+</div>
+<div>
+<label>GPB_Nhuom_Other</label>
+<input placeholder="GPB_Nhuom_Other" [(ngModel)]="CLSKetQuaService.FormData.GPB_Nhuom_Other"  name="CLSKetQuaService.FormData.GPB_Nhuom_Other" type="text" class="form-control">
+</div>
+<div>
+<label>GPB_HoaMienDich</label>
+<input placeholder="GPB_HoaMienDich" [(ngModel)]="CLSKetQuaService.FormData.GPB_HoaMienDich"  name="CLSKetQuaService.FormData.GPB_HoaMienDich" type="text" class="form-control">
+</div>
+<div>
+<label>GPB_HoaMienDichHuynhQuang</label>
+<input placeholder="GPB_HoaMienDichHuynhQuang" [(ngModel)]="CLSKetQuaService.FormData.GPB_HoaMienDichHuynhQuang"  name="CLSKetQuaService.FormData.GPB_HoaMienDichHuynhQuang" type="text" class="form-control">
+</div>
+<div>
+<label>GPB_HoiChan</label>
+<input placeholder="GPB_HoiChan" [(ngModel)]="CLSKetQuaService.FormData.GPB_HoiChan"  name="CLSKetQuaService.FormData.GPB_HoiChan" type="text" class="form-control">
+</div>
+<div>
+<label>SoVaoVien</label>
+<input placeholder="SoVaoVien" [(ngModel)]="CLSKetQuaService.FormData.SoVaoVien"  name="CLSKetQuaService.FormData.SoVaoVien" type="text" class="form-control">
+</div>
+<div>
+<label>MaYTe</label>
+<input placeholder="MaYTe" [(ngModel)]="CLSKetQuaService.FormData.MaYTe"  name="CLSKetQuaService.FormData.MaYTe" type="text" class="form-control">
+</div>
+<div>
+<label>TenBenhNhan</label>
+<input placeholder="TenBenhNhan" [(ngModel)]="CLSKetQuaService.FormData.TenBenhNhan"  name="CLSKetQuaService.FormData.TenBenhNhan" type="text" class="form-control">
+</div>
+<div>
+<label>NamSinh</label>
+<input placeholder="NamSinh" [(ngModel)]="CLSKetQuaService.FormData.NamSinh"  name="CLSKetQuaService.FormData.NamSinh" type="text" class="form-control">
+</div>
+<div>
+<label>GioiTinh</label>
+<input placeholder="GioiTinh" [(ngModel)]="CLSKetQuaService.FormData.GioiTinh"  name="CLSKetQuaService.FormData.GioiTinh" type="text" class="form-control">
+</div>
+<div>
+<label>DiaChi</label>
+<input placeholder="DiaChi" [(ngModel)]="CLSKetQuaService.FormData.DiaChi"  name="CLSKetQuaService.FormData.DiaChi" type="text" class="form-control">
+</div>
+<div>
+<label>NoiChiDinh_Id</label>
+<input placeholder="NoiChiDinh_Id" [(ngModel)]="CLSKetQuaService.FormData.NoiChiDinh_Id"  name="CLSKetQuaService.FormData.NoiChiDinh_Id" type="text" class="form-control">
+</div>
+<div>
+<label>BacSiChiDinh</label>
+<input placeholder="BacSiChiDinh" [(ngModel)]="CLSKetQuaService.FormData.BacSiChiDinh"  name="CLSKetQuaService.FormData.BacSiChiDinh" type="text" class="form-control">
+</div>
+<div>
+<label>NgayChiDinh</label>
+<input placeholder="NgayChiDinh" [(ngModel)]="CLSKetQuaService.FormData.NgayChiDinh"  name="CLSKetQuaService.FormData.NgayChiDinh" type="text" class="form-control">
+</div>
+<div>
+<label>MauThu_Id</label>
+<input placeholder="MauThu_Id" [(ngModel)]="CLSKetQuaService.FormData.MauThu_Id"  name="CLSKetQuaService.FormData.MauThu_Id" type="text" class="form-control">
+</div>
+<div>
+<label>ThoiGiannhan</label>
+<input placeholder="ThoiGiannhan" [(ngModel)]="CLSKetQuaService.FormData.ThoiGiannhan"  name="CLSKetQuaService.FormData.ThoiGiannhan" type="text" class="form-control">
+</div>
+<div>
+<label>Mau</label>
+<input placeholder="Mau" [(ngModel)]="CLSKetQuaService.FormData.Mau"  name="CLSKetQuaService.FormData.Mau" type="text" class="form-control">
+</div>
+<div>
+<label>DeNghi</label>
+<input placeholder="DeNghi" [(ngModel)]="CLSKetQuaService.FormData.DeNghi"  name="CLSKetQuaService.FormData.DeNghi" type="text" class="form-control">
+</div>
+<div>
+<label>LoaiFilm_Id</label>
+<input placeholder="LoaiFilm_Id" [(ngModel)]="CLSKetQuaService.FormData.LoaiFilm_Id"  name="CLSKetQuaService.FormData.LoaiFilm_Id" type="text" class="form-control">
+</div>
+<div>
+<label>LoaiThuocCanQuang_Id</label>
+<input placeholder="LoaiThuocCanQuang_Id" [(ngModel)]="CLSKetQuaService.FormData.LoaiThuocCanQuang_Id"  name="CLSKetQuaService.FormData.LoaiThuocCanQuang_Id" type="text" class="form-control">
+</div>
+<div>
+<label>Ma</label>
+<input placeholder="Ma" [(ngModel)]="CLSKetQuaService.FormData.Ma"  name="CLSKetQuaService.FormData.Ma" type="text" class="form-control">
+</div>
+<div>
+<label>IDHinh</label>
+<input placeholder="IDHinh" [(ngModel)]="CLSKetQuaService.FormData.IDHinh"  name="CLSKetQuaService.FormData.IDHinh" type="text" class="form-control">
+</div>
+<div>
+<label>BacSiChiDinh_Id</label>
+<input placeholder="BacSiChiDinh_Id" [(ngModel)]="CLSKetQuaService.FormData.BacSiChiDinh_Id"  name="CLSKetQuaService.FormData.BacSiChiDinh_Id" type="text" class="form-control">
+</div>
+<div>
+<label>SoPhimHu</label>
+<input placeholder="SoPhimHu" [(ngModel)]="CLSKetQuaService.FormData.SoPhimHu"  name="CLSKetQuaService.FormData.SoPhimHu" type="text" class="form-control">
+</div>
+<div>
+<label>LoaiPhimHu_Id</label>
+<input placeholder="LoaiPhimHu_Id" [(ngModel)]="CLSKetQuaService.FormData.LoaiPhimHu_Id"  name="CLSKetQuaService.FormData.LoaiPhimHu_Id" type="text" class="form-control">
+</div>
+<div>
+<label>DoSoi</label>
+<input placeholder="DoSoi" [(ngModel)]="CLSKetQuaService.FormData.DoSoi"  name="CLSKetQuaService.FormData.DoSoi" type="text" class="form-control">
+</div>
+<div>
+<label>DoSoi_Id</label>
+<input placeholder="DoSoi_Id" [(ngModel)]="CLSKetQuaService.FormData.DoSoi_Id"  name="CLSKetQuaService.FormData.DoSoi_Id" type="text" class="form-control">
+</div>
+<div>
+<label>BanKinhSoi</label>
+<input placeholder="BanKinhSoi" [(ngModel)]="CLSKetQuaService.FormData.BanKinhSoi"  name="CLSKetQuaService.FormData.BanKinhSoi" type="text" class="form-control">
+</div>
+<div>
+<label>ChanDoanLamSang</label>
+<input placeholder="ChanDoanLamSang" [(ngModel)]="CLSKetQuaService.FormData.ChanDoanLamSang"  name="CLSKetQuaService.FormData.ChanDoanLamSang" type="text" class="form-control">
+</div>
+<div>
+<label>SoDT</label>
+<input placeholder="SoDT" [(ngModel)]="CLSKetQuaService.FormData.SoDT"  name="CLSKetQuaService.FormData.SoDT" type="text" class="form-control">
+</div>
+<div>
+<label>KyThuat</label>
+<input placeholder="KyThuat" [(ngModel)]="CLSKetQuaService.FormData.KyThuat"  name="CLSKetQuaService.FormData.KyThuat" type="text" class="form-control">
+</div>
+<div>
+<label>KyThuat_Text</label>
+<input placeholder="KyThuat_Text" [(ngModel)]="CLSKetQuaService.FormData.KyThuat_Text"  name="CLSKetQuaService.FormData.KyThuat_Text" type="text" class="form-control">
+</div>
+<div>
+<label>SoPhimSuDung2</label>
+<input placeholder="SoPhimSuDung2" [(ngModel)]="CLSKetQuaService.FormData.SoPhimSuDung2"  name="CLSKetQuaService.FormData.SoPhimSuDung2" type="text" class="form-control">
+</div>
+<div>
+<label>LoaiFilm_Id2</label>
+<input placeholder="LoaiFilm_Id2" [(ngModel)]="CLSKetQuaService.FormData.LoaiFilm_Id2"  name="CLSKetQuaService.FormData.LoaiFilm_Id2" type="text" class="form-control">
+</div>
+<div>
+<label>SoPhimSuDung3</label>
+<input placeholder="SoPhimSuDung3" [(ngModel)]="CLSKetQuaService.FormData.SoPhimSuDung3"  name="CLSKetQuaService.FormData.SoPhimSuDung3" type="text" class="form-control">
+</div>
+<div>
+<label>LoaiFilm_Id3</label>
+<input placeholder="LoaiFilm_Id3" [(ngModel)]="CLSKetQuaService.FormData.LoaiFilm_Id3"  name="CLSKetQuaService.FormData.LoaiFilm_Id3" type="text" class="form-control">
+</div>
+<div>
+<label>ResistanceMarkers</label>
+<input placeholder="ResistanceMarkers" [(ngModel)]="CLSKetQuaService.FormData.ResistanceMarkers"  name="CLSKetQuaService.FormData.ResistanceMarkers" type="text" class="form-control">
+</div>
+<div>
+<label>SiteCode</label>
+<input placeholder="SiteCode" [(ngModel)]="CLSKetQuaService.FormData.SiteCode"  name="CLSKetQuaService.FormData.SiteCode" type="text" class="form-control">
+</div>
+<div>
+<label>NoiThucHien_ID_2</label>
+<input placeholder="NoiThucHien_ID_2" [(ngModel)]="CLSKetQuaService.FormData.NoiThucHien_ID_2"  name="CLSKetQuaService.FormData.NoiThucHien_ID_2" type="text" class="form-control">
+</div>
+<div>
+<label>TenNoiThucHien_2</label>
+<input placeholder="TenNoiThucHien_2" [(ngModel)]="CLSKetQuaService.FormData.TenNoiThucHien_2"  name="CLSKetQuaService.FormData.TenNoiThucHien_2" type="text" class="form-control">
+</div>
+<div>
+<label>BacSiThucHien_ID_2</label>
+<input placeholder="BacSiThucHien_ID_2" [(ngModel)]="CLSKetQuaService.FormData.BacSiThucHien_ID_2"  name="CLSKetQuaService.FormData.BacSiThucHien_ID_2" type="text" class="form-control">
+</div>
+<div>
+<label>TenBacSiThucHien_2</label>
+<input placeholder="TenBacSiThucHien_2" [(ngModel)]="CLSKetQuaService.FormData.TenBacSiThucHien_2"  name="CLSKetQuaService.FormData.TenBacSiThucHien_2" type="text" class="form-control">
+</div>
+<div>
+<label>BacSiKetLuan_ID_2</label>
+<input placeholder="BacSiKetLuan_ID_2" [(ngModel)]="CLSKetQuaService.FormData.BacSiKetLuan_ID_2"  name="CLSKetQuaService.FormData.BacSiKetLuan_ID_2" type="text" class="form-control">
+</div>
+<div>
+<label>TenBacSiKetLuan_2</label>
+<input placeholder="TenBacSiKetLuan_2" [(ngModel)]="CLSKetQuaService.FormData.TenBacSiKetLuan_2"  name="CLSKetQuaService.FormData.TenBacSiKetLuan_2" type="text" class="form-control">
+</div>
+<div>
+<label>KyThuatVien01_ID_2</label>
+<input placeholder="KyThuatVien01_ID_2" [(ngModel)]="CLSKetQuaService.FormData.KyThuatVien01_ID_2"  name="CLSKetQuaService.FormData.KyThuatVien01_ID_2" type="text" class="form-control">
+</div>
+<div>
+<label>TenKyThuatVien01_2</label>
+<input placeholder="TenKyThuatVien01_2" [(ngModel)]="CLSKetQuaService.FormData.TenKyThuatVien01_2"  name="CLSKetQuaService.FormData.TenKyThuatVien01_2" type="text" class="form-control">
+</div>
+<div>
+<label>KyThuatVien02_ID_2</label>
+<input placeholder="KyThuatVien02_ID_2" [(ngModel)]="CLSKetQuaService.FormData.KyThuatVien02_ID_2"  name="CLSKetQuaService.FormData.KyThuatVien02_ID_2" type="text" class="form-control">
+</div>
+<div>
+<label>TenKyThuatVien02_2</label>
+<input placeholder="TenKyThuatVien02_2" [(ngModel)]="CLSKetQuaService.FormData.TenKyThuatVien02_2"  name="CLSKetQuaService.FormData.TenKyThuatVien02_2" type="text" class="form-control">
+</div>
+<div>
+<label>NguoiTao_ID_2</label>
+<input placeholder="NguoiTao_ID_2" [(ngModel)]="CLSKetQuaService.FormData.NguoiTao_ID_2"  name="CLSKetQuaService.FormData.NguoiTao_ID_2" type="text" class="form-control">
+</div>
+<div>
+<label>NguoiCapNhat_ID_2</label>
+<input placeholder="NguoiCapNhat_ID_2" [(ngModel)]="CLSKetQuaService.FormData.NguoiCapNhat_ID_2"  name="CLSKetQuaService.FormData.NguoiCapNhat_ID_2" type="text" class="form-control">
+</div>
+<div>
+<label>DicomImageAvailable</label>
+<input placeholder="DicomImageAvailable" [(ngModel)]="CLSKetQuaService.FormData.DicomImageAvailable"  name="CLSKetQuaService.FormData.DicomImageAvailable" type="text" class="form-control">
+</div>
+<div>
+<label>DicomImageResultDate</label>
+<input placeholder="DicomImageResultDate" [(ngModel)]="CLSKetQuaService.FormData.DicomImageResultDate"  name="CLSKetQuaService.FormData.DicomImageResultDate" type="text" class="form-control">
+</div>
+<div>
+<label>DicomImageResultDateTime</label>
+<input placeholder="DicomImageResultDateTime" [(ngModel)]="CLSKetQuaService.FormData.DicomImageResultDateTime"  name="CLSKetQuaService.FormData.DicomImageResultDateTime" type="text" class="form-control">
+</div>
+<div>
+<label>DicomImageStudyInstanceUID</label>
+<input placeholder="DicomImageStudyInstanceUID" [(ngModel)]="CLSKetQuaService.FormData.DicomImageStudyInstanceUID"  name="CLSKetQuaService.FormData.DicomImageStudyInstanceUID" type="text" class="form-control">
+</div>
+<div>
+<label>DicomImageOpenViewURL</label>
+<input placeholder="DicomImageOpenViewURL" [(ngModel)]="CLSKetQuaService.FormData.DicomImageOpenViewURL"  name="CLSKetQuaService.FormData.DicomImageOpenViewURL" type="text" class="form-control">
+</div>
+<div>
+<label>ThoiGianNhanMau</label>
+<input placeholder="ThoiGianNhanMau" [(ngModel)]="CLSKetQuaService.FormData.ThoiGianNhanMau"  name="CLSKetQuaService.FormData.ThoiGianNhanMau" type="text" class="form-control">
+</div>
+<div>
+<label>ThoiGianKetQua</label>
+<input placeholder="ThoiGianKetQua" [(ngModel)]="CLSKetQuaService.FormData.ThoiGianKetQua"  name="CLSKetQuaService.FormData.ThoiGianKetQua" type="text" class="form-control">
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <app-loading *ngIf="CLSKetQuaService.IsShowLoading"></app-loading>
+

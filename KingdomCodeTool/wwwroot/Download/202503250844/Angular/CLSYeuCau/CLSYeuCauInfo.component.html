@@ -1,0 +1,396 @@
+﻿<div class="row">
+    <div id="breadcrumbs-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m6 l6">
+                    <h6 class="breadcrumbs-title">
+                        CLSYeuCau:
+                        <b>{{CLSYeuCauService.FormData.CLSYeuCau_Id}} [{{CLSYeuCauService.FormData.CLSYeuCau_Id}}]</b>
+                    </h6>
+                </div>
+                <div class="col s12 m6 l6 right-align-md">
+                    <ol class="breadcrumbs mb-0">
+                        <li class="breadcrumb-item">
+                            <a href="javascript:history.back()" title="Quay lại">
+                                <<< Quay lại
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/Homepage" title="Trang chủ">Trang chủ</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="#" title="eHospital_DongNai_A/">eHospital_DongNai_A/</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/CLSYeuCau" title="CLSYeuCau">
+                                CLSYeuCau
+                            </a>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col s12 m12 l12">
+        <div class="card card card-default scrollspy">
+            <div class="card-content">
+                <div class="row">
+                    <div class="col s6 m6 l12">
+                        <a title="Quay lại" href="javascript:history.back()" style="color: green;">
+                            <i class="material-icons">more</i>
+                        </a>
+                        <!--<a title="Thêm mới" (click)="CLSYeuCauAdd()" style="color: green;"><i
+                class="material-icons">add_box</i></a>-->
+                        <a title="Lưu thay đổi" (click)="CLSYeuCauSave()" style="color:#2196f3;">
+                            <i class="material-icons">save</i>
+                        </a>
+                    </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12 m12 l12">
+                            <div>
+<label>CLSYeuCau_Id</label>
+<input placeholder="CLSYeuCau_Id" [(ngModel)]="CLSYeuCauService.FormData.CLSYeuCau_Id"  name="CLSYeuCauService.FormData.CLSYeuCau_Id" type="text" class="form-control">
+</div>
+<div>
+<label>SoPhieuYeuCau</label>
+<input placeholder="SoPhieuYeuCau" [(ngModel)]="CLSYeuCauService.FormData.SoPhieuYeuCau"  name="CLSYeuCauService.FormData.SoPhieuYeuCau" type="text" class="form-control">
+</div>
+<div>
+<label>NgayYeuCau</label>
+<input placeholder="NgayYeuCau" [(ngModel)]="CLSYeuCauService.FormData.NgayYeuCau"  name="CLSYeuCauService.FormData.NgayYeuCau" type="text" class="form-control">
+</div>
+<div>
+<label>ThoiGianYeuCau</label>
+<input placeholder="ThoiGianYeuCau" [(ngModel)]="CLSYeuCauService.FormData.ThoiGianYeuCau"  name="CLSYeuCauService.FormData.ThoiGianYeuCau" type="text" class="form-control">
+</div>
+<div>
+<label>NamYeuCau</label>
+<input placeholder="NamYeuCau" [(ngModel)]="CLSYeuCauService.FormData.NamYeuCau"  name="CLSYeuCauService.FormData.NamYeuCau" type="text" class="form-control">
+</div>
+<div>
+<label>ThangYeuCau</label>
+<input placeholder="ThangYeuCau" [(ngModel)]="CLSYeuCauService.FormData.ThangYeuCau"  name="CLSYeuCauService.FormData.ThangYeuCau" type="text" class="form-control">
+</div>
+<div>
+<label>NoiYeuCau_Id</label>
+<input placeholder="NoiYeuCau_Id" [(ngModel)]="CLSYeuCauService.FormData.NoiYeuCau_Id"  name="CLSYeuCauService.FormData.NoiYeuCau_Id" type="text" class="form-control">
+</div>
+<div>
+<label>BacSiChiDinh_Id</label>
+<input placeholder="BacSiChiDinh_Id" [(ngModel)]="CLSYeuCauService.FormData.BacSiChiDinh_Id"  name="CLSYeuCauService.FormData.BacSiChiDinh_Id" type="text" class="form-control">
+</div>
+<div>
+<label>NoiThucHien_Id</label>
+<input placeholder="NoiThucHien_Id" [(ngModel)]="CLSYeuCauService.FormData.NoiThucHien_Id"  name="CLSYeuCauService.FormData.NoiThucHien_Id" type="text" class="form-control">
+</div>
+<div>
+<label>BenhNhan_Id</label>
+<input placeholder="BenhNhan_Id" [(ngModel)]="CLSYeuCauService.FormData.BenhNhan_Id"  name="CLSYeuCauService.FormData.BenhNhan_Id" type="text" class="form-control">
+</div>
+<div>
+<label>TiepNhan_Id</label>
+<input placeholder="TiepNhan_Id" [(ngModel)]="CLSYeuCauService.FormData.TiepNhan_Id"  name="CLSYeuCauService.FormData.TiepNhan_Id" type="text" class="form-control">
+</div>
+<div>
+<label>BenhAn_Id</label>
+<input placeholder="BenhAn_Id" [(ngModel)]="CLSYeuCauService.FormData.BenhAn_Id"  name="CLSYeuCauService.FormData.BenhAn_Id" type="text" class="form-control">
+</div>
+<div>
+<label>LuuTru_Id</label>
+<input placeholder="LuuTru_Id" [(ngModel)]="CLSYeuCauService.FormData.LuuTru_Id"  name="CLSYeuCauService.FormData.LuuTru_Id" type="text" class="form-control">
+</div>
+<div>
+<label>NhomDichVu_Id</label>
+<input placeholder="NhomDichVu_Id" [(ngModel)]="CLSYeuCauService.FormData.NhomDichVu_Id"  name="CLSYeuCauService.FormData.NhomDichVu_Id" type="text" class="form-control">
+</div>
+<div>
+<label>ThucHienBenNgoai</label>
+<input placeholder="ThucHienBenNgoai" [(ngModel)]="CLSYeuCauService.FormData.ThucHienBenNgoai"  name="CLSYeuCauService.FormData.ThucHienBenNgoai" type="text" class="form-control">
+</div>
+<div>
+<label>YeuCauBenNgoai</label>
+<input placeholder="YeuCauBenNgoai" [(ngModel)]="CLSYeuCauService.FormData.YeuCauBenNgoai"  name="CLSYeuCauService.FormData.YeuCauBenNgoai" type="text" class="form-control">
+</div>
+<div>
+<label>DonViBenNgoai_Id</label>
+<input placeholder="DonViBenNgoai_Id" [(ngModel)]="CLSYeuCauService.FormData.DonViBenNgoai_Id"  name="CLSYeuCauService.FormData.DonViBenNgoai_Id" type="text" class="form-control">
+</div>
+<div>
+<label>TenBacSiBenNgoai</label>
+<input placeholder="TenBacSiBenNgoai" [(ngModel)]="CLSYeuCauService.FormData.TenBacSiBenNgoai"  name="CLSYeuCauService.FormData.TenBacSiBenNgoai" type="text" class="form-control">
+</div>
+<div>
+<label>TiemCanQuang</label>
+<input placeholder="TiemCanQuang" [(ngModel)]="CLSYeuCauService.FormData.TiemCanQuang"  name="CLSYeuCauService.FormData.TiemCanQuang" type="text" class="form-control">
+</div>
+<div>
+<label>SinhThiet</label>
+<input placeholder="SinhThiet" [(ngModel)]="CLSYeuCauService.FormData.SinhThiet"  name="CLSYeuCauService.FormData.SinhThiet" type="text" class="form-control">
+</div>
+<div>
+<label>Clotest</label>
+<input placeholder="Clotest" [(ngModel)]="CLSYeuCauService.FormData.Clotest"  name="CLSYeuCauService.FormData.Clotest" type="text" class="form-control">
+</div>
+<div>
+<label>TrieuChung</label>
+<input placeholder="TrieuChung" [(ngModel)]="CLSYeuCauService.FormData.TrieuChung"  name="CLSYeuCauService.FormData.TrieuChung" type="text" class="form-control">
+</div>
+<div>
+<label>KetQuaXNKhac</label>
+<input placeholder="KetQuaXNKhac" [(ngModel)]="CLSYeuCauService.FormData.KetQuaXNKhac"  name="CLSYeuCauService.FormData.KetQuaXNKhac" type="text" class="form-control">
+</div>
+<div>
+<label>DaiThe</label>
+<input placeholder="DaiThe" [(ngModel)]="CLSYeuCauService.FormData.DaiThe"  name="CLSYeuCauService.FormData.DaiThe" type="text" class="form-control">
+</div>
+<div>
+<label>ViThe</label>
+<input placeholder="ViThe" [(ngModel)]="CLSYeuCauService.FormData.ViThe"  name="CLSYeuCauService.FormData.ViThe" type="text" class="form-control">
+</div>
+<div>
+<label>ChanDoan</label>
+<input placeholder="ChanDoan" [(ngModel)]="CLSYeuCauService.FormData.ChanDoan"  name="CLSYeuCauService.FormData.ChanDoan" type="text" class="form-control">
+</div>
+<div>
+<label>GhiChu</label>
+<input placeholder="GhiChu" [(ngModel)]="CLSYeuCauService.FormData.GhiChu"  name="CLSYeuCauService.FormData.GhiChu" type="text" class="form-control">
+</div>
+<div>
+<label>Khan</label>
+<input placeholder="Khan" [(ngModel)]="CLSYeuCauService.FormData.Khan"  name="CLSYeuCauService.FormData.Khan" type="text" class="form-control">
+</div>
+<div>
+<label>ThanhToanTruoc</label>
+<input placeholder="ThanhToanTruoc" [(ngModel)]="CLSYeuCauService.FormData.ThanhToanTruoc"  name="CLSYeuCauService.FormData.ThanhToanTruoc" type="text" class="form-control">
+</div>
+<div>
+<label>SoDichVuYeuCau</label>
+<input placeholder="SoDichVuYeuCau" [(ngModel)]="CLSYeuCauService.FormData.SoDichVuYeuCau"  name="CLSYeuCauService.FormData.SoDichVuYeuCau" type="text" class="form-control">
+</div>
+<div>
+<label>SoDichVuDongTien</label>
+<input placeholder="SoDichVuDongTien" [(ngModel)]="CLSYeuCauService.FormData.SoDichVuDongTien"  name="CLSYeuCauService.FormData.SoDichVuDongTien" type="text" class="form-control">
+</div>
+<div>
+<label>DuocPhepThucHien</label>
+<input placeholder="DuocPhepThucHien" [(ngModel)]="CLSYeuCauService.FormData.DuocPhepThucHien"  name="CLSYeuCauService.FormData.DuocPhepThucHien" type="text" class="form-control">
+</div>
+<div>
+<label>HuyYeuCau</label>
+<input placeholder="HuyYeuCau" [(ngModel)]="CLSYeuCauService.FormData.HuyYeuCau"  name="CLSYeuCauService.FormData.HuyYeuCau" type="text" class="form-control">
+</div>
+<div>
+<label>KhoaDuLieu</label>
+<input placeholder="KhoaDuLieu" [(ngModel)]="CLSYeuCauService.FormData.KhoaDuLieu"  name="CLSYeuCauService.FormData.KhoaDuLieu" type="text" class="form-control">
+</div>
+<div>
+<label>NgayKhoaDuLieu</label>
+<input placeholder="NgayKhoaDuLieu" [(ngModel)]="CLSYeuCauService.FormData.NgayKhoaDuLieu"  name="CLSYeuCauService.FormData.NgayKhoaDuLieu" type="text" class="form-control">
+</div>
+<div>
+<label>ThoiGianKhoaDuLieu</label>
+<input placeholder="ThoiGianKhoaDuLieu" [(ngModel)]="CLSYeuCauService.FormData.ThoiGianKhoaDuLieu"  name="CLSYeuCauService.FormData.ThoiGianKhoaDuLieu" type="text" class="form-control">
+</div>
+<div>
+<label>NguoiKhoa_Id</label>
+<input placeholder="NguoiKhoa_Id" [(ngModel)]="CLSYeuCauService.FormData.NguoiKhoa_Id"  name="CLSYeuCauService.FormData.NguoiKhoa_Id" type="text" class="form-control">
+</div>
+<div>
+<label>MaNguoiKhoa</label>
+<input placeholder="MaNguoiKhoa" [(ngModel)]="CLSYeuCauService.FormData.MaNguoiKhoa"  name="CLSYeuCauService.FormData.MaNguoiKhoa" type="text" class="form-control">
+</div>
+<div>
+<label>TenNguoiKhoa</label>
+<input placeholder="TenNguoiKhoa" [(ngModel)]="CLSYeuCauService.FormData.TenNguoiKhoa"  name="CLSYeuCauService.FormData.TenNguoiKhoa" type="text" class="form-control">
+</div>
+<div>
+<label>TrangThai</label>
+<input placeholder="TrangThai" [(ngModel)]="CLSYeuCauService.FormData.TrangThai"  name="CLSYeuCauService.FormData.TrangThai" type="text" class="form-control">
+</div>
+<div>
+<label>NgayTao</label>
+<input placeholder="NgayTao" [(ngModel)]="CLSYeuCauService.FormData.NgayTao"  name="CLSYeuCauService.FormData.NgayTao" type="text" class="form-control">
+</div>
+<div>
+<label>NguoiTao_Id</label>
+<input placeholder="NguoiTao_Id" [(ngModel)]="CLSYeuCauService.FormData.NguoiTao_Id"  name="CLSYeuCauService.FormData.NguoiTao_Id" type="text" class="form-control">
+</div>
+<div>
+<label>NgayCapNhat</label>
+<input placeholder="NgayCapNhat" [(ngModel)]="CLSYeuCauService.FormData.NgayCapNhat"  name="CLSYeuCauService.FormData.NgayCapNhat" type="text" class="form-control">
+</div>
+<div>
+<label>NguoiCapNhat_Id</label>
+<input placeholder="NguoiCapNhat_Id" [(ngModel)]="CLSYeuCauService.FormData.NguoiCapNhat_Id"  name="CLSYeuCauService.FormData.NguoiCapNhat_Id" type="text" class="form-control">
+</div>
+<div>
+<label>DichVu_KhamBenh_Id</label>
+<input placeholder="DichVu_KhamBenh_Id" [(ngModel)]="CLSYeuCauService.FormData.DichVu_KhamBenh_Id"  name="CLSYeuCauService.FormData.DichVu_KhamBenh_Id" type="text" class="form-control">
+</div>
+<div>
+<label>KhamBenh_Id</label>
+<input placeholder="KhamBenh_Id" [(ngModel)]="CLSYeuCauService.FormData.KhamBenh_Id"  name="CLSYeuCauService.FormData.KhamBenh_Id" type="text" class="form-control">
+</div>
+<div>
+<label>BacSiBenNgoai_Id</label>
+<input placeholder="BacSiBenNgoai_Id" [(ngModel)]="CLSYeuCauService.FormData.BacSiBenNgoai_Id"  name="CLSYeuCauService.FormData.BacSiBenNgoai_Id" type="text" class="form-control">
+</div>
+<div>
+<label>NoiDungChiTiet</label>
+<input placeholder="NoiDungChiTiet" [(ngModel)]="CLSYeuCauService.FormData.NoiDungChiTiet"  name="CLSYeuCauService.FormData.NoiDungChiTiet" type="text" class="form-control">
+</div>
+<div>
+<label>NoiThucHienThayDoi_Id</label>
+<input placeholder="NoiThucHienThayDoi_Id" [(ngModel)]="CLSYeuCauService.FormData.NoiThucHienThayDoi_Id"  name="CLSYeuCauService.FormData.NoiThucHienThayDoi_Id" type="text" class="form-control">
+</div>
+<div>
+<label>NgayGioYeuCau</label>
+<input placeholder="NgayGioYeuCau" [(ngModel)]="CLSYeuCauService.FormData.NgayGioYeuCau"  name="CLSYeuCauService.FormData.NgayGioYeuCau" type="text" class="form-control">
+</div>
+<div>
+<label>GioYeuCau</label>
+<input placeholder="GioYeuCau" [(ngModel)]="CLSYeuCauService.FormData.GioYeuCau"  name="CLSYeuCauService.FormData.GioYeuCau" type="text" class="form-control">
+</div>
+<div>
+<label>DaNhanBenhPham</label>
+<input placeholder="DaNhanBenhPham" [(ngModel)]="CLSYeuCauService.FormData.DaNhanBenhPham"  name="CLSYeuCauService.FormData.DaNhanBenhPham" type="text" class="form-control">
+</div>
+<div>
+<label>BenhPham</label>
+<input placeholder="BenhPham" [(ngModel)]="CLSYeuCauService.FormData.BenhPham"  name="CLSYeuCauService.FormData.BenhPham" type="text" class="form-control">
+</div>
+<div>
+<label>NgayNhanBenhPham</label>
+<input placeholder="NgayNhanBenhPham" [(ngModel)]="CLSYeuCauService.FormData.NgayNhanBenhPham"  name="CLSYeuCauService.FormData.NgayNhanBenhPham" type="text" class="form-control">
+</div>
+<div>
+<label>ThoiGianNhanBenhPham</label>
+<input placeholder="ThoiGianNhanBenhPham" [(ngModel)]="CLSYeuCauService.FormData.ThoiGianNhanBenhPham"  name="CLSYeuCauService.FormData.ThoiGianNhanBenhPham" type="text" class="form-control">
+</div>
+<div>
+<label>NguoiNhanBenhPham_Id</label>
+<input placeholder="NguoiNhanBenhPham_Id" [(ngModel)]="CLSYeuCauService.FormData.NguoiNhanBenhPham_Id"  name="CLSYeuCauService.FormData.NguoiNhanBenhPham_Id" type="text" class="form-control">
+</div>
+<div>
+<label>MaNguoiNhapBenhPham</label>
+<input placeholder="MaNguoiNhapBenhPham" [(ngModel)]="CLSYeuCauService.FormData.MaNguoiNhapBenhPham"  name="CLSYeuCauService.FormData.MaNguoiNhapBenhPham" type="text" class="form-control">
+</div>
+<div>
+<label>TenNguoiNhapBenhPham</label>
+<input placeholder="TenNguoiNhapBenhPham" [(ngModel)]="CLSYeuCauService.FormData.TenNguoiNhapBenhPham"  name="CLSYeuCauService.FormData.TenNguoiNhapBenhPham" type="text" class="form-control">
+</div>
+<div>
+<label>SoThuTu</label>
+<input placeholder="SoThuTu" [(ngModel)]="CLSYeuCauService.FormData.SoThuTu"  name="CLSYeuCauService.FormData.SoThuTu" type="text" class="form-control">
+</div>
+<div>
+<label>DoiTuong_Id</label>
+<input placeholder="DoiTuong_Id" [(ngModel)]="CLSYeuCauService.FormData.DoiTuong_Id"  name="CLSYeuCauService.FormData.DoiTuong_Id" type="text" class="form-control">
+</div>
+<div>
+<label>DaLayMau</label>
+<input placeholder="DaLayMau" [(ngModel)]="CLSYeuCauService.FormData.DaLayMau"  name="CLSYeuCauService.FormData.DaLayMau" type="text" class="form-control">
+</div>
+<div>
+<label>HopDong_BenhNhan_Id</label>
+<input placeholder="HopDong_BenhNhan_Id" [(ngModel)]="CLSYeuCauService.FormData.HopDong_BenhNhan_Id"  name="CLSYeuCauService.FormData.HopDong_BenhNhan_Id" type="text" class="form-control">
+</div>
+<div>
+<label>HinhThucThanhToan_Id</label>
+<input placeholder="HinhThucThanhToan_Id" [(ngModel)]="CLSYeuCauService.FormData.HinhThucThanhToan_Id"  name="CLSYeuCauService.FormData.HinhThucThanhToan_Id" type="text" class="form-control">
+</div>
+<div>
+<label>HopDong_Id</label>
+<input placeholder="HopDong_Id" [(ngModel)]="CLSYeuCauService.FormData.HopDong_Id"  name="CLSYeuCauService.FormData.HopDong_Id" type="text" class="form-control">
+</div>
+<div>
+<label>TrangThai_HangDoi</label>
+<input placeholder="TrangThai_HangDoi" [(ngModel)]="CLSYeuCauService.FormData.TrangThai_HangDoi"  name="CLSYeuCauService.FormData.TrangThai_HangDoi" type="text" class="form-control">
+</div>
+<div>
+<label>ThuTuYeuCau</label>
+<input placeholder="ThuTuYeuCau" [(ngModel)]="CLSYeuCauService.FormData.ThuTuYeuCau"  name="CLSYeuCauService.FormData.ThuTuYeuCau" type="text" class="form-control">
+</div>
+<div>
+<label>GoiDichVu_Id</label>
+<input placeholder="GoiDichVu_Id" [(ngModel)]="CLSYeuCauService.FormData.GoiDichVu_Id"  name="CLSYeuCauService.FormData.GoiDichVu_Id" type="text" class="form-control">
+</div>
+<div>
+<label>BenhNhanGoiDichVu_Id</label>
+<input placeholder="BenhNhanGoiDichVu_Id" [(ngModel)]="CLSYeuCauService.FormData.BenhNhanGoiDichVu_Id"  name="CLSYeuCauService.FormData.BenhNhanGoiDichVu_Id" type="text" class="form-control">
+</div>
+<div>
+<label>The_Id</label>
+<input placeholder="The_Id" [(ngModel)]="CLSYeuCauService.FormData.The_Id"  name="CLSYeuCauService.FormData.The_Id" type="text" class="form-control">
+</div>
+<div>
+<label>LoaiKhachHang_Id</label>
+<input placeholder="LoaiKhachHang_Id" [(ngModel)]="CLSYeuCauService.FormData.LoaiKhachHang_Id"  name="CLSYeuCauService.FormData.LoaiKhachHang_Id" type="text" class="form-control">
+</div>
+<div>
+<label>ThoiGianLichHen</label>
+<input placeholder="ThoiGianLichHen" [(ngModel)]="CLSYeuCauService.FormData.ThoiGianLichHen"  name="CLSYeuCauService.FormData.ThoiGianLichHen" type="text" class="form-control">
+</div>
+<div>
+<label>LichHen_ID</label>
+<input placeholder="LichHen_ID" [(ngModel)]="CLSYeuCauService.FormData.LichHen_ID"  name="CLSYeuCauService.FormData.LichHen_ID" type="text" class="form-control">
+</div>
+<div>
+<label>BNKhongDenBV</label>
+<input placeholder="BNKhongDenBV" [(ngModel)]="CLSYeuCauService.FormData.BNKhongDenBV"  name="CLSYeuCauService.FormData.BNKhongDenBV" type="text" class="form-control">
+</div>
+<div>
+<label>BarCodeID</label>
+<input placeholder="BarCodeID" [(ngModel)]="CLSYeuCauService.FormData.BarCodeID"  name="CLSYeuCauService.FormData.BarCodeID" type="text" class="form-control">
+</div>
+<div>
+<label>DicomImageAvailable</label>
+<input placeholder="DicomImageAvailable" [(ngModel)]="CLSYeuCauService.FormData.DicomImageAvailable"  name="CLSYeuCauService.FormData.DicomImageAvailable" type="text" class="form-control">
+</div>
+<div>
+<label>DicomImageResultDate</label>
+<input placeholder="DicomImageResultDate" [(ngModel)]="CLSYeuCauService.FormData.DicomImageResultDate"  name="CLSYeuCauService.FormData.DicomImageResultDate" type="text" class="form-control">
+</div>
+<div>
+<label>DicomImageResultDateTime</label>
+<input placeholder="DicomImageResultDateTime" [(ngModel)]="CLSYeuCauService.FormData.DicomImageResultDateTime"  name="CLSYeuCauService.FormData.DicomImageResultDateTime" type="text" class="form-control">
+</div>
+<div>
+<label>DicomImageStudyInstanceUID</label>
+<input placeholder="DicomImageStudyInstanceUID" [(ngModel)]="CLSYeuCauService.FormData.DicomImageStudyInstanceUID"  name="CLSYeuCauService.FormData.DicomImageStudyInstanceUID" type="text" class="form-control">
+</div>
+<div>
+<label>DicomImageOpenViewURL</label>
+<input placeholder="DicomImageOpenViewURL" [(ngModel)]="CLSYeuCauService.FormData.DicomImageOpenViewURL"  name="CLSYeuCauService.FormData.DicomImageOpenViewURL" type="text" class="form-control">
+</div>
+<div>
+<label>DangKyMau_Id</label>
+<input placeholder="DangKyMau_Id" [(ngModel)]="CLSYeuCauService.FormData.DangKyMau_Id"  name="CLSYeuCauService.FormData.DangKyMau_Id" type="text" class="form-control">
+</div>
+<div>
+<label>NhapKetQua</label>
+<input placeholder="NhapKetQua" [(ngModel)]="CLSYeuCauService.FormData.NhapKetQua"  name="CLSYeuCauService.FormData.NhapKetQua" type="text" class="form-control">
+</div>
+<div>
+<label>ThoiGianKetQua</label>
+<input placeholder="ThoiGianKetQua" [(ngModel)]="CLSYeuCauService.FormData.ThoiGianKetQua"  name="CLSYeuCauService.FormData.ThoiGianKetQua" type="text" class="form-control">
+</div>
+<div>
+<label>ThietBi_Id</label>
+<input placeholder="ThietBi_Id" [(ngModel)]="CLSYeuCauService.FormData.ThietBi_Id"  name="CLSYeuCauService.FormData.ThietBi_Id" type="text" class="form-control">
+</div>
+<div>
+<label>NguoiTraKQ_Id</label>
+<input placeholder="NguoiTraKQ_Id" [(ngModel)]="CLSYeuCauService.FormData.NguoiTraKQ_Id"  name="CLSYeuCauService.FormData.NguoiTraKQ_Id" type="text" class="form-control">
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <app-loading *ngIf="CLSYeuCauService.IsShowLoading"></app-loading>
+

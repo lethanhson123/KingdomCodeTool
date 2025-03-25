@@ -1,0 +1,157 @@
+﻿<div class="row">
+    <div id="breadcrumbs-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m6 l6">
+                    <h6 class="breadcrumbs-title">
+                        CLSKetQua_XQ
+                        <span *ngIf="CLSKetQua_XQService.List">({{CLSKetQua_XQService.List.length-1}} items)</span>
+                    </h6>
+                </div>
+                <div class="col s12 m6 l6 right-align-md">
+                    <ol class="breadcrumbs mb-0">
+                        <li class="breadcrumb-item">
+                            <a href="javascript:history.back()" title="Quay lại">
+                                <<< Quay lại
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/Homepage" title="Trang chủ">Trang chủ</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/ThanhVien" title="Quản trị">Quản trị</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/CLSKetQua_XQ" title="CLSKetQua_XQ">
+                                CLSKetQua_XQ
+                            </a>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col s12 m12 l12">
+        <div class="card card card-default scrollspy">
+            <div class="card-content">
+                <div class="col s12 m12 l11">
+                    <input [(ngModel)]="CLSKetQua_XQService.BaseParameter.SearchString" placeholder="Tìm ..."
+                           class="form-control" (keyup.enter)="CLSKetQua_XQSearch()">
+                </div>
+                <div class="col s12 m12 l1">
+                    <a style="color: green;" title="Tìm" (click)="CLSKetQua_XQSearch()">
+                        <i class="material-icons">play_circle_filled</i>
+                    </a>
+                </div>
+                <div class="KhungOverflow">
+                    <table *ngIf="!NotificationService.IsMobile" mat-table matSort #CLSKetQua_XQSort="matSort"
+                           [dataSource]="CLSKetQua_XQService.DataSource">
+                        <ng-container matColumnDef="STT">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                                STT
+                            </th>
+                            <td mat-cell *matCellDef="let element; index as i;">
+                                <div *ngIf="CLSKetQua_XQPaginator">
+                                    {{
+CLSKetQua_XQPaginator.pageSize *
+                                    CLSKetQua_XQPaginator.pageIndex + i + 1
+                                    }}
+                                </div>
+                            </td>
+                        </ng-container>
+                        <ng-container matColumnDef="Save">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                            </th>
+                            <td mat-cell *matCellDef="let element">
+                                <a (click)="CLSKetQua_XQSave(element)" style="color:#2196f3;">
+                                    <i class="material-icons">save</i>
+                                </a>
+                                <a (click)="CLSKetQua_XQDelete(element)" style="color: red;">
+                                    <i class="material-icons">delete_forever</i>
+                                </a>
+                            </td>
+                        </ng-container>
+                        <ng-container matColumnDef="CLSKetQua_XQ_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CLSKetQua_XQ_Id</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="CLSKetQua_XQ_Id" name="CLSKetQua_XQ_Id" [(ngModel)]="element.CLSKetQua_XQ_Id"></td>
+</ng-container>
+<ng-container matColumnDef="SoPhieu">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>SoPhieu</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="SoPhieu" name="SoPhieu" [(ngModel)]="element.SoPhieu"></td>
+</ng-container>
+<ng-container matColumnDef="CLSYeuCau_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CLSYeuCau_Id</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="CLSYeuCau_Id" name="CLSYeuCau_Id" [(ngModel)]="element.CLSYeuCau_Id"></td>
+</ng-container>
+<ng-container matColumnDef="ID_CT">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ID_CT</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="ID_CT" name="ID_CT" [(ngModel)]="element.ID_CT"></td>
+</ng-container>
+
+                        <tr mat-header-row *matHeaderRowDef="CLSKetQua_XQService.DisplayColumns001">
+                        </tr>
+                        <tr mat-row *matRowDef="let row; columns: CLSKetQua_XQService.DisplayColumns001;">
+                        </tr>
+                    </table>
+                    <mat-paginator *ngIf="!NotificationService.IsMobile" #CLSKetQua_XQPaginator="matPaginator"
+                                   [pageSizeOptions]="[10,20,50,100]" [pageSize]="20" [showFirstLastButtons]></mat-paginator>
+
+                    <table *ngIf="NotificationService.IsMobile" mat-table matSort #CLSKetQua_XQSort="matSort"
+                           [dataSource]="CLSKetQua_XQService.DataSource" class="table table-striped m-0">
+                        <ng-container matColumnDef="STT">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                                Danh sách
+                            </th>
+                            <td mat-cell *matCellDef="let element; index as i;">
+                                <div class="row gx-4">
+                                    <div class="col-lg-12 col-sm-12 col-12">
+<label>CLSKetQua_XQ_Id</label>
+<br />
+<input class="form-control" type="text" placeholder="CLSKetQua_XQ_Id" name="CLSKetQua_XQ_Id{{element.ID}}" [(ngModel)]="element.CLSKetQua_XQ_Id">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>SoPhieu</label>
+<br />
+<input class="form-control" type="text" placeholder="SoPhieu" name="SoPhieu{{element.ID}}" [(ngModel)]="element.SoPhieu">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>CLSYeuCau_Id</label>
+<br />
+<input class="form-control" type="text" placeholder="CLSYeuCau_Id" name="CLSYeuCau_Id{{element.ID}}" [(ngModel)]="element.CLSYeuCau_Id">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>ID_CT</label>
+<br />
+<input class="form-control" type="text" placeholder="ID_CT" name="ID_CT{{element.ID}}" [(ngModel)]="element.ID_CT">
+</div>
+
+                                </div>
+                                <div class="row gx-4">
+                                    <div class="col s6 m6 l6">
+                                        <a (click)="CLSKetQua_XQSave(element)" style="color:#2196f3;">
+                                            <i class="material-icons">save</i>
+                                        </a>
+                                    </div>
+                                    <div class="col s6 m6 l6">
+                                        <a (click)="CLSKetQua_XQDelete(element)"
+                                           style="color: red;"><i class="material-icons">delete_forever</i></a>
+                                    </div>
+                                </div>
+                                <br />
+                            </td>
+                        </ng-container>
+                        <tr mat-header-row *matHeaderRowDef="CLSKetQua_XQService.DisplayColumnsMobile">
+                        </tr>
+                        <tr mat-row *matRowDef="let row; columns: CLSKetQua_XQService.DisplayColumnsMobile;">
+                        </tr>
+                    </table>
+                    <mat-paginator *ngIf="NotificationService.IsMobile" #CLSKetQua_XQPaginator="matPaginator"
+                                   [pageSizeOptions]="[10,20,50,100]" [pageSize]="10000" [showFirstLastButtons]></mat-paginator>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-loading *ngIf="CLSKetQua_XQService.IsShowLoading"></app-loading>
+

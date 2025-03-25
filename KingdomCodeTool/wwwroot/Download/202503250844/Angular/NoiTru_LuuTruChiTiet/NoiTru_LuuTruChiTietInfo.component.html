@@ -1,0 +1,184 @@
+﻿<div class="row">
+    <div id="breadcrumbs-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m6 l6">
+                    <h6 class="breadcrumbs-title">
+                        NoiTru_LuuTruChiTiet:
+                        <b>{{NoiTru_LuuTruChiTietService.FormData.LuuTruChiTiet_Id}} [{{NoiTru_LuuTruChiTietService.FormData.LuuTruChiTiet_Id}}]</b>
+                    </h6>
+                </div>
+                <div class="col s12 m6 l6 right-align-md">
+                    <ol class="breadcrumbs mb-0">
+                        <li class="breadcrumb-item">
+                            <a href="javascript:history.back()" title="Quay lại">
+                                <<< Quay lại
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/Homepage" title="Trang chủ">Trang chủ</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="#" title="eHospital_DongNai_A/">eHospital_DongNai_A/</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/NoiTru_LuuTruChiTiet" title="NoiTru_LuuTruChiTiet">
+                                NoiTru_LuuTruChiTiet
+                            </a>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col s12 m12 l12">
+        <div class="card card card-default scrollspy">
+            <div class="card-content">
+                <div class="row">
+                    <div class="col s6 m6 l12">
+                        <a title="Quay lại" href="javascript:history.back()" style="color: green;">
+                            <i class="material-icons">more</i>
+                        </a>
+                        <!--<a title="Thêm mới" (click)="NoiTru_LuuTruChiTietAdd()" style="color: green;"><i
+                class="material-icons">add_box</i></a>-->
+                        <a title="Lưu thay đổi" (click)="NoiTru_LuuTruChiTietSave()" style="color:#2196f3;">
+                            <i class="material-icons">save</i>
+                        </a>
+                    </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12 m12 l12">
+                            <div>
+<label>LuuTruChiTiet_Id</label>
+<input placeholder="LuuTruChiTiet_Id" [(ngModel)]="NoiTru_LuuTruChiTietService.FormData.LuuTruChiTiet_Id"  name="NoiTru_LuuTruChiTietService.FormData.LuuTruChiTiet_Id" type="text" class="form-control">
+</div>
+<div>
+<label>LuuTru_Id</label>
+<input placeholder="LuuTru_Id" [(ngModel)]="NoiTru_LuuTruChiTietService.FormData.LuuTru_Id"  name="NoiTru_LuuTruChiTietService.FormData.LuuTru_Id" type="text" class="form-control">
+</div>
+<div>
+<label>PhongBan_Id</label>
+<input placeholder="PhongBan_Id" [(ngModel)]="NoiTru_LuuTruChiTietService.FormData.PhongBan_Id"  name="NoiTru_LuuTruChiTietService.FormData.PhongBan_Id" type="text" class="form-control">
+</div>
+<div>
+<label>GiuongBenh_Id</label>
+<input placeholder="GiuongBenh_Id" [(ngModel)]="NoiTru_LuuTruChiTietService.FormData.GiuongBenh_Id"  name="NoiTru_LuuTruChiTietService.FormData.GiuongBenh_Id" type="text" class="form-control">
+</div>
+<div>
+<label>PhongBenh_Id</label>
+<input placeholder="PhongBenh_Id" [(ngModel)]="NoiTru_LuuTruChiTietService.FormData.PhongBenh_Id"  name="NoiTru_LuuTruChiTietService.FormData.PhongBenh_Id" type="text" class="form-control">
+</div>
+<div>
+<label>NgayVao</label>
+<input placeholder="NgayVao" [(ngModel)]="NoiTru_LuuTruChiTietService.FormData.NgayVao"  name="NoiTru_LuuTruChiTietService.FormData.NgayVao" type="text" class="form-control">
+</div>
+<div>
+<label>ThoiGianVao</label>
+<input placeholder="ThoiGianVao" [(ngModel)]="NoiTru_LuuTruChiTietService.FormData.ThoiGianVao"  name="NoiTru_LuuTruChiTietService.FormData.ThoiGianVao" type="text" class="form-control">
+</div>
+<div>
+<label>ThoiGianTinhLuuTru</label>
+<input placeholder="ThoiGianTinhLuuTru" [(ngModel)]="NoiTru_LuuTruChiTietService.FormData.ThoiGianTinhLuuTru"  name="NoiTru_LuuTruChiTietService.FormData.ThoiGianTinhLuuTru" type="text" class="form-control">
+</div>
+<div>
+<label>LyDo_Id</label>
+<input placeholder="LyDo_Id" [(ngModel)]="NoiTru_LuuTruChiTietService.FormData.LyDo_Id"  name="NoiTru_LuuTruChiTietService.FormData.LyDo_Id" type="text" class="form-control">
+</div>
+<div>
+<label>NgayRa</label>
+<input placeholder="NgayRa" [(ngModel)]="NoiTru_LuuTruChiTietService.FormData.NgayRa"  name="NoiTru_LuuTruChiTietService.FormData.NgayRa" type="text" class="form-control">
+</div>
+<div>
+<label>ThoiGianRa</label>
+<input placeholder="ThoiGianRa" [(ngModel)]="NoiTru_LuuTruChiTietService.FormData.ThoiGianRa"  name="NoiTru_LuuTruChiTietService.FormData.ThoiGianRa" type="text" class="form-control">
+</div>
+<div>
+<label>DonGiaPhaiThu</label>
+<input placeholder="DonGiaPhaiThu" [(ngModel)]="NoiTru_LuuTruChiTietService.FormData.DonGiaPhaiThu"  name="NoiTru_LuuTruChiTietService.FormData.DonGiaPhaiThu" type="text" class="form-control">
+</div>
+<div>
+<label>DonGia</label>
+<input placeholder="DonGia" [(ngModel)]="NoiTru_LuuTruChiTietService.FormData.DonGia"  name="NoiTru_LuuTruChiTietService.FormData.DonGia" type="text" class="form-control">
+</div>
+<div>
+<label>TyLeVAT</label>
+<input placeholder="TyLeVAT" [(ngModel)]="NoiTru_LuuTruChiTietService.FormData.TyLeVAT"  name="NoiTru_LuuTruChiTietService.FormData.TyLeVAT" type="text" class="form-control">
+</div>
+<div>
+<label>GiaTriVAT</label>
+<input placeholder="GiaTriVAT" [(ngModel)]="NoiTru_LuuTruChiTietService.FormData.GiaTriVAT"  name="NoiTru_LuuTruChiTietService.FormData.GiaTriVAT" type="text" class="form-control">
+</div>
+<div>
+<label>TienTe_Id</label>
+<input placeholder="TienTe_Id" [(ngModel)]="NoiTru_LuuTruChiTietService.FormData.TienTe_Id"  name="NoiTru_LuuTruChiTietService.FormData.TienTe_Id" type="text" class="form-control">
+</div>
+<div>
+<label>Tygia</label>
+<input placeholder="Tygia" [(ngModel)]="NoiTru_LuuTruChiTietService.FormData.Tygia"  name="NoiTru_LuuTruChiTietService.FormData.Tygia" type="text" class="form-control">
+</div>
+<div>
+<label>LoaiGia_Id</label>
+<input placeholder="LoaiGia_Id" [(ngModel)]="NoiTru_LuuTruChiTietService.FormData.LoaiGia_Id"  name="NoiTru_LuuTruChiTietService.FormData.LoaiGia_Id" type="text" class="form-control">
+</div>
+<div>
+<label>GiuongBenhChuyenDen_Id</label>
+<input placeholder="GiuongBenhChuyenDen_Id" [(ngModel)]="NoiTru_LuuTruChiTietService.FormData.GiuongBenhChuyenDen_Id"  name="NoiTru_LuuTruChiTietService.FormData.GiuongBenhChuyenDen_Id" type="text" class="form-control">
+</div>
+<div>
+<label>BaoPhong</label>
+<input placeholder="BaoPhong" [(ngModel)]="NoiTru_LuuTruChiTietService.FormData.BaoPhong"  name="NoiTru_LuuTruChiTietService.FormData.BaoPhong" type="text" class="form-control">
+</div>
+<div>
+<label>KhongTinhTien</label>
+<input placeholder="KhongTinhTien" [(ngModel)]="NoiTru_LuuTruChiTietService.FormData.KhongTinhTien"  name="NoiTru_LuuTruChiTietService.FormData.KhongTinhTien" type="text" class="form-control">
+</div>
+<div>
+<label>NgayTao</label>
+<input placeholder="NgayTao" [(ngModel)]="NoiTru_LuuTruChiTietService.FormData.NgayTao"  name="NoiTru_LuuTruChiTietService.FormData.NgayTao" type="text" class="form-control">
+</div>
+<div>
+<label>NguoiTao_Id</label>
+<input placeholder="NguoiTao_Id" [(ngModel)]="NoiTru_LuuTruChiTietService.FormData.NguoiTao_Id"  name="NoiTru_LuuTruChiTietService.FormData.NguoiTao_Id" type="text" class="form-control">
+</div>
+<div>
+<label>NgayCapNhat</label>
+<input placeholder="NgayCapNhat" [(ngModel)]="NoiTru_LuuTruChiTietService.FormData.NgayCapNhat"  name="NoiTru_LuuTruChiTietService.FormData.NgayCapNhat" type="text" class="form-control">
+</div>
+<div>
+<label>NguoiCapNhat_Id</label>
+<input placeholder="NguoiCapNhat_Id" [(ngModel)]="NoiTru_LuuTruChiTietService.FormData.NguoiCapNhat_Id"  name="NoiTru_LuuTruChiTietService.FormData.NguoiCapNhat_Id" type="text" class="form-control">
+</div>
+<div>
+<label>LuuTruChiTiet_Prev</label>
+<input placeholder="LuuTruChiTiet_Prev" [(ngModel)]="NoiTru_LuuTruChiTietService.FormData.LuuTruChiTiet_Prev"  name="NoiTru_LuuTruChiTietService.FormData.LuuTruChiTiet_Prev" type="text" class="form-control">
+</div>
+<div>
+<label>LuuTruChiTiet_Current</label>
+<input placeholder="LuuTruChiTiet_Current" [(ngModel)]="NoiTru_LuuTruChiTietService.FormData.LuuTruChiTiet_Current"  name="NoiTru_LuuTruChiTietService.FormData.LuuTruChiTiet_Current" type="text" class="form-control">
+</div>
+<div>
+<label>DoiTuong_Id</label>
+<input placeholder="DoiTuong_Id" [(ngModel)]="NoiTru_LuuTruChiTietService.FormData.DoiTuong_Id"  name="NoiTru_LuuTruChiTietService.FormData.DoiTuong_Id" type="text" class="form-control">
+</div>
+<div>
+<label>LuuTruChiTiet_Id_Last</label>
+<input placeholder="LuuTruChiTiet_Id_Last" [(ngModel)]="NoiTru_LuuTruChiTietService.FormData.LuuTruChiTiet_Id_Last"  name="NoiTru_LuuTruChiTietService.FormData.LuuTruChiTiet_Id_Last" type="text" class="form-control">
+</div>
+<div>
+<label>SiteCode</label>
+<input placeholder="SiteCode" [(ngModel)]="NoiTru_LuuTruChiTietService.FormData.SiteCode"  name="NoiTru_LuuTruChiTietService.FormData.SiteCode" type="text" class="form-control">
+</div>
+<div>
+<label>Mapping_Public_Id</label>
+<input placeholder="Mapping_Public_Id" [(ngModel)]="NoiTru_LuuTruChiTietService.FormData.Mapping_Public_Id"  name="NoiTru_LuuTruChiTietService.FormData.Mapping_Public_Id" type="text" class="form-control">
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <app-loading *ngIf="NoiTru_LuuTruChiTietService.IsShowLoading"></app-loading>
+

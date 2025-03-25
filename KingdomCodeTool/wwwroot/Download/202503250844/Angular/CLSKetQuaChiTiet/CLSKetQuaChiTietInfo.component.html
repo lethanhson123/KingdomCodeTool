@@ -1,0 +1,108 @@
+﻿<div class="row">
+    <div id="breadcrumbs-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m6 l6">
+                    <h6 class="breadcrumbs-title">
+                        CLSKetQuaChiTiet:
+                        <b>{{CLSKetQuaChiTietService.FormData.CLSKetQuaChiTiet_Id}} [{{CLSKetQuaChiTietService.FormData.CLSKetQuaChiTiet_Id}}]</b>
+                    </h6>
+                </div>
+                <div class="col s12 m6 l6 right-align-md">
+                    <ol class="breadcrumbs mb-0">
+                        <li class="breadcrumb-item">
+                            <a href="javascript:history.back()" title="Quay lại">
+                                <<< Quay lại
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/Homepage" title="Trang chủ">Trang chủ</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="#" title="eHospital_DongNai_A/">eHospital_DongNai_A/</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/CLSKetQuaChiTiet" title="CLSKetQuaChiTiet">
+                                CLSKetQuaChiTiet
+                            </a>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col s12 m12 l12">
+        <div class="card card card-default scrollspy">
+            <div class="card-content">
+                <div class="row">
+                    <div class="col s6 m6 l12">
+                        <a title="Quay lại" href="javascript:history.back()" style="color: green;">
+                            <i class="material-icons">more</i>
+                        </a>
+                        <!--<a title="Thêm mới" (click)="CLSKetQuaChiTietAdd()" style="color: green;"><i
+                class="material-icons">add_box</i></a>-->
+                        <a title="Lưu thay đổi" (click)="CLSKetQuaChiTietSave()" style="color:#2196f3;">
+                            <i class="material-icons">save</i>
+                        </a>
+                    </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12 m12 l12">
+                            <div>
+<label>CLSKetQuaChiTiet_Id</label>
+<input placeholder="CLSKetQuaChiTiet_Id" [(ngModel)]="CLSKetQuaChiTietService.FormData.CLSKetQuaChiTiet_Id"  name="CLSKetQuaChiTietService.FormData.CLSKetQuaChiTiet_Id" type="text" class="form-control">
+</div>
+<div>
+<label>CLSKetQua_Id</label>
+<input placeholder="CLSKetQua_Id" [(ngModel)]="CLSKetQuaChiTietService.FormData.CLSKetQua_Id"  name="CLSKetQuaChiTietService.FormData.CLSKetQua_Id" type="text" class="form-control">
+</div>
+<div>
+<label>DichVu_Id</label>
+<input placeholder="DichVu_Id" [(ngModel)]="CLSKetQuaChiTietService.FormData.DichVu_Id"  name="CLSKetQuaChiTietService.FormData.DichVu_Id" type="text" class="form-control">
+</div>
+<div>
+<label>DonViTinh</label>
+<input placeholder="DonViTinh" [(ngModel)]="CLSKetQuaChiTietService.FormData.DonViTinh"  name="CLSKetQuaChiTietService.FormData.DonViTinh" type="text" class="form-control">
+</div>
+<div>
+<label>KetQua</label>
+<input placeholder="KetQua" [(ngModel)]="CLSKetQuaChiTietService.FormData.KetQua"  name="CLSKetQuaChiTietService.FormData.KetQua" type="text" class="form-control">
+</div>
+<div>
+<label>KetQua2</label>
+<input placeholder="KetQua2" [(ngModel)]="CLSKetQuaChiTietService.FormData.KetQua2"  name="CLSKetQuaChiTietService.FormData.KetQua2" type="text" class="form-control">
+</div>
+<div>
+<label>MucBinhThuong</label>
+<input placeholder="MucBinhThuong" [(ngModel)]="CLSKetQuaChiTietService.FormData.MucBinhThuong"  name="CLSKetQuaChiTietService.FormData.MucBinhThuong" type="text" class="form-control">
+</div>
+<div>
+<label>MucBinhThuongMin</label>
+<input placeholder="MucBinhThuongMin" [(ngModel)]="CLSKetQuaChiTietService.FormData.MucBinhThuongMin"  name="CLSKetQuaChiTietService.FormData.MucBinhThuongMin" type="text" class="form-control">
+</div>
+<div>
+<label>MucBinhThuongMax</label>
+<input placeholder="MucBinhThuongMax" [(ngModel)]="CLSKetQuaChiTietService.FormData.MucBinhThuongMax"  name="CLSKetQuaChiTietService.FormData.MucBinhThuongMax" type="text" class="form-control">
+</div>
+<div>
+<label>BatThuong</label>
+<input placeholder="BatThuong" [(ngModel)]="CLSKetQuaChiTietService.FormData.BatThuong"  name="CLSKetQuaChiTietService.FormData.BatThuong" type="text" class="form-control">
+</div>
+<div>
+<label>ThucHienBenNgoai</label>
+<input placeholder="ThucHienBenNgoai" [(ngModel)]="CLSKetQuaChiTietService.FormData.ThucHienBenNgoai"  name="CLSKetQuaChiTietService.FormData.ThucHienBenNgoai" type="text" class="form-control">
+</div>
+<div>
+<label>GioiHan</label>
+<input placeholder="GioiHan" [(ngModel)]="CLSKetQuaChiTietService.FormData.GioiHan"  name="CLSKetQuaChiTietService.FormData.GioiHan" type="text" class="form-control">
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <app-loading *ngIf="CLSKetQuaChiTietService.IsShowLoading"></app-loading>
+

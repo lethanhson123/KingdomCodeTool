@@ -1,0 +1,229 @@
+﻿<div class="row">
+    <div id="breadcrumbs-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m6 l6">
+                    <h6 class="breadcrumbs-title">
+                        CLSKetQuaKhangSinhDo
+                        <span *ngIf="CLSKetQuaKhangSinhDoService.List">({{CLSKetQuaKhangSinhDoService.List.length-1}} items)</span>
+                    </h6>
+                </div>
+                <div class="col s12 m6 l6 right-align-md">
+                    <ol class="breadcrumbs mb-0">
+                        <li class="breadcrumb-item">
+                            <a href="javascript:history.back()" title="Quay lại">
+                                <<< Quay lại
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/Homepage" title="Trang chủ">Trang chủ</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/ThanhVien" title="Quản trị">Quản trị</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/CLSKetQuaKhangSinhDo" title="CLSKetQuaKhangSinhDo">
+                                CLSKetQuaKhangSinhDo
+                            </a>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col s12 m12 l12">
+        <div class="card card card-default scrollspy">
+            <div class="card-content">
+                <div class="col s12 m12 l11">
+                    <input [(ngModel)]="CLSKetQuaKhangSinhDoService.BaseParameter.SearchString" placeholder="Tìm ..."
+                           class="form-control" (keyup.enter)="CLSKetQuaKhangSinhDoSearch()">
+                </div>
+                <div class="col s12 m12 l1">
+                    <a style="color: green;" title="Tìm" (click)="CLSKetQuaKhangSinhDoSearch()">
+                        <i class="material-icons">play_circle_filled</i>
+                    </a>
+                </div>
+                <div class="KhungOverflow">
+                    <table *ngIf="!NotificationService.IsMobile" mat-table matSort #CLSKetQuaKhangSinhDoSort="matSort"
+                           [dataSource]="CLSKetQuaKhangSinhDoService.DataSource">
+                        <ng-container matColumnDef="STT">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                                STT
+                            </th>
+                            <td mat-cell *matCellDef="let element; index as i;">
+                                <div *ngIf="CLSKetQuaKhangSinhDoPaginator">
+                                    {{
+CLSKetQuaKhangSinhDoPaginator.pageSize *
+                                    CLSKetQuaKhangSinhDoPaginator.pageIndex + i + 1
+                                    }}
+                                </div>
+                            </td>
+                        </ng-container>
+                        <ng-container matColumnDef="Save">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                            </th>
+                            <td mat-cell *matCellDef="let element">
+                                <a (click)="CLSKetQuaKhangSinhDoSave(element)" style="color:#2196f3;">
+                                    <i class="material-icons">save</i>
+                                </a>
+                                <a (click)="CLSKetQuaKhangSinhDoDelete(element)" style="color: red;">
+                                    <i class="material-icons">delete_forever</i>
+                                </a>
+                            </td>
+                        </ng-container>
+                        <ng-container matColumnDef="KetQuaKhangSinhDo_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>KetQuaKhangSinhDo_Id</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="KetQuaKhangSinhDo_Id" name="KetQuaKhangSinhDo_Id" [(ngModel)]="element.KetQuaKhangSinhDo_Id"></td>
+</ng-container>
+<ng-container matColumnDef="CLSKetQua_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CLSKetQua_Id</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="CLSKetQua_Id" name="CLSKetQua_Id" [(ngModel)]="element.CLSKetQua_Id"></td>
+</ng-container>
+<ng-container matColumnDef="KhangSinhDo_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>KhangSinhDo_Id</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="KhangSinhDo_Id" name="KhangSinhDo_Id" [(ngModel)]="element.KhangSinhDo_Id"></td>
+</ng-container>
+<ng-container matColumnDef="NhomKhangSinhDo_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>NhomKhangSinhDo_Id</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="NhomKhangSinhDo_Id" name="NhomKhangSinhDo_Id" [(ngModel)]="element.NhomKhangSinhDo_Id"></td>
+</ng-container>
+<ng-container matColumnDef="TenNguonXetNghiem">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>TenNguonXetNghiem</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="TenNguonXetNghiem" name="TenNguonXetNghiem" [(ngModel)]="element.TenNguonXetNghiem"></td>
+</ng-container>
+<ng-container matColumnDef="KetQua">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>KetQua</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="KetQua" name="KetQua" [(ngModel)]="element.KetQua"></td>
+</ng-container>
+<ng-container matColumnDef="KhangSinhDo">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>KhangSinhDo</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="KhangSinhDo" name="KhangSinhDo" [(ngModel)]="element.KhangSinhDo"></td>
+</ng-container>
+<ng-container matColumnDef="TenKetQua">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>TenKetQua</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="TenKetQua" name="TenKetQua" [(ngModel)]="element.TenKetQua"></td>
+</ng-container>
+<ng-container matColumnDef="CapTren_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CapTren_Id</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="CapTren_Id" name="CapTren_Id" [(ngModel)]="element.CapTren_Id"></td>
+</ng-container>
+<ng-container matColumnDef="InstrMIC">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>InstrMIC</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="InstrMIC" name="InstrMIC" [(ngModel)]="element.InstrMIC"></td>
+</ng-container>
+<ng-container matColumnDef="FinalSIR">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>FinalSIR</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="FinalSIR" name="FinalSIR" [(ngModel)]="element.FinalSIR"></td>
+</ng-container>
+<ng-container matColumnDef="Rules">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Rules</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Rules" name="Rules" [(ngModel)]="element.Rules"></td>
+</ng-container>
+
+                        <tr mat-header-row *matHeaderRowDef="CLSKetQuaKhangSinhDoService.DisplayColumns001">
+                        </tr>
+                        <tr mat-row *matRowDef="let row; columns: CLSKetQuaKhangSinhDoService.DisplayColumns001;">
+                        </tr>
+                    </table>
+                    <mat-paginator *ngIf="!NotificationService.IsMobile" #CLSKetQuaKhangSinhDoPaginator="matPaginator"
+                                   [pageSizeOptions]="[10,20,50,100]" [pageSize]="20" [showFirstLastButtons]></mat-paginator>
+
+                    <table *ngIf="NotificationService.IsMobile" mat-table matSort #CLSKetQuaKhangSinhDoSort="matSort"
+                           [dataSource]="CLSKetQuaKhangSinhDoService.DataSource" class="table table-striped m-0">
+                        <ng-container matColumnDef="STT">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                                Danh sách
+                            </th>
+                            <td mat-cell *matCellDef="let element; index as i;">
+                                <div class="row gx-4">
+                                    <div class="col-lg-12 col-sm-12 col-12">
+<label>KetQuaKhangSinhDo_Id</label>
+<br />
+<input class="form-control" type="text" placeholder="KetQuaKhangSinhDo_Id" name="KetQuaKhangSinhDo_Id{{element.ID}}" [(ngModel)]="element.KetQuaKhangSinhDo_Id">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>CLSKetQua_Id</label>
+<br />
+<input class="form-control" type="text" placeholder="CLSKetQua_Id" name="CLSKetQua_Id{{element.ID}}" [(ngModel)]="element.CLSKetQua_Id">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>KhangSinhDo_Id</label>
+<br />
+<input class="form-control" type="text" placeholder="KhangSinhDo_Id" name="KhangSinhDo_Id{{element.ID}}" [(ngModel)]="element.KhangSinhDo_Id">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>NhomKhangSinhDo_Id</label>
+<br />
+<input class="form-control" type="text" placeholder="NhomKhangSinhDo_Id" name="NhomKhangSinhDo_Id{{element.ID}}" [(ngModel)]="element.NhomKhangSinhDo_Id">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>TenNguonXetNghiem</label>
+<br />
+<input class="form-control" type="text" placeholder="TenNguonXetNghiem" name="TenNguonXetNghiem{{element.ID}}" [(ngModel)]="element.TenNguonXetNghiem">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>KetQua</label>
+<br />
+<input class="form-control" type="text" placeholder="KetQua" name="KetQua{{element.ID}}" [(ngModel)]="element.KetQua">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>KhangSinhDo</label>
+<br />
+<input class="form-control" type="text" placeholder="KhangSinhDo" name="KhangSinhDo{{element.ID}}" [(ngModel)]="element.KhangSinhDo">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>TenKetQua</label>
+<br />
+<input class="form-control" type="text" placeholder="TenKetQua" name="TenKetQua{{element.ID}}" [(ngModel)]="element.TenKetQua">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>CapTren_Id</label>
+<br />
+<input class="form-control" type="text" placeholder="CapTren_Id" name="CapTren_Id{{element.ID}}" [(ngModel)]="element.CapTren_Id">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>InstrMIC</label>
+<br />
+<input class="form-control" type="text" placeholder="InstrMIC" name="InstrMIC{{element.ID}}" [(ngModel)]="element.InstrMIC">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>FinalSIR</label>
+<br />
+<input class="form-control" type="text" placeholder="FinalSIR" name="FinalSIR{{element.ID}}" [(ngModel)]="element.FinalSIR">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>Rules</label>
+<br />
+<input class="form-control" type="text" placeholder="Rules" name="Rules{{element.ID}}" [(ngModel)]="element.Rules">
+</div>
+
+                                </div>
+                                <div class="row gx-4">
+                                    <div class="col s6 m6 l6">
+                                        <a (click)="CLSKetQuaKhangSinhDoSave(element)" style="color:#2196f3;">
+                                            <i class="material-icons">save</i>
+                                        </a>
+                                    </div>
+                                    <div class="col s6 m6 l6">
+                                        <a (click)="CLSKetQuaKhangSinhDoDelete(element)"
+                                           style="color: red;"><i class="material-icons">delete_forever</i></a>
+                                    </div>
+                                </div>
+                                <br />
+                            </td>
+                        </ng-container>
+                        <tr mat-header-row *matHeaderRowDef="CLSKetQuaKhangSinhDoService.DisplayColumnsMobile">
+                        </tr>
+                        <tr mat-row *matRowDef="let row; columns: CLSKetQuaKhangSinhDoService.DisplayColumnsMobile;">
+                        </tr>
+                    </table>
+                    <mat-paginator *ngIf="NotificationService.IsMobile" #CLSKetQuaKhangSinhDoPaginator="matPaginator"
+                                   [pageSizeOptions]="[10,20,50,100]" [pageSize]="10000" [showFirstLastButtons]></mat-paginator>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-loading *ngIf="CLSKetQuaKhangSinhDoService.IsShowLoading"></app-loading>
+

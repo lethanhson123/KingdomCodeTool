@@ -1,0 +1,124 @@
+﻿<div class="row">
+    <div id="breadcrumbs-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m6 l6">
+                    <h6 class="breadcrumbs-title">
+                        NhapVien:
+                        <b>{{NhapVienService.FormData.NhapVien_Id}} [{{NhapVienService.FormData.NhapVien_Id}}]</b>
+                    </h6>
+                </div>
+                <div class="col s12 m6 l6 right-align-md">
+                    <ol class="breadcrumbs mb-0">
+                        <li class="breadcrumb-item">
+                            <a href="javascript:history.back()" title="Quay lại">
+                                <<< Quay lại
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/Homepage" title="Trang chủ">Trang chủ</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="#" title="eHospital_DongNai_A/">eHospital_DongNai_A/</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/NhapVien" title="NhapVien">
+                                NhapVien
+                            </a>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col s12 m12 l12">
+        <div class="card card card-default scrollspy">
+            <div class="card-content">
+                <div class="row">
+                    <div class="col s6 m6 l12">
+                        <a title="Quay lại" href="javascript:history.back()" style="color: green;">
+                            <i class="material-icons">more</i>
+                        </a>
+                        <!--<a title="Thêm mới" (click)="NhapVienAdd()" style="color: green;"><i
+                class="material-icons">add_box</i></a>-->
+                        <a title="Lưu thay đổi" (click)="NhapVienSave()" style="color:#2196f3;">
+                            <i class="material-icons">save</i>
+                        </a>
+                    </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12 m12 l12">
+                            <div>
+<label>NhapVien_Id</label>
+<input placeholder="NhapVien_Id" [(ngModel)]="NhapVienService.FormData.NhapVien_Id"  name="NhapVienService.FormData.NhapVien_Id" type="text" class="form-control">
+</div>
+<div>
+<label>TiepNhan_Id</label>
+<input placeholder="TiepNhan_Id" [(ngModel)]="NhapVienService.FormData.TiepNhan_Id"  name="NhapVienService.FormData.TiepNhan_Id" type="text" class="form-control">
+</div>
+<div>
+<label>NgayNhapVien</label>
+<input placeholder="NgayNhapVien" [(ngModel)]="NhapVienService.FormData.NgayNhapVien"  name="NhapVienService.FormData.NgayNhapVien" type="text" class="form-control">
+</div>
+<div>
+<label>ThoiGianNhapVien</label>
+<input placeholder="ThoiGianNhapVien" [(ngModel)]="NhapVienService.FormData.ThoiGianNhapVien"  name="NhapVienService.FormData.ThoiGianNhapVien" type="text" class="form-control">
+</div>
+<div>
+<label>NoiNhapVien_Id</label>
+<input placeholder="NoiNhapVien_Id" [(ngModel)]="NhapVienService.FormData.NoiNhapVien_Id"  name="NhapVienService.FormData.NoiNhapVien_Id" type="text" class="form-control">
+</div>
+<div>
+<label>BacSiChiDinh_Id</label>
+<input placeholder="BacSiChiDinh_Id" [(ngModel)]="NhapVienService.FormData.BacSiChiDinh_Id"  name="NhapVienService.FormData.BacSiChiDinh_Id" type="text" class="form-control">
+</div>
+<div>
+<label>LyDoNhapVien_Id</label>
+<input placeholder="LyDoNhapVien_Id" [(ngModel)]="NhapVienService.FormData.LyDoNhapVien_Id"  name="NhapVienService.FormData.LyDoNhapVien_Id" type="text" class="form-control">
+</div>
+<div>
+<label>KhoaDieuTri_Id</label>
+<input placeholder="KhoaDieuTri_Id" [(ngModel)]="NhapVienService.FormData.KhoaDieuTri_Id"  name="NhapVienService.FormData.KhoaDieuTri_Id" type="text" class="form-control">
+</div>
+<div>
+<label>BenhAnNgoaiTru_Id</label>
+<input placeholder="BenhAnNgoaiTru_Id" [(ngModel)]="NhapVienService.FormData.BenhAnNgoaiTru_Id"  name="NhapVienService.FormData.BenhAnNgoaiTru_Id" type="text" class="form-control">
+</div>
+<div>
+<label>TrangThai</label>
+<input placeholder="TrangThai" [(ngModel)]="NhapVienService.FormData.TrangThai"  name="NhapVienService.FormData.TrangThai" type="text" class="form-control">
+</div>
+<div>
+<label>NgayTao</label>
+<input placeholder="NgayTao" [(ngModel)]="NhapVienService.FormData.NgayTao"  name="NhapVienService.FormData.NgayTao" type="text" class="form-control">
+</div>
+<div>
+<label>NguoiTao_Id</label>
+<input placeholder="NguoiTao_Id" [(ngModel)]="NhapVienService.FormData.NguoiTao_Id"  name="NhapVienService.FormData.NguoiTao_Id" type="text" class="form-control">
+</div>
+<div>
+<label>NgayCapNhat</label>
+<input placeholder="NgayCapNhat" [(ngModel)]="NhapVienService.FormData.NgayCapNhat"  name="NhapVienService.FormData.NgayCapNhat" type="text" class="form-control">
+</div>
+<div>
+<label>NguoiCapNhat_Id</label>
+<input placeholder="NguoiCapNhat_Id" [(ngModel)]="NhapVienService.FormData.NguoiCapNhat_Id"  name="NhapVienService.FormData.NguoiCapNhat_Id" type="text" class="form-control">
+</div>
+<div>
+<label>KhamBenh_Id</label>
+<input placeholder="KhamBenh_Id" [(ngModel)]="NhapVienService.FormData.KhamBenh_Id"  name="NhapVienService.FormData.KhamBenh_Id" type="text" class="form-control">
+</div>
+<div>
+<label>LoaiBenhAn_Id</label>
+<input placeholder="LoaiBenhAn_Id" [(ngModel)]="NhapVienService.FormData.LoaiBenhAn_Id"  name="NhapVienService.FormData.LoaiBenhAn_Id" type="text" class="form-control">
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <app-loading *ngIf="NhapVienService.IsShowLoading"></app-loading>
+

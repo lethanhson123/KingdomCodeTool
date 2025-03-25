@@ -24,9 +24,9 @@ namespace KingdomCodeTool.Controllers
             BaseViewModel model = new BaseViewModel();
             model.ConnectionString = "Server=10.84.3.124;Database=BenhVienDaKhoaDongNai2025;Persist Security Info=False;User ID=cntt; Password=dongnai@123;MultipleActiveResultSets=False;Encrypt=False;TrustServerCertificate=False;Connection Timeout=30;";
             //model.ConnectionString = "Server=10.84.2.148;Database=NewComet_NSTL_A;Persist Security Info=False;User ID=sa; Password=Cntt@123;MultipleActiveResultSets=False;Encrypt=False;TrustServerCertificate=False;Connection Timeout=30;";
-            //model.ConnectionString = "Server=10.84.2.8\\SQLDB;Database=eHospital_DongNai_A;User Id=ToolEhos;Password=tooltehpt;";
+            model.ConnectionString = "Server=10.84.2.8\\SQLDB;Database=eHospital_DongNai_A;User Id=ToolEhos;Password=tooltehpt;";
             //model.ConnectionString = "Server=10.84.2.8\\SQLDB;Database=eHospital_DongNai_A_Config;User Id=ToolEhos;Password=tooltehpt;";
-            //model.ConnectionString = "Server=10.84.2.8\\SQLDB;Database=eHospital_DongNai_A_Dictionary;User Id=ToolEhos;Password=tooltehpt;";
+            model.ConnectionString = "Server=10.84.2.8\\SQLDB;Database=eHospital_DongNai_A_Dictionary;User Id=ToolEhos;Password=tooltehpt;";
             //model.ConnectionString = "Server=10.84.2.8\\SQLDB;Database=eHospital_DongNai_A_NSTL;User Id=ToolEhos;Password=tooltehpt;";
             //model.ConnectionString = "Server=10.84.2.8\\SQLDB;Database=eHospital_DongNai_A_System;User Id=ToolEhos;Password=tooltehpt;";            
             //model.SpaceName = "_" + "eHospital_DongNai_A_Config";

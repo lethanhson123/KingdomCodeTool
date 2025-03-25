@@ -1,0 +1,84 @@
+﻿<div class="row">
+    <div id="breadcrumbs-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m6 l6">
+                    <h6 class="breadcrumbs-title">
+                        CLSYeuCau_QMS:
+                        <b>{{CLSYeuCau_QMSService.FormData.CLSYeuCau_Id}} [{{CLSYeuCau_QMSService.FormData.CLSYeuCau_Id}}]</b>
+                    </h6>
+                </div>
+                <div class="col s12 m6 l6 right-align-md">
+                    <ol class="breadcrumbs mb-0">
+                        <li class="breadcrumb-item">
+                            <a href="javascript:history.back()" title="Quay lại">
+                                <<< Quay lại
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/Homepage" title="Trang chủ">Trang chủ</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="#" title="eHospital_DongNai_A/">eHospital_DongNai_A/</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/CLSYeuCau_QMS" title="CLSYeuCau_QMS">
+                                CLSYeuCau_QMS
+                            </a>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col s12 m12 l12">
+        <div class="card card card-default scrollspy">
+            <div class="card-content">
+                <div class="row">
+                    <div class="col s6 m6 l12">
+                        <a title="Quay lại" href="javascript:history.back()" style="color: green;">
+                            <i class="material-icons">more</i>
+                        </a>
+                        <!--<a title="Thêm mới" (click)="CLSYeuCau_QMSAdd()" style="color: green;"><i
+                class="material-icons">add_box</i></a>-->
+                        <a title="Lưu thay đổi" (click)="CLSYeuCau_QMSSave()" style="color:#2196f3;">
+                            <i class="material-icons">save</i>
+                        </a>
+                    </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12 m12 l12">
+                            <div>
+<label>CLSYeuCau_Id</label>
+<input placeholder="CLSYeuCau_Id" [(ngModel)]="CLSYeuCau_QMSService.FormData.CLSYeuCau_Id"  name="CLSYeuCau_QMSService.FormData.CLSYeuCau_Id" type="text" class="form-control">
+</div>
+<div>
+<label>SoTT</label>
+<input placeholder="SoTT" [(ngModel)]="CLSYeuCau_QMSService.FormData.SoTT"  name="CLSYeuCau_QMSService.FormData.SoTT" type="text" class="form-control">
+</div>
+<div>
+<label>HangDoi_Idx</label>
+<input placeholder="HangDoi_Idx" [(ngModel)]="CLSYeuCau_QMSService.FormData.HangDoi_Idx"  name="CLSYeuCau_QMSService.FormData.HangDoi_Idx" type="text" class="form-control">
+</div>
+<div>
+<label>HangDoi_Details</label>
+<input placeholder="HangDoi_Details" [(ngModel)]="CLSYeuCau_QMSService.FormData.HangDoi_Details"  name="CLSYeuCau_QMSService.FormData.HangDoi_Details" type="text" class="form-control">
+</div>
+<div>
+<label>KhuVuc</label>
+<input placeholder="KhuVuc" [(ngModel)]="CLSYeuCau_QMSService.FormData.KhuVuc"  name="CLSYeuCau_QMSService.FormData.KhuVuc" type="text" class="form-control">
+</div>
+<div>
+<label>App</label>
+<input placeholder="App" [(ngModel)]="CLSYeuCau_QMSService.FormData.App"  name="CLSYeuCau_QMSService.FormData.App" type="text" class="form-control">
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <app-loading *ngIf="CLSYeuCau_QMSService.IsShowLoading"></app-loading>
+

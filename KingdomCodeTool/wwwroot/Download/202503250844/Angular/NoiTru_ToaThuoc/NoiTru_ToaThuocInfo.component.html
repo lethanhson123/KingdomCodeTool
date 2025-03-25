@@ -1,0 +1,284 @@
+﻿<div class="row">
+    <div id="breadcrumbs-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m6 l6">
+                    <h6 class="breadcrumbs-title">
+                        NoiTru_ToaThuoc:
+                        <b>{{NoiTru_ToaThuocService.FormData.ToaThuoc_Id}} [{{NoiTru_ToaThuocService.FormData.ToaThuoc_Id}}]</b>
+                    </h6>
+                </div>
+                <div class="col s12 m6 l6 right-align-md">
+                    <ol class="breadcrumbs mb-0">
+                        <li class="breadcrumb-item">
+                            <a href="javascript:history.back()" title="Quay lại">
+                                <<< Quay lại
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/Homepage" title="Trang chủ">Trang chủ</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="#" title="eHospital_DongNai_A/">eHospital_DongNai_A/</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/NoiTru_ToaThuoc" title="NoiTru_ToaThuoc">
+                                NoiTru_ToaThuoc
+                            </a>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col s12 m12 l12">
+        <div class="card card card-default scrollspy">
+            <div class="card-content">
+                <div class="row">
+                    <div class="col s6 m6 l12">
+                        <a title="Quay lại" href="javascript:history.back()" style="color: green;">
+                            <i class="material-icons">more</i>
+                        </a>
+                        <!--<a title="Thêm mới" (click)="NoiTru_ToaThuocAdd()" style="color: green;"><i
+                class="material-icons">add_box</i></a>-->
+                        <a title="Lưu thay đổi" (click)="NoiTru_ToaThuocSave()" style="color:#2196f3;">
+                            <i class="material-icons">save</i>
+                        </a>
+                    </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12 m12 l12">
+                            <div>
+<label>ToaThuoc_Id</label>
+<input placeholder="ToaThuoc_Id" [(ngModel)]="NoiTru_ToaThuocService.FormData.ToaThuoc_Id"  name="NoiTru_ToaThuocService.FormData.ToaThuoc_Id" type="text" class="form-control">
+</div>
+<div>
+<label>SoThuTuToa</label>
+<input placeholder="SoThuTuToa" [(ngModel)]="NoiTru_ToaThuocService.FormData.SoThuTuToa"  name="NoiTru_ToaThuocService.FormData.SoThuTuToa" type="text" class="form-control">
+</div>
+<div>
+<label>KhamBenh_Id</label>
+<input placeholder="KhamBenh_Id" [(ngModel)]="NoiTru_ToaThuocService.FormData.KhamBenh_Id"  name="NoiTru_ToaThuocService.FormData.KhamBenh_Id" type="text" class="form-control">
+</div>
+<div>
+<label>Duoc_Id</label>
+<input placeholder="Duoc_Id" [(ngModel)]="NoiTru_ToaThuocService.FormData.Duoc_Id"  name="NoiTru_ToaThuocService.FormData.Duoc_Id" type="text" class="form-control">
+</div>
+<div>
+<label>SoLuong</label>
+<input placeholder="SoLuong" [(ngModel)]="NoiTru_ToaThuocService.FormData.SoLuong"  name="NoiTru_ToaThuocService.FormData.SoLuong" type="text" class="form-control">
+</div>
+<div>
+<label>SoNgay</label>
+<input placeholder="SoNgay" [(ngModel)]="NoiTru_ToaThuocService.FormData.SoNgay"  name="NoiTru_ToaThuocService.FormData.SoNgay" type="text" class="form-control">
+</div>
+<div>
+<label>SoLanTrenNgay</label>
+<input placeholder="SoLanTrenNgay" [(ngModel)]="NoiTru_ToaThuocService.FormData.SoLanTrenNgay"  name="NoiTru_ToaThuocService.FormData.SoLanTrenNgay" type="text" class="form-control">
+</div>
+<div>
+<label>SoLuongTrenLan</label>
+<input placeholder="SoLuongTrenLan" [(ngModel)]="NoiTru_ToaThuocService.FormData.SoLuongTrenLan"  name="NoiTru_ToaThuocService.FormData.SoLuongTrenLan" type="text" class="form-control">
+</div>
+<div>
+<label>SoLuong_BuoiSang</label>
+<input placeholder="SoLuong_BuoiSang" [(ngModel)]="NoiTru_ToaThuocService.FormData.SoLuong_BuoiSang"  name="NoiTru_ToaThuocService.FormData.SoLuong_BuoiSang" type="text" class="form-control">
+</div>
+<div>
+<label>SoLuong_BuoiTrua</label>
+<input placeholder="SoLuong_BuoiTrua" [(ngModel)]="NoiTru_ToaThuocService.FormData.SoLuong_BuoiTrua"  name="NoiTru_ToaThuocService.FormData.SoLuong_BuoiTrua" type="text" class="form-control">
+</div>
+<div>
+<label>SoLuong_BuoiChieu</label>
+<input placeholder="SoLuong_BuoiChieu" [(ngModel)]="NoiTru_ToaThuocService.FormData.SoLuong_BuoiChieu"  name="NoiTru_ToaThuocService.FormData.SoLuong_BuoiChieu" type="text" class="form-control">
+</div>
+<div>
+<label>SoLuong_BuoiToi</label>
+<input placeholder="SoLuong_BuoiToi" [(ngModel)]="NoiTru_ToaThuocService.FormData.SoLuong_BuoiToi"  name="NoiTru_ToaThuocService.FormData.SoLuong_BuoiToi" type="text" class="form-control">
+</div>
+<div>
+<label>DuongDung_Id</label>
+<input placeholder="DuongDung_Id" [(ngModel)]="NoiTru_ToaThuocService.FormData.DuongDung_Id"  name="NoiTru_ToaThuocService.FormData.DuongDung_Id" type="text" class="form-control">
+</div>
+<div>
+<label>BangGia_Id</label>
+<input placeholder="BangGia_Id" [(ngModel)]="NoiTru_ToaThuocService.FormData.BangGia_Id"  name="NoiTru_ToaThuocService.FormData.BangGia_Id" type="text" class="form-control">
+</div>
+<div>
+<label>LoaiGia_Id</label>
+<input placeholder="LoaiGia_Id" [(ngModel)]="NoiTru_ToaThuocService.FormData.LoaiGia_Id"  name="NoiTru_ToaThuocService.FormData.LoaiGia_Id" type="text" class="form-control">
+</div>
+<div>
+<label>TienTe_Id</label>
+<input placeholder="TienTe_Id" [(ngModel)]="NoiTru_ToaThuocService.FormData.TienTe_Id"  name="NoiTru_ToaThuocService.FormData.TienTe_Id" type="text" class="form-control">
+</div>
+<div>
+<label>TyGia</label>
+<input placeholder="TyGia" [(ngModel)]="NoiTru_ToaThuocService.FormData.TyGia"  name="NoiTru_ToaThuocService.FormData.TyGia" type="text" class="form-control">
+</div>
+<div>
+<label>DonGiaDoanhThu</label>
+<input placeholder="DonGiaDoanhThu" [(ngModel)]="NoiTru_ToaThuocService.FormData.DonGiaDoanhThu"  name="NoiTru_ToaThuocService.FormData.DonGiaDoanhThu" type="text" class="form-control">
+</div>
+<div>
+<label>DonGiaHoTro</label>
+<input placeholder="DonGiaHoTro" [(ngModel)]="NoiTru_ToaThuocService.FormData.DonGiaHoTro"  name="NoiTru_ToaThuocService.FormData.DonGiaHoTro" type="text" class="form-control">
+</div>
+<div>
+<label>DonGiaHoTroChiTra</label>
+<input placeholder="DonGiaHoTroChiTra" [(ngModel)]="NoiTru_ToaThuocService.FormData.DonGiaHoTroChiTra"  name="NoiTru_ToaThuocService.FormData.DonGiaHoTroChiTra" type="text" class="form-control">
+</div>
+<div>
+<label>DonGiaThanhToan</label>
+<input placeholder="DonGiaThanhToan" [(ngModel)]="NoiTru_ToaThuocService.FormData.DonGiaThanhToan"  name="NoiTru_ToaThuocService.FormData.DonGiaThanhToan" type="text" class="form-control">
+</div>
+<div>
+<label>TyLeVAT</label>
+<input placeholder="TyLeVAT" [(ngModel)]="NoiTru_ToaThuocService.FormData.TyLeVAT"  name="NoiTru_ToaThuocService.FormData.TyLeVAT" type="text" class="form-control">
+</div>
+<div>
+<label>GiaTriVAT</label>
+<input placeholder="GiaTriVAT" [(ngModel)]="NoiTru_ToaThuocService.FormData.GiaTriVAT"  name="NoiTru_ToaThuocService.FormData.GiaTriVAT" type="text" class="form-control">
+</div>
+<div>
+<label>GhiChu</label>
+<input placeholder="GhiChu" [(ngModel)]="NoiTru_ToaThuocService.FormData.GhiChu"  name="NoiTru_ToaThuocService.FormData.GhiChu" type="text" class="form-control">
+</div>
+<div>
+<label>NguonDuoc_Id</label>
+<input placeholder="NguonDuoc_Id" [(ngModel)]="NoiTru_ToaThuocService.FormData.NguonDuoc_Id"  name="NoiTru_ToaThuocService.FormData.NguonDuoc_Id" type="text" class="form-control">
+</div>
+<div>
+<label>NguonHang_Id</label>
+<input placeholder="NguonHang_Id" [(ngModel)]="NoiTru_ToaThuocService.FormData.NguonHang_Id"  name="NoiTru_ToaThuocService.FormData.NguonHang_Id" type="text" class="form-control">
+</div>
+<div>
+<label>PhieuLinh_Id</label>
+<input placeholder="PhieuLinh_Id" [(ngModel)]="NoiTru_ToaThuocService.FormData.PhieuLinh_Id"  name="NoiTru_ToaThuocService.FormData.PhieuLinh_Id" type="text" class="form-control">
+</div>
+<div>
+<label>ChungTu_Id</label>
+<input placeholder="ChungTu_Id" [(ngModel)]="NoiTru_ToaThuocService.FormData.ChungTu_Id"  name="NoiTru_ToaThuocService.FormData.ChungTu_Id" type="text" class="form-control">
+</div>
+<div>
+<label>DonGiaDoanhThuTam</label>
+<input placeholder="DonGiaDoanhThuTam" [(ngModel)]="NoiTru_ToaThuocService.FormData.DonGiaDoanhThuTam"  name="NoiTru_ToaThuocService.FormData.DonGiaDoanhThuTam" type="text" class="form-control">
+</div>
+<div>
+<label>DonGiaHoTroTam</label>
+<input placeholder="DonGiaHoTroTam" [(ngModel)]="NoiTru_ToaThuocService.FormData.DonGiaHoTroTam"  name="NoiTru_ToaThuocService.FormData.DonGiaHoTroTam" type="text" class="form-control">
+</div>
+<div>
+<label>DonGiaThanhToanTam</label>
+<input placeholder="DonGiaThanhToanTam" [(ngModel)]="NoiTru_ToaThuocService.FormData.DonGiaThanhToanTam"  name="NoiTru_ToaThuocService.FormData.DonGiaThanhToanTam" type="text" class="form-control">
+</div>
+<div>
+<label>SoTienThucTe</label>
+<input placeholder="SoTienThucTe" [(ngModel)]="NoiTru_ToaThuocService.FormData.SoTienThucTe"  name="NoiTru_ToaThuocService.FormData.SoTienThucTe" type="text" class="form-control">
+</div>
+<div>
+<label>SoTienMienGiam</label>
+<input placeholder="SoTienMienGiam" [(ngModel)]="NoiTru_ToaThuocService.FormData.SoTienMienGiam"  name="NoiTru_ToaThuocService.FormData.SoTienMienGiam" type="text" class="form-control">
+</div>
+<div>
+<label>SoTienThatThu</label>
+<input placeholder="SoTienThatThu" [(ngModel)]="NoiTru_ToaThuocService.FormData.SoTienThatThu"  name="NoiTru_ToaThuocService.FormData.SoTienThatThu" type="text" class="form-control">
+</div>
+<div>
+<label>SoTienThanhToan</label>
+<input placeholder="SoTienThanhToan" [(ngModel)]="NoiTru_ToaThuocService.FormData.SoTienThanhToan"  name="NoiTru_ToaThuocService.FormData.SoTienThanhToan" type="text" class="form-control">
+</div>
+<div>
+<label>SoTienDaThanhToan</label>
+<input placeholder="SoTienDaThanhToan" [(ngModel)]="NoiTru_ToaThuocService.FormData.SoTienDaThanhToan"  name="NoiTru_ToaThuocService.FormData.SoTienDaThanhToan" type="text" class="form-control">
+</div>
+<div>
+<label>MienPhi</label>
+<input placeholder="MienPhi" [(ngModel)]="NoiTru_ToaThuocService.FormData.MienPhi"  name="NoiTru_ToaThuocService.FormData.MienPhi" type="text" class="form-control">
+</div>
+<div>
+<label>TrangThai</label>
+<input placeholder="TrangThai" [(ngModel)]="NoiTru_ToaThuocService.FormData.TrangThai"  name="NoiTru_ToaThuocService.FormData.TrangThai" type="text" class="form-control">
+</div>
+<div>
+<label>NguonLayThuoc</label>
+<input placeholder="NguonLayThuoc" [(ngModel)]="NoiTru_ToaThuocService.FormData.NguonLayThuoc"  name="NoiTru_ToaThuocService.FormData.NguonLayThuoc" type="text" class="form-control">
+</div>
+<div>
+<label>HuyToaThuoc</label>
+<input placeholder="HuyToaThuoc" [(ngModel)]="NoiTru_ToaThuocService.FormData.HuyToaThuoc"  name="NoiTru_ToaThuocService.FormData.HuyToaThuoc" type="text" class="form-control">
+</div>
+<div>
+<label>MuaNgoai</label>
+<input placeholder="MuaNgoai" [(ngModel)]="NoiTru_ToaThuocService.FormData.MuaNgoai"  name="NoiTru_ToaThuocService.FormData.MuaNgoai" type="text" class="form-control">
+</div>
+<div>
+<label>PhatThuocTaiQuay</label>
+<input placeholder="PhatThuocTaiQuay" [(ngModel)]="NoiTru_ToaThuocService.FormData.PhatThuocTaiQuay"  name="NoiTru_ToaThuocService.FormData.PhatThuocTaiQuay" type="text" class="form-control">
+</div>
+<div>
+<label>NgayTao</label>
+<input placeholder="NgayTao" [(ngModel)]="NoiTru_ToaThuocService.FormData.NgayTao"  name="NoiTru_ToaThuocService.FormData.NgayTao" type="text" class="form-control">
+</div>
+<div>
+<label>NguoiTao_Id</label>
+<input placeholder="NguoiTao_Id" [(ngModel)]="NoiTru_ToaThuocService.FormData.NguoiTao_Id"  name="NoiTru_ToaThuocService.FormData.NguoiTao_Id" type="text" class="form-control">
+</div>
+<div>
+<label>NgayCapNhat</label>
+<input placeholder="NgayCapNhat" [(ngModel)]="NoiTru_ToaThuocService.FormData.NgayCapNhat"  name="NoiTru_ToaThuocService.FormData.NgayCapNhat" type="text" class="form-control">
+</div>
+<div>
+<label>NguoiCapNhat_Id</label>
+<input placeholder="NguoiCapNhat_Id" [(ngModel)]="NoiTru_ToaThuocService.FormData.NguoiCapNhat_Id"  name="NoiTru_ToaThuocService.FormData.NguoiCapNhat_Id" type="text" class="form-control">
+</div>
+<div>
+<label>KhoPhat_Id</label>
+<input placeholder="KhoPhat_Id" [(ngModel)]="NoiTru_ToaThuocService.FormData.KhoPhat_Id"  name="NoiTru_ToaThuocService.FormData.KhoPhat_Id" type="text" class="form-control">
+</div>
+<div>
+<label>TinhTien</label>
+<input placeholder="TinhTien" [(ngModel)]="NoiTru_ToaThuocService.FormData.TinhTien"  name="NoiTru_ToaThuocService.FormData.TinhTien" type="text" class="form-control">
+</div>
+<div>
+<label>YeuCau</label>
+<input placeholder="YeuCau" [(ngModel)]="NoiTru_ToaThuocService.FormData.YeuCau"  name="NoiTru_ToaThuocService.FormData.YeuCau" type="text" class="form-control">
+</div>
+<div>
+<label>PhoiHop</label>
+<input placeholder="PhoiHop" [(ngModel)]="NoiTru_ToaThuocService.FormData.PhoiHop"  name="NoiTru_ToaThuocService.FormData.PhoiHop" type="text" class="form-control">
+</div>
+<div>
+<label>PhaChe</label>
+<input placeholder="PhaChe" [(ngModel)]="NoiTru_ToaThuocService.FormData.PhaChe"  name="NoiTru_ToaThuocService.FormData.PhaChe" type="text" class="form-control">
+</div>
+<div>
+<label>DonGiaChenhLech</label>
+<input placeholder="DonGiaChenhLech" [(ngModel)]="NoiTru_ToaThuocService.FormData.DonGiaChenhLech"  name="NoiTru_ToaThuocService.FormData.DonGiaChenhLech" type="text" class="form-control">
+</div>
+<div>
+<label>DonGiaHoTroChenhLech</label>
+<input placeholder="DonGiaHoTroChenhLech" [(ngModel)]="NoiTru_ToaThuocService.FormData.DonGiaHoTroChenhLech"  name="NoiTru_ToaThuocService.FormData.DonGiaHoTroChenhLech" type="text" class="form-control">
+</div>
+<div>
+<label>GiaTriDaThanhToan_ChenhLech</label>
+<input placeholder="GiaTriDaThanhToan_ChenhLech" [(ngModel)]="NoiTru_ToaThuocService.FormData.GiaTriDaThanhToan_ChenhLech"  name="NoiTru_ToaThuocService.FormData.GiaTriDaThanhToan_ChenhLech" type="text" class="form-control">
+</div>
+<div>
+<label>GiaTriDaThanhToan_HoTroChenhLech</label>
+<input placeholder="GiaTriDaThanhToan_HoTroChenhLech" [(ngModel)]="NoiTru_ToaThuocService.FormData.GiaTriDaThanhToan_HoTroChenhLech"  name="NoiTru_ToaThuocService.FormData.GiaTriDaThanhToan_HoTroChenhLech" type="text" class="form-control">
+</div>
+<div>
+<label>ChuongTrinh_Id</label>
+<input placeholder="ChuongTrinh_Id" [(ngModel)]="NoiTru_ToaThuocService.FormData.ChuongTrinh_Id"  name="NoiTru_ToaThuocService.FormData.ChuongTrinh_Id" type="text" class="form-control">
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <app-loading *ngIf="NoiTru_ToaThuocService.IsShowLoading"></app-loading>
+

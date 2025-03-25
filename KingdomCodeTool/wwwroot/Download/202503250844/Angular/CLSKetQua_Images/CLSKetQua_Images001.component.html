@@ -1,0 +1,238 @@
+﻿<div class="row">
+    <div id="breadcrumbs-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m6 l6">
+                    <h6 class="breadcrumbs-title">
+                        CLSKetQua_Images
+                        <span *ngIf="CLSKetQua_ImagesService.List">({{CLSKetQua_ImagesService.List.length-1}} items)</span>
+                    </h6>
+                </div>
+                <div class="col s12 m6 l6 right-align-md">
+                    <ol class="breadcrumbs mb-0">
+                        <li class="breadcrumb-item">
+                            <a href="javascript:history.back()" title="Quay lại">
+                                <<< Quay lại
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/Homepage" title="Trang chủ">Trang chủ</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/ThanhVien" title="Quản trị">Quản trị</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/CLSKetQua_Images" title="CLSKetQua_Images">
+                                CLSKetQua_Images
+                            </a>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col s12 m12 l12">
+        <div class="card card card-default scrollspy">
+            <div class="card-content">
+                <div class="col s12 m12 l11">
+                    <input [(ngModel)]="CLSKetQua_ImagesService.BaseParameter.SearchString" placeholder="Tìm ..."
+                           class="form-control" (keyup.enter)="CLSKetQua_ImagesSearch()">
+                </div>
+                <div class="col s12 m12 l1">
+                    <a style="color: green;" title="Tìm" (click)="CLSKetQua_ImagesSearch()">
+                        <i class="material-icons">play_circle_filled</i>
+                    </a>
+                </div>
+                <div class="KhungOverflow">
+                    <table *ngIf="!NotificationService.IsMobile" mat-table matSort #CLSKetQua_ImagesSort="matSort"
+                           [dataSource]="CLSKetQua_ImagesService.DataSource">
+                        <ng-container matColumnDef="STT">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                                STT
+                            </th>
+                            <td mat-cell *matCellDef="let element; index as i;">
+                                <div *ngIf="CLSKetQua_ImagesPaginator">
+                                    {{
+CLSKetQua_ImagesPaginator.pageSize *
+                                    CLSKetQua_ImagesPaginator.pageIndex + i + 1
+                                    }}
+                                </div>
+                            </td>
+                        </ng-container>
+                        <ng-container matColumnDef="Save">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                            </th>
+                            <td mat-cell *matCellDef="let element">
+                                <a (click)="CLSKetQua_ImagesSave(element)" style="color:#2196f3;">
+                                    <i class="material-icons">save</i>
+                                </a>
+                                <a (click)="CLSKetQua_ImagesDelete(element)" style="color: red;">
+                                    <i class="material-icons">delete_forever</i>
+                                </a>
+                            </td>
+                        </ng-container>
+                        <ng-container matColumnDef="Images_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Images_Id</th>
+<td mat-cell *matCellDef="let element">{{element.Images_Id}}</td>
+</ng-container>
+<ng-container matColumnDef="CLSKetQua_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CLSKetQua_Id</th>
+<td mat-cell *matCellDef="let element">{{element.CLSKetQua_Id}}</td>
+</ng-container>
+<ng-container matColumnDef="File_Name_Origin">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>File_Name_Origin</th>
+<td mat-cell *matCellDef="let element">{{element.File_Name_Origin}}</td>
+</ng-container>
+<ng-container matColumnDef="File_Name">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>File_Name</th>
+<td mat-cell *matCellDef="let element">{{element.File_Name}}</td>
+</ng-container>
+<ng-container matColumnDef="Idx">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Idx</th>
+<td mat-cell *matCellDef="let element">{{element.Idx}}</td>
+</ng-container>
+<ng-container matColumnDef="TenHinh">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>TenHinh</th>
+<td mat-cell *matCellDef="let element">{{element.TenHinh}}</td>
+</ng-container>
+<ng-container matColumnDef="MoTaHinh">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>MoTaHinh</th>
+<td mat-cell *matCellDef="let element">{{element.MoTaHinh}}</td>
+</ng-container>
+<ng-container matColumnDef="TamNgung">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>TamNgung</th>
+<td mat-cell *matCellDef="let element">{{element.TamNgung}}</td>
+</ng-container>
+<ng-container matColumnDef="NgayTao">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>NgayTao</th>
+<td mat-cell *matCellDef="let element">{{element.NgayTao}}</td>
+</ng-container>
+<ng-container matColumnDef="NguoiTao_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>NguoiTao_Id</th>
+<td mat-cell *matCellDef="let element">{{element.NguoiTao_Id}}</td>
+</ng-container>
+<ng-container matColumnDef="NgayCapNhat">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>NgayCapNhat</th>
+<td mat-cell *matCellDef="let element">{{element.NgayCapNhat}}</td>
+</ng-container>
+<ng-container matColumnDef="NguoiCapNhat_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>NguoiCapNhat_Id</th>
+<td mat-cell *matCellDef="let element">{{element.NguoiCapNhat_Id}}</td>
+</ng-container>
+<ng-container matColumnDef="ChonInMacDinh">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ChonInMacDinh</th>
+<td mat-cell *matCellDef="let element">{{element.ChonInMacDinh}}</td>
+</ng-container>
+
+                        <tr mat-header-row *matHeaderRowDef="CLSKetQua_ImagesService.DisplayColumns001">
+                        </tr>
+                        <tr mat-row *matRowDef="let row; columns: CLSKetQua_ImagesService.DisplayColumns001;">
+                        </tr>
+                    </table>
+                    <mat-paginator *ngIf="!NotificationService.IsMobile" #CLSKetQua_ImagesPaginator="matPaginator"
+                                   [pageSizeOptions]="[10,20,50,100]" [pageSize]="20" [showFirstLastButtons]></mat-paginator>
+
+                    <table *ngIf="NotificationService.IsMobile" mat-table matSort #CLSKetQua_ImagesSort="matSort"
+                           [dataSource]="CLSKetQua_ImagesService.DataSource" class="table table-striped m-0">
+                        <ng-container matColumnDef="STT">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                                Danh sách
+                            </th>
+                            <td mat-cell *matCellDef="let element; index as i;">
+                                <div class="row gx-4">
+                                    <div class="col-lg-12 col-sm-12 col-12">
+<label>Images_Id</label>
+<br />
+<label class="form-label">{{element.Images_Id}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>CLSKetQua_Id</label>
+<br />
+<label class="form-label">{{element.CLSKetQua_Id}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>File_Name_Origin</label>
+<br />
+<label class="form-label">{{element.File_Name_Origin}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>File_Name</label>
+<br />
+<label class="form-label">{{element.File_Name}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>Idx</label>
+<br />
+<label class="form-label">{{element.Idx}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>TenHinh</label>
+<br />
+<label class="form-label">{{element.TenHinh}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>MoTaHinh</label>
+<br />
+<label class="form-label">{{element.MoTaHinh}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>TamNgung</label>
+<br />
+<label class="form-label">{{element.TamNgung}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>NgayTao</label>
+<br />
+<label class="form-label">{{element.NgayTao}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>NguoiTao_Id</label>
+<br />
+<label class="form-label">{{element.NguoiTao_Id}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>NgayCapNhat</label>
+<br />
+<label class="form-label">{{element.NgayCapNhat}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>NguoiCapNhat_Id</label>
+<br />
+<label class="form-label">{{element.NguoiCapNhat_Id}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>ChonInMacDinh</label>
+<br />
+<label class="form-label">{{element.ChonInMacDinh}}</label>
+</div>
+
+                                </div>
+                                <div class="row gx-4">
+                                    <div class="col s6 m6 l6">
+                                        <a (click)="CLSKetQua_ImagesSave(element)" style="color:#2196f3;">
+                                            <i class="material-icons">save</i>
+                                        </a>
+                                    </div>
+                                    <div class="col s6 m6 l6">
+                                        <a (click)="CLSKetQua_ImagesDelete(element)"
+                                           style="color: red;"><i class="material-icons">delete_forever</i></a>
+                                    </div>
+                                </div>
+                                <br />
+                            </td>
+                        </ng-container>
+                        <tr mat-header-row *matHeaderRowDef="CLSKetQua_ImagesService.DisplayColumnsMobile">
+                        </tr>
+                        <tr mat-row *matRowDef="let row; columns: CLSKetQua_ImagesService.DisplayColumnsMobile;">
+                        </tr>
+                    </table>
+                    <mat-paginator *ngIf="NotificationService.IsMobile" #CLSKetQua_ImagesPaginator="matPaginator"
+                                   [pageSizeOptions]="[10,20,50,100]" [pageSize]="10000" [showFirstLastButtons]></mat-paginator>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-loading *ngIf="CLSKetQua_ImagesService.IsShowLoading"></app-loading>
+

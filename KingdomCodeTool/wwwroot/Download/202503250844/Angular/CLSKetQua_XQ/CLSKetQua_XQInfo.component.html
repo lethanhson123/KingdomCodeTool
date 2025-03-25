@@ -1,0 +1,76 @@
+﻿<div class="row">
+    <div id="breadcrumbs-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m6 l6">
+                    <h6 class="breadcrumbs-title">
+                        CLSKetQua_XQ:
+                        <b>{{CLSKetQua_XQService.FormData.CLSKetQua_XQ_Id}} [{{CLSKetQua_XQService.FormData.CLSKetQua_XQ_Id}}]</b>
+                    </h6>
+                </div>
+                <div class="col s12 m6 l6 right-align-md">
+                    <ol class="breadcrumbs mb-0">
+                        <li class="breadcrumb-item">
+                            <a href="javascript:history.back()" title="Quay lại">
+                                <<< Quay lại
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/Homepage" title="Trang chủ">Trang chủ</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="#" title="eHospital_DongNai_A/">eHospital_DongNai_A/</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/CLSKetQua_XQ" title="CLSKetQua_XQ">
+                                CLSKetQua_XQ
+                            </a>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col s12 m12 l12">
+        <div class="card card card-default scrollspy">
+            <div class="card-content">
+                <div class="row">
+                    <div class="col s6 m6 l12">
+                        <a title="Quay lại" href="javascript:history.back()" style="color: green;">
+                            <i class="material-icons">more</i>
+                        </a>
+                        <!--<a title="Thêm mới" (click)="CLSKetQua_XQAdd()" style="color: green;"><i
+                class="material-icons">add_box</i></a>-->
+                        <a title="Lưu thay đổi" (click)="CLSKetQua_XQSave()" style="color:#2196f3;">
+                            <i class="material-icons">save</i>
+                        </a>
+                    </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12 m12 l12">
+                            <div>
+<label>CLSKetQua_XQ_Id</label>
+<input placeholder="CLSKetQua_XQ_Id" [(ngModel)]="CLSKetQua_XQService.FormData.CLSKetQua_XQ_Id"  name="CLSKetQua_XQService.FormData.CLSKetQua_XQ_Id" type="text" class="form-control">
+</div>
+<div>
+<label>SoPhieu</label>
+<input placeholder="SoPhieu" [(ngModel)]="CLSKetQua_XQService.FormData.SoPhieu"  name="CLSKetQua_XQService.FormData.SoPhieu" type="text" class="form-control">
+</div>
+<div>
+<label>CLSYeuCau_Id</label>
+<input placeholder="CLSYeuCau_Id" [(ngModel)]="CLSKetQua_XQService.FormData.CLSYeuCau_Id"  name="CLSKetQua_XQService.FormData.CLSYeuCau_Id" type="text" class="form-control">
+</div>
+<div>
+<label>ID_CT</label>
+<input placeholder="ID_CT" [(ngModel)]="CLSKetQua_XQService.FormData.ID_CT"  name="CLSKetQua_XQService.FormData.ID_CT" type="text" class="form-control">
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <app-loading *ngIf="CLSKetQua_XQService.IsShowLoading"></app-loading>
+

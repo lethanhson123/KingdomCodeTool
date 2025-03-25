@@ -1,0 +1,742 @@
+﻿<div class="row">
+    <div id="breadcrumbs-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m6 l6">
+                    <h6 class="breadcrumbs-title">
+                        DM_BenhNhan
+                        <span *ngIf="DM_BenhNhanService.List">({{DM_BenhNhanService.List.length-1}} items)</span>
+                    </h6>
+                </div>
+                <div class="col s12 m6 l6 right-align-md">
+                    <ol class="breadcrumbs mb-0">
+                        <li class="breadcrumb-item">
+                            <a href="javascript:history.back()" title="Quay lại">
+                                <<< Quay lại
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/Homepage" title="Trang chủ">Trang chủ</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/ThanhVien" title="Quản trị">Quản trị</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/DM_BenhNhan" title="DM_BenhNhan">
+                                DM_BenhNhan
+                            </a>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col s12 m12 l12">
+        <div class="card card card-default scrollspy">
+            <div class="card-content">
+                <div class="col s12 m12 l11">
+                    <input [(ngModel)]="DM_BenhNhanService.BaseParameter.SearchString" placeholder="Tìm ..."
+                           class="form-control" (keyup.enter)="DM_BenhNhanSearch()">
+                </div>
+                <div class="col s12 m12 l1">
+                    <a style="color: green;" title="Tìm" (click)="DM_BenhNhanSearch()">
+                        <i class="material-icons">play_circle_filled</i>
+                    </a>
+                </div>
+                <div class="KhungOverflow">
+                    <table *ngIf="!NotificationService.IsMobile" mat-table matSort #DM_BenhNhanSort="matSort"
+                           [dataSource]="DM_BenhNhanService.DataSource">
+                        <ng-container matColumnDef="STT">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                                STT
+                            </th>
+                            <td mat-cell *matCellDef="let element; index as i;">
+                                <div *ngIf="DM_BenhNhanPaginator">
+                                    {{
+DM_BenhNhanPaginator.pageSize *
+                                    DM_BenhNhanPaginator.pageIndex + i + 1
+                                    }}
+                                </div>
+                            </td>
+                        </ng-container>
+                        <ng-container matColumnDef="Save">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                            </th>
+                            <td mat-cell *matCellDef="let element">
+                                <a (click)="DM_BenhNhanSave(element)" style="color:#2196f3;">
+                                    <i class="material-icons">save</i>
+                                </a>
+                                <a (click)="DM_BenhNhanDelete(element)" style="color: red;">
+                                    <i class="material-icons">delete_forever</i>
+                                </a>
+                            </td>
+                        </ng-container>
+                        <ng-container matColumnDef="BenhNhan_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>BenhNhan_Id</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="BenhNhan_Id" name="BenhNhan_Id" [(ngModel)]="element.BenhNhan_Id"></td>
+</ng-container>
+<ng-container matColumnDef="MaYTe">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>MaYTe</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="MaYTe" name="MaYTe" [(ngModel)]="element.MaYTe"></td>
+</ng-container>
+<ng-container matColumnDef="MaBenhVien">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>MaBenhVien</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="MaBenhVien" name="MaBenhVien" [(ngModel)]="element.MaBenhVien"></td>
+</ng-container>
+<ng-container matColumnDef="SoVaoVien">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>SoVaoVien</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="SoVaoVien" name="SoVaoVien" [(ngModel)]="element.SoVaoVien"></td>
+</ng-container>
+<ng-container matColumnDef="TenBenhNhan">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>TenBenhNhan</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="TenBenhNhan" name="TenBenhNhan" [(ngModel)]="element.TenBenhNhan"></td>
+</ng-container>
+<ng-container matColumnDef="Ho">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Ho</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Ho" name="Ho" [(ngModel)]="element.Ho"></td>
+</ng-container>
+<ng-container matColumnDef="Ten">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Ten</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Ten" name="Ten" [(ngModel)]="element.Ten"></td>
+</ng-container>
+<ng-container matColumnDef="GioiTinh">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>GioiTinh</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="GioiTinh" name="GioiTinh" [(ngModel)]="element.GioiTinh"></td>
+</ng-container>
+<ng-container matColumnDef="NgaySinh">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>NgaySinh</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="NgaySinh" name="NgaySinh" [(ngModel)]="element.NgaySinh"></td>
+</ng-container>
+<ng-container matColumnDef="NamSinh">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>NamSinh</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="NamSinh" name="NamSinh" [(ngModel)]="element.NamSinh"></td>
+</ng-container>
+<ng-container matColumnDef="SoNha">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>SoNha</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="SoNha" name="SoNha" [(ngModel)]="element.SoNha"></td>
+</ng-container>
+<ng-container matColumnDef="DiaChi">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DiaChi</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="DiaChi" name="DiaChi" [(ngModel)]="element.DiaChi"></td>
+</ng-container>
+<ng-container matColumnDef="NhomMau_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>NhomMau_Id</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="NhomMau_Id" name="NhomMau_Id" [(ngModel)]="element.NhomMau_Id"></td>
+</ng-container>
+<ng-container matColumnDef="YeuToRh_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>YeuToRh_Id</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="YeuToRh_Id" name="YeuToRh_Id" [(ngModel)]="element.YeuToRh_Id"></td>
+</ng-container>
+<ng-container matColumnDef="TienSuDiUng">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>TienSuDiUng</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="TienSuDiUng" name="TienSuDiUng" [(ngModel)]="element.TienSuDiUng"></td>
+</ng-container>
+<ng-container matColumnDef="SoLuuTruNgoaiTru">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>SoLuuTruNgoaiTru</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="SoLuuTruNgoaiTru" name="SoLuuTruNgoaiTru" [(ngModel)]="element.SoLuuTruNgoaiTru"></td>
+</ng-container>
+<ng-container matColumnDef="SoLuuTruNoiTru">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>SoLuuTruNoiTru</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="SoLuuTruNoiTru" name="SoLuuTruNoiTru" [(ngModel)]="element.SoLuuTruNoiTru"></td>
+</ng-container>
+<ng-container matColumnDef="QuocTich_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>QuocTich_Id</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="QuocTich_Id" name="QuocTich_Id" [(ngModel)]="element.QuocTich_Id"></td>
+</ng-container>
+<ng-container matColumnDef="TinhThanh_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>TinhThanh_Id</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="TinhThanh_Id" name="TinhThanh_Id" [(ngModel)]="element.TinhThanh_Id"></td>
+</ng-container>
+<ng-container matColumnDef="QuanHuyen_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>QuanHuyen_Id</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="QuanHuyen_Id" name="QuanHuyen_Id" [(ngModel)]="element.QuanHuyen_Id"></td>
+</ng-container>
+<ng-container matColumnDef="XaPhuong_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>XaPhuong_Id</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="XaPhuong_Id" name="XaPhuong_Id" [(ngModel)]="element.XaPhuong_Id"></td>
+</ng-container>
+<ng-container matColumnDef="DanToc_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DanToc_Id</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="DanToc_Id" name="DanToc_Id" [(ngModel)]="element.DanToc_Id"></td>
+</ng-container>
+<ng-container matColumnDef="NgheNghiep_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>NgheNghiep_Id</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="NgheNghiep_Id" name="NgheNghiep_Id" [(ngModel)]="element.NgheNghiep_Id"></td>
+</ng-container>
+<ng-container matColumnDef="VietKieu">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>VietKieu</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="VietKieu" name="VietKieu" [(ngModel)]="element.VietKieu"></td>
+</ng-container>
+<ng-container matColumnDef="NguoiNuocNgoai">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>NguoiNuocNgoai</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="NguoiNuocNgoai" name="NguoiNuocNgoai" [(ngModel)]="element.NguoiNuocNgoai"></td>
+</ng-container>
+<ng-container matColumnDef="CMND">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CMND</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="CMND" name="CMND" [(ngModel)]="element.CMND"></td>
+</ng-container>
+<ng-container matColumnDef="HoChieu">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>HoChieu</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="HoChieu" name="HoChieu" [(ngModel)]="element.HoChieu"></td>
+</ng-container>
+<ng-container matColumnDef="TenKhongDau">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>TenKhongDau</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="TenKhongDau" name="TenKhongDau" [(ngModel)]="element.TenKhongDau"></td>
+</ng-container>
+<ng-container matColumnDef="GhiChu">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>GhiChu</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="GhiChu" name="GhiChu" [(ngModel)]="element.GhiChu"></td>
+</ng-container>
+<ng-container matColumnDef="NgayTao">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>NgayTao</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="NgayTao" name="NgayTao" [(ngModel)]="element.NgayTao"></td>
+</ng-container>
+<ng-container matColumnDef="NguoiTao_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>NguoiTao_Id</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="NguoiTao_Id" name="NguoiTao_Id" [(ngModel)]="element.NguoiTao_Id"></td>
+</ng-container>
+<ng-container matColumnDef="NgayCapNhat">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>NgayCapNhat</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="NgayCapNhat" name="NgayCapNhat" [(ngModel)]="element.NgayCapNhat"></td>
+</ng-container>
+<ng-container matColumnDef="NguoiCapNhat_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>NguoiCapNhat_Id</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="NguoiCapNhat_Id" name="NguoiCapNhat_Id" [(ngModel)]="element.NguoiCapNhat_Id"></td>
+</ng-container>
+<ng-container matColumnDef="NgayCapThe">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>NgayCapThe</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="NgayCapThe" name="NgayCapThe" [(ngModel)]="element.NgayCapThe"></td>
+</ng-container>
+<ng-container matColumnDef="NamCapThe">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>NamCapThe</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="NamCapThe" name="NamCapThe" [(ngModel)]="element.NamCapThe"></td>
+</ng-container>
+<ng-container matColumnDef="ThoiGianCapThe">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ThoiGianCapThe</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="ThoiGianCapThe" name="ThoiGianCapThe" [(ngModel)]="element.ThoiGianCapThe"></td>
+</ng-container>
+<ng-container matColumnDef="NhanVien_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>NhanVien_Id</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="NhanVien_Id" name="NhanVien_Id" [(ngModel)]="element.NhanVien_Id"></td>
+</ng-container>
+<ng-container matColumnDef="TienSuBenh">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>TienSuBenh</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="TienSuBenh" name="TienSuBenh" [(ngModel)]="element.TienSuBenh"></td>
+</ng-container>
+<ng-container matColumnDef="TienSuHutThuocLa">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>TienSuHutThuocLa</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="TienSuHutThuocLa" name="TienSuHutThuocLa" [(ngModel)]="element.TienSuHutThuocLa"></td>
+</ng-container>
+<ng-container matColumnDef="DonViCongTac_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DonViCongTac_Id</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="DonViCongTac_Id" name="DonViCongTac_Id" [(ngModel)]="element.DonViCongTac_Id"></td>
+</ng-container>
+<ng-container matColumnDef="SoDienThoai">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>SoDienThoai</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="SoDienThoai" name="SoDienThoai" [(ngModel)]="element.SoDienThoai"></td>
+</ng-container>
+<ng-container matColumnDef="DiaChiThuongTru">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DiaChiThuongTru</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="DiaChiThuongTru" name="DiaChiThuongTru" [(ngModel)]="element.DiaChiThuongTru"></td>
+</ng-container>
+<ng-container matColumnDef="DiaChiLienLac">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DiaChiLienLac</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="DiaChiLienLac" name="DiaChiLienLac" [(ngModel)]="element.DiaChiLienLac"></td>
+</ng-container>
+<ng-container matColumnDef="Email">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Email</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Email" name="Email" [(ngModel)]="element.Email"></td>
+</ng-container>
+<ng-container matColumnDef="DiaChiCoQuan">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DiaChiCoQuan</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="DiaChiCoQuan" name="DiaChiCoQuan" [(ngModel)]="element.DiaChiCoQuan"></td>
+</ng-container>
+<ng-container matColumnDef="TuVong">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>TuVong</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="TuVong" name="TuVong" [(ngModel)]="element.TuVong"></td>
+</ng-container>
+<ng-container matColumnDef="NgayTuVong">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>NgayTuVong</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="NgayTuVong" name="NgayTuVong" [(ngModel)]="element.NgayTuVong"></td>
+</ng-container>
+<ng-container matColumnDef="ThoiGianTuVong">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ThoiGianTuVong</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="ThoiGianTuVong" name="ThoiGianTuVong" [(ngModel)]="element.ThoiGianTuVong"></td>
+</ng-container>
+<ng-container matColumnDef="NguyenNhanTuVong_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>NguyenNhanTuVong_Id</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="NguyenNhanTuVong_Id" name="NguyenNhanTuVong_Id" [(ngModel)]="element.NguyenNhanTuVong_Id"></td>
+</ng-container>
+<ng-container matColumnDef="NguoiGhiNhanTuVong_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>NguoiGhiNhanTuVong_Id</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="NguoiGhiNhanTuVong_Id" name="NguoiGhiNhanTuVong_Id" [(ngModel)]="element.NguoiGhiNhanTuVong_Id"></td>
+</ng-container>
+<ng-container matColumnDef="ThoiGianGhiNhanTuVong">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ThoiGianGhiNhanTuVong</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="ThoiGianGhiNhanTuVong" name="ThoiGianGhiNhanTuVong" [(ngModel)]="element.ThoiGianGhiNhanTuVong"></td>
+</ng-container>
+<ng-container matColumnDef="CountNotes">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CountNotes</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="CountNotes" name="CountNotes" [(ngModel)]="element.CountNotes"></td>
+</ng-container>
+<ng-container matColumnDef="ngaytaobenhnhan">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ngaytaobenhnhan</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="ngaytaobenhnhan" name="ngaytaobenhnhan" [(ngModel)]="element.ngaytaobenhnhan"></td>
+</ng-container>
+<ng-container matColumnDef="TinhTrangHonNhan_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>TinhTrangHonNhan_Id</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="TinhTrangHonNhan_Id" name="TinhTrangHonNhan_Id" [(ngModel)]="element.TinhTrangHonNhan_Id"></td>
+</ng-container>
+<ng-container matColumnDef="MoiQuanHe_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>MoiQuanHe_Id</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="MoiQuanHe_Id" name="MoiQuanHe_Id" [(ngModel)]="element.MoiQuanHe_Id"></td>
+</ng-container>
+<ng-container matColumnDef="DienThoaiBan">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DienThoaiBan</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="DienThoaiBan" name="DienThoaiBan" [(ngModel)]="element.DienThoaiBan"></td>
+</ng-container>
+<ng-container matColumnDef="NguoiLienHe">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>NguoiLienHe</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="NguoiLienHe" name="NguoiLienHe" [(ngModel)]="element.NguoiLienHe"></td>
+</ng-container>
+<ng-container matColumnDef="DienThoai_NLH">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DienThoai_NLH</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="DienThoai_NLH" name="DienThoai_NLH" [(ngModel)]="element.DienThoai_NLH"></td>
+</ng-container>
+<ng-container matColumnDef="SiteCode">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>SiteCode</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="SiteCode" name="SiteCode" [(ngModel)]="element.SiteCode"></td>
+</ng-container>
+<ng-container matColumnDef="Mapping_Public_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Mapping_Public_Id</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Mapping_Public_Id" name="Mapping_Public_Id" [(ngModel)]="element.Mapping_Public_Id"></td>
+</ng-container>
+<ng-container matColumnDef="MaDinhDanh_PID">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>MaDinhDanh_PID</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="MaDinhDanh_PID" name="MaDinhDanh_PID" [(ngModel)]="element.MaDinhDanh_PID"></td>
+</ng-container>
+<ng-container matColumnDef="Status_PID">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Status_PID</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Status_PID" name="Status_PID" [(ngModel)]="element.Status_PID"></td>
+</ng-container>
+<ng-container matColumnDef="CMND_NgayCap">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CMND_NgayCap</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="CMND_NgayCap" name="CMND_NgayCap" [(ngModel)]="element.CMND_NgayCap"></td>
+</ng-container>
+<ng-container matColumnDef="CMND_NoiCap">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CMND_NoiCap</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="CMND_NoiCap" name="CMND_NoiCap" [(ngModel)]="element.CMND_NoiCap"></td>
+</ng-container>
+<ng-container matColumnDef="SoBHXH">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>SoBHXH</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="SoBHXH" name="SoBHXH" [(ngModel)]="element.SoBHXH"></td>
+</ng-container>
+<ng-container matColumnDef="SoBHXH_NgayCap">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>SoBHXH_NgayCap</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="SoBHXH_NgayCap" name="SoBHXH_NgayCap" [(ngModel)]="element.SoBHXH_NgayCap"></td>
+</ng-container>
+<ng-container matColumnDef="TenCha">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>TenCha</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="TenCha" name="TenCha" [(ngModel)]="element.TenCha"></td>
+</ng-container>
+<ng-container matColumnDef="TenMe">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>TenMe</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="TenMe" name="TenMe" [(ngModel)]="element.TenMe"></td>
+</ng-container>
+<ng-container matColumnDef="TenVoChong">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>TenVoChong</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="TenVoChong" name="TenVoChong" [(ngModel)]="element.TenVoChong"></td>
+</ng-container>
+
+                        <tr mat-header-row *matHeaderRowDef="DM_BenhNhanService.DisplayColumns001">
+                        </tr>
+                        <tr mat-row *matRowDef="let row; columns: DM_BenhNhanService.DisplayColumns001;">
+                        </tr>
+                    </table>
+                    <mat-paginator *ngIf="!NotificationService.IsMobile" #DM_BenhNhanPaginator="matPaginator"
+                                   [pageSizeOptions]="[10,20,50,100]" [pageSize]="20" [showFirstLastButtons]></mat-paginator>
+
+                    <table *ngIf="NotificationService.IsMobile" mat-table matSort #DM_BenhNhanSort="matSort"
+                           [dataSource]="DM_BenhNhanService.DataSource" class="table table-striped m-0">
+                        <ng-container matColumnDef="STT">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                                Danh sách
+                            </th>
+                            <td mat-cell *matCellDef="let element; index as i;">
+                                <div class="row gx-4">
+                                    <div class="col-lg-12 col-sm-12 col-12">
+<label>BenhNhan_Id</label>
+<br />
+<input class="form-control" type="text" placeholder="BenhNhan_Id" name="BenhNhan_Id{{element.ID}}" [(ngModel)]="element.BenhNhan_Id">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>MaYTe</label>
+<br />
+<input class="form-control" type="text" placeholder="MaYTe" name="MaYTe{{element.ID}}" [(ngModel)]="element.MaYTe">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>MaBenhVien</label>
+<br />
+<input class="form-control" type="text" placeholder="MaBenhVien" name="MaBenhVien{{element.ID}}" [(ngModel)]="element.MaBenhVien">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>SoVaoVien</label>
+<br />
+<input class="form-control" type="text" placeholder="SoVaoVien" name="SoVaoVien{{element.ID}}" [(ngModel)]="element.SoVaoVien">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>TenBenhNhan</label>
+<br />
+<input class="form-control" type="text" placeholder="TenBenhNhan" name="TenBenhNhan{{element.ID}}" [(ngModel)]="element.TenBenhNhan">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>Ho</label>
+<br />
+<input class="form-control" type="text" placeholder="Ho" name="Ho{{element.ID}}" [(ngModel)]="element.Ho">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>Ten</label>
+<br />
+<input class="form-control" type="text" placeholder="Ten" name="Ten{{element.ID}}" [(ngModel)]="element.Ten">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>GioiTinh</label>
+<br />
+<input class="form-control" type="text" placeholder="GioiTinh" name="GioiTinh{{element.ID}}" [(ngModel)]="element.GioiTinh">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>NgaySinh</label>
+<br />
+<input class="form-control" type="text" placeholder="NgaySinh" name="NgaySinh{{element.ID}}" [(ngModel)]="element.NgaySinh">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>NamSinh</label>
+<br />
+<input class="form-control" type="text" placeholder="NamSinh" name="NamSinh{{element.ID}}" [(ngModel)]="element.NamSinh">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>SoNha</label>
+<br />
+<input class="form-control" type="text" placeholder="SoNha" name="SoNha{{element.ID}}" [(ngModel)]="element.SoNha">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>DiaChi</label>
+<br />
+<input class="form-control" type="text" placeholder="DiaChi" name="DiaChi{{element.ID}}" [(ngModel)]="element.DiaChi">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>NhomMau_Id</label>
+<br />
+<input class="form-control" type="text" placeholder="NhomMau_Id" name="NhomMau_Id{{element.ID}}" [(ngModel)]="element.NhomMau_Id">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>YeuToRh_Id</label>
+<br />
+<input class="form-control" type="text" placeholder="YeuToRh_Id" name="YeuToRh_Id{{element.ID}}" [(ngModel)]="element.YeuToRh_Id">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>TienSuDiUng</label>
+<br />
+<input class="form-control" type="text" placeholder="TienSuDiUng" name="TienSuDiUng{{element.ID}}" [(ngModel)]="element.TienSuDiUng">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>SoLuuTruNgoaiTru</label>
+<br />
+<input class="form-control" type="text" placeholder="SoLuuTruNgoaiTru" name="SoLuuTruNgoaiTru{{element.ID}}" [(ngModel)]="element.SoLuuTruNgoaiTru">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>SoLuuTruNoiTru</label>
+<br />
+<input class="form-control" type="text" placeholder="SoLuuTruNoiTru" name="SoLuuTruNoiTru{{element.ID}}" [(ngModel)]="element.SoLuuTruNoiTru">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>QuocTich_Id</label>
+<br />
+<input class="form-control" type="text" placeholder="QuocTich_Id" name="QuocTich_Id{{element.ID}}" [(ngModel)]="element.QuocTich_Id">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>TinhThanh_Id</label>
+<br />
+<input class="form-control" type="text" placeholder="TinhThanh_Id" name="TinhThanh_Id{{element.ID}}" [(ngModel)]="element.TinhThanh_Id">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>QuanHuyen_Id</label>
+<br />
+<input class="form-control" type="text" placeholder="QuanHuyen_Id" name="QuanHuyen_Id{{element.ID}}" [(ngModel)]="element.QuanHuyen_Id">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>XaPhuong_Id</label>
+<br />
+<input class="form-control" type="text" placeholder="XaPhuong_Id" name="XaPhuong_Id{{element.ID}}" [(ngModel)]="element.XaPhuong_Id">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>DanToc_Id</label>
+<br />
+<input class="form-control" type="text" placeholder="DanToc_Id" name="DanToc_Id{{element.ID}}" [(ngModel)]="element.DanToc_Id">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>NgheNghiep_Id</label>
+<br />
+<input class="form-control" type="text" placeholder="NgheNghiep_Id" name="NgheNghiep_Id{{element.ID}}" [(ngModel)]="element.NgheNghiep_Id">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>VietKieu</label>
+<br />
+<input class="form-control" type="text" placeholder="VietKieu" name="VietKieu{{element.ID}}" [(ngModel)]="element.VietKieu">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>NguoiNuocNgoai</label>
+<br />
+<input class="form-control" type="text" placeholder="NguoiNuocNgoai" name="NguoiNuocNgoai{{element.ID}}" [(ngModel)]="element.NguoiNuocNgoai">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>CMND</label>
+<br />
+<input class="form-control" type="text" placeholder="CMND" name="CMND{{element.ID}}" [(ngModel)]="element.CMND">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>HoChieu</label>
+<br />
+<input class="form-control" type="text" placeholder="HoChieu" name="HoChieu{{element.ID}}" [(ngModel)]="element.HoChieu">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>TenKhongDau</label>
+<br />
+<input class="form-control" type="text" placeholder="TenKhongDau" name="TenKhongDau{{element.ID}}" [(ngModel)]="element.TenKhongDau">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>GhiChu</label>
+<br />
+<input class="form-control" type="text" placeholder="GhiChu" name="GhiChu{{element.ID}}" [(ngModel)]="element.GhiChu">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>NgayTao</label>
+<br />
+<input class="form-control" type="text" placeholder="NgayTao" name="NgayTao{{element.ID}}" [(ngModel)]="element.NgayTao">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>NguoiTao_Id</label>
+<br />
+<input class="form-control" type="text" placeholder="NguoiTao_Id" name="NguoiTao_Id{{element.ID}}" [(ngModel)]="element.NguoiTao_Id">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>NgayCapNhat</label>
+<br />
+<input class="form-control" type="text" placeholder="NgayCapNhat" name="NgayCapNhat{{element.ID}}" [(ngModel)]="element.NgayCapNhat">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>NguoiCapNhat_Id</label>
+<br />
+<input class="form-control" type="text" placeholder="NguoiCapNhat_Id" name="NguoiCapNhat_Id{{element.ID}}" [(ngModel)]="element.NguoiCapNhat_Id">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>NgayCapThe</label>
+<br />
+<input class="form-control" type="text" placeholder="NgayCapThe" name="NgayCapThe{{element.ID}}" [(ngModel)]="element.NgayCapThe">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>NamCapThe</label>
+<br />
+<input class="form-control" type="text" placeholder="NamCapThe" name="NamCapThe{{element.ID}}" [(ngModel)]="element.NamCapThe">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>ThoiGianCapThe</label>
+<br />
+<input class="form-control" type="text" placeholder="ThoiGianCapThe" name="ThoiGianCapThe{{element.ID}}" [(ngModel)]="element.ThoiGianCapThe">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>NhanVien_Id</label>
+<br />
+<input class="form-control" type="text" placeholder="NhanVien_Id" name="NhanVien_Id{{element.ID}}" [(ngModel)]="element.NhanVien_Id">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>TienSuBenh</label>
+<br />
+<input class="form-control" type="text" placeholder="TienSuBenh" name="TienSuBenh{{element.ID}}" [(ngModel)]="element.TienSuBenh">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>TienSuHutThuocLa</label>
+<br />
+<input class="form-control" type="text" placeholder="TienSuHutThuocLa" name="TienSuHutThuocLa{{element.ID}}" [(ngModel)]="element.TienSuHutThuocLa">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>DonViCongTac_Id</label>
+<br />
+<input class="form-control" type="text" placeholder="DonViCongTac_Id" name="DonViCongTac_Id{{element.ID}}" [(ngModel)]="element.DonViCongTac_Id">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>SoDienThoai</label>
+<br />
+<input class="form-control" type="text" placeholder="SoDienThoai" name="SoDienThoai{{element.ID}}" [(ngModel)]="element.SoDienThoai">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>DiaChiThuongTru</label>
+<br />
+<input class="form-control" type="text" placeholder="DiaChiThuongTru" name="DiaChiThuongTru{{element.ID}}" [(ngModel)]="element.DiaChiThuongTru">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>DiaChiLienLac</label>
+<br />
+<input class="form-control" type="text" placeholder="DiaChiLienLac" name="DiaChiLienLac{{element.ID}}" [(ngModel)]="element.DiaChiLienLac">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>Email</label>
+<br />
+<input class="form-control" type="text" placeholder="Email" name="Email{{element.ID}}" [(ngModel)]="element.Email">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>DiaChiCoQuan</label>
+<br />
+<input class="form-control" type="text" placeholder="DiaChiCoQuan" name="DiaChiCoQuan{{element.ID}}" [(ngModel)]="element.DiaChiCoQuan">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>TuVong</label>
+<br />
+<input class="form-control" type="text" placeholder="TuVong" name="TuVong{{element.ID}}" [(ngModel)]="element.TuVong">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>NgayTuVong</label>
+<br />
+<input class="form-control" type="text" placeholder="NgayTuVong" name="NgayTuVong{{element.ID}}" [(ngModel)]="element.NgayTuVong">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>ThoiGianTuVong</label>
+<br />
+<input class="form-control" type="text" placeholder="ThoiGianTuVong" name="ThoiGianTuVong{{element.ID}}" [(ngModel)]="element.ThoiGianTuVong">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>NguyenNhanTuVong_Id</label>
+<br />
+<input class="form-control" type="text" placeholder="NguyenNhanTuVong_Id" name="NguyenNhanTuVong_Id{{element.ID}}" [(ngModel)]="element.NguyenNhanTuVong_Id">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>NguoiGhiNhanTuVong_Id</label>
+<br />
+<input class="form-control" type="text" placeholder="NguoiGhiNhanTuVong_Id" name="NguoiGhiNhanTuVong_Id{{element.ID}}" [(ngModel)]="element.NguoiGhiNhanTuVong_Id">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>ThoiGianGhiNhanTuVong</label>
+<br />
+<input class="form-control" type="text" placeholder="ThoiGianGhiNhanTuVong" name="ThoiGianGhiNhanTuVong{{element.ID}}" [(ngModel)]="element.ThoiGianGhiNhanTuVong">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>CountNotes</label>
+<br />
+<input class="form-control" type="text" placeholder="CountNotes" name="CountNotes{{element.ID}}" [(ngModel)]="element.CountNotes">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>ngaytaobenhnhan</label>
+<br />
+<input class="form-control" type="text" placeholder="ngaytaobenhnhan" name="ngaytaobenhnhan{{element.ID}}" [(ngModel)]="element.ngaytaobenhnhan">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>TinhTrangHonNhan_Id</label>
+<br />
+<input class="form-control" type="text" placeholder="TinhTrangHonNhan_Id" name="TinhTrangHonNhan_Id{{element.ID}}" [(ngModel)]="element.TinhTrangHonNhan_Id">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>MoiQuanHe_Id</label>
+<br />
+<input class="form-control" type="text" placeholder="MoiQuanHe_Id" name="MoiQuanHe_Id{{element.ID}}" [(ngModel)]="element.MoiQuanHe_Id">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>DienThoaiBan</label>
+<br />
+<input class="form-control" type="text" placeholder="DienThoaiBan" name="DienThoaiBan{{element.ID}}" [(ngModel)]="element.DienThoaiBan">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>NguoiLienHe</label>
+<br />
+<input class="form-control" type="text" placeholder="NguoiLienHe" name="NguoiLienHe{{element.ID}}" [(ngModel)]="element.NguoiLienHe">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>DienThoai_NLH</label>
+<br />
+<input class="form-control" type="text" placeholder="DienThoai_NLH" name="DienThoai_NLH{{element.ID}}" [(ngModel)]="element.DienThoai_NLH">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>SiteCode</label>
+<br />
+<input class="form-control" type="text" placeholder="SiteCode" name="SiteCode{{element.ID}}" [(ngModel)]="element.SiteCode">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>Mapping_Public_Id</label>
+<br />
+<input class="form-control" type="text" placeholder="Mapping_Public_Id" name="Mapping_Public_Id{{element.ID}}" [(ngModel)]="element.Mapping_Public_Id">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>MaDinhDanh_PID</label>
+<br />
+<input class="form-control" type="text" placeholder="MaDinhDanh_PID" name="MaDinhDanh_PID{{element.ID}}" [(ngModel)]="element.MaDinhDanh_PID">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>Status_PID</label>
+<br />
+<input class="form-control" type="text" placeholder="Status_PID" name="Status_PID{{element.ID}}" [(ngModel)]="element.Status_PID">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>CMND_NgayCap</label>
+<br />
+<input class="form-control" type="text" placeholder="CMND_NgayCap" name="CMND_NgayCap{{element.ID}}" [(ngModel)]="element.CMND_NgayCap">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>CMND_NoiCap</label>
+<br />
+<input class="form-control" type="text" placeholder="CMND_NoiCap" name="CMND_NoiCap{{element.ID}}" [(ngModel)]="element.CMND_NoiCap">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>SoBHXH</label>
+<br />
+<input class="form-control" type="text" placeholder="SoBHXH" name="SoBHXH{{element.ID}}" [(ngModel)]="element.SoBHXH">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>SoBHXH_NgayCap</label>
+<br />
+<input class="form-control" type="text" placeholder="SoBHXH_NgayCap" name="SoBHXH_NgayCap{{element.ID}}" [(ngModel)]="element.SoBHXH_NgayCap">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>TenCha</label>
+<br />
+<input class="form-control" type="text" placeholder="TenCha" name="TenCha{{element.ID}}" [(ngModel)]="element.TenCha">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>TenMe</label>
+<br />
+<input class="form-control" type="text" placeholder="TenMe" name="TenMe{{element.ID}}" [(ngModel)]="element.TenMe">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>TenVoChong</label>
+<br />
+<input class="form-control" type="text" placeholder="TenVoChong" name="TenVoChong{{element.ID}}" [(ngModel)]="element.TenVoChong">
+</div>
+
+                                </div>
+                                <div class="row gx-4">
+                                    <div class="col s6 m6 l6">
+                                        <a (click)="DM_BenhNhanSave(element)" style="color:#2196f3;">
+                                            <i class="material-icons">save</i>
+                                        </a>
+                                    </div>
+                                    <div class="col s6 m6 l6">
+                                        <a (click)="DM_BenhNhanDelete(element)"
+                                           style="color: red;"><i class="material-icons">delete_forever</i></a>
+                                    </div>
+                                </div>
+                                <br />
+                            </td>
+                        </ng-container>
+                        <tr mat-header-row *matHeaderRowDef="DM_BenhNhanService.DisplayColumnsMobile">
+                        </tr>
+                        <tr mat-row *matRowDef="let row; columns: DM_BenhNhanService.DisplayColumnsMobile;">
+                        </tr>
+                    </table>
+                    <mat-paginator *ngIf="NotificationService.IsMobile" #DM_BenhNhanPaginator="matPaginator"
+                                   [pageSizeOptions]="[10,20,50,100]" [pageSize]="10000" [showFirstLastButtons]></mat-paginator>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-loading *ngIf="DM_BenhNhanService.IsShowLoading"></app-loading>
+

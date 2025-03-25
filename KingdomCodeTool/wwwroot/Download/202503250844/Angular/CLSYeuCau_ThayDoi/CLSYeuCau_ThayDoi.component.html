@@ -1,0 +1,229 @@
+﻿<div class="row">
+    <div id="breadcrumbs-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m6 l6">
+                    <h6 class="breadcrumbs-title">
+                        CLSYeuCau_ThayDoi
+                        <span *ngIf="CLSYeuCau_ThayDoiService.List">({{CLSYeuCau_ThayDoiService.List.length-1}} items)</span>
+                    </h6>
+                </div>
+                <div class="col s12 m6 l6 right-align-md">
+                    <ol class="breadcrumbs mb-0">
+                        <li class="breadcrumb-item">
+                            <a href="javascript:history.back()" title="Quay lại">
+                                <<< Quay lại
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/Homepage" title="Trang chủ">Trang chủ</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/ThanhVien" title="Quản trị">Quản trị</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/CLSYeuCau_ThayDoi" title="CLSYeuCau_ThayDoi">
+                                CLSYeuCau_ThayDoi
+                            </a>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col s12 m12 l12">
+        <div class="card card card-default scrollspy">
+            <div class="card-content">
+                <div class="col s12 m12 l11">
+                    <input [(ngModel)]="CLSYeuCau_ThayDoiService.BaseParameter.SearchString" placeholder="Tìm ..."
+                           class="form-control" (keyup.enter)="CLSYeuCau_ThayDoiSearch()">
+                </div>
+                <div class="col s12 m12 l1">
+                    <a style="color: green;" title="Tìm" (click)="CLSYeuCau_ThayDoiSearch()">
+                        <i class="material-icons">play_circle_filled</i>
+                    </a>
+                </div>
+                <div class="KhungOverflow">
+                    <table *ngIf="!NotificationService.IsMobile" mat-table matSort #CLSYeuCau_ThayDoiSort="matSort"
+                           [dataSource]="CLSYeuCau_ThayDoiService.DataSource">
+                        <ng-container matColumnDef="STT">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                                STT
+                            </th>
+                            <td mat-cell *matCellDef="let element; index as i;">
+                                <div *ngIf="CLSYeuCau_ThayDoiPaginator">
+                                    {{
+CLSYeuCau_ThayDoiPaginator.pageSize *
+                                    CLSYeuCau_ThayDoiPaginator.pageIndex + i + 1
+                                    }}
+                                </div>
+                            </td>
+                        </ng-container>
+                        <ng-container matColumnDef="Save">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                            </th>
+                            <td mat-cell *matCellDef="let element">
+                                <a (click)="CLSYeuCau_ThayDoiSave(element)" style="color:#2196f3;">
+                                    <i class="material-icons">save</i>
+                                </a>
+                                <a (click)="CLSYeuCau_ThayDoiDelete(element)" style="color: red;">
+                                    <i class="material-icons">delete_forever</i>
+                                </a>
+                            </td>
+                        </ng-container>
+                        <ng-container matColumnDef="CLSYeuCau_ThayDoi_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CLSYeuCau_ThayDoi_Id</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="CLSYeuCau_ThayDoi_Id" name="CLSYeuCau_ThayDoi_Id" [(ngModel)]="element.CLSYeuCau_ThayDoi_Id"></td>
+</ng-container>
+<ng-container matColumnDef="CLSYeuCau_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CLSYeuCau_Id</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="CLSYeuCau_Id" name="CLSYeuCau_Id" [(ngModel)]="element.CLSYeuCau_Id"></td>
+</ng-container>
+<ng-container matColumnDef="PhongBan_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>PhongBan_Id</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="PhongBan_Id" name="PhongBan_Id" [(ngModel)]="element.PhongBan_Id"></td>
+</ng-container>
+<ng-container matColumnDef="PhongBan_ThayDoi_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>PhongBan_ThayDoi_Id</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="PhongBan_ThayDoi_Id" name="PhongBan_ThayDoi_Id" [(ngModel)]="element.PhongBan_ThayDoi_Id"></td>
+</ng-container>
+<ng-container matColumnDef="LanThayDoi">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>LanThayDoi</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="LanThayDoi" name="LanThayDoi" [(ngModel)]="element.LanThayDoi"></td>
+</ng-container>
+<ng-container matColumnDef="NgayThayDoi">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>NgayThayDoi</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="NgayThayDoi" name="NgayThayDoi" [(ngModel)]="element.NgayThayDoi"></td>
+</ng-container>
+<ng-container matColumnDef="ThoiGianThayDoi">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ThoiGianThayDoi</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="ThoiGianThayDoi" name="ThoiGianThayDoi" [(ngModel)]="element.ThoiGianThayDoi"></td>
+</ng-container>
+<ng-container matColumnDef="NguoiThayDoi_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>NguoiThayDoi_Id</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="NguoiThayDoi_Id" name="NguoiThayDoi_Id" [(ngModel)]="element.NguoiThayDoi_Id"></td>
+</ng-container>
+<ng-container matColumnDef="NgayTao">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>NgayTao</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="NgayTao" name="NgayTao" [(ngModel)]="element.NgayTao"></td>
+</ng-container>
+<ng-container matColumnDef="NguoiTao_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>NguoiTao_Id</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="NguoiTao_Id" name="NguoiTao_Id" [(ngModel)]="element.NguoiTao_Id"></td>
+</ng-container>
+<ng-container matColumnDef="NgayCapNhat">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>NgayCapNhat</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="NgayCapNhat" name="NgayCapNhat" [(ngModel)]="element.NgayCapNhat"></td>
+</ng-container>
+<ng-container matColumnDef="NguoiCapNhat_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>NguoiCapNhat_Id</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="NguoiCapNhat_Id" name="NguoiCapNhat_Id" [(ngModel)]="element.NguoiCapNhat_Id"></td>
+</ng-container>
+
+                        <tr mat-header-row *matHeaderRowDef="CLSYeuCau_ThayDoiService.DisplayColumns001">
+                        </tr>
+                        <tr mat-row *matRowDef="let row; columns: CLSYeuCau_ThayDoiService.DisplayColumns001;">
+                        </tr>
+                    </table>
+                    <mat-paginator *ngIf="!NotificationService.IsMobile" #CLSYeuCau_ThayDoiPaginator="matPaginator"
+                                   [pageSizeOptions]="[10,20,50,100]" [pageSize]="20" [showFirstLastButtons]></mat-paginator>
+
+                    <table *ngIf="NotificationService.IsMobile" mat-table matSort #CLSYeuCau_ThayDoiSort="matSort"
+                           [dataSource]="CLSYeuCau_ThayDoiService.DataSource" class="table table-striped m-0">
+                        <ng-container matColumnDef="STT">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                                Danh sách
+                            </th>
+                            <td mat-cell *matCellDef="let element; index as i;">
+                                <div class="row gx-4">
+                                    <div class="col-lg-12 col-sm-12 col-12">
+<label>CLSYeuCau_ThayDoi_Id</label>
+<br />
+<input class="form-control" type="text" placeholder="CLSYeuCau_ThayDoi_Id" name="CLSYeuCau_ThayDoi_Id{{element.ID}}" [(ngModel)]="element.CLSYeuCau_ThayDoi_Id">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>CLSYeuCau_Id</label>
+<br />
+<input class="form-control" type="text" placeholder="CLSYeuCau_Id" name="CLSYeuCau_Id{{element.ID}}" [(ngModel)]="element.CLSYeuCau_Id">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>PhongBan_Id</label>
+<br />
+<input class="form-control" type="text" placeholder="PhongBan_Id" name="PhongBan_Id{{element.ID}}" [(ngModel)]="element.PhongBan_Id">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>PhongBan_ThayDoi_Id</label>
+<br />
+<input class="form-control" type="text" placeholder="PhongBan_ThayDoi_Id" name="PhongBan_ThayDoi_Id{{element.ID}}" [(ngModel)]="element.PhongBan_ThayDoi_Id">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>LanThayDoi</label>
+<br />
+<input class="form-control" type="text" placeholder="LanThayDoi" name="LanThayDoi{{element.ID}}" [(ngModel)]="element.LanThayDoi">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>NgayThayDoi</label>
+<br />
+<input class="form-control" type="text" placeholder="NgayThayDoi" name="NgayThayDoi{{element.ID}}" [(ngModel)]="element.NgayThayDoi">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>ThoiGianThayDoi</label>
+<br />
+<input class="form-control" type="text" placeholder="ThoiGianThayDoi" name="ThoiGianThayDoi{{element.ID}}" [(ngModel)]="element.ThoiGianThayDoi">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>NguoiThayDoi_Id</label>
+<br />
+<input class="form-control" type="text" placeholder="NguoiThayDoi_Id" name="NguoiThayDoi_Id{{element.ID}}" [(ngModel)]="element.NguoiThayDoi_Id">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>NgayTao</label>
+<br />
+<input class="form-control" type="text" placeholder="NgayTao" name="NgayTao{{element.ID}}" [(ngModel)]="element.NgayTao">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>NguoiTao_Id</label>
+<br />
+<input class="form-control" type="text" placeholder="NguoiTao_Id" name="NguoiTao_Id{{element.ID}}" [(ngModel)]="element.NguoiTao_Id">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>NgayCapNhat</label>
+<br />
+<input class="form-control" type="text" placeholder="NgayCapNhat" name="NgayCapNhat{{element.ID}}" [(ngModel)]="element.NgayCapNhat">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>NguoiCapNhat_Id</label>
+<br />
+<input class="form-control" type="text" placeholder="NguoiCapNhat_Id" name="NguoiCapNhat_Id{{element.ID}}" [(ngModel)]="element.NguoiCapNhat_Id">
+</div>
+
+                                </div>
+                                <div class="row gx-4">
+                                    <div class="col s6 m6 l6">
+                                        <a (click)="CLSYeuCau_ThayDoiSave(element)" style="color:#2196f3;">
+                                            <i class="material-icons">save</i>
+                                        </a>
+                                    </div>
+                                    <div class="col s6 m6 l6">
+                                        <a (click)="CLSYeuCau_ThayDoiDelete(element)"
+                                           style="color: red;"><i class="material-icons">delete_forever</i></a>
+                                    </div>
+                                </div>
+                                <br />
+                            </td>
+                        </ng-container>
+                        <tr mat-header-row *matHeaderRowDef="CLSYeuCau_ThayDoiService.DisplayColumnsMobile">
+                        </tr>
+                        <tr mat-row *matRowDef="let row; columns: CLSYeuCau_ThayDoiService.DisplayColumnsMobile;">
+                        </tr>
+                    </table>
+                    <mat-paginator *ngIf="NotificationService.IsMobile" #CLSYeuCau_ThayDoiPaginator="matPaginator"
+                                   [pageSizeOptions]="[10,20,50,100]" [pageSize]="10000" [showFirstLastButtons]></mat-paginator>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-loading *ngIf="CLSYeuCau_ThayDoiService.IsShowLoading"></app-loading>
+

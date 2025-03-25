@@ -1,0 +1,112 @@
+﻿<div class="row">
+    <div id="breadcrumbs-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m6 l6">
+                    <h6 class="breadcrumbs-title">
+                        CLSKetQua_Images:
+                        <b>{{CLSKetQua_ImagesService.FormData.Images_Id}} [{{CLSKetQua_ImagesService.FormData.Images_Id}}]</b>
+                    </h6>
+                </div>
+                <div class="col s12 m6 l6 right-align-md">
+                    <ol class="breadcrumbs mb-0">
+                        <li class="breadcrumb-item">
+                            <a href="javascript:history.back()" title="Quay lại">
+                                <<< Quay lại
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/Homepage" title="Trang chủ">Trang chủ</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="#" title="eHospital_DongNai_A/">eHospital_DongNai_A/</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/CLSKetQua_Images" title="CLSKetQua_Images">
+                                CLSKetQua_Images
+                            </a>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col s12 m12 l12">
+        <div class="card card card-default scrollspy">
+            <div class="card-content">
+                <div class="row">
+                    <div class="col s6 m6 l12">
+                        <a title="Quay lại" href="javascript:history.back()" style="color: green;">
+                            <i class="material-icons">more</i>
+                        </a>
+                        <!--<a title="Thêm mới" (click)="CLSKetQua_ImagesAdd()" style="color: green;"><i
+                class="material-icons">add_box</i></a>-->
+                        <a title="Lưu thay đổi" (click)="CLSKetQua_ImagesSave()" style="color:#2196f3;">
+                            <i class="material-icons">save</i>
+                        </a>
+                    </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12 m12 l12">
+                            <div>
+<label>Images_Id</label>
+<input placeholder="Images_Id" [(ngModel)]="CLSKetQua_ImagesService.FormData.Images_Id"  name="CLSKetQua_ImagesService.FormData.Images_Id" type="text" class="form-control">
+</div>
+<div>
+<label>CLSKetQua_Id</label>
+<input placeholder="CLSKetQua_Id" [(ngModel)]="CLSKetQua_ImagesService.FormData.CLSKetQua_Id"  name="CLSKetQua_ImagesService.FormData.CLSKetQua_Id" type="text" class="form-control">
+</div>
+<div>
+<label>File_Name_Origin</label>
+<input placeholder="File_Name_Origin" [(ngModel)]="CLSKetQua_ImagesService.FormData.File_Name_Origin"  name="CLSKetQua_ImagesService.FormData.File_Name_Origin" type="text" class="form-control">
+</div>
+<div>
+<label>File_Name</label>
+<input placeholder="File_Name" [(ngModel)]="CLSKetQua_ImagesService.FormData.File_Name"  name="CLSKetQua_ImagesService.FormData.File_Name" type="text" class="form-control">
+</div>
+<div>
+<label>Idx</label>
+<input placeholder="Idx" [(ngModel)]="CLSKetQua_ImagesService.FormData.Idx"  name="CLSKetQua_ImagesService.FormData.Idx" type="text" class="form-control">
+</div>
+<div>
+<label>TenHinh</label>
+<input placeholder="TenHinh" [(ngModel)]="CLSKetQua_ImagesService.FormData.TenHinh"  name="CLSKetQua_ImagesService.FormData.TenHinh" type="text" class="form-control">
+</div>
+<div>
+<label>MoTaHinh</label>
+<input placeholder="MoTaHinh" [(ngModel)]="CLSKetQua_ImagesService.FormData.MoTaHinh"  name="CLSKetQua_ImagesService.FormData.MoTaHinh" type="text" class="form-control">
+</div>
+<div>
+<label>TamNgung</label>
+<input placeholder="TamNgung" [(ngModel)]="CLSKetQua_ImagesService.FormData.TamNgung"  name="CLSKetQua_ImagesService.FormData.TamNgung" type="text" class="form-control">
+</div>
+<div>
+<label>NgayTao</label>
+<input placeholder="NgayTao" [(ngModel)]="CLSKetQua_ImagesService.FormData.NgayTao"  name="CLSKetQua_ImagesService.FormData.NgayTao" type="text" class="form-control">
+</div>
+<div>
+<label>NguoiTao_Id</label>
+<input placeholder="NguoiTao_Id" [(ngModel)]="CLSKetQua_ImagesService.FormData.NguoiTao_Id"  name="CLSKetQua_ImagesService.FormData.NguoiTao_Id" type="text" class="form-control">
+</div>
+<div>
+<label>NgayCapNhat</label>
+<input placeholder="NgayCapNhat" [(ngModel)]="CLSKetQua_ImagesService.FormData.NgayCapNhat"  name="CLSKetQua_ImagesService.FormData.NgayCapNhat" type="text" class="form-control">
+</div>
+<div>
+<label>NguoiCapNhat_Id</label>
+<input placeholder="NguoiCapNhat_Id" [(ngModel)]="CLSKetQua_ImagesService.FormData.NguoiCapNhat_Id"  name="CLSKetQua_ImagesService.FormData.NguoiCapNhat_Id" type="text" class="form-control">
+</div>
+<div>
+<label>ChonInMacDinh</label>
+<input placeholder="ChonInMacDinh" [(ngModel)]="CLSKetQua_ImagesService.FormData.ChonInMacDinh"  name="CLSKetQua_ImagesService.FormData.ChonInMacDinh" type="text" class="form-control">
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <app-loading *ngIf="CLSKetQua_ImagesService.IsShowLoading"></app-loading>
+

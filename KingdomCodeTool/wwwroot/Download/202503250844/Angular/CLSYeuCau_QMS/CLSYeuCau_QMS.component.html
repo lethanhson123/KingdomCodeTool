@@ -1,0 +1,175 @@
+﻿<div class="row">
+    <div id="breadcrumbs-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m6 l6">
+                    <h6 class="breadcrumbs-title">
+                        CLSYeuCau_QMS
+                        <span *ngIf="CLSYeuCau_QMSService.List">({{CLSYeuCau_QMSService.List.length-1}} items)</span>
+                    </h6>
+                </div>
+                <div class="col s12 m6 l6 right-align-md">
+                    <ol class="breadcrumbs mb-0">
+                        <li class="breadcrumb-item">
+                            <a href="javascript:history.back()" title="Quay lại">
+                                <<< Quay lại
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/Homepage" title="Trang chủ">Trang chủ</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/ThanhVien" title="Quản trị">Quản trị</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/CLSYeuCau_QMS" title="CLSYeuCau_QMS">
+                                CLSYeuCau_QMS
+                            </a>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col s12 m12 l12">
+        <div class="card card card-default scrollspy">
+            <div class="card-content">
+                <div class="col s12 m12 l11">
+                    <input [(ngModel)]="CLSYeuCau_QMSService.BaseParameter.SearchString" placeholder="Tìm ..."
+                           class="form-control" (keyup.enter)="CLSYeuCau_QMSSearch()">
+                </div>
+                <div class="col s12 m12 l1">
+                    <a style="color: green;" title="Tìm" (click)="CLSYeuCau_QMSSearch()">
+                        <i class="material-icons">play_circle_filled</i>
+                    </a>
+                </div>
+                <div class="KhungOverflow">
+                    <table *ngIf="!NotificationService.IsMobile" mat-table matSort #CLSYeuCau_QMSSort="matSort"
+                           [dataSource]="CLSYeuCau_QMSService.DataSource">
+                        <ng-container matColumnDef="STT">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                                STT
+                            </th>
+                            <td mat-cell *matCellDef="let element; index as i;">
+                                <div *ngIf="CLSYeuCau_QMSPaginator">
+                                    {{
+CLSYeuCau_QMSPaginator.pageSize *
+                                    CLSYeuCau_QMSPaginator.pageIndex + i + 1
+                                    }}
+                                </div>
+                            </td>
+                        </ng-container>
+                        <ng-container matColumnDef="Save">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                            </th>
+                            <td mat-cell *matCellDef="let element">
+                                <a (click)="CLSYeuCau_QMSSave(element)" style="color:#2196f3;">
+                                    <i class="material-icons">save</i>
+                                </a>
+                                <a (click)="CLSYeuCau_QMSDelete(element)" style="color: red;">
+                                    <i class="material-icons">delete_forever</i>
+                                </a>
+                            </td>
+                        </ng-container>
+                        <ng-container matColumnDef="CLSYeuCau_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CLSYeuCau_Id</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="CLSYeuCau_Id" name="CLSYeuCau_Id" [(ngModel)]="element.CLSYeuCau_Id"></td>
+</ng-container>
+<ng-container matColumnDef="SoTT">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>SoTT</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="SoTT" name="SoTT" [(ngModel)]="element.SoTT"></td>
+</ng-container>
+<ng-container matColumnDef="HangDoi_Idx">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>HangDoi_Idx</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="HangDoi_Idx" name="HangDoi_Idx" [(ngModel)]="element.HangDoi_Idx"></td>
+</ng-container>
+<ng-container matColumnDef="HangDoi_Details">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>HangDoi_Details</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="HangDoi_Details" name="HangDoi_Details" [(ngModel)]="element.HangDoi_Details"></td>
+</ng-container>
+<ng-container matColumnDef="KhuVuc">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>KhuVuc</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="KhuVuc" name="KhuVuc" [(ngModel)]="element.KhuVuc"></td>
+</ng-container>
+<ng-container matColumnDef="App">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>App</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="App" name="App" [(ngModel)]="element.App"></td>
+</ng-container>
+
+                        <tr mat-header-row *matHeaderRowDef="CLSYeuCau_QMSService.DisplayColumns001">
+                        </tr>
+                        <tr mat-row *matRowDef="let row; columns: CLSYeuCau_QMSService.DisplayColumns001;">
+                        </tr>
+                    </table>
+                    <mat-paginator *ngIf="!NotificationService.IsMobile" #CLSYeuCau_QMSPaginator="matPaginator"
+                                   [pageSizeOptions]="[10,20,50,100]" [pageSize]="20" [showFirstLastButtons]></mat-paginator>
+
+                    <table *ngIf="NotificationService.IsMobile" mat-table matSort #CLSYeuCau_QMSSort="matSort"
+                           [dataSource]="CLSYeuCau_QMSService.DataSource" class="table table-striped m-0">
+                        <ng-container matColumnDef="STT">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                                Danh sách
+                            </th>
+                            <td mat-cell *matCellDef="let element; index as i;">
+                                <div class="row gx-4">
+                                    <div class="col-lg-12 col-sm-12 col-12">
+<label>CLSYeuCau_Id</label>
+<br />
+<input class="form-control" type="text" placeholder="CLSYeuCau_Id" name="CLSYeuCau_Id{{element.ID}}" [(ngModel)]="element.CLSYeuCau_Id">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>SoTT</label>
+<br />
+<input class="form-control" type="text" placeholder="SoTT" name="SoTT{{element.ID}}" [(ngModel)]="element.SoTT">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>HangDoi_Idx</label>
+<br />
+<input class="form-control" type="text" placeholder="HangDoi_Idx" name="HangDoi_Idx{{element.ID}}" [(ngModel)]="element.HangDoi_Idx">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>HangDoi_Details</label>
+<br />
+<input class="form-control" type="text" placeholder="HangDoi_Details" name="HangDoi_Details{{element.ID}}" [(ngModel)]="element.HangDoi_Details">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>KhuVuc</label>
+<br />
+<input class="form-control" type="text" placeholder="KhuVuc" name="KhuVuc{{element.ID}}" [(ngModel)]="element.KhuVuc">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>App</label>
+<br />
+<input class="form-control" type="text" placeholder="App" name="App{{element.ID}}" [(ngModel)]="element.App">
+</div>
+
+                                </div>
+                                <div class="row gx-4">
+                                    <div class="col s6 m6 l6">
+                                        <a (click)="CLSYeuCau_QMSSave(element)" style="color:#2196f3;">
+                                            <i class="material-icons">save</i>
+                                        </a>
+                                    </div>
+                                    <div class="col s6 m6 l6">
+                                        <a (click)="CLSYeuCau_QMSDelete(element)"
+                                           style="color: red;"><i class="material-icons">delete_forever</i></a>
+                                    </div>
+                                </div>
+                                <br />
+                            </td>
+                        </ng-container>
+                        <tr mat-header-row *matHeaderRowDef="CLSYeuCau_QMSService.DisplayColumnsMobile">
+                        </tr>
+                        <tr mat-row *matRowDef="let row; columns: CLSYeuCau_QMSService.DisplayColumnsMobile;">
+                        </tr>
+                    </table>
+                    <mat-paginator *ngIf="NotificationService.IsMobile" #CLSYeuCau_QMSPaginator="matPaginator"
+                                   [pageSizeOptions]="[10,20,50,100]" [pageSize]="10000" [showFirstLastButtons]></mat-paginator>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-loading *ngIf="CLSYeuCau_QMSService.IsShowLoading"></app-loading>
+

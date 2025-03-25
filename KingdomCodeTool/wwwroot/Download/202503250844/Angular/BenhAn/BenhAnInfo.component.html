@@ -1,0 +1,488 @@
+﻿<div class="row">
+    <div id="breadcrumbs-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m6 l6">
+                    <h6 class="breadcrumbs-title">
+                        BenhAn:
+                        <b>{{BenhAnService.FormData.BenhAn_Id}} [{{BenhAnService.FormData.BenhAn_Id}}]</b>
+                    </h6>
+                </div>
+                <div class="col s12 m6 l6 right-align-md">
+                    <ol class="breadcrumbs mb-0">
+                        <li class="breadcrumb-item">
+                            <a href="javascript:history.back()" title="Quay lại">
+                                <<< Quay lại
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/Homepage" title="Trang chủ">Trang chủ</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="#" title="eHospital_DongNai_A/">eHospital_DongNai_A/</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/BenhAn" title="BenhAn">
+                                BenhAn
+                            </a>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col s12 m12 l12">
+        <div class="card card card-default scrollspy">
+            <div class="card-content">
+                <div class="row">
+                    <div class="col s6 m6 l12">
+                        <a title="Quay lại" href="javascript:history.back()" style="color: green;">
+                            <i class="material-icons">more</i>
+                        </a>
+                        <!--<a title="Thêm mới" (click)="BenhAnAdd()" style="color: green;"><i
+                class="material-icons">add_box</i></a>-->
+                        <a title="Lưu thay đổi" (click)="BenhAnSave()" style="color:#2196f3;">
+                            <i class="material-icons">save</i>
+                        </a>
+                    </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12 m12 l12">
+                            <div>
+<label>BenhAn_Id</label>
+<input placeholder="BenhAn_Id" [(ngModel)]="BenhAnService.FormData.BenhAn_Id"  name="BenhAnService.FormData.BenhAn_Id" type="text" class="form-control">
+</div>
+<div>
+<label>SoBenhAn</label>
+<input placeholder="SoBenhAn" [(ngModel)]="BenhAnService.FormData.SoBenhAn"  name="BenhAnService.FormData.SoBenhAn" type="text" class="form-control">
+</div>
+<div>
+<label>SoLuuTru</label>
+<input placeholder="SoLuuTru" [(ngModel)]="BenhAnService.FormData.SoLuuTru"  name="BenhAnService.FormData.SoLuuTru" type="text" class="form-control">
+</div>
+<div>
+<label>LoaiBenhAn_Id</label>
+<input placeholder="LoaiBenhAn_Id" [(ngModel)]="BenhAnService.FormData.LoaiBenhAn_Id"  name="BenhAnService.FormData.LoaiBenhAn_Id" type="text" class="form-control">
+</div>
+<div>
+<label>TiepNhan_Id</label>
+<input placeholder="TiepNhan_Id" [(ngModel)]="BenhAnService.FormData.TiepNhan_Id"  name="BenhAnService.FormData.TiepNhan_Id" type="text" class="form-control">
+</div>
+<div>
+<label>BenhNhan_Id</label>
+<input placeholder="BenhNhan_Id" [(ngModel)]="BenhAnService.FormData.BenhNhan_Id"  name="BenhAnService.FormData.BenhNhan_Id" type="text" class="form-control">
+</div>
+<div>
+<label>NgayLap</label>
+<input placeholder="NgayLap" [(ngModel)]="BenhAnService.FormData.NgayLap"  name="BenhAnService.FormData.NgayLap" type="text" class="form-control">
+</div>
+<div>
+<label>ThoiGianLap</label>
+<input placeholder="ThoiGianLap" [(ngModel)]="BenhAnService.FormData.ThoiGianLap"  name="BenhAnService.FormData.ThoiGianLap" type="text" class="form-control">
+</div>
+<div>
+<label>NoiLap_Id</label>
+<input placeholder="NoiLap_Id" [(ngModel)]="BenhAnService.FormData.NoiLap_Id"  name="BenhAnService.FormData.NoiLap_Id" type="text" class="form-control">
+</div>
+<div>
+<label>NguoiLap_Id</label>
+<input placeholder="NguoiLap_Id" [(ngModel)]="BenhAnService.FormData.NguoiLap_Id"  name="BenhAnService.FormData.NguoiLap_Id" type="text" class="form-control">
+</div>
+<div>
+<label>BacSiDieuTriChinh_Id</label>
+<input placeholder="BacSiDieuTriChinh_Id" [(ngModel)]="BenhAnService.FormData.BacSiDieuTriChinh_Id"  name="BenhAnService.FormData.BacSiDieuTriChinh_Id" type="text" class="form-control">
+</div>
+<div>
+<label>BacSiDieuTri_Id</label>
+<input placeholder="BacSiDieuTri_Id" [(ngModel)]="BenhAnService.FormData.BacSiDieuTri_Id"  name="BenhAnService.FormData.BacSiDieuTri_Id" type="text" class="form-control">
+</div>
+<div>
+<label>KhoaChuyenDen_Id</label>
+<input placeholder="KhoaChuyenDen_Id" [(ngModel)]="BenhAnService.FormData.KhoaChuyenDen_Id"  name="BenhAnService.FormData.KhoaChuyenDen_Id" type="text" class="form-control">
+</div>
+<div>
+<label>KhoaVao_Id</label>
+<input placeholder="KhoaVao_Id" [(ngModel)]="BenhAnService.FormData.KhoaVao_Id"  name="BenhAnService.FormData.KhoaVao_Id" type="text" class="form-control">
+</div>
+<div>
+<label>NgayVaoKhoa</label>
+<input placeholder="NgayVaoKhoa" [(ngModel)]="BenhAnService.FormData.NgayVaoKhoa"  name="BenhAnService.FormData.NgayVaoKhoa" type="text" class="form-control">
+</div>
+<div>
+<label>ThoiGianVaoKhoa</label>
+<input placeholder="ThoiGianVaoKhoa" [(ngModel)]="BenhAnService.FormData.ThoiGianVaoKhoa"  name="BenhAnService.FormData.ThoiGianVaoKhoa" type="text" class="form-control">
+</div>
+<div>
+<label>KhoaRa_Id</label>
+<input placeholder="KhoaRa_Id" [(ngModel)]="BenhAnService.FormData.KhoaRa_Id"  name="BenhAnService.FormData.KhoaRa_Id" type="text" class="form-control">
+</div>
+<div>
+<label>NgayVaoVien</label>
+<input placeholder="NgayVaoVien" [(ngModel)]="BenhAnService.FormData.NgayVaoVien"  name="BenhAnService.FormData.NgayVaoVien" type="text" class="form-control">
+</div>
+<div>
+<label>ThoiGianVaoVien</label>
+<input placeholder="ThoiGianVaoVien" [(ngModel)]="BenhAnService.FormData.ThoiGianVaoVien"  name="BenhAnService.FormData.ThoiGianVaoVien" type="text" class="form-control">
+</div>
+<div>
+<label>NgayRaVien</label>
+<input placeholder="NgayRaVien" [(ngModel)]="BenhAnService.FormData.NgayRaVien"  name="BenhAnService.FormData.NgayRaVien" type="text" class="form-control">
+</div>
+<div>
+<label>ThoiGianRaVien</label>
+<input placeholder="ThoiGianRaVien" [(ngModel)]="BenhAnService.FormData.ThoiGianRaVien"  name="BenhAnService.FormData.ThoiGianRaVien" type="text" class="form-control">
+</div>
+<div>
+<label>SoNgayDieuTri</label>
+<input placeholder="SoNgayDieuTri" [(ngModel)]="BenhAnService.FormData.SoNgayDieuTri"  name="BenhAnService.FormData.SoNgayDieuTri" type="text" class="form-control">
+</div>
+<div>
+<label>LyDoNhapVien_Id</label>
+<input placeholder="LyDoNhapVien_Id" [(ngModel)]="BenhAnService.FormData.LyDoNhapVien_Id"  name="BenhAnService.FormData.LyDoNhapVien_Id" type="text" class="form-control">
+</div>
+<div>
+<label>LyDoXuatVien_Id</label>
+<input placeholder="LyDoXuatVien_Id" [(ngModel)]="BenhAnService.FormData.LyDoXuatVien_Id"  name="BenhAnService.FormData.LyDoXuatVien_Id" type="text" class="form-control">
+</div>
+<div>
+<label>ChuyenDenBenhVien_Id</label>
+<input placeholder="ChuyenDenBenhVien_Id" [(ngModel)]="BenhAnService.FormData.ChuyenDenBenhVien_Id"  name="BenhAnService.FormData.ChuyenDenBenhVien_Id" type="text" class="form-control">
+</div>
+<div>
+<label>ChanDoanTuyenDuoi</label>
+<input placeholder="ChanDoanTuyenDuoi" [(ngModel)]="BenhAnService.FormData.ChanDoanTuyenDuoi"  name="BenhAnService.FormData.ChanDoanTuyenDuoi" type="text" class="form-control">
+</div>
+<div>
+<label>ICD_TuyenDuoi</label>
+<input placeholder="ICD_TuyenDuoi" [(ngModel)]="BenhAnService.FormData.ICD_TuyenDuoi"  name="BenhAnService.FormData.ICD_TuyenDuoi" type="text" class="form-control">
+</div>
+<div>
+<label>ChanDoanKhamBenh</label>
+<input placeholder="ChanDoanKhamBenh" [(ngModel)]="BenhAnService.FormData.ChanDoanKhamBenh"  name="BenhAnService.FormData.ChanDoanKhamBenh" type="text" class="form-control">
+</div>
+<div>
+<label>ICD_KhamBenh</label>
+<input placeholder="ICD_KhamBenh" [(ngModel)]="BenhAnService.FormData.ICD_KhamBenh"  name="BenhAnService.FormData.ICD_KhamBenh" type="text" class="form-control">
+</div>
+<div>
+<label>ChanDoanVaoKhoa</label>
+<input placeholder="ChanDoanVaoKhoa" [(ngModel)]="BenhAnService.FormData.ChanDoanVaoKhoa"  name="BenhAnService.FormData.ChanDoanVaoKhoa" type="text" class="form-control">
+</div>
+<div>
+<label>ICD_VaoKhoa</label>
+<input placeholder="ICD_VaoKhoa" [(ngModel)]="BenhAnService.FormData.ICD_VaoKhoa"  name="BenhAnService.FormData.ICD_VaoKhoa" type="text" class="form-control">
+</div>
+<div>
+<label>ChanDoanRaVien</label>
+<input placeholder="ChanDoanRaVien" [(ngModel)]="BenhAnService.FormData.ChanDoanRaVien"  name="BenhAnService.FormData.ChanDoanRaVien" type="text" class="form-control">
+</div>
+<div>
+<label>ICD_BenhChinh</label>
+<input placeholder="ICD_BenhChinh" [(ngModel)]="BenhAnService.FormData.ICD_BenhChinh"  name="BenhAnService.FormData.ICD_BenhChinh" type="text" class="form-control">
+</div>
+<div>
+<label>ICD_BenhPhu</label>
+<input placeholder="ICD_BenhPhu" [(ngModel)]="BenhAnService.FormData.ICD_BenhPhu"  name="BenhAnService.FormData.ICD_BenhPhu" type="text" class="form-control">
+</div>
+<div>
+<label>KetQuaDieuTri_Id</label>
+<input placeholder="KetQuaDieuTri_Id" [(ngModel)]="BenhAnService.FormData.KetQuaDieuTri_Id"  name="BenhAnService.FormData.KetQuaDieuTri_Id" type="text" class="form-control">
+</div>
+<div>
+<label>MoTaTinhTrangRaVien</label>
+<input placeholder="MoTaTinhTrangRaVien" [(ngModel)]="BenhAnService.FormData.MoTaTinhTrangRaVien"  name="BenhAnService.FormData.MoTaTinhTrangRaVien" type="text" class="form-control">
+</div>
+<div>
+<label>TienSuBanThan</label>
+<input placeholder="TienSuBanThan" [(ngModel)]="BenhAnService.FormData.TienSuBanThan"  name="BenhAnService.FormData.TienSuBanThan" type="text" class="form-control">
+</div>
+<div>
+<label>TienSuGiaDinh</label>
+<input placeholder="TienSuGiaDinh" [(ngModel)]="BenhAnService.FormData.TienSuGiaDinh"  name="BenhAnService.FormData.TienSuGiaDinh" type="text" class="form-control">
+</div>
+<div>
+<label>QuaTrinhBenhLy</label>
+<input placeholder="QuaTrinhBenhLy" [(ngModel)]="BenhAnService.FormData.QuaTrinhBenhLy"  name="BenhAnService.FormData.QuaTrinhBenhLy" type="text" class="form-control">
+</div>
+<div>
+<label>Mach</label>
+<input placeholder="Mach" [(ngModel)]="BenhAnService.FormData.Mach"  name="BenhAnService.FormData.Mach" type="text" class="form-control">
+</div>
+<div>
+<label>HuyetApThap</label>
+<input placeholder="HuyetApThap" [(ngModel)]="BenhAnService.FormData.HuyetApThap"  name="BenhAnService.FormData.HuyetApThap" type="text" class="form-control">
+</div>
+<div>
+<label>HuyetApCao</label>
+<input placeholder="HuyetApCao" [(ngModel)]="BenhAnService.FormData.HuyetApCao"  name="BenhAnService.FormData.HuyetApCao" type="text" class="form-control">
+</div>
+<div>
+<label>NhipTho</label>
+<input placeholder="NhipTho" [(ngModel)]="BenhAnService.FormData.NhipTho"  name="BenhAnService.FormData.NhipTho" type="text" class="form-control">
+</div>
+<div>
+<label>NhietDo</label>
+<input placeholder="NhietDo" [(ngModel)]="BenhAnService.FormData.NhietDo"  name="BenhAnService.FormData.NhietDo" type="text" class="form-control">
+</div>
+<div>
+<label>ChieuCao</label>
+<input placeholder="ChieuCao" [(ngModel)]="BenhAnService.FormData.ChieuCao"  name="BenhAnService.FormData.ChieuCao" type="text" class="form-control">
+</div>
+<div>
+<label>CanNang</label>
+<input placeholder="CanNang" [(ngModel)]="BenhAnService.FormData.CanNang"  name="BenhAnService.FormData.CanNang" type="text" class="form-control">
+</div>
+<div>
+<label>KhamToanThan</label>
+<input placeholder="KhamToanThan" [(ngModel)]="BenhAnService.FormData.KhamToanThan"  name="BenhAnService.FormData.KhamToanThan" type="text" class="form-control">
+</div>
+<div>
+<label>TienLuong</label>
+<input placeholder="TienLuong" [(ngModel)]="BenhAnService.FormData.TienLuong"  name="BenhAnService.FormData.TienLuong" type="text" class="form-control">
+</div>
+<div>
+<label>KeHoachDieuTri</label>
+<input placeholder="KeHoachDieuTri" [(ngModel)]="BenhAnService.FormData.KeHoachDieuTri"  name="BenhAnService.FormData.KeHoachDieuTri" type="text" class="form-control">
+</div>
+<div>
+<label>CanLamSang</label>
+<input placeholder="CanLamSang" [(ngModel)]="BenhAnService.FormData.CanLamSang"  name="BenhAnService.FormData.CanLamSang" type="text" class="form-control">
+</div>
+<div>
+<label>LamSang</label>
+<input placeholder="LamSang" [(ngModel)]="BenhAnService.FormData.LamSang"  name="BenhAnService.FormData.LamSang" type="text" class="form-control">
+</div>
+<div>
+<label>TaiBienDieuTri</label>
+<input placeholder="TaiBienDieuTri" [(ngModel)]="BenhAnService.FormData.TaiBienDieuTri"  name="BenhAnService.FormData.TaiBienDieuTri" type="text" class="form-control">
+</div>
+<div>
+<label>NguyenNhanTaiBien_Id</label>
+<input placeholder="NguyenNhanTaiBien_Id" [(ngModel)]="BenhAnService.FormData.NguyenNhanTaiBien_Id"  name="BenhAnService.FormData.NguyenNhanTaiBien_Id" type="text" class="form-control">
+</div>
+<div>
+<label>GiaiPhauBenh</label>
+<input placeholder="GiaiPhauBenh" [(ngModel)]="BenhAnService.FormData.GiaiPhauBenh"  name="BenhAnService.FormData.GiaiPhauBenh" type="text" class="form-control">
+</div>
+<div>
+<label>TinhTrangGiaiPhauBenh_Id</label>
+<input placeholder="TinhTrangGiaiPhauBenh_Id" [(ngModel)]="BenhAnService.FormData.TinhTrangGiaiPhauBenh_Id"  name="BenhAnService.FormData.TinhTrangGiaiPhauBenh_Id" type="text" class="form-control">
+</div>
+<div>
+<label>TrangThai</label>
+<input placeholder="TrangThai" [(ngModel)]="BenhAnService.FormData.TrangThai"  name="BenhAnService.FormData.TrangThai" type="text" class="form-control">
+</div>
+<div>
+<label>KhoaBenhAn</label>
+<input placeholder="KhoaBenhAn" [(ngModel)]="BenhAnService.FormData.KhoaBenhAn"  name="BenhAnService.FormData.KhoaBenhAn" type="text" class="form-control">
+</div>
+<div>
+<label>NgayKhoaBenhAn</label>
+<input placeholder="NgayKhoaBenhAn" [(ngModel)]="BenhAnService.FormData.NgayKhoaBenhAn"  name="BenhAnService.FormData.NgayKhoaBenhAn" type="text" class="form-control">
+</div>
+<div>
+<label>ThoiGianKhoaBenhAn</label>
+<input placeholder="ThoiGianKhoaBenhAn" [(ngModel)]="BenhAnService.FormData.ThoiGianKhoaBenhAn"  name="BenhAnService.FormData.ThoiGianKhoaBenhAn" type="text" class="form-control">
+</div>
+<div>
+<label>NguoiKhoaBenhAn_Id</label>
+<input placeholder="NguoiKhoaBenhAn_Id" [(ngModel)]="BenhAnService.FormData.NguoiKhoaBenhAn_Id"  name="BenhAnService.FormData.NguoiKhoaBenhAn_Id" type="text" class="form-control">
+</div>
+<div>
+<label>DaThanhToan</label>
+<input placeholder="DaThanhToan" [(ngModel)]="BenhAnService.FormData.DaThanhToan"  name="BenhAnService.FormData.DaThanhToan" type="text" class="form-control">
+</div>
+<div>
+<label>NgayThanhToan</label>
+<input placeholder="NgayThanhToan" [(ngModel)]="BenhAnService.FormData.NgayThanhToan"  name="BenhAnService.FormData.NgayThanhToan" type="text" class="form-control">
+</div>
+<div>
+<label>ThoiGianThanhToan</label>
+<input placeholder="ThoiGianThanhToan" [(ngModel)]="BenhAnService.FormData.ThoiGianThanhToan"  name="BenhAnService.FormData.ThoiGianThanhToan" type="text" class="form-control">
+</div>
+<div>
+<label>NguoiThanhToan_Id</label>
+<input placeholder="NguoiThanhToan_Id" [(ngModel)]="BenhAnService.FormData.NguoiThanhToan_Id"  name="BenhAnService.FormData.NguoiThanhToan_Id" type="text" class="form-control">
+</div>
+<div>
+<label>DaXacNhanDoanhThu</label>
+<input placeholder="DaXacNhanDoanhThu" [(ngModel)]="BenhAnService.FormData.DaXacNhanDoanhThu"  name="BenhAnService.FormData.DaXacNhanDoanhThu" type="text" class="form-control">
+</div>
+<div>
+<label>NgayXacNhanDoanhThu</label>
+<input placeholder="NgayXacNhanDoanhThu" [(ngModel)]="BenhAnService.FormData.NgayXacNhanDoanhThu"  name="BenhAnService.FormData.NgayXacNhanDoanhThu" type="text" class="form-control">
+</div>
+<div>
+<label>ThoiGianXacNhanDoanhThu</label>
+<input placeholder="ThoiGianXacNhanDoanhThu" [(ngModel)]="BenhAnService.FormData.ThoiGianXacNhanDoanhThu"  name="BenhAnService.FormData.ThoiGianXacNhanDoanhThu" type="text" class="form-control">
+</div>
+<div>
+<label>NguoiXacNhanDoanhThu_Id</label>
+<input placeholder="NguoiXacNhanDoanhThu_Id" [(ngModel)]="BenhAnService.FormData.NguoiXacNhanDoanhThu_Id"  name="BenhAnService.FormData.NguoiXacNhanDoanhThu_Id" type="text" class="form-control">
+</div>
+<div>
+<label>NgayTao</label>
+<input placeholder="NgayTao" [(ngModel)]="BenhAnService.FormData.NgayTao"  name="BenhAnService.FormData.NgayTao" type="text" class="form-control">
+</div>
+<div>
+<label>NguoiTao_Id</label>
+<input placeholder="NguoiTao_Id" [(ngModel)]="BenhAnService.FormData.NguoiTao_Id"  name="BenhAnService.FormData.NguoiTao_Id" type="text" class="form-control">
+</div>
+<div>
+<label>NgayCapNhat</label>
+<input placeholder="NgayCapNhat" [(ngModel)]="BenhAnService.FormData.NgayCapNhat"  name="BenhAnService.FormData.NgayCapNhat" type="text" class="form-control">
+</div>
+<div>
+<label>NguoiCapNhat_Id</label>
+<input placeholder="NguoiCapNhat_Id" [(ngModel)]="BenhAnService.FormData.NguoiCapNhat_Id"  name="BenhAnService.FormData.NguoiCapNhat_Id" type="text" class="form-control">
+</div>
+<div>
+<label>TuVong</label>
+<input placeholder="TuVong" [(ngModel)]="BenhAnService.FormData.TuVong"  name="BenhAnService.FormData.TuVong" type="text" class="form-control">
+</div>
+<div>
+<label>NgayTuVong</label>
+<input placeholder="NgayTuVong" [(ngModel)]="BenhAnService.FormData.NgayTuVong"  name="BenhAnService.FormData.NgayTuVong" type="text" class="form-control">
+</div>
+<div>
+<label>ThoiGianTuVong</label>
+<input placeholder="ThoiGianTuVong" [(ngModel)]="BenhAnService.FormData.ThoiGianTuVong"  name="BenhAnService.FormData.ThoiGianTuVong" type="text" class="form-control">
+</div>
+<div>
+<label>ThoiGianKhamNghiem</label>
+<input placeholder="ThoiGianKhamNghiem" [(ngModel)]="BenhAnService.FormData.ThoiGianKhamNghiem"  name="BenhAnService.FormData.ThoiGianKhamNghiem" type="text" class="form-control">
+</div>
+<div>
+<label>ThoiGianNhanTuThi</label>
+<input placeholder="ThoiGianNhanTuThi" [(ngModel)]="BenhAnService.FormData.ThoiGianNhanTuThi"  name="BenhAnService.FormData.ThoiGianNhanTuThi" type="text" class="form-control">
+</div>
+<div>
+<label>KetQuaKhamNghiem</label>
+<input placeholder="KetQuaKhamNghiem" [(ngModel)]="BenhAnService.FormData.KetQuaKhamNghiem"  name="BenhAnService.FormData.KetQuaKhamNghiem" type="text" class="form-control">
+</div>
+<div>
+<label>GhiChu</label>
+<input placeholder="GhiChu" [(ngModel)]="BenhAnService.FormData.GhiChu"  name="BenhAnService.FormData.GhiChu" type="text" class="form-control">
+</div>
+<div>
+<label>ICD_TuVong_Id</label>
+<input placeholder="ICD_TuVong_Id" [(ngModel)]="BenhAnService.FormData.ICD_TuVong_Id"  name="BenhAnService.FormData.ICD_TuVong_Id" type="text" class="form-control">
+</div>
+<div>
+<label>BacSiGhiNhanTuVong_Id</label>
+<input placeholder="BacSiGhiNhanTuVong_Id" [(ngModel)]="BenhAnService.FormData.BacSiGhiNhanTuVong_Id"  name="BenhAnService.FormData.BacSiGhiNhanTuVong_Id" type="text" class="form-control">
+</div>
+<div>
+<label>BacSiKhamNghiem_Id</label>
+<input placeholder="BacSiKhamNghiem_Id" [(ngModel)]="BenhAnService.FormData.BacSiKhamNghiem_Id"  name="BenhAnService.FormData.BacSiKhamNghiem_Id" type="text" class="form-control">
+</div>
+<div>
+<label>SoDienThoai</label>
+<input placeholder="SoDienThoai" [(ngModel)]="BenhAnService.FormData.SoDienThoai"  name="BenhAnService.FormData.SoDienThoai" type="text" class="form-control">
+</div>
+<div>
+<label>LanVaoVien</label>
+<input placeholder="LanVaoVien" [(ngModel)]="BenhAnService.FormData.LanVaoVien"  name="BenhAnService.FormData.LanVaoVien" type="text" class="form-control">
+</div>
+<div>
+<label>ChuyenVien_Id</label>
+<input placeholder="ChuyenVien_Id" [(ngModel)]="BenhAnService.FormData.ChuyenVien_Id"  name="BenhAnService.FormData.ChuyenVien_Id" type="text" class="form-control">
+</div>
+<div>
+<label>ThuThuat</label>
+<input placeholder="ThuThuat" [(ngModel)]="BenhAnService.FormData.ThuThuat"  name="BenhAnService.FormData.ThuThuat" type="text" class="form-control">
+</div>
+<div>
+<label>PhauThuat</label>
+<input placeholder="PhauThuat" [(ngModel)]="BenhAnService.FormData.PhauThuat"  name="BenhAnService.FormData.PhauThuat" type="text" class="form-control">
+</div>
+<div>
+<label>BienChung</label>
+<input placeholder="BienChung" [(ngModel)]="BenhAnService.FormData.BienChung"  name="BenhAnService.FormData.BienChung" type="text" class="form-control">
+</div>
+<div>
+<label>NguyenNhanTuVong_Id</label>
+<input placeholder="NguyenNhanTuVong_Id" [(ngModel)]="BenhAnService.FormData.NguyenNhanTuVong_Id"  name="BenhAnService.FormData.NguyenNhanTuVong_Id" type="text" class="form-control">
+</div>
+<div>
+<label>ICD_GiaiPhauTuThi_Id</label>
+<input placeholder="ICD_GiaiPhauTuThi_Id" [(ngModel)]="BenhAnService.FormData.ICD_GiaiPhauTuThi_Id"  name="BenhAnService.FormData.ICD_GiaiPhauTuThi_Id" type="text" class="form-control">
+</div>
+<div>
+<label>SoCapCuu</label>
+<input placeholder="SoCapCuu" [(ngModel)]="BenhAnService.FormData.SoCapCuu"  name="BenhAnService.FormData.SoCapCuu" type="text" class="form-control">
+</div>
+<div>
+<label>DoiTuong_Id</label>
+<input placeholder="DoiTuong_Id" [(ngModel)]="BenhAnService.FormData.DoiTuong_Id"  name="BenhAnService.FormData.DoiTuong_Id" type="text" class="form-control">
+</div>
+<div>
+<label>XacNhanChiPhi_Id</label>
+<input placeholder="XacNhanChiPhi_Id" [(ngModel)]="BenhAnService.FormData.XacNhanChiPhi_Id"  name="BenhAnService.FormData.XacNhanChiPhi_Id" type="text" class="form-control">
+</div>
+<div>
+<label>ICD_NguyenNhanXuatVien</label>
+<input placeholder="ICD_NguyenNhanXuatVien" [(ngModel)]="BenhAnService.FormData.ICD_NguyenNhanXuatVien"  name="BenhAnService.FormData.ICD_NguyenNhanXuatVien" type="text" class="form-control">
+</div>
+<div>
+<label>SiteCode</label>
+<input placeholder="SiteCode" [(ngModel)]="BenhAnService.FormData.SiteCode"  name="BenhAnService.FormData.SiteCode" type="text" class="form-control">
+</div>
+<div>
+<label>Mapping_Public_Id</label>
+<input placeholder="Mapping_Public_Id" [(ngModel)]="BenhAnService.FormData.Mapping_Public_Id"  name="BenhAnService.FormData.Mapping_Public_Id" type="text" class="form-control">
+</div>
+<div>
+<label>OtherSite_TongChiPhi</label>
+<input placeholder="OtherSite_TongChiPhi" [(ngModel)]="BenhAnService.FormData.OtherSite_TongChiPhi"  name="BenhAnService.FormData.OtherSite_TongChiPhi" type="text" class="form-control">
+</div>
+<div>
+<label>OtherSite_CoPhatSinhCLS</label>
+<input placeholder="OtherSite_CoPhatSinhCLS" [(ngModel)]="BenhAnService.FormData.OtherSite_CoPhatSinhCLS"  name="BenhAnService.FormData.OtherSite_CoPhatSinhCLS" type="text" class="form-control">
+</div>
+<div>
+<label>OtherSite_CoPhatSinhThuoc</label>
+<input placeholder="OtherSite_CoPhatSinhThuoc" [(ngModel)]="BenhAnService.FormData.OtherSite_CoPhatSinhThuoc"  name="BenhAnService.FormData.OtherSite_CoPhatSinhThuoc" type="text" class="form-control">
+</div>
+<div>
+<label>OtherSite_TongTienHoTro</label>
+<input placeholder="OtherSite_TongTienHoTro" [(ngModel)]="BenhAnService.FormData.OtherSite_TongTienHoTro"  name="BenhAnService.FormData.OtherSite_TongTienHoTro" type="text" class="form-control">
+</div>
+<div>
+<label>IsBenhAn2Khu</label>
+<input placeholder="IsBenhAn2Khu" [(ngModel)]="BenhAnService.FormData.IsBenhAn2Khu"  name="BenhAnService.FormData.IsBenhAn2Khu" type="text" class="form-control">
+</div>
+<div>
+<label>SiteCode_RaVien</label>
+<input placeholder="SiteCode_RaVien" [(ngModel)]="BenhAnService.FormData.SiteCode_RaVien"  name="BenhAnService.FormData.SiteCode_RaVien" type="text" class="form-control">
+</div>
+<div>
+<label>OtherSite_XacNhanChiPhi_ID</label>
+<input placeholder="OtherSite_XacNhanChiPhi_ID" [(ngModel)]="BenhAnService.FormData.OtherSite_XacNhanChiPhi_ID"  name="BenhAnService.FormData.OtherSite_XacNhanChiPhi_ID" type="text" class="form-control">
+</div>
+<div>
+<label>IsDaChuyenKhu</label>
+<input placeholder="IsDaChuyenKhu" [(ngModel)]="BenhAnService.FormData.IsDaChuyenKhu"  name="BenhAnService.FormData.IsDaChuyenKhu" type="text" class="form-control">
+</div>
+<div>
+<label>TruongKhoa_Id</label>
+<input placeholder="TruongKhoa_Id" [(ngModel)]="BenhAnService.FormData.TruongKhoa_Id"  name="BenhAnService.FormData.TruongKhoa_Id" type="text" class="form-control">
+</div>
+<div>
+<label>ThuTruong_Id</label>
+<input placeholder="ThuTruong_Id" [(ngModel)]="BenhAnService.FormData.ThuTruong_Id"  name="BenhAnService.FormData.ThuTruong_Id" type="text" class="form-control">
+</div>
+<div>
+<label>Export</label>
+<input placeholder="Export" [(ngModel)]="BenhAnService.FormData.Export"  name="BenhAnService.FormData.Export" type="text" class="form-control">
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <app-loading *ngIf="BenhAnService.IsShowLoading"></app-loading>
+

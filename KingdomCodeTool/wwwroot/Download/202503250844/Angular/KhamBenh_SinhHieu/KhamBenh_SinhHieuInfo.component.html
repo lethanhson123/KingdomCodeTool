@@ -1,0 +1,96 @@
+﻿<div class="row">
+    <div id="breadcrumbs-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m6 l6">
+                    <h6 class="breadcrumbs-title">
+                        KhamBenh_SinhHieu:
+                        <b>{{KhamBenh_SinhHieuService.FormData.BenhNhan_Id}} [{{KhamBenh_SinhHieuService.FormData.BenhNhan_Id}}]</b>
+                    </h6>
+                </div>
+                <div class="col s12 m6 l6 right-align-md">
+                    <ol class="breadcrumbs mb-0">
+                        <li class="breadcrumb-item">
+                            <a href="javascript:history.back()" title="Quay lại">
+                                <<< Quay lại
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/Homepage" title="Trang chủ">Trang chủ</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="#" title="eHospital_DongNai_A/">eHospital_DongNai_A/</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/KhamBenh_SinhHieu" title="KhamBenh_SinhHieu">
+                                KhamBenh_SinhHieu
+                            </a>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col s12 m12 l12">
+        <div class="card card card-default scrollspy">
+            <div class="card-content">
+                <div class="row">
+                    <div class="col s6 m6 l12">
+                        <a title="Quay lại" href="javascript:history.back()" style="color: green;">
+                            <i class="material-icons">more</i>
+                        </a>
+                        <!--<a title="Thêm mới" (click)="KhamBenh_SinhHieuAdd()" style="color: green;"><i
+                class="material-icons">add_box</i></a>-->
+                        <a title="Lưu thay đổi" (click)="KhamBenh_SinhHieuSave()" style="color:#2196f3;">
+                            <i class="material-icons">save</i>
+                        </a>
+                    </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12 m12 l12">
+                            <div>
+<label>BenhNhan_Id</label>
+<input placeholder="BenhNhan_Id" [(ngModel)]="KhamBenh_SinhHieuService.FormData.BenhNhan_Id"  name="KhamBenh_SinhHieuService.FormData.BenhNhan_Id" type="text" class="form-control">
+</div>
+<div>
+<label>Mach</label>
+<input placeholder="Mach" [(ngModel)]="KhamBenh_SinhHieuService.FormData.Mach"  name="KhamBenh_SinhHieuService.FormData.Mach" type="text" class="form-control">
+</div>
+<div>
+<label>HuyetApThap</label>
+<input placeholder="HuyetApThap" [(ngModel)]="KhamBenh_SinhHieuService.FormData.HuyetApThap"  name="KhamBenh_SinhHieuService.FormData.HuyetApThap" type="text" class="form-control">
+</div>
+<div>
+<label>HuyetApCao</label>
+<input placeholder="HuyetApCao" [(ngModel)]="KhamBenh_SinhHieuService.FormData.HuyetApCao"  name="KhamBenh_SinhHieuService.FormData.HuyetApCao" type="text" class="form-control">
+</div>
+<div>
+<label>NhipTho</label>
+<input placeholder="NhipTho" [(ngModel)]="KhamBenh_SinhHieuService.FormData.NhipTho"  name="KhamBenh_SinhHieuService.FormData.NhipTho" type="text" class="form-control">
+</div>
+<div>
+<label>NhietDo</label>
+<input placeholder="NhietDo" [(ngModel)]="KhamBenh_SinhHieuService.FormData.NhietDo"  name="KhamBenh_SinhHieuService.FormData.NhietDo" type="text" class="form-control">
+</div>
+<div>
+<label>ChieuCao</label>
+<input placeholder="ChieuCao" [(ngModel)]="KhamBenh_SinhHieuService.FormData.ChieuCao"  name="KhamBenh_SinhHieuService.FormData.ChieuCao" type="text" class="form-control">
+</div>
+<div>
+<label>CanNang</label>
+<input placeholder="CanNang" [(ngModel)]="KhamBenh_SinhHieuService.FormData.CanNang"  name="KhamBenh_SinhHieuService.FormData.CanNang" type="text" class="form-control">
+</div>
+<div>
+<label>BMI</label>
+<input placeholder="BMI" [(ngModel)]="KhamBenh_SinhHieuService.FormData.BMI"  name="KhamBenh_SinhHieuService.FormData.BMI" type="text" class="form-control">
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <app-loading *ngIf="KhamBenh_SinhHieuService.IsShowLoading"></app-loading>
+

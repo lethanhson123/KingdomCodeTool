@@ -1,0 +1,589 @@
+﻿<div class="row">
+    <div id="breadcrumbs-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m6 l6">
+                    <h6 class="breadcrumbs-title">
+                        CLSKetQua_SieuAmTim
+                        <span *ngIf="CLSKetQua_SieuAmTimService.List">({{CLSKetQua_SieuAmTimService.List.length-1}} items)</span>
+                    </h6>
+                </div>
+                <div class="col s12 m6 l6 right-align-md">
+                    <ol class="breadcrumbs mb-0">
+                        <li class="breadcrumb-item">
+                            <a href="javascript:history.back()" title="Quay lại">
+                                <<< Quay lại
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/Homepage" title="Trang chủ">Trang chủ</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/ThanhVien" title="Quản trị">Quản trị</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/CLSKetQua_SieuAmTim" title="CLSKetQua_SieuAmTim">
+                                CLSKetQua_SieuAmTim
+                            </a>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col s12 m12 l12">
+        <div class="card card card-default scrollspy">
+            <div class="card-content">
+                <div class="col s12 m12 l11">
+                    <input [(ngModel)]="CLSKetQua_SieuAmTimService.BaseParameter.SearchString" placeholder="Tìm ..."
+                           class="form-control" (keyup.enter)="CLSKetQua_SieuAmTimSearch()">
+                </div>
+                <div class="col s12 m12 l1">
+                    <a style="color: green;" title="Tìm" (click)="CLSKetQua_SieuAmTimSearch()">
+                        <i class="material-icons">play_circle_filled</i>
+                    </a>
+                </div>
+                <div class="KhungOverflow">
+                    <table *ngIf="!NotificationService.IsMobile" mat-table matSort #CLSKetQua_SieuAmTimSort="matSort"
+                           [dataSource]="CLSKetQua_SieuAmTimService.DataSource">
+                        <ng-container matColumnDef="STT">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                                STT
+                            </th>
+                            <td mat-cell *matCellDef="let element; index as i;">
+                                <div *ngIf="CLSKetQua_SieuAmTimPaginator">
+                                    {{
+CLSKetQua_SieuAmTimPaginator.pageSize *
+                                    CLSKetQua_SieuAmTimPaginator.pageIndex + i + 1
+                                    }}
+                                </div>
+                            </td>
+                        </ng-container>
+                        <ng-container matColumnDef="Save">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                            </th>
+                            <td mat-cell *matCellDef="let element">
+                                <a (click)="CLSKetQua_SieuAmTimSave(element)" style="color:#2196f3;">
+                                    <i class="material-icons">save</i>
+                                </a>
+                                <a (click)="CLSKetQua_SieuAmTimDelete(element)" style="color: red;">
+                                    <i class="material-icons">delete_forever</i>
+                                </a>
+                            </td>
+                        </ng-container>
+                        <ng-container matColumnDef="CLSKetQua_SieuAmTim_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CLSKetQua_SieuAmTim_Id</th>
+<td mat-cell *matCellDef="let element">{{element.CLSKetQua_SieuAmTim_Id}}</td>
+</ng-container>
+<ng-container matColumnDef="CLSKetQua_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CLSKetQua_Id</th>
+<td mat-cell *matCellDef="let element">{{element.CLSKetQua_Id}}</td>
+</ng-container>
+<ng-container matColumnDef="SoPhieu">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>SoPhieu</th>
+<td mat-cell *matCellDef="let element">{{element.SoPhieu}}</td>
+</ng-container>
+<ng-container matColumnDef="VanDMC_dA0">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>VanDMC_dA0</th>
+<td mat-cell *matCellDef="let element">{{element.VanDMC_dA0}}</td>
+</ng-container>
+<ng-container matColumnDef="VanDMC_dA0Ngang">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>VanDMC_dA0Ngang</th>
+<td mat-cell *matCellDef="let element">{{element.VanDMC_dA0Ngang}}</td>
+</ng-container>
+<ng-container matColumnDef="VanDMC_deoA0">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>VanDMC_deoA0</th>
+<td mat-cell *matCellDef="let element">{{element.VanDMC_deoA0}}</td>
+</ng-container>
+<ng-container matColumnDef="VanDMC_Van2La">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>VanDMC_Van2La</th>
+<td mat-cell *matCellDef="let element">{{element.VanDMC_Van2La}}</td>
+</ng-container>
+<ng-container matColumnDef="VanDMC_CDLaVanTruoc">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>VanDMC_CDLaVanTruoc</th>
+<td mat-cell *matCellDef="let element">{{element.VanDMC_CDLaVanTruoc}}</td>
+</ng-container>
+<ng-container matColumnDef="VanDMC_DKVongVan2La">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>VanDMC_DKVongVan2La</th>
+<td mat-cell *matCellDef="let element">{{element.VanDMC_DKVongVan2La}}</td>
+</ng-container>
+<ng-container matColumnDef="VanDMC_TiLe">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>VanDMC_TiLe</th>
+<td mat-cell *matCellDef="let element">{{element.VanDMC_TiLe}}</td>
+</ng-container>
+<ng-container matColumnDef="VanDMP_dVongVanDMP">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>VanDMP_dVongVanDMP</th>
+<td mat-cell *matCellDef="let element">{{element.VanDMP_dVongVanDMP}}</td>
+</ng-container>
+<ng-container matColumnDef="VanDMP_DMPPhai">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>VanDMP_DMPPhai</th>
+<td mat-cell *matCellDef="let element">{{element.VanDMP_DMPPhai}}</td>
+</ng-container>
+<ng-container matColumnDef="VanDMP_DMPTrai">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>VanDMP_DMPTrai</th>
+<td mat-cell *matCellDef="let element">{{element.VanDMP_DMPTrai}}</td>
+</ng-container>
+<ng-container matColumnDef="Van3La">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Van3La</th>
+<td mat-cell *matCellDef="let element">{{element.Van3La}}</td>
+</ng-container>
+<ng-container matColumnDef="TM_IVSd">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>TM_IVSd</th>
+<td mat-cell *matCellDef="let element">{{element.TM_IVSd}}</td>
+</ng-container>
+<ng-container matColumnDef="TM_LVd">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>TM_LVd</th>
+<td mat-cell *matCellDef="let element">{{element.TM_LVd}}</td>
+</ng-container>
+<ng-container matColumnDef="TM_PWd">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>TM_PWd</th>
+<td mat-cell *matCellDef="let element">{{element.TM_PWd}}</td>
+</ng-container>
+<ng-container matColumnDef="TM_IVSs">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>TM_IVSs</th>
+<td mat-cell *matCellDef="let element">{{element.TM_IVSs}}</td>
+</ng-container>
+<ng-container matColumnDef="TM_LVs">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>TM_LVs</th>
+<td mat-cell *matCellDef="let element">{{element.TM_LVs}}</td>
+</ng-container>
+<ng-container matColumnDef="TM_PWs">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>TM_PWs</th>
+<td mat-cell *matCellDef="let element">{{element.TM_PWs}}</td>
+</ng-container>
+<ng-container matColumnDef="TM_FS">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>TM_FS</th>
+<td mat-cell *matCellDef="let element">{{element.TM_FS}}</td>
+</ng-container>
+<ng-container matColumnDef="TM_EF">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>TM_EF</th>
+<td mat-cell *matCellDef="let element">{{element.TM_EF}}</td>
+</ng-container>
+<ng-container matColumnDef="TM_RV">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>TM_RV</th>
+<td mat-cell *matCellDef="let element">{{element.TM_RV}}</td>
+</ng-container>
+<ng-container matColumnDef="TM_A0">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>TM_A0</th>
+<td mat-cell *matCellDef="let element">{{element.TM_A0}}</td>
+</ng-container>
+<ng-container matColumnDef="TM_LA">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>TM_LA</th>
+<td mat-cell *matCellDef="let element">{{element.TM_LA}}</td>
+</ng-container>
+<ng-container matColumnDef="DQV2La_Vtd">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DQV2La_Vtd</th>
+<td mat-cell *matCellDef="let element">{{element.DQV2La_Vtd}}</td>
+</ng-container>
+<ng-container matColumnDef="DQV2La_Gdnttt">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DQV2La_Gdnttt</th>
+<td mat-cell *matCellDef="let element">{{element.DQV2La_Gdnttt}}</td>
+</ng-container>
+<ng-container matColumnDef="DQV2La_EA">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DQV2La_EA</th>
+<td mat-cell *matCellDef="let element">{{element.DQV2La_EA}}</td>
+</ng-container>
+<ng-container matColumnDef="DQV2La_HepVan2La">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DQV2La_HepVan2La</th>
+<td mat-cell *matCellDef="let element">{{element.DQV2La_HepVan2La}}</td>
+</ng-container>
+<ng-container matColumnDef="DQV2La_SMoVan1">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DQV2La_SMoVan1</th>
+<td mat-cell *matCellDef="let element">{{element.DQV2La_SMoVan1}}</td>
+</ng-container>
+<ng-container matColumnDef="DQV2La_SMoVan2">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DQV2La_SMoVan2</th>
+<td mat-cell *matCellDef="let element">{{element.DQV2La_SMoVan2}}</td>
+</ng-container>
+<ng-container matColumnDef="DQV2La_HoVan2La">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DQV2La_HoVan2La</th>
+<td mat-cell *matCellDef="let element">{{element.DQV2La_HoVan2La}}</td>
+</ng-container>
+<ng-container matColumnDef="DQV2La_DoHo">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DQV2La_DoHo</th>
+<td mat-cell *matCellDef="let element">{{element.DQV2La_DoHo}}</td>
+</ng-container>
+<ng-container matColumnDef="DQDMC_Vtd">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DQDMC_Vtd</th>
+<td mat-cell *matCellDef="let element">{{element.DQDMC_Vtd}}</td>
+</ng-container>
+<ng-container matColumnDef="DQDMC_GdLVAO">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DQDMC_GdLVAO</th>
+<td mat-cell *matCellDef="let element">{{element.DQDMC_GdLVAO}}</td>
+</ng-container>
+<ng-container matColumnDef="DQDMC_HepVanDMC">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DQDMC_HepVanDMC</th>
+<td mat-cell *matCellDef="let element">{{element.DQDMC_HepVanDMC}}</td>
+</ng-container>
+<ng-container matColumnDef="DQDMC_SMoVan">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DQDMC_SMoVan</th>
+<td mat-cell *matCellDef="let element">{{element.DQDMC_SMoVan}}</td>
+</ng-container>
+<ng-container matColumnDef="DQDMC_HoVanDMC">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DQDMC_HoVanDMC</th>
+<td mat-cell *matCellDef="let element">{{element.DQDMC_HoVanDMC}}</td>
+</ng-container>
+<ng-container matColumnDef="DQDMC_DoHoPHT">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DQDMC_DoHoPHT</th>
+<td mat-cell *matCellDef="let element">{{element.DQDMC_DoHoPHT}}</td>
+</ng-container>
+<ng-container matColumnDef="DQDMC_DoHoDFO">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DQDMC_DoHoDFO</th>
+<td mat-cell *matCellDef="let element">{{element.DQDMC_DoHoDFO}}</td>
+</ng-container>
+<ng-container matColumnDef="DQDMC_EDTD">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DQDMC_EDTD</th>
+<td mat-cell *matCellDef="let element">{{element.DQDMC_EDTD}}</td>
+</ng-container>
+<ng-container matColumnDef="DQV3La_Vtd">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DQV3La_Vtd</th>
+<td mat-cell *matCellDef="let element">{{element.DQV3La_Vtd}}</td>
+</ng-container>
+<ng-container matColumnDef="DQV3La_GdRARV">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DQV3La_GdRARV</th>
+<td mat-cell *matCellDef="let element">{{element.DQV3La_GdRARV}}</td>
+</ng-container>
+<ng-container matColumnDef="DQV3La_VDongHo">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DQV3La_VDongHo</th>
+<td mat-cell *matCellDef="let element">{{element.DQV3La_VDongHo}}</td>
+</ng-container>
+<ng-container matColumnDef="DQV3La_PAPs">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DQV3La_PAPs</th>
+<td mat-cell *matCellDef="let element">{{element.DQV3La_PAPs}}</td>
+</ng-container>
+<ng-container matColumnDef="DQVDMP_Vtd">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DQVDMP_Vtd</th>
+<td mat-cell *matCellDef="let element">{{element.DQVDMP_Vtd}}</td>
+</ng-container>
+<ng-container matColumnDef="DQVDMP_GdRARV">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DQVDMP_GdRARV</th>
+<td mat-cell *matCellDef="let element">{{element.DQVDMP_GdRARV}}</td>
+</ng-container>
+<ng-container matColumnDef="DQVDMP_HoVanDMP">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DQVDMP_HoVanDMP</th>
+<td mat-cell *matCellDef="let element">{{element.DQVDMP_HoVanDMP}}</td>
+</ng-container>
+<ng-container matColumnDef="DQVDMP_VDongHo">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DQVDMP_VDongHo</th>
+<td mat-cell *matCellDef="let element">{{element.DQVDMP_VDongHo}}</td>
+</ng-container>
+<ng-container matColumnDef="DQVDMP_PAPd">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DQVDMP_PAPd</th>
+<td mat-cell *matCellDef="let element">{{element.DQVDMP_PAPd}}</td>
+</ng-container>
+<ng-container matColumnDef="DQVDMP_VLTVSST">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DQVDMP_VLTVSST</th>
+<td mat-cell *matCellDef="let element">{{element.DQVDMP_VLTVSST}}</td>
+</ng-container>
+<ng-container matColumnDef="DQVDMP_DichMangTim">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DQVDMP_DichMangTim</th>
+<td mat-cell *matCellDef="let element">{{element.DQVDMP_DichMangTim}}</td>
+</ng-container>
+
+                        <tr mat-header-row *matHeaderRowDef="CLSKetQua_SieuAmTimService.DisplayColumns001">
+                        </tr>
+                        <tr mat-row *matRowDef="let row; columns: CLSKetQua_SieuAmTimService.DisplayColumns001;">
+                        </tr>
+                    </table>
+                    <mat-paginator *ngIf="!NotificationService.IsMobile" #CLSKetQua_SieuAmTimPaginator="matPaginator"
+                                   [pageSizeOptions]="[10,20,50,100]" [pageSize]="20" [showFirstLastButtons]></mat-paginator>
+
+                    <table *ngIf="NotificationService.IsMobile" mat-table matSort #CLSKetQua_SieuAmTimSort="matSort"
+                           [dataSource]="CLSKetQua_SieuAmTimService.DataSource" class="table table-striped m-0">
+                        <ng-container matColumnDef="STT">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                                Danh sách
+                            </th>
+                            <td mat-cell *matCellDef="let element; index as i;">
+                                <div class="row gx-4">
+                                    <div class="col-lg-12 col-sm-12 col-12">
+<label>CLSKetQua_SieuAmTim_Id</label>
+<br />
+<label class="form-label">{{element.CLSKetQua_SieuAmTim_Id}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>CLSKetQua_Id</label>
+<br />
+<label class="form-label">{{element.CLSKetQua_Id}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>SoPhieu</label>
+<br />
+<label class="form-label">{{element.SoPhieu}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>VanDMC_dA0</label>
+<br />
+<label class="form-label">{{element.VanDMC_dA0}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>VanDMC_dA0Ngang</label>
+<br />
+<label class="form-label">{{element.VanDMC_dA0Ngang}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>VanDMC_deoA0</label>
+<br />
+<label class="form-label">{{element.VanDMC_deoA0}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>VanDMC_Van2La</label>
+<br />
+<label class="form-label">{{element.VanDMC_Van2La}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>VanDMC_CDLaVanTruoc</label>
+<br />
+<label class="form-label">{{element.VanDMC_CDLaVanTruoc}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>VanDMC_DKVongVan2La</label>
+<br />
+<label class="form-label">{{element.VanDMC_DKVongVan2La}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>VanDMC_TiLe</label>
+<br />
+<label class="form-label">{{element.VanDMC_TiLe}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>VanDMP_dVongVanDMP</label>
+<br />
+<label class="form-label">{{element.VanDMP_dVongVanDMP}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>VanDMP_DMPPhai</label>
+<br />
+<label class="form-label">{{element.VanDMP_DMPPhai}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>VanDMP_DMPTrai</label>
+<br />
+<label class="form-label">{{element.VanDMP_DMPTrai}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>Van3La</label>
+<br />
+<label class="form-label">{{element.Van3La}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>TM_IVSd</label>
+<br />
+<label class="form-label">{{element.TM_IVSd}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>TM_LVd</label>
+<br />
+<label class="form-label">{{element.TM_LVd}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>TM_PWd</label>
+<br />
+<label class="form-label">{{element.TM_PWd}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>TM_IVSs</label>
+<br />
+<label class="form-label">{{element.TM_IVSs}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>TM_LVs</label>
+<br />
+<label class="form-label">{{element.TM_LVs}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>TM_PWs</label>
+<br />
+<label class="form-label">{{element.TM_PWs}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>TM_FS</label>
+<br />
+<label class="form-label">{{element.TM_FS}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>TM_EF</label>
+<br />
+<label class="form-label">{{element.TM_EF}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>TM_RV</label>
+<br />
+<label class="form-label">{{element.TM_RV}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>TM_A0</label>
+<br />
+<label class="form-label">{{element.TM_A0}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>TM_LA</label>
+<br />
+<label class="form-label">{{element.TM_LA}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>DQV2La_Vtd</label>
+<br />
+<label class="form-label">{{element.DQV2La_Vtd}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>DQV2La_Gdnttt</label>
+<br />
+<label class="form-label">{{element.DQV2La_Gdnttt}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>DQV2La_EA</label>
+<br />
+<label class="form-label">{{element.DQV2La_EA}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>DQV2La_HepVan2La</label>
+<br />
+<label class="form-label">{{element.DQV2La_HepVan2La}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>DQV2La_SMoVan1</label>
+<br />
+<label class="form-label">{{element.DQV2La_SMoVan1}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>DQV2La_SMoVan2</label>
+<br />
+<label class="form-label">{{element.DQV2La_SMoVan2}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>DQV2La_HoVan2La</label>
+<br />
+<label class="form-label">{{element.DQV2La_HoVan2La}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>DQV2La_DoHo</label>
+<br />
+<label class="form-label">{{element.DQV2La_DoHo}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>DQDMC_Vtd</label>
+<br />
+<label class="form-label">{{element.DQDMC_Vtd}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>DQDMC_GdLVAO</label>
+<br />
+<label class="form-label">{{element.DQDMC_GdLVAO}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>DQDMC_HepVanDMC</label>
+<br />
+<label class="form-label">{{element.DQDMC_HepVanDMC}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>DQDMC_SMoVan</label>
+<br />
+<label class="form-label">{{element.DQDMC_SMoVan}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>DQDMC_HoVanDMC</label>
+<br />
+<label class="form-label">{{element.DQDMC_HoVanDMC}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>DQDMC_DoHoPHT</label>
+<br />
+<label class="form-label">{{element.DQDMC_DoHoPHT}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>DQDMC_DoHoDFO</label>
+<br />
+<label class="form-label">{{element.DQDMC_DoHoDFO}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>DQDMC_EDTD</label>
+<br />
+<label class="form-label">{{element.DQDMC_EDTD}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>DQV3La_Vtd</label>
+<br />
+<label class="form-label">{{element.DQV3La_Vtd}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>DQV3La_GdRARV</label>
+<br />
+<label class="form-label">{{element.DQV3La_GdRARV}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>DQV3La_VDongHo</label>
+<br />
+<label class="form-label">{{element.DQV3La_VDongHo}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>DQV3La_PAPs</label>
+<br />
+<label class="form-label">{{element.DQV3La_PAPs}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>DQVDMP_Vtd</label>
+<br />
+<label class="form-label">{{element.DQVDMP_Vtd}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>DQVDMP_GdRARV</label>
+<br />
+<label class="form-label">{{element.DQVDMP_GdRARV}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>DQVDMP_HoVanDMP</label>
+<br />
+<label class="form-label">{{element.DQVDMP_HoVanDMP}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>DQVDMP_VDongHo</label>
+<br />
+<label class="form-label">{{element.DQVDMP_VDongHo}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>DQVDMP_PAPd</label>
+<br />
+<label class="form-label">{{element.DQVDMP_PAPd}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>DQVDMP_VLTVSST</label>
+<br />
+<label class="form-label">{{element.DQVDMP_VLTVSST}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>DQVDMP_DichMangTim</label>
+<br />
+<label class="form-label">{{element.DQVDMP_DichMangTim}}</label>
+</div>
+
+                                </div>
+                                <div class="row gx-4">
+                                    <div class="col s6 m6 l6">
+                                        <a (click)="CLSKetQua_SieuAmTimSave(element)" style="color:#2196f3;">
+                                            <i class="material-icons">save</i>
+                                        </a>
+                                    </div>
+                                    <div class="col s6 m6 l6">
+                                        <a (click)="CLSKetQua_SieuAmTimDelete(element)"
+                                           style="color: red;"><i class="material-icons">delete_forever</i></a>
+                                    </div>
+                                </div>
+                                <br />
+                            </td>
+                        </ng-container>
+                        <tr mat-header-row *matHeaderRowDef="CLSKetQua_SieuAmTimService.DisplayColumnsMobile">
+                        </tr>
+                        <tr mat-row *matRowDef="let row; columns: CLSKetQua_SieuAmTimService.DisplayColumnsMobile;">
+                        </tr>
+                    </table>
+                    <mat-paginator *ngIf="NotificationService.IsMobile" #CLSKetQua_SieuAmTimPaginator="matPaginator"
+                                   [pageSizeOptions]="[10,20,50,100]" [pageSize]="10000" [showFirstLastButtons]></mat-paginator>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-loading *ngIf="CLSKetQua_SieuAmTimService.IsShowLoading"></app-loading>
+

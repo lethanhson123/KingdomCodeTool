@@ -1,0 +1,688 @@
+﻿<div class="row">
+    <div id="breadcrumbs-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m6 l6">
+                    <h6 class="breadcrumbs-title">
+                        HoaDon
+                        <span *ngIf="HoaDonService.List">({{HoaDonService.List.length-1}} items)</span>
+                    </h6>
+                </div>
+                <div class="col s12 m6 l6 right-align-md">
+                    <ol class="breadcrumbs mb-0">
+                        <li class="breadcrumb-item">
+                            <a href="javascript:history.back()" title="Quay lại">
+                                <<< Quay lại
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/Homepage" title="Trang chủ">Trang chủ</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/ThanhVien" title="Quản trị">Quản trị</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/HoaDon" title="HoaDon">
+                                HoaDon
+                            </a>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col s12 m12 l12">
+        <div class="card card card-default scrollspy">
+            <div class="card-content">
+                <div class="col s12 m12 l11">
+                    <input [(ngModel)]="HoaDonService.BaseParameter.SearchString" placeholder="Tìm ..."
+                           class="form-control" (keyup.enter)="HoaDonSearch()">
+                </div>
+                <div class="col s12 m12 l1">
+                    <a style="color: green;" title="Tìm" (click)="HoaDonSearch()">
+                        <i class="material-icons">play_circle_filled</i>
+                    </a>
+                </div>
+                <div class="KhungOverflow">
+                    <table *ngIf="!NotificationService.IsMobile" mat-table matSort #HoaDonSort="matSort"
+                           [dataSource]="HoaDonService.DataSource">
+                        <ng-container matColumnDef="STT">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                                STT
+                            </th>
+                            <td mat-cell *matCellDef="let element; index as i;">
+                                <div *ngIf="HoaDonPaginator">
+                                    {{
+HoaDonPaginator.pageSize *
+                                    HoaDonPaginator.pageIndex + i + 1
+                                    }}
+                                </div>
+                            </td>
+                        </ng-container>
+                        <ng-container matColumnDef="Save">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                            </th>
+                            <td mat-cell *matCellDef="let element">
+                                <a (click)="HoaDonSave(element)" style="color:#2196f3;">
+                                    <i class="material-icons">save</i>
+                                </a>
+                                <a (click)="HoaDonDelete(element)" style="color: red;">
+                                    <i class="material-icons">delete_forever</i>
+                                </a>
+                            </td>
+                        </ng-container>
+                        <ng-container matColumnDef="HoaDon_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>HoaDon_Id</th>
+<td mat-cell *matCellDef="let element">{{element.HoaDon_Id}}</td>
+</ng-container>
+<ng-container matColumnDef="SoHoaDon">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>SoHoaDon</th>
+<td mat-cell *matCellDef="let element">{{element.SoHoaDon}}</td>
+</ng-container>
+<ng-container matColumnDef="LoaiHoaDon">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>LoaiHoaDon</th>
+<td mat-cell *matCellDef="let element">{{element.LoaiHoaDon}}</td>
+</ng-container>
+<ng-container matColumnDef="TiepNhan_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>TiepNhan_Id</th>
+<td mat-cell *matCellDef="let element">{{element.TiepNhan_Id}}</td>
+</ng-container>
+<ng-container matColumnDef="BenhNhan_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>BenhNhan_Id</th>
+<td mat-cell *matCellDef="let element">{{element.BenhNhan_Id}}</td>
+</ng-container>
+<ng-container matColumnDef="NgayPhatSinh">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>NgayPhatSinh</th>
+<td mat-cell *matCellDef="let element">{{element.NgayPhatSinh}}</td>
+</ng-container>
+<ng-container matColumnDef="ThoiGianPhatSinh">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ThoiGianPhatSinh</th>
+<td mat-cell *matCellDef="let element">{{element.ThoiGianPhatSinh}}</td>
+</ng-container>
+<ng-container matColumnDef="NoiPhatSinh_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>NoiPhatSinh_Id</th>
+<td mat-cell *matCellDef="let element">{{element.NoiPhatSinh_Id}}</td>
+</ng-container>
+<ng-container matColumnDef="NguoiLap_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>NguoiLap_Id</th>
+<td mat-cell *matCellDef="let element">{{element.NguoiLap_Id}}</td>
+</ng-container>
+<ng-container matColumnDef="NgayTra">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>NgayTra</th>
+<td mat-cell *matCellDef="let element">{{element.NgayTra}}</td>
+</ng-container>
+<ng-container matColumnDef="ThoiGianTra">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ThoiGianTra</th>
+<td mat-cell *matCellDef="let element">{{element.ThoiGianTra}}</td>
+</ng-container>
+<ng-container matColumnDef="NguoiTra_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>NguoiTra_Id</th>
+<td mat-cell *matCellDef="let element">{{element.NguoiTra_Id}}</td>
+</ng-container>
+<ng-container matColumnDef="NoiTra_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>NoiTra_Id</th>
+<td mat-cell *matCellDef="let element">{{element.NoiTra_Id}}</td>
+</ng-container>
+<ng-container matColumnDef="NgayHoaDon">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>NgayHoaDon</th>
+<td mat-cell *matCellDef="let element">{{element.NgayHoaDon}}</td>
+</ng-container>
+<ng-container matColumnDef="ThoiGianHoaDon">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ThoiGianHoaDon</th>
+<td mat-cell *matCellDef="let element">{{element.ThoiGianHoaDon}}</td>
+</ng-container>
+<ng-container matColumnDef="NoiThuTien_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>NoiThuTien_Id</th>
+<td mat-cell *matCellDef="let element">{{element.NoiThuTien_Id}}</td>
+</ng-container>
+<ng-container matColumnDef="NguoiThuTien_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>NguoiThuTien_Id</th>
+<td mat-cell *matCellDef="let element">{{element.NguoiThuTien_Id}}</td>
+</ng-container>
+<ng-container matColumnDef="GiaTriHoaDon">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>GiaTriHoaDon</th>
+<td mat-cell *matCellDef="let element">{{element.GiaTriHoaDon}}</td>
+</ng-container>
+<ng-container matColumnDef="GiaTriVAT">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>GiaTriVAT</th>
+<td mat-cell *matCellDef="let element">{{element.GiaTriVAT}}</td>
+</ng-container>
+<ng-container matColumnDef="GiaTriThucThu">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>GiaTriThucThu</th>
+<td mat-cell *matCellDef="let element">{{element.GiaTriThucThu}}</td>
+</ng-container>
+<ng-container matColumnDef="HinhThucThanhToan_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>HinhThucThanhToan_Id</th>
+<td mat-cell *matCellDef="let element">{{element.HinhThucThanhToan_Id}}</td>
+</ng-container>
+<ng-container matColumnDef="TienTe_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>TienTe_Id</th>
+<td mat-cell *matCellDef="let element">{{element.TienTe_Id}}</td>
+</ng-container>
+<ng-container matColumnDef="TyGia">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>TyGia</th>
+<td mat-cell *matCellDef="let element">{{element.TyGia}}</td>
+</ng-container>
+<ng-container matColumnDef="GiaTriVND">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>GiaTriVND</th>
+<td mat-cell *matCellDef="let element">{{element.GiaTriVND}}</td>
+</ng-container>
+<ng-container matColumnDef="DaThanhToan">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DaThanhToan</th>
+<td mat-cell *matCellDef="let element">{{element.DaThanhToan}}</td>
+</ng-container>
+<ng-container matColumnDef="NgoaiGio">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>NgoaiGio</th>
+<td mat-cell *matCellDef="let element">{{element.NgoaiGio}}</td>
+</ng-container>
+<ng-container matColumnDef="HuyHoaDon">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>HuyHoaDon</th>
+<td mat-cell *matCellDef="let element">{{element.HuyHoaDon}}</td>
+</ng-container>
+<ng-container matColumnDef="HoanTra">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>HoanTra</th>
+<td mat-cell *matCellDef="let element">{{element.HoanTra}}</td>
+</ng-container>
+<ng-container matColumnDef="HoaDonLienQuan_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>HoaDonLienQuan_Id</th>
+<td mat-cell *matCellDef="let element">{{element.HoaDonLienQuan_Id}}</td>
+</ng-container>
+<ng-container matColumnDef="GhiChu">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>GhiChu</th>
+<td mat-cell *matCellDef="let element">{{element.GhiChu}}</td>
+</ng-container>
+<ng-container matColumnDef="TrangThai">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>TrangThai</th>
+<td mat-cell *matCellDef="let element">{{element.TrangThai}}</td>
+</ng-container>
+<ng-container matColumnDef="DangKyHoaDon_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DangKyHoaDon_Id</th>
+<td mat-cell *matCellDef="let element">{{element.DangKyHoaDon_Id}}</td>
+</ng-container>
+<ng-container matColumnDef="SoSerieVAT">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>SoSerieVAT</th>
+<td mat-cell *matCellDef="let element">{{element.SoSerieVAT}}</td>
+</ng-container>
+<ng-container matColumnDef="SoHoaDonVAT">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>SoHoaDonVAT</th>
+<td mat-cell *matCellDef="let element">{{element.SoHoaDonVAT}}</td>
+</ng-container>
+<ng-container matColumnDef="KH_MaSoThue">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>KH_MaSoThue</th>
+<td mat-cell *matCellDef="let element">{{element.KH_MaSoThue}}</td>
+</ng-container>
+<ng-container matColumnDef="KH_TenCongTy">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>KH_TenCongTy</th>
+<td mat-cell *matCellDef="let element">{{element.KH_TenCongTy}}</td>
+</ng-container>
+<ng-container matColumnDef="KH_DiaChi">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>KH_DiaChi</th>
+<td mat-cell *matCellDef="let element">{{element.KH_DiaChi}}</td>
+</ng-container>
+<ng-container matColumnDef="KH_NguoiDaiDien">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>KH_NguoiDaiDien</th>
+<td mat-cell *matCellDef="let element">{{element.KH_NguoiDaiDien}}</td>
+</ng-container>
+<ng-container matColumnDef="NgayTao">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>NgayTao</th>
+<td mat-cell *matCellDef="let element">{{element.NgayTao}}</td>
+</ng-container>
+<ng-container matColumnDef="NguoiTao_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>NguoiTao_Id</th>
+<td mat-cell *matCellDef="let element">{{element.NguoiTao_Id}}</td>
+</ng-container>
+<ng-container matColumnDef="NgayCapNhat">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>NgayCapNhat</th>
+<td mat-cell *matCellDef="let element">{{element.NgayCapNhat}}</td>
+</ng-container>
+<ng-container matColumnDef="NguoiCapNhat_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>NguoiCapNhat_Id</th>
+<td mat-cell *matCellDef="let element">{{element.NguoiCapNhat_Id}}</td>
+</ng-container>
+<ng-container matColumnDef="IDChuyen">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>IDChuyen</th>
+<td mat-cell *matCellDef="let element">{{element.IDChuyen}}</td>
+</ng-container>
+<ng-container matColumnDef="Status">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Status</th>
+<td mat-cell *matCellDef="let element">{{element.Status}}</td>
+</ng-container>
+<ng-container matColumnDef="Transfer_VienPhi_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Transfer_VienPhi_Id</th>
+<td mat-cell *matCellDef="let element">{{element.Transfer_VienPhi_Id}}</td>
+</ng-container>
+<ng-container matColumnDef="DoiTuong_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DoiTuong_Id</th>
+<td mat-cell *matCellDef="let element">{{element.DoiTuong_Id}}</td>
+</ng-container>
+<ng-container matColumnDef="InLai">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>InLai</th>
+<td mat-cell *matCellDef="let element">{{element.InLai}}</td>
+</ng-container>
+<ng-container matColumnDef="InLai_User_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>InLai_User_Id</th>
+<td mat-cell *matCellDef="let element">{{element.InLai_User_Id}}</td>
+</ng-container>
+<ng-container matColumnDef="IDChuyenHuy">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>IDChuyenHuy</th>
+<td mat-cell *matCellDef="let element">{{element.IDChuyenHuy}}</td>
+</ng-container>
+<ng-container matColumnDef="IDChuyenHoan">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>IDChuyenHoan</th>
+<td mat-cell *matCellDef="let element">{{element.IDChuyenHoan}}</td>
+</ng-container>
+<ng-container matColumnDef="ThuHD_BL">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ThuHD_BL</th>
+<td mat-cell *matCellDef="let element">{{element.ThuHD_BL}}</td>
+</ng-container>
+<ng-container matColumnDef="NgayKhoaGoi">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>NgayKhoaGoi</th>
+<td mat-cell *matCellDef="let element">{{element.NgayKhoaGoi}}</td>
+</ng-container>
+<ng-container matColumnDef="TenCongTy">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>TenCongTy</th>
+<td mat-cell *matCellDef="let element">{{element.TenCongTy}}</td>
+</ng-container>
+<ng-container matColumnDef="MaSoThue">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>MaSoThue</th>
+<td mat-cell *matCellDef="let element">{{element.MaSoThue}}</td>
+</ng-container>
+<ng-container matColumnDef="DiaChiCongTy">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DiaChiCongTy</th>
+<td mat-cell *matCellDef="let element">{{element.DiaChiCongTy}}</td>
+</ng-container>
+<ng-container matColumnDef="NhomThanhToan_ID">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>NhomThanhToan_ID</th>
+<td mat-cell *matCellDef="let element">{{element.NhomThanhToan_ID}}</td>
+</ng-container>
+<ng-container matColumnDef="HoaDonDoiUng">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>HoaDonDoiUng</th>
+<td mat-cell *matCellDef="let element">{{element.HoaDonDoiUng}}</td>
+</ng-container>
+<ng-container matColumnDef="ChuyenChungTuID">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ChuyenChungTuID</th>
+<td mat-cell *matCellDef="let element">{{element.ChuyenChungTuID}}</td>
+</ng-container>
+<ng-container matColumnDef="ChuyenChungTuHoanID">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ChuyenChungTuHoanID</th>
+<td mat-cell *matCellDef="let element">{{element.ChuyenChungTuHoanID}}</td>
+</ng-container>
+<ng-container matColumnDef="ChuyenChungTuHuyID">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ChuyenChungTuHuyID</th>
+<td mat-cell *matCellDef="let element">{{element.ChuyenChungTuHuyID}}</td>
+</ng-container>
+<ng-container matColumnDef="ChuyenDoanhThuID">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ChuyenDoanhThuID</th>
+<td mat-cell *matCellDef="let element">{{element.ChuyenDoanhThuID}}</td>
+</ng-container>
+<ng-container matColumnDef="ChuyenDoanhThuHoanID">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ChuyenDoanhThuHoanID</th>
+<td mat-cell *matCellDef="let element">{{element.ChuyenDoanhThuHoanID}}</td>
+</ng-container>
+<ng-container matColumnDef="ChuyenDoanhThuHuyID">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ChuyenDoanhThuHuyID</th>
+<td mat-cell *matCellDef="let element">{{element.ChuyenDoanhThuHuyID}}</td>
+</ng-container>
+
+                        <tr mat-header-row *matHeaderRowDef="HoaDonService.DisplayColumns001">
+                        </tr>
+                        <tr mat-row *matRowDef="let row; columns: HoaDonService.DisplayColumns001;">
+                        </tr>
+                    </table>
+                    <mat-paginator *ngIf="!NotificationService.IsMobile" #HoaDonPaginator="matPaginator"
+                                   [pageSizeOptions]="[10,20,50,100]" [pageSize]="20" [showFirstLastButtons]></mat-paginator>
+
+                    <table *ngIf="NotificationService.IsMobile" mat-table matSort #HoaDonSort="matSort"
+                           [dataSource]="HoaDonService.DataSource" class="table table-striped m-0">
+                        <ng-container matColumnDef="STT">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                                Danh sách
+                            </th>
+                            <td mat-cell *matCellDef="let element; index as i;">
+                                <div class="row gx-4">
+                                    <div class="col-lg-12 col-sm-12 col-12">
+<label>HoaDon_Id</label>
+<br />
+<label class="form-label">{{element.HoaDon_Id}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>SoHoaDon</label>
+<br />
+<label class="form-label">{{element.SoHoaDon}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>LoaiHoaDon</label>
+<br />
+<label class="form-label">{{element.LoaiHoaDon}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>TiepNhan_Id</label>
+<br />
+<label class="form-label">{{element.TiepNhan_Id}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>BenhNhan_Id</label>
+<br />
+<label class="form-label">{{element.BenhNhan_Id}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>NgayPhatSinh</label>
+<br />
+<label class="form-label">{{element.NgayPhatSinh}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>ThoiGianPhatSinh</label>
+<br />
+<label class="form-label">{{element.ThoiGianPhatSinh}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>NoiPhatSinh_Id</label>
+<br />
+<label class="form-label">{{element.NoiPhatSinh_Id}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>NguoiLap_Id</label>
+<br />
+<label class="form-label">{{element.NguoiLap_Id}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>NgayTra</label>
+<br />
+<label class="form-label">{{element.NgayTra}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>ThoiGianTra</label>
+<br />
+<label class="form-label">{{element.ThoiGianTra}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>NguoiTra_Id</label>
+<br />
+<label class="form-label">{{element.NguoiTra_Id}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>NoiTra_Id</label>
+<br />
+<label class="form-label">{{element.NoiTra_Id}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>NgayHoaDon</label>
+<br />
+<label class="form-label">{{element.NgayHoaDon}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>ThoiGianHoaDon</label>
+<br />
+<label class="form-label">{{element.ThoiGianHoaDon}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>NoiThuTien_Id</label>
+<br />
+<label class="form-label">{{element.NoiThuTien_Id}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>NguoiThuTien_Id</label>
+<br />
+<label class="form-label">{{element.NguoiThuTien_Id}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>GiaTriHoaDon</label>
+<br />
+<label class="form-label">{{element.GiaTriHoaDon}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>GiaTriVAT</label>
+<br />
+<label class="form-label">{{element.GiaTriVAT}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>GiaTriThucThu</label>
+<br />
+<label class="form-label">{{element.GiaTriThucThu}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>HinhThucThanhToan_Id</label>
+<br />
+<label class="form-label">{{element.HinhThucThanhToan_Id}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>TienTe_Id</label>
+<br />
+<label class="form-label">{{element.TienTe_Id}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>TyGia</label>
+<br />
+<label class="form-label">{{element.TyGia}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>GiaTriVND</label>
+<br />
+<label class="form-label">{{element.GiaTriVND}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>DaThanhToan</label>
+<br />
+<label class="form-label">{{element.DaThanhToan}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>NgoaiGio</label>
+<br />
+<label class="form-label">{{element.NgoaiGio}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>HuyHoaDon</label>
+<br />
+<label class="form-label">{{element.HuyHoaDon}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>HoanTra</label>
+<br />
+<label class="form-label">{{element.HoanTra}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>HoaDonLienQuan_Id</label>
+<br />
+<label class="form-label">{{element.HoaDonLienQuan_Id}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>GhiChu</label>
+<br />
+<label class="form-label">{{element.GhiChu}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>TrangThai</label>
+<br />
+<label class="form-label">{{element.TrangThai}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>DangKyHoaDon_Id</label>
+<br />
+<label class="form-label">{{element.DangKyHoaDon_Id}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>SoSerieVAT</label>
+<br />
+<label class="form-label">{{element.SoSerieVAT}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>SoHoaDonVAT</label>
+<br />
+<label class="form-label">{{element.SoHoaDonVAT}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>KH_MaSoThue</label>
+<br />
+<label class="form-label">{{element.KH_MaSoThue}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>KH_TenCongTy</label>
+<br />
+<label class="form-label">{{element.KH_TenCongTy}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>KH_DiaChi</label>
+<br />
+<label class="form-label">{{element.KH_DiaChi}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>KH_NguoiDaiDien</label>
+<br />
+<label class="form-label">{{element.KH_NguoiDaiDien}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>NgayTao</label>
+<br />
+<label class="form-label">{{element.NgayTao}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>NguoiTao_Id</label>
+<br />
+<label class="form-label">{{element.NguoiTao_Id}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>NgayCapNhat</label>
+<br />
+<label class="form-label">{{element.NgayCapNhat}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>NguoiCapNhat_Id</label>
+<br />
+<label class="form-label">{{element.NguoiCapNhat_Id}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>IDChuyen</label>
+<br />
+<label class="form-label">{{element.IDChuyen}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>Status</label>
+<br />
+<label class="form-label">{{element.Status}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>Transfer_VienPhi_Id</label>
+<br />
+<label class="form-label">{{element.Transfer_VienPhi_Id}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>DoiTuong_Id</label>
+<br />
+<label class="form-label">{{element.DoiTuong_Id}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>InLai</label>
+<br />
+<label class="form-label">{{element.InLai}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>InLai_User_Id</label>
+<br />
+<label class="form-label">{{element.InLai_User_Id}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>IDChuyenHuy</label>
+<br />
+<label class="form-label">{{element.IDChuyenHuy}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>IDChuyenHoan</label>
+<br />
+<label class="form-label">{{element.IDChuyenHoan}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>ThuHD_BL</label>
+<br />
+<label class="form-label">{{element.ThuHD_BL}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>NgayKhoaGoi</label>
+<br />
+<label class="form-label">{{element.NgayKhoaGoi}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>TenCongTy</label>
+<br />
+<label class="form-label">{{element.TenCongTy}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>MaSoThue</label>
+<br />
+<label class="form-label">{{element.MaSoThue}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>DiaChiCongTy</label>
+<br />
+<label class="form-label">{{element.DiaChiCongTy}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>NhomThanhToan_ID</label>
+<br />
+<label class="form-label">{{element.NhomThanhToan_ID}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>HoaDonDoiUng</label>
+<br />
+<label class="form-label">{{element.HoaDonDoiUng}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>ChuyenChungTuID</label>
+<br />
+<label class="form-label">{{element.ChuyenChungTuID}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>ChuyenChungTuHoanID</label>
+<br />
+<label class="form-label">{{element.ChuyenChungTuHoanID}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>ChuyenChungTuHuyID</label>
+<br />
+<label class="form-label">{{element.ChuyenChungTuHuyID}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>ChuyenDoanhThuID</label>
+<br />
+<label class="form-label">{{element.ChuyenDoanhThuID}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>ChuyenDoanhThuHoanID</label>
+<br />
+<label class="form-label">{{element.ChuyenDoanhThuHoanID}}</label>
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>ChuyenDoanhThuHuyID</label>
+<br />
+<label class="form-label">{{element.ChuyenDoanhThuHuyID}}</label>
+</div>
+
+                                </div>
+                                <div class="row gx-4">
+                                    <div class="col s6 m6 l6">
+                                        <a (click)="HoaDonSave(element)" style="color:#2196f3;">
+                                            <i class="material-icons">save</i>
+                                        </a>
+                                    </div>
+                                    <div class="col s6 m6 l6">
+                                        <a (click)="HoaDonDelete(element)"
+                                           style="color: red;"><i class="material-icons">delete_forever</i></a>
+                                    </div>
+                                </div>
+                                <br />
+                            </td>
+                        </ng-container>
+                        <tr mat-header-row *matHeaderRowDef="HoaDonService.DisplayColumnsMobile">
+                        </tr>
+                        <tr mat-row *matRowDef="let row; columns: HoaDonService.DisplayColumnsMobile;">
+                        </tr>
+                    </table>
+                    <mat-paginator *ngIf="NotificationService.IsMobile" #HoaDonPaginator="matPaginator"
+                                   [pageSizeOptions]="[10,20,50,100]" [pageSize]="10000" [showFirstLastButtons]></mat-paginator>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-loading *ngIf="HoaDonService.IsShowLoading"></app-loading>
+

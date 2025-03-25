@@ -1,0 +1,268 @@
+﻿<div class="row">
+    <div id="breadcrumbs-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m6 l6">
+                    <h6 class="breadcrumbs-title">
+                        CLSKetQua_SieuAmTim:
+                        <b>{{CLSKetQua_SieuAmTimService.FormData.CLSKetQua_SieuAmTim_Id}} [{{CLSKetQua_SieuAmTimService.FormData.CLSKetQua_SieuAmTim_Id}}]</b>
+                    </h6>
+                </div>
+                <div class="col s12 m6 l6 right-align-md">
+                    <ol class="breadcrumbs mb-0">
+                        <li class="breadcrumb-item">
+                            <a href="javascript:history.back()" title="Quay lại">
+                                <<< Quay lại
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/Homepage" title="Trang chủ">Trang chủ</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="#" title="eHospital_DongNai_A/">eHospital_DongNai_A/</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/CLSKetQua_SieuAmTim" title="CLSKetQua_SieuAmTim">
+                                CLSKetQua_SieuAmTim
+                            </a>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col s12 m12 l12">
+        <div class="card card card-default scrollspy">
+            <div class="card-content">
+                <div class="row">
+                    <div class="col s6 m6 l12">
+                        <a title="Quay lại" href="javascript:history.back()" style="color: green;">
+                            <i class="material-icons">more</i>
+                        </a>
+                        <!--<a title="Thêm mới" (click)="CLSKetQua_SieuAmTimAdd()" style="color: green;"><i
+                class="material-icons">add_box</i></a>-->
+                        <a title="Lưu thay đổi" (click)="CLSKetQua_SieuAmTimSave()" style="color:#2196f3;">
+                            <i class="material-icons">save</i>
+                        </a>
+                    </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12 m12 l12">
+                            <div>
+<label>CLSKetQua_SieuAmTim_Id</label>
+<input placeholder="CLSKetQua_SieuAmTim_Id" [(ngModel)]="CLSKetQua_SieuAmTimService.FormData.CLSKetQua_SieuAmTim_Id"  name="CLSKetQua_SieuAmTimService.FormData.CLSKetQua_SieuAmTim_Id" type="text" class="form-control">
+</div>
+<div>
+<label>CLSKetQua_Id</label>
+<input placeholder="CLSKetQua_Id" [(ngModel)]="CLSKetQua_SieuAmTimService.FormData.CLSKetQua_Id"  name="CLSKetQua_SieuAmTimService.FormData.CLSKetQua_Id" type="text" class="form-control">
+</div>
+<div>
+<label>SoPhieu</label>
+<input placeholder="SoPhieu" [(ngModel)]="CLSKetQua_SieuAmTimService.FormData.SoPhieu"  name="CLSKetQua_SieuAmTimService.FormData.SoPhieu" type="text" class="form-control">
+</div>
+<div>
+<label>VanDMC_dA0</label>
+<input placeholder="VanDMC_dA0" [(ngModel)]="CLSKetQua_SieuAmTimService.FormData.VanDMC_dA0"  name="CLSKetQua_SieuAmTimService.FormData.VanDMC_dA0" type="text" class="form-control">
+</div>
+<div>
+<label>VanDMC_dA0Ngang</label>
+<input placeholder="VanDMC_dA0Ngang" [(ngModel)]="CLSKetQua_SieuAmTimService.FormData.VanDMC_dA0Ngang"  name="CLSKetQua_SieuAmTimService.FormData.VanDMC_dA0Ngang" type="text" class="form-control">
+</div>
+<div>
+<label>VanDMC_deoA0</label>
+<input placeholder="VanDMC_deoA0" [(ngModel)]="CLSKetQua_SieuAmTimService.FormData.VanDMC_deoA0"  name="CLSKetQua_SieuAmTimService.FormData.VanDMC_deoA0" type="text" class="form-control">
+</div>
+<div>
+<label>VanDMC_Van2La</label>
+<input placeholder="VanDMC_Van2La" [(ngModel)]="CLSKetQua_SieuAmTimService.FormData.VanDMC_Van2La"  name="CLSKetQua_SieuAmTimService.FormData.VanDMC_Van2La" type="text" class="form-control">
+</div>
+<div>
+<label>VanDMC_CDLaVanTruoc</label>
+<input placeholder="VanDMC_CDLaVanTruoc" [(ngModel)]="CLSKetQua_SieuAmTimService.FormData.VanDMC_CDLaVanTruoc"  name="CLSKetQua_SieuAmTimService.FormData.VanDMC_CDLaVanTruoc" type="text" class="form-control">
+</div>
+<div>
+<label>VanDMC_DKVongVan2La</label>
+<input placeholder="VanDMC_DKVongVan2La" [(ngModel)]="CLSKetQua_SieuAmTimService.FormData.VanDMC_DKVongVan2La"  name="CLSKetQua_SieuAmTimService.FormData.VanDMC_DKVongVan2La" type="text" class="form-control">
+</div>
+<div>
+<label>VanDMC_TiLe</label>
+<input placeholder="VanDMC_TiLe" [(ngModel)]="CLSKetQua_SieuAmTimService.FormData.VanDMC_TiLe"  name="CLSKetQua_SieuAmTimService.FormData.VanDMC_TiLe" type="text" class="form-control">
+</div>
+<div>
+<label>VanDMP_dVongVanDMP</label>
+<input placeholder="VanDMP_dVongVanDMP" [(ngModel)]="CLSKetQua_SieuAmTimService.FormData.VanDMP_dVongVanDMP"  name="CLSKetQua_SieuAmTimService.FormData.VanDMP_dVongVanDMP" type="text" class="form-control">
+</div>
+<div>
+<label>VanDMP_DMPPhai</label>
+<input placeholder="VanDMP_DMPPhai" [(ngModel)]="CLSKetQua_SieuAmTimService.FormData.VanDMP_DMPPhai"  name="CLSKetQua_SieuAmTimService.FormData.VanDMP_DMPPhai" type="text" class="form-control">
+</div>
+<div>
+<label>VanDMP_DMPTrai</label>
+<input placeholder="VanDMP_DMPTrai" [(ngModel)]="CLSKetQua_SieuAmTimService.FormData.VanDMP_DMPTrai"  name="CLSKetQua_SieuAmTimService.FormData.VanDMP_DMPTrai" type="text" class="form-control">
+</div>
+<div>
+<label>Van3La</label>
+<input placeholder="Van3La" [(ngModel)]="CLSKetQua_SieuAmTimService.FormData.Van3La"  name="CLSKetQua_SieuAmTimService.FormData.Van3La" type="text" class="form-control">
+</div>
+<div>
+<label>TM_IVSd</label>
+<input placeholder="TM_IVSd" [(ngModel)]="CLSKetQua_SieuAmTimService.FormData.TM_IVSd"  name="CLSKetQua_SieuAmTimService.FormData.TM_IVSd" type="text" class="form-control">
+</div>
+<div>
+<label>TM_LVd</label>
+<input placeholder="TM_LVd" [(ngModel)]="CLSKetQua_SieuAmTimService.FormData.TM_LVd"  name="CLSKetQua_SieuAmTimService.FormData.TM_LVd" type="text" class="form-control">
+</div>
+<div>
+<label>TM_PWd</label>
+<input placeholder="TM_PWd" [(ngModel)]="CLSKetQua_SieuAmTimService.FormData.TM_PWd"  name="CLSKetQua_SieuAmTimService.FormData.TM_PWd" type="text" class="form-control">
+</div>
+<div>
+<label>TM_IVSs</label>
+<input placeholder="TM_IVSs" [(ngModel)]="CLSKetQua_SieuAmTimService.FormData.TM_IVSs"  name="CLSKetQua_SieuAmTimService.FormData.TM_IVSs" type="text" class="form-control">
+</div>
+<div>
+<label>TM_LVs</label>
+<input placeholder="TM_LVs" [(ngModel)]="CLSKetQua_SieuAmTimService.FormData.TM_LVs"  name="CLSKetQua_SieuAmTimService.FormData.TM_LVs" type="text" class="form-control">
+</div>
+<div>
+<label>TM_PWs</label>
+<input placeholder="TM_PWs" [(ngModel)]="CLSKetQua_SieuAmTimService.FormData.TM_PWs"  name="CLSKetQua_SieuAmTimService.FormData.TM_PWs" type="text" class="form-control">
+</div>
+<div>
+<label>TM_FS</label>
+<input placeholder="TM_FS" [(ngModel)]="CLSKetQua_SieuAmTimService.FormData.TM_FS"  name="CLSKetQua_SieuAmTimService.FormData.TM_FS" type="text" class="form-control">
+</div>
+<div>
+<label>TM_EF</label>
+<input placeholder="TM_EF" [(ngModel)]="CLSKetQua_SieuAmTimService.FormData.TM_EF"  name="CLSKetQua_SieuAmTimService.FormData.TM_EF" type="text" class="form-control">
+</div>
+<div>
+<label>TM_RV</label>
+<input placeholder="TM_RV" [(ngModel)]="CLSKetQua_SieuAmTimService.FormData.TM_RV"  name="CLSKetQua_SieuAmTimService.FormData.TM_RV" type="text" class="form-control">
+</div>
+<div>
+<label>TM_A0</label>
+<input placeholder="TM_A0" [(ngModel)]="CLSKetQua_SieuAmTimService.FormData.TM_A0"  name="CLSKetQua_SieuAmTimService.FormData.TM_A0" type="text" class="form-control">
+</div>
+<div>
+<label>TM_LA</label>
+<input placeholder="TM_LA" [(ngModel)]="CLSKetQua_SieuAmTimService.FormData.TM_LA"  name="CLSKetQua_SieuAmTimService.FormData.TM_LA" type="text" class="form-control">
+</div>
+<div>
+<label>DQV2La_Vtd</label>
+<input placeholder="DQV2La_Vtd" [(ngModel)]="CLSKetQua_SieuAmTimService.FormData.DQV2La_Vtd"  name="CLSKetQua_SieuAmTimService.FormData.DQV2La_Vtd" type="text" class="form-control">
+</div>
+<div>
+<label>DQV2La_Gdnttt</label>
+<input placeholder="DQV2La_Gdnttt" [(ngModel)]="CLSKetQua_SieuAmTimService.FormData.DQV2La_Gdnttt"  name="CLSKetQua_SieuAmTimService.FormData.DQV2La_Gdnttt" type="text" class="form-control">
+</div>
+<div>
+<label>DQV2La_EA</label>
+<input placeholder="DQV2La_EA" [(ngModel)]="CLSKetQua_SieuAmTimService.FormData.DQV2La_EA"  name="CLSKetQua_SieuAmTimService.FormData.DQV2La_EA" type="text" class="form-control">
+</div>
+<div>
+<label>DQV2La_HepVan2La</label>
+<input placeholder="DQV2La_HepVan2La" [(ngModel)]="CLSKetQua_SieuAmTimService.FormData.DQV2La_HepVan2La"  name="CLSKetQua_SieuAmTimService.FormData.DQV2La_HepVan2La" type="text" class="form-control">
+</div>
+<div>
+<label>DQV2La_SMoVan1</label>
+<input placeholder="DQV2La_SMoVan1" [(ngModel)]="CLSKetQua_SieuAmTimService.FormData.DQV2La_SMoVan1"  name="CLSKetQua_SieuAmTimService.FormData.DQV2La_SMoVan1" type="text" class="form-control">
+</div>
+<div>
+<label>DQV2La_SMoVan2</label>
+<input placeholder="DQV2La_SMoVan2" [(ngModel)]="CLSKetQua_SieuAmTimService.FormData.DQV2La_SMoVan2"  name="CLSKetQua_SieuAmTimService.FormData.DQV2La_SMoVan2" type="text" class="form-control">
+</div>
+<div>
+<label>DQV2La_HoVan2La</label>
+<input placeholder="DQV2La_HoVan2La" [(ngModel)]="CLSKetQua_SieuAmTimService.FormData.DQV2La_HoVan2La"  name="CLSKetQua_SieuAmTimService.FormData.DQV2La_HoVan2La" type="text" class="form-control">
+</div>
+<div>
+<label>DQV2La_DoHo</label>
+<input placeholder="DQV2La_DoHo" [(ngModel)]="CLSKetQua_SieuAmTimService.FormData.DQV2La_DoHo"  name="CLSKetQua_SieuAmTimService.FormData.DQV2La_DoHo" type="text" class="form-control">
+</div>
+<div>
+<label>DQDMC_Vtd</label>
+<input placeholder="DQDMC_Vtd" [(ngModel)]="CLSKetQua_SieuAmTimService.FormData.DQDMC_Vtd"  name="CLSKetQua_SieuAmTimService.FormData.DQDMC_Vtd" type="text" class="form-control">
+</div>
+<div>
+<label>DQDMC_GdLVAO</label>
+<input placeholder="DQDMC_GdLVAO" [(ngModel)]="CLSKetQua_SieuAmTimService.FormData.DQDMC_GdLVAO"  name="CLSKetQua_SieuAmTimService.FormData.DQDMC_GdLVAO" type="text" class="form-control">
+</div>
+<div>
+<label>DQDMC_HepVanDMC</label>
+<input placeholder="DQDMC_HepVanDMC" [(ngModel)]="CLSKetQua_SieuAmTimService.FormData.DQDMC_HepVanDMC"  name="CLSKetQua_SieuAmTimService.FormData.DQDMC_HepVanDMC" type="text" class="form-control">
+</div>
+<div>
+<label>DQDMC_SMoVan</label>
+<input placeholder="DQDMC_SMoVan" [(ngModel)]="CLSKetQua_SieuAmTimService.FormData.DQDMC_SMoVan"  name="CLSKetQua_SieuAmTimService.FormData.DQDMC_SMoVan" type="text" class="form-control">
+</div>
+<div>
+<label>DQDMC_HoVanDMC</label>
+<input placeholder="DQDMC_HoVanDMC" [(ngModel)]="CLSKetQua_SieuAmTimService.FormData.DQDMC_HoVanDMC"  name="CLSKetQua_SieuAmTimService.FormData.DQDMC_HoVanDMC" type="text" class="form-control">
+</div>
+<div>
+<label>DQDMC_DoHoPHT</label>
+<input placeholder="DQDMC_DoHoPHT" [(ngModel)]="CLSKetQua_SieuAmTimService.FormData.DQDMC_DoHoPHT"  name="CLSKetQua_SieuAmTimService.FormData.DQDMC_DoHoPHT" type="text" class="form-control">
+</div>
+<div>
+<label>DQDMC_DoHoDFO</label>
+<input placeholder="DQDMC_DoHoDFO" [(ngModel)]="CLSKetQua_SieuAmTimService.FormData.DQDMC_DoHoDFO"  name="CLSKetQua_SieuAmTimService.FormData.DQDMC_DoHoDFO" type="text" class="form-control">
+</div>
+<div>
+<label>DQDMC_EDTD</label>
+<input placeholder="DQDMC_EDTD" [(ngModel)]="CLSKetQua_SieuAmTimService.FormData.DQDMC_EDTD"  name="CLSKetQua_SieuAmTimService.FormData.DQDMC_EDTD" type="text" class="form-control">
+</div>
+<div>
+<label>DQV3La_Vtd</label>
+<input placeholder="DQV3La_Vtd" [(ngModel)]="CLSKetQua_SieuAmTimService.FormData.DQV3La_Vtd"  name="CLSKetQua_SieuAmTimService.FormData.DQV3La_Vtd" type="text" class="form-control">
+</div>
+<div>
+<label>DQV3La_GdRARV</label>
+<input placeholder="DQV3La_GdRARV" [(ngModel)]="CLSKetQua_SieuAmTimService.FormData.DQV3La_GdRARV"  name="CLSKetQua_SieuAmTimService.FormData.DQV3La_GdRARV" type="text" class="form-control">
+</div>
+<div>
+<label>DQV3La_VDongHo</label>
+<input placeholder="DQV3La_VDongHo" [(ngModel)]="CLSKetQua_SieuAmTimService.FormData.DQV3La_VDongHo"  name="CLSKetQua_SieuAmTimService.FormData.DQV3La_VDongHo" type="text" class="form-control">
+</div>
+<div>
+<label>DQV3La_PAPs</label>
+<input placeholder="DQV3La_PAPs" [(ngModel)]="CLSKetQua_SieuAmTimService.FormData.DQV3La_PAPs"  name="CLSKetQua_SieuAmTimService.FormData.DQV3La_PAPs" type="text" class="form-control">
+</div>
+<div>
+<label>DQVDMP_Vtd</label>
+<input placeholder="DQVDMP_Vtd" [(ngModel)]="CLSKetQua_SieuAmTimService.FormData.DQVDMP_Vtd"  name="CLSKetQua_SieuAmTimService.FormData.DQVDMP_Vtd" type="text" class="form-control">
+</div>
+<div>
+<label>DQVDMP_GdRARV</label>
+<input placeholder="DQVDMP_GdRARV" [(ngModel)]="CLSKetQua_SieuAmTimService.FormData.DQVDMP_GdRARV"  name="CLSKetQua_SieuAmTimService.FormData.DQVDMP_GdRARV" type="text" class="form-control">
+</div>
+<div>
+<label>DQVDMP_HoVanDMP</label>
+<input placeholder="DQVDMP_HoVanDMP" [(ngModel)]="CLSKetQua_SieuAmTimService.FormData.DQVDMP_HoVanDMP"  name="CLSKetQua_SieuAmTimService.FormData.DQVDMP_HoVanDMP" type="text" class="form-control">
+</div>
+<div>
+<label>DQVDMP_VDongHo</label>
+<input placeholder="DQVDMP_VDongHo" [(ngModel)]="CLSKetQua_SieuAmTimService.FormData.DQVDMP_VDongHo"  name="CLSKetQua_SieuAmTimService.FormData.DQVDMP_VDongHo" type="text" class="form-control">
+</div>
+<div>
+<label>DQVDMP_PAPd</label>
+<input placeholder="DQVDMP_PAPd" [(ngModel)]="CLSKetQua_SieuAmTimService.FormData.DQVDMP_PAPd"  name="CLSKetQua_SieuAmTimService.FormData.DQVDMP_PAPd" type="text" class="form-control">
+</div>
+<div>
+<label>DQVDMP_VLTVSST</label>
+<input placeholder="DQVDMP_VLTVSST" [(ngModel)]="CLSKetQua_SieuAmTimService.FormData.DQVDMP_VLTVSST"  name="CLSKetQua_SieuAmTimService.FormData.DQVDMP_VLTVSST" type="text" class="form-control">
+</div>
+<div>
+<label>DQVDMP_DichMangTim</label>
+<input placeholder="DQVDMP_DichMangTim" [(ngModel)]="CLSKetQua_SieuAmTimService.FormData.DQVDMP_DichMangTim"  name="CLSKetQua_SieuAmTimService.FormData.DQVDMP_DichMangTim" type="text" class="form-control">
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <app-loading *ngIf="CLSKetQua_SieuAmTimService.IsShowLoading"></app-loading>
+

@@ -1,0 +1,312 @@
+﻿<div class="row">
+    <div id="breadcrumbs-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m6 l6">
+                    <h6 class="breadcrumbs-title">
+                        HoaDon:
+                        <b>{{HoaDonService.FormData.HoaDon_Id}} [{{HoaDonService.FormData.HoaDon_Id}}]</b>
+                    </h6>
+                </div>
+                <div class="col s12 m6 l6 right-align-md">
+                    <ol class="breadcrumbs mb-0">
+                        <li class="breadcrumb-item">
+                            <a href="javascript:history.back()" title="Quay lại">
+                                <<< Quay lại
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/Homepage" title="Trang chủ">Trang chủ</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="#" title="eHospital_DongNai_A/">eHospital_DongNai_A/</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/HoaDon" title="HoaDon">
+                                HoaDon
+                            </a>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col s12 m12 l12">
+        <div class="card card card-default scrollspy">
+            <div class="card-content">
+                <div class="row">
+                    <div class="col s6 m6 l12">
+                        <a title="Quay lại" href="javascript:history.back()" style="color: green;">
+                            <i class="material-icons">more</i>
+                        </a>
+                        <!--<a title="Thêm mới" (click)="HoaDonAdd()" style="color: green;"><i
+                class="material-icons">add_box</i></a>-->
+                        <a title="Lưu thay đổi" (click)="HoaDonSave()" style="color:#2196f3;">
+                            <i class="material-icons">save</i>
+                        </a>
+                    </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12 m12 l12">
+                            <div>
+<label>HoaDon_Id</label>
+<input placeholder="HoaDon_Id" [(ngModel)]="HoaDonService.FormData.HoaDon_Id"  name="HoaDonService.FormData.HoaDon_Id" type="text" class="form-control">
+</div>
+<div>
+<label>SoHoaDon</label>
+<input placeholder="SoHoaDon" [(ngModel)]="HoaDonService.FormData.SoHoaDon"  name="HoaDonService.FormData.SoHoaDon" type="text" class="form-control">
+</div>
+<div>
+<label>LoaiHoaDon</label>
+<input placeholder="LoaiHoaDon" [(ngModel)]="HoaDonService.FormData.LoaiHoaDon"  name="HoaDonService.FormData.LoaiHoaDon" type="text" class="form-control">
+</div>
+<div>
+<label>TiepNhan_Id</label>
+<input placeholder="TiepNhan_Id" [(ngModel)]="HoaDonService.FormData.TiepNhan_Id"  name="HoaDonService.FormData.TiepNhan_Id" type="text" class="form-control">
+</div>
+<div>
+<label>BenhNhan_Id</label>
+<input placeholder="BenhNhan_Id" [(ngModel)]="HoaDonService.FormData.BenhNhan_Id"  name="HoaDonService.FormData.BenhNhan_Id" type="text" class="form-control">
+</div>
+<div>
+<label>NgayPhatSinh</label>
+<input placeholder="NgayPhatSinh" [(ngModel)]="HoaDonService.FormData.NgayPhatSinh"  name="HoaDonService.FormData.NgayPhatSinh" type="text" class="form-control">
+</div>
+<div>
+<label>ThoiGianPhatSinh</label>
+<input placeholder="ThoiGianPhatSinh" [(ngModel)]="HoaDonService.FormData.ThoiGianPhatSinh"  name="HoaDonService.FormData.ThoiGianPhatSinh" type="text" class="form-control">
+</div>
+<div>
+<label>NoiPhatSinh_Id</label>
+<input placeholder="NoiPhatSinh_Id" [(ngModel)]="HoaDonService.FormData.NoiPhatSinh_Id"  name="HoaDonService.FormData.NoiPhatSinh_Id" type="text" class="form-control">
+</div>
+<div>
+<label>NguoiLap_Id</label>
+<input placeholder="NguoiLap_Id" [(ngModel)]="HoaDonService.FormData.NguoiLap_Id"  name="HoaDonService.FormData.NguoiLap_Id" type="text" class="form-control">
+</div>
+<div>
+<label>NgayTra</label>
+<input placeholder="NgayTra" [(ngModel)]="HoaDonService.FormData.NgayTra"  name="HoaDonService.FormData.NgayTra" type="text" class="form-control">
+</div>
+<div>
+<label>ThoiGianTra</label>
+<input placeholder="ThoiGianTra" [(ngModel)]="HoaDonService.FormData.ThoiGianTra"  name="HoaDonService.FormData.ThoiGianTra" type="text" class="form-control">
+</div>
+<div>
+<label>NguoiTra_Id</label>
+<input placeholder="NguoiTra_Id" [(ngModel)]="HoaDonService.FormData.NguoiTra_Id"  name="HoaDonService.FormData.NguoiTra_Id" type="text" class="form-control">
+</div>
+<div>
+<label>NoiTra_Id</label>
+<input placeholder="NoiTra_Id" [(ngModel)]="HoaDonService.FormData.NoiTra_Id"  name="HoaDonService.FormData.NoiTra_Id" type="text" class="form-control">
+</div>
+<div>
+<label>NgayHoaDon</label>
+<input placeholder="NgayHoaDon" [(ngModel)]="HoaDonService.FormData.NgayHoaDon"  name="HoaDonService.FormData.NgayHoaDon" type="text" class="form-control">
+</div>
+<div>
+<label>ThoiGianHoaDon</label>
+<input placeholder="ThoiGianHoaDon" [(ngModel)]="HoaDonService.FormData.ThoiGianHoaDon"  name="HoaDonService.FormData.ThoiGianHoaDon" type="text" class="form-control">
+</div>
+<div>
+<label>NoiThuTien_Id</label>
+<input placeholder="NoiThuTien_Id" [(ngModel)]="HoaDonService.FormData.NoiThuTien_Id"  name="HoaDonService.FormData.NoiThuTien_Id" type="text" class="form-control">
+</div>
+<div>
+<label>NguoiThuTien_Id</label>
+<input placeholder="NguoiThuTien_Id" [(ngModel)]="HoaDonService.FormData.NguoiThuTien_Id"  name="HoaDonService.FormData.NguoiThuTien_Id" type="text" class="form-control">
+</div>
+<div>
+<label>GiaTriHoaDon</label>
+<input placeholder="GiaTriHoaDon" [(ngModel)]="HoaDonService.FormData.GiaTriHoaDon"  name="HoaDonService.FormData.GiaTriHoaDon" type="text" class="form-control">
+</div>
+<div>
+<label>GiaTriVAT</label>
+<input placeholder="GiaTriVAT" [(ngModel)]="HoaDonService.FormData.GiaTriVAT"  name="HoaDonService.FormData.GiaTriVAT" type="text" class="form-control">
+</div>
+<div>
+<label>GiaTriThucThu</label>
+<input placeholder="GiaTriThucThu" [(ngModel)]="HoaDonService.FormData.GiaTriThucThu"  name="HoaDonService.FormData.GiaTriThucThu" type="text" class="form-control">
+</div>
+<div>
+<label>HinhThucThanhToan_Id</label>
+<input placeholder="HinhThucThanhToan_Id" [(ngModel)]="HoaDonService.FormData.HinhThucThanhToan_Id"  name="HoaDonService.FormData.HinhThucThanhToan_Id" type="text" class="form-control">
+</div>
+<div>
+<label>TienTe_Id</label>
+<input placeholder="TienTe_Id" [(ngModel)]="HoaDonService.FormData.TienTe_Id"  name="HoaDonService.FormData.TienTe_Id" type="text" class="form-control">
+</div>
+<div>
+<label>TyGia</label>
+<input placeholder="TyGia" [(ngModel)]="HoaDonService.FormData.TyGia"  name="HoaDonService.FormData.TyGia" type="text" class="form-control">
+</div>
+<div>
+<label>GiaTriVND</label>
+<input placeholder="GiaTriVND" [(ngModel)]="HoaDonService.FormData.GiaTriVND"  name="HoaDonService.FormData.GiaTriVND" type="text" class="form-control">
+</div>
+<div>
+<label>DaThanhToan</label>
+<input placeholder="DaThanhToan" [(ngModel)]="HoaDonService.FormData.DaThanhToan"  name="HoaDonService.FormData.DaThanhToan" type="text" class="form-control">
+</div>
+<div>
+<label>NgoaiGio</label>
+<input placeholder="NgoaiGio" [(ngModel)]="HoaDonService.FormData.NgoaiGio"  name="HoaDonService.FormData.NgoaiGio" type="text" class="form-control">
+</div>
+<div>
+<label>HuyHoaDon</label>
+<input placeholder="HuyHoaDon" [(ngModel)]="HoaDonService.FormData.HuyHoaDon"  name="HoaDonService.FormData.HuyHoaDon" type="text" class="form-control">
+</div>
+<div>
+<label>HoanTra</label>
+<input placeholder="HoanTra" [(ngModel)]="HoaDonService.FormData.HoanTra"  name="HoaDonService.FormData.HoanTra" type="text" class="form-control">
+</div>
+<div>
+<label>HoaDonLienQuan_Id</label>
+<input placeholder="HoaDonLienQuan_Id" [(ngModel)]="HoaDonService.FormData.HoaDonLienQuan_Id"  name="HoaDonService.FormData.HoaDonLienQuan_Id" type="text" class="form-control">
+</div>
+<div>
+<label>GhiChu</label>
+<input placeholder="GhiChu" [(ngModel)]="HoaDonService.FormData.GhiChu"  name="HoaDonService.FormData.GhiChu" type="text" class="form-control">
+</div>
+<div>
+<label>TrangThai</label>
+<input placeholder="TrangThai" [(ngModel)]="HoaDonService.FormData.TrangThai"  name="HoaDonService.FormData.TrangThai" type="text" class="form-control">
+</div>
+<div>
+<label>DangKyHoaDon_Id</label>
+<input placeholder="DangKyHoaDon_Id" [(ngModel)]="HoaDonService.FormData.DangKyHoaDon_Id"  name="HoaDonService.FormData.DangKyHoaDon_Id" type="text" class="form-control">
+</div>
+<div>
+<label>SoSerieVAT</label>
+<input placeholder="SoSerieVAT" [(ngModel)]="HoaDonService.FormData.SoSerieVAT"  name="HoaDonService.FormData.SoSerieVAT" type="text" class="form-control">
+</div>
+<div>
+<label>SoHoaDonVAT</label>
+<input placeholder="SoHoaDonVAT" [(ngModel)]="HoaDonService.FormData.SoHoaDonVAT"  name="HoaDonService.FormData.SoHoaDonVAT" type="text" class="form-control">
+</div>
+<div>
+<label>KH_MaSoThue</label>
+<input placeholder="KH_MaSoThue" [(ngModel)]="HoaDonService.FormData.KH_MaSoThue"  name="HoaDonService.FormData.KH_MaSoThue" type="text" class="form-control">
+</div>
+<div>
+<label>KH_TenCongTy</label>
+<input placeholder="KH_TenCongTy" [(ngModel)]="HoaDonService.FormData.KH_TenCongTy"  name="HoaDonService.FormData.KH_TenCongTy" type="text" class="form-control">
+</div>
+<div>
+<label>KH_DiaChi</label>
+<input placeholder="KH_DiaChi" [(ngModel)]="HoaDonService.FormData.KH_DiaChi"  name="HoaDonService.FormData.KH_DiaChi" type="text" class="form-control">
+</div>
+<div>
+<label>KH_NguoiDaiDien</label>
+<input placeholder="KH_NguoiDaiDien" [(ngModel)]="HoaDonService.FormData.KH_NguoiDaiDien"  name="HoaDonService.FormData.KH_NguoiDaiDien" type="text" class="form-control">
+</div>
+<div>
+<label>NgayTao</label>
+<input placeholder="NgayTao" [(ngModel)]="HoaDonService.FormData.NgayTao"  name="HoaDonService.FormData.NgayTao" type="text" class="form-control">
+</div>
+<div>
+<label>NguoiTao_Id</label>
+<input placeholder="NguoiTao_Id" [(ngModel)]="HoaDonService.FormData.NguoiTao_Id"  name="HoaDonService.FormData.NguoiTao_Id" type="text" class="form-control">
+</div>
+<div>
+<label>NgayCapNhat</label>
+<input placeholder="NgayCapNhat" [(ngModel)]="HoaDonService.FormData.NgayCapNhat"  name="HoaDonService.FormData.NgayCapNhat" type="text" class="form-control">
+</div>
+<div>
+<label>NguoiCapNhat_Id</label>
+<input placeholder="NguoiCapNhat_Id" [(ngModel)]="HoaDonService.FormData.NguoiCapNhat_Id"  name="HoaDonService.FormData.NguoiCapNhat_Id" type="text" class="form-control">
+</div>
+<div>
+<label>IDChuyen</label>
+<input placeholder="IDChuyen" [(ngModel)]="HoaDonService.FormData.IDChuyen"  name="HoaDonService.FormData.IDChuyen" type="text" class="form-control">
+</div>
+<div>
+<label>Status</label>
+<input placeholder="Status" [(ngModel)]="HoaDonService.FormData.Status"  name="HoaDonService.FormData.Status" type="text" class="form-control">
+</div>
+<div>
+<label>Transfer_VienPhi_Id</label>
+<input placeholder="Transfer_VienPhi_Id" [(ngModel)]="HoaDonService.FormData.Transfer_VienPhi_Id"  name="HoaDonService.FormData.Transfer_VienPhi_Id" type="text" class="form-control">
+</div>
+<div>
+<label>DoiTuong_Id</label>
+<input placeholder="DoiTuong_Id" [(ngModel)]="HoaDonService.FormData.DoiTuong_Id"  name="HoaDonService.FormData.DoiTuong_Id" type="text" class="form-control">
+</div>
+<div>
+<label>InLai</label>
+<input placeholder="InLai" [(ngModel)]="HoaDonService.FormData.InLai"  name="HoaDonService.FormData.InLai" type="text" class="form-control">
+</div>
+<div>
+<label>InLai_User_Id</label>
+<input placeholder="InLai_User_Id" [(ngModel)]="HoaDonService.FormData.InLai_User_Id"  name="HoaDonService.FormData.InLai_User_Id" type="text" class="form-control">
+</div>
+<div>
+<label>IDChuyenHuy</label>
+<input placeholder="IDChuyenHuy" [(ngModel)]="HoaDonService.FormData.IDChuyenHuy"  name="HoaDonService.FormData.IDChuyenHuy" type="text" class="form-control">
+</div>
+<div>
+<label>IDChuyenHoan</label>
+<input placeholder="IDChuyenHoan" [(ngModel)]="HoaDonService.FormData.IDChuyenHoan"  name="HoaDonService.FormData.IDChuyenHoan" type="text" class="form-control">
+</div>
+<div>
+<label>ThuHD_BL</label>
+<input placeholder="ThuHD_BL" [(ngModel)]="HoaDonService.FormData.ThuHD_BL"  name="HoaDonService.FormData.ThuHD_BL" type="text" class="form-control">
+</div>
+<div>
+<label>NgayKhoaGoi</label>
+<input placeholder="NgayKhoaGoi" [(ngModel)]="HoaDonService.FormData.NgayKhoaGoi"  name="HoaDonService.FormData.NgayKhoaGoi" type="text" class="form-control">
+</div>
+<div>
+<label>TenCongTy</label>
+<input placeholder="TenCongTy" [(ngModel)]="HoaDonService.FormData.TenCongTy"  name="HoaDonService.FormData.TenCongTy" type="text" class="form-control">
+</div>
+<div>
+<label>MaSoThue</label>
+<input placeholder="MaSoThue" [(ngModel)]="HoaDonService.FormData.MaSoThue"  name="HoaDonService.FormData.MaSoThue" type="text" class="form-control">
+</div>
+<div>
+<label>DiaChiCongTy</label>
+<input placeholder="DiaChiCongTy" [(ngModel)]="HoaDonService.FormData.DiaChiCongTy"  name="HoaDonService.FormData.DiaChiCongTy" type="text" class="form-control">
+</div>
+<div>
+<label>NhomThanhToan_ID</label>
+<input placeholder="NhomThanhToan_ID" [(ngModel)]="HoaDonService.FormData.NhomThanhToan_ID"  name="HoaDonService.FormData.NhomThanhToan_ID" type="text" class="form-control">
+</div>
+<div>
+<label>HoaDonDoiUng</label>
+<input placeholder="HoaDonDoiUng" [(ngModel)]="HoaDonService.FormData.HoaDonDoiUng"  name="HoaDonService.FormData.HoaDonDoiUng" type="text" class="form-control">
+</div>
+<div>
+<label>ChuyenChungTuID</label>
+<input placeholder="ChuyenChungTuID" [(ngModel)]="HoaDonService.FormData.ChuyenChungTuID"  name="HoaDonService.FormData.ChuyenChungTuID" type="text" class="form-control">
+</div>
+<div>
+<label>ChuyenChungTuHoanID</label>
+<input placeholder="ChuyenChungTuHoanID" [(ngModel)]="HoaDonService.FormData.ChuyenChungTuHoanID"  name="HoaDonService.FormData.ChuyenChungTuHoanID" type="text" class="form-control">
+</div>
+<div>
+<label>ChuyenChungTuHuyID</label>
+<input placeholder="ChuyenChungTuHuyID" [(ngModel)]="HoaDonService.FormData.ChuyenChungTuHuyID"  name="HoaDonService.FormData.ChuyenChungTuHuyID" type="text" class="form-control">
+</div>
+<div>
+<label>ChuyenDoanhThuID</label>
+<input placeholder="ChuyenDoanhThuID" [(ngModel)]="HoaDonService.FormData.ChuyenDoanhThuID"  name="HoaDonService.FormData.ChuyenDoanhThuID" type="text" class="form-control">
+</div>
+<div>
+<label>ChuyenDoanhThuHoanID</label>
+<input placeholder="ChuyenDoanhThuHoanID" [(ngModel)]="HoaDonService.FormData.ChuyenDoanhThuHoanID"  name="HoaDonService.FormData.ChuyenDoanhThuHoanID" type="text" class="form-control">
+</div>
+<div>
+<label>ChuyenDoanhThuHuyID</label>
+<input placeholder="ChuyenDoanhThuHuyID" [(ngModel)]="HoaDonService.FormData.ChuyenDoanhThuHuyID"  name="HoaDonService.FormData.ChuyenDoanhThuHuyID" type="text" class="form-control">
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <app-loading *ngIf="HoaDonService.IsShowLoading"></app-loading>
+

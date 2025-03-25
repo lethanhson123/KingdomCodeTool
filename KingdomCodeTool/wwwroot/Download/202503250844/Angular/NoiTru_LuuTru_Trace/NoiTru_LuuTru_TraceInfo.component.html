@@ -1,0 +1,184 @@
+﻿<div class="row">
+    <div id="breadcrumbs-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m6 l6">
+                    <h6 class="breadcrumbs-title">
+                        NoiTru_LuuTru_Trace:
+                        <b>{{NoiTru_LuuTru_TraceService.FormData.ID}} [{{NoiTru_LuuTru_TraceService.FormData.ID}}]</b>
+                    </h6>
+                </div>
+                <div class="col s12 m6 l6 right-align-md">
+                    <ol class="breadcrumbs mb-0">
+                        <li class="breadcrumb-item">
+                            <a href="javascript:history.back()" title="Quay lại">
+                                <<< Quay lại
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/Homepage" title="Trang chủ">Trang chủ</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="#" title="eHospital_DongNai_A/">eHospital_DongNai_A/</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/NoiTru_LuuTru_Trace" title="NoiTru_LuuTru_Trace">
+                                NoiTru_LuuTru_Trace
+                            </a>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col s12 m12 l12">
+        <div class="card card card-default scrollspy">
+            <div class="card-content">
+                <div class="row">
+                    <div class="col s6 m6 l12">
+                        <a title="Quay lại" href="javascript:history.back()" style="color: green;">
+                            <i class="material-icons">more</i>
+                        </a>
+                        <!--<a title="Thêm mới" (click)="NoiTru_LuuTru_TraceAdd()" style="color: green;"><i
+                class="material-icons">add_box</i></a>-->
+                        <a title="Lưu thay đổi" (click)="NoiTru_LuuTru_TraceSave()" style="color:#2196f3;">
+                            <i class="material-icons">save</i>
+                        </a>
+                    </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12 m12 l12">
+                            <div>
+<label>ID</label>
+<input placeholder="ID" [(ngModel)]="NoiTru_LuuTru_TraceService.FormData.ID"  name="NoiTru_LuuTru_TraceService.FormData.ID" type="text" class="form-control">
+</div>
+<div>
+<label>NgayThaoTac</label>
+<input placeholder="NgayThaoTac" [(ngModel)]="NoiTru_LuuTru_TraceService.FormData.NgayThaoTac"  name="NoiTru_LuuTru_TraceService.FormData.NgayThaoTac" type="text" class="form-control">
+</div>
+<div>
+<label>LuuTru_Id</label>
+<input placeholder="LuuTru_Id" [(ngModel)]="NoiTru_LuuTru_TraceService.FormData.LuuTru_Id"  name="NoiTru_LuuTru_TraceService.FormData.LuuTru_Id" type="text" class="form-control">
+</div>
+<div>
+<label>BenhAn_Id</label>
+<input placeholder="BenhAn_Id" [(ngModel)]="NoiTru_LuuTru_TraceService.FormData.BenhAn_Id"  name="NoiTru_LuuTru_TraceService.FormData.BenhAn_Id" type="text" class="form-control">
+</div>
+<div>
+<label>PhongBan_Id</label>
+<input placeholder="PhongBan_Id" [(ngModel)]="NoiTru_LuuTru_TraceService.FormData.PhongBan_Id"  name="NoiTru_LuuTru_TraceService.FormData.PhongBan_Id" type="text" class="form-control">
+</div>
+<div>
+<label>NgayVao</label>
+<input placeholder="NgayVao" [(ngModel)]="NoiTru_LuuTru_TraceService.FormData.NgayVao"  name="NoiTru_LuuTru_TraceService.FormData.NgayVao" type="text" class="form-control">
+</div>
+<div>
+<label>ThoiGianVao</label>
+<input placeholder="ThoiGianVao" [(ngModel)]="NoiTru_LuuTru_TraceService.FormData.ThoiGianVao"  name="NoiTru_LuuTru_TraceService.FormData.ThoiGianVao" type="text" class="form-control">
+</div>
+<div>
+<label>LyDoVao_Id</label>
+<input placeholder="LyDoVao_Id" [(ngModel)]="NoiTru_LuuTru_TraceService.FormData.LyDoVao_Id"  name="NoiTru_LuuTru_TraceService.FormData.LyDoVao_Id" type="text" class="form-control">
+</div>
+<div>
+<label>LyDoVao_Code</label>
+<input placeholder="LyDoVao_Code" [(ngModel)]="NoiTru_LuuTru_TraceService.FormData.LyDoVao_Code"  name="NoiTru_LuuTru_TraceService.FormData.LyDoVao_Code" type="text" class="form-control">
+</div>
+<div>
+<label>ICD_VaoKhoa</label>
+<input placeholder="ICD_VaoKhoa" [(ngModel)]="NoiTru_LuuTru_TraceService.FormData.ICD_VaoKhoa"  name="NoiTru_LuuTru_TraceService.FormData.ICD_VaoKhoa" type="text" class="form-control">
+</div>
+<div>
+<label>NgayRa</label>
+<input placeholder="NgayRa" [(ngModel)]="NoiTru_LuuTru_TraceService.FormData.NgayRa"  name="NoiTru_LuuTru_TraceService.FormData.NgayRa" type="text" class="form-control">
+</div>
+<div>
+<label>ThoiGianRa</label>
+<input placeholder="ThoiGianRa" [(ngModel)]="NoiTru_LuuTru_TraceService.FormData.ThoiGianRa"  name="NoiTru_LuuTru_TraceService.FormData.ThoiGianRa" type="text" class="form-control">
+</div>
+<div>
+<label>LyDoRa_Id</label>
+<input placeholder="LyDoRa_Id" [(ngModel)]="NoiTru_LuuTru_TraceService.FormData.LyDoRa_Id"  name="NoiTru_LuuTru_TraceService.FormData.LyDoRa_Id" type="text" class="form-control">
+</div>
+<div>
+<label>LyDoRa_Code</label>
+<input placeholder="LyDoRa_Code" [(ngModel)]="NoiTru_LuuTru_TraceService.FormData.LyDoRa_Code"  name="NoiTru_LuuTru_TraceService.FormData.LyDoRa_Code" type="text" class="form-control">
+</div>
+<div>
+<label>ICD_RaKhoa</label>
+<input placeholder="ICD_RaKhoa" [(ngModel)]="NoiTru_LuuTru_TraceService.FormData.ICD_RaKhoa"  name="NoiTru_LuuTru_TraceService.FormData.ICD_RaKhoa" type="text" class="form-control">
+</div>
+<div>
+<label>ChanDoanRaKhoa</label>
+<input placeholder="ChanDoanRaKhoa" [(ngModel)]="NoiTru_LuuTru_TraceService.FormData.ChanDoanRaKhoa"  name="NoiTru_LuuTru_TraceService.FormData.ChanDoanRaKhoa" type="text" class="form-control">
+</div>
+<div>
+<label>PhongBanChuyenDen_Id</label>
+<input placeholder="PhongBanChuyenDen_Id" [(ngModel)]="NoiTru_LuuTru_TraceService.FormData.PhongBanChuyenDen_Id"  name="NoiTru_LuuTru_TraceService.FormData.PhongBanChuyenDen_Id" type="text" class="form-control">
+</div>
+<div>
+<label>PhongBanChuyenDi_Id</label>
+<input placeholder="PhongBanChuyenDi_Id" [(ngModel)]="NoiTru_LuuTru_TraceService.FormData.PhongBanChuyenDi_Id"  name="NoiTru_LuuTru_TraceService.FormData.PhongBanChuyenDi_Id" type="text" class="form-control">
+</div>
+<div>
+<label>BacSiDieuTriChinh_Id</label>
+<input placeholder="BacSiDieuTriChinh_Id" [(ngModel)]="NoiTru_LuuTru_TraceService.FormData.BacSiDieuTriChinh_Id"  name="NoiTru_LuuTru_TraceService.FormData.BacSiDieuTriChinh_Id" type="text" class="form-control">
+</div>
+<div>
+<label>BacSiDieuTri_Id</label>
+<input placeholder="BacSiDieuTri_Id" [(ngModel)]="NoiTru_LuuTru_TraceService.FormData.BacSiDieuTri_Id"  name="NoiTru_LuuTru_TraceService.FormData.BacSiDieuTri_Id" type="text" class="form-control">
+</div>
+<div>
+<label>NguoiNhap_Id</label>
+<input placeholder="NguoiNhap_Id" [(ngModel)]="NoiTru_LuuTru_TraceService.FormData.NguoiNhap_Id"  name="NoiTru_LuuTru_TraceService.FormData.NguoiNhap_Id" type="text" class="form-control">
+</div>
+<div>
+<label>NgayTao</label>
+<input placeholder="NgayTao" [(ngModel)]="NoiTru_LuuTru_TraceService.FormData.NgayTao"  name="NoiTru_LuuTru_TraceService.FormData.NgayTao" type="text" class="form-control">
+</div>
+<div>
+<label>NguoiTao_Id</label>
+<input placeholder="NguoiTao_Id" [(ngModel)]="NoiTru_LuuTru_TraceService.FormData.NguoiTao_Id"  name="NoiTru_LuuTru_TraceService.FormData.NguoiTao_Id" type="text" class="form-control">
+</div>
+<div>
+<label>NgayCapNhat</label>
+<input placeholder="NgayCapNhat" [(ngModel)]="NoiTru_LuuTru_TraceService.FormData.NgayCapNhat"  name="NoiTru_LuuTru_TraceService.FormData.NgayCapNhat" type="text" class="form-control">
+</div>
+<div>
+<label>NguoiCapNhat_Id</label>
+<input placeholder="NguoiCapNhat_Id" [(ngModel)]="NoiTru_LuuTru_TraceService.FormData.NguoiCapNhat_Id"  name="NoiTru_LuuTru_TraceService.FormData.NguoiCapNhat_Id" type="text" class="form-control">
+</div>
+<div>
+<label>LuuTru_Prev</label>
+<input placeholder="LuuTru_Prev" [(ngModel)]="NoiTru_LuuTru_TraceService.FormData.LuuTru_Prev"  name="NoiTru_LuuTru_TraceService.FormData.LuuTru_Prev" type="text" class="form-control">
+</div>
+<div>
+<label>LuuTru_Current</label>
+<input placeholder="LuuTru_Current" [(ngModel)]="NoiTru_LuuTru_TraceService.FormData.LuuTru_Current"  name="NoiTru_LuuTru_TraceService.FormData.LuuTru_Current" type="text" class="form-control">
+</div>
+<div>
+<label>DoiTuong_Id</label>
+<input placeholder="DoiTuong_Id" [(ngModel)]="NoiTru_LuuTru_TraceService.FormData.DoiTuong_Id"  name="NoiTru_LuuTru_TraceService.FormData.DoiTuong_Id" type="text" class="form-control">
+</div>
+<div>
+<label>LyDoChuyenKhoa_Id</label>
+<input placeholder="LyDoChuyenKhoa_Id" [(ngModel)]="NoiTru_LuuTru_TraceService.FormData.LyDoChuyenKhoa_Id"  name="NoiTru_LuuTru_TraceService.FormData.LyDoChuyenKhoa_Id" type="text" class="form-control">
+</div>
+<div>
+<label>SiteCode</label>
+<input placeholder="SiteCode" [(ngModel)]="NoiTru_LuuTru_TraceService.FormData.SiteCode"  name="NoiTru_LuuTru_TraceService.FormData.SiteCode" type="text" class="form-control">
+</div>
+<div>
+<label>Mapping_Public_Id</label>
+<input placeholder="Mapping_Public_Id" [(ngModel)]="NoiTru_LuuTru_TraceService.FormData.Mapping_Public_Id"  name="NoiTru_LuuTru_TraceService.FormData.Mapping_Public_Id" type="text" class="form-control">
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <app-loading *ngIf="NoiTru_LuuTru_TraceService.IsShowLoading"></app-loading>
+

@@ -1,0 +1,202 @@
+﻿<div class="row">
+    <div id="breadcrumbs-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m6 l6">
+                    <h6 class="breadcrumbs-title">
+                        KhamBenh_SinhHieu
+                        <span *ngIf="KhamBenh_SinhHieuService.List">({{KhamBenh_SinhHieuService.List.length-1}} items)</span>
+                    </h6>
+                </div>
+                <div class="col s12 m6 l6 right-align-md">
+                    <ol class="breadcrumbs mb-0">
+                        <li class="breadcrumb-item">
+                            <a href="javascript:history.back()" title="Quay lại">
+                                <<< Quay lại
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/Homepage" title="Trang chủ">Trang chủ</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/ThanhVien" title="Quản trị">Quản trị</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/KhamBenh_SinhHieu" title="KhamBenh_SinhHieu">
+                                KhamBenh_SinhHieu
+                            </a>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col s12 m12 l12">
+        <div class="card card card-default scrollspy">
+            <div class="card-content">
+                <div class="col s12 m12 l11">
+                    <input [(ngModel)]="KhamBenh_SinhHieuService.BaseParameter.SearchString" placeholder="Tìm ..."
+                           class="form-control" (keyup.enter)="KhamBenh_SinhHieuSearch()">
+                </div>
+                <div class="col s12 m12 l1">
+                    <a style="color: green;" title="Tìm" (click)="KhamBenh_SinhHieuSearch()">
+                        <i class="material-icons">play_circle_filled</i>
+                    </a>
+                </div>
+                <div class="KhungOverflow">
+                    <table *ngIf="!NotificationService.IsMobile" mat-table matSort #KhamBenh_SinhHieuSort="matSort"
+                           [dataSource]="KhamBenh_SinhHieuService.DataSource">
+                        <ng-container matColumnDef="STT">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                                STT
+                            </th>
+                            <td mat-cell *matCellDef="let element; index as i;">
+                                <div *ngIf="KhamBenh_SinhHieuPaginator">
+                                    {{
+KhamBenh_SinhHieuPaginator.pageSize *
+                                    KhamBenh_SinhHieuPaginator.pageIndex + i + 1
+                                    }}
+                                </div>
+                            </td>
+                        </ng-container>
+                        <ng-container matColumnDef="Save">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                            </th>
+                            <td mat-cell *matCellDef="let element">
+                                <a (click)="KhamBenh_SinhHieuSave(element)" style="color:#2196f3;">
+                                    <i class="material-icons">save</i>
+                                </a>
+                                <a (click)="KhamBenh_SinhHieuDelete(element)" style="color: red;">
+                                    <i class="material-icons">delete_forever</i>
+                                </a>
+                            </td>
+                        </ng-container>
+                        <ng-container matColumnDef="BenhNhan_Id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>BenhNhan_Id</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="BenhNhan_Id" name="BenhNhan_Id" [(ngModel)]="element.BenhNhan_Id"></td>
+</ng-container>
+<ng-container matColumnDef="Mach">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Mach</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="Mach" name="Mach" [(ngModel)]="element.Mach"></td>
+</ng-container>
+<ng-container matColumnDef="HuyetApThap">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>HuyetApThap</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="HuyetApThap" name="HuyetApThap" [(ngModel)]="element.HuyetApThap"></td>
+</ng-container>
+<ng-container matColumnDef="HuyetApCao">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>HuyetApCao</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="HuyetApCao" name="HuyetApCao" [(ngModel)]="element.HuyetApCao"></td>
+</ng-container>
+<ng-container matColumnDef="NhipTho">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>NhipTho</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="NhipTho" name="NhipTho" [(ngModel)]="element.NhipTho"></td>
+</ng-container>
+<ng-container matColumnDef="NhietDo">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>NhietDo</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="NhietDo" name="NhietDo" [(ngModel)]="element.NhietDo"></td>
+</ng-container>
+<ng-container matColumnDef="ChieuCao">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ChieuCao</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="ChieuCao" name="ChieuCao" [(ngModel)]="element.ChieuCao"></td>
+</ng-container>
+<ng-container matColumnDef="CanNang">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CanNang</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="CanNang" name="CanNang" [(ngModel)]="element.CanNang"></td>
+</ng-container>
+<ng-container matColumnDef="BMI">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>BMI</th>
+<td mat-cell *matCellDef="let element"><input class="form-control" type="text" placeholder="BMI" name="BMI" [(ngModel)]="element.BMI"></td>
+</ng-container>
+
+                        <tr mat-header-row *matHeaderRowDef="KhamBenh_SinhHieuService.DisplayColumns001">
+                        </tr>
+                        <tr mat-row *matRowDef="let row; columns: KhamBenh_SinhHieuService.DisplayColumns001;">
+                        </tr>
+                    </table>
+                    <mat-paginator *ngIf="!NotificationService.IsMobile" #KhamBenh_SinhHieuPaginator="matPaginator"
+                                   [pageSizeOptions]="[10,20,50,100]" [pageSize]="20" [showFirstLastButtons]></mat-paginator>
+
+                    <table *ngIf="NotificationService.IsMobile" mat-table matSort #KhamBenh_SinhHieuSort="matSort"
+                           [dataSource]="KhamBenh_SinhHieuService.DataSource" class="table table-striped m-0">
+                        <ng-container matColumnDef="STT">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                                Danh sách
+                            </th>
+                            <td mat-cell *matCellDef="let element; index as i;">
+                                <div class="row gx-4">
+                                    <div class="col-lg-12 col-sm-12 col-12">
+<label>BenhNhan_Id</label>
+<br />
+<input class="form-control" type="text" placeholder="BenhNhan_Id" name="BenhNhan_Id{{element.ID}}" [(ngModel)]="element.BenhNhan_Id">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>Mach</label>
+<br />
+<input class="form-control" type="text" placeholder="Mach" name="Mach{{element.ID}}" [(ngModel)]="element.Mach">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>HuyetApThap</label>
+<br />
+<input class="form-control" type="text" placeholder="HuyetApThap" name="HuyetApThap{{element.ID}}" [(ngModel)]="element.HuyetApThap">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>HuyetApCao</label>
+<br />
+<input class="form-control" type="text" placeholder="HuyetApCao" name="HuyetApCao{{element.ID}}" [(ngModel)]="element.HuyetApCao">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>NhipTho</label>
+<br />
+<input class="form-control" type="text" placeholder="NhipTho" name="NhipTho{{element.ID}}" [(ngModel)]="element.NhipTho">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>NhietDo</label>
+<br />
+<input class="form-control" type="text" placeholder="NhietDo" name="NhietDo{{element.ID}}" [(ngModel)]="element.NhietDo">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>ChieuCao</label>
+<br />
+<input class="form-control" type="text" placeholder="ChieuCao" name="ChieuCao{{element.ID}}" [(ngModel)]="element.ChieuCao">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>CanNang</label>
+<br />
+<input class="form-control" type="text" placeholder="CanNang" name="CanNang{{element.ID}}" [(ngModel)]="element.CanNang">
+</div>
+<div class="col-lg-12 col-sm-12 col-12">
+<label>BMI</label>
+<br />
+<input class="form-control" type="text" placeholder="BMI" name="BMI{{element.ID}}" [(ngModel)]="element.BMI">
+</div>
+
+                                </div>
+                                <div class="row gx-4">
+                                    <div class="col s6 m6 l6">
+                                        <a (click)="KhamBenh_SinhHieuSave(element)" style="color:#2196f3;">
+                                            <i class="material-icons">save</i>
+                                        </a>
+                                    </div>
+                                    <div class="col s6 m6 l6">
+                                        <a (click)="KhamBenh_SinhHieuDelete(element)"
+                                           style="color: red;"><i class="material-icons">delete_forever</i></a>
+                                    </div>
+                                </div>
+                                <br />
+                            </td>
+                        </ng-container>
+                        <tr mat-header-row *matHeaderRowDef="KhamBenh_SinhHieuService.DisplayColumnsMobile">
+                        </tr>
+                        <tr mat-row *matRowDef="let row; columns: KhamBenh_SinhHieuService.DisplayColumnsMobile;">
+                        </tr>
+                    </table>
+                    <mat-paginator *ngIf="NotificationService.IsMobile" #KhamBenh_SinhHieuPaginator="matPaginator"
+                                   [pageSizeOptions]="[10,20,50,100]" [pageSize]="10000" [showFirstLastButtons]></mat-paginator>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-loading *ngIf="KhamBenh_SinhHieuService.IsShowLoading"></app-loading>
+
